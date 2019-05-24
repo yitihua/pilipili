@@ -1,0 +1,118 @@
+@charset "utf-8";
+ul{
+	list-style:none;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+.clearfix::after{
+    content: "";
+    clear: both;
+    display:block;
+}
+.login{
+    display:none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(233, 225, 225, 0.3);
+    z-index: 100;
+}
+.login-bc{
+    position:relative;
+    overflow: hidden;
+    width: 450px;
+    height: 350px;
+    margin:100px auto;
+    background-color: #fff;
+    padding: 15px 20px;
+}
+.login-bar{
+    width: 450px;
+    height: 60px;  
+    white-space: nowrap;  
+}
+.login-bar span{
+    display: inline-block;
+    width:225px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+}
+.login-bar span:hover{
+    cursor: pointer;
+    background: #eee;
+    border-bottom: solid rgb(250, 117, 172) 4px;
+}
+.borderHighLight{
+    border-bottom: solid rgb(250, 117, 172) 4px;
+}
+.borderIndex{
+    border-bottom: solid rgb(248, 253, 249) 4px;
+}
+.login-boxs{
+    position:relative;
+    left: 0px;
+    height: 200px;
+    width:1000px;
+    transition: 0.8s;
+}
+.login-box-2{
+    float: left;
+    width: 360px;
+    height: 200px;
+    padding-left:70px;
+}
+.login-box-1{
+    padding-top: 30px;
+    float: left;
+    width: 360px;
+    height: 170px;
+    padding-left:70px;
+}
+.login-box p{
+    display: inline-block;
+    height: 50px;
+    width: 75px;
+    line-height: 50px;
+    font-size: 16px;
+}
+.login-box input{
+    margin-top: 25px;
+    height: 18px;
+    width: 200px;
+    line-height: 35px;
+}
+.login-box span{
+    color:gray;
+}
+.login-box span img{
+    width:12px;
+}
+.login-btns{
+    height: 70px;
+    width:450px;
+    border-top:1px solid #ccc;
+    padding-top:20px;
+    white-space: nowrap;
+}
+.login-btns input{
+    width: 150px;
+    margin-left: 50px;
+    height:55px;
+    border: 0;
+    /* border-top: 3px solid pink;
+    border-bottom: 3px solid pink; */
+    font-size: 18px;
+}
+.login-btns1{
+    background: #78a9f3;
+    color:white;
+}
+.seeme{
+    display: block;
+}

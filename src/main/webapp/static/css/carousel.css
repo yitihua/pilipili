@@ -1,0 +1,49 @@
+.carousel{
+    position: relative;
+    width: 690ox;
+    height: 400px;
+    background: #ccc;
+    overflow: hidden;
+}
+
+.carousel-panel{
+    position:absolute;
+    transition: 0.8s;
+}
+.photo{
+    display: inline-block;
+    width: 690px;
+    height: 400px;
+}
+.opts{
+    position: absolute;
+    width: 150px;
+    bottom: 10px;
+    right: 10px;
+}
+.photo:hover{
+    cursor: pointer;
+}
+.opt{
+    display: inline-block;
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 3px tomato solid;
+}
+.carousel-text{
+    position: absolute;
+    height: 40px;
+    font-size: 30px;
+    color: azure;
+}
+.carousel-text:hover{
+    cursor: pointer;
+}
+.opt:hover{
+    cursor: pointer;
+}
+.opt-active{
+    background-color: tomato;
+}
