@@ -20,16 +20,14 @@ import java.time.LocalDateTime;
 public class News extends IdEntity {
     @Column(nullable = false)
     private String title;
-
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
-
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="type",referencedColumnName="id")
     private Type type;
-
     private LocalDateTime createAt = LocalDateTime.now();
+
 
     public String getTitle() {
         return title;
