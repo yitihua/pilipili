@@ -20,12 +20,16 @@ import java.time.LocalDateTime;
 public class News extends IdEntity {
     @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
+    private String content;
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="type",referencedColumnName="id")
+    @Column(nullable = false)
     private Type type;
+    private String imgAddr;
     private LocalDateTime createAt = LocalDateTime.now();
 
 
@@ -35,6 +39,14 @@ public class News extends IdEntity {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public User getAuthor() {
@@ -51,6 +63,14 @@ public class News extends IdEntity {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public String getImgAddr() {
+        return imgAddr;
+    }
+
+    public void setImgAddr(String imgAddr) {
+        this.imgAddr = imgAddr;
     }
 
     public LocalDateTime getCreateAt() {
