@@ -130,7 +130,8 @@
 
 </body>
 <script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/carousel.js"></script>
+<script src="${ctx}/static/js/carousel.js" charset="utf-8"></script>
+<script src="${ctx}/static/js/carousel.js" charset="utf-8"></script>
 </body>
 
 </html>

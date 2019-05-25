@@ -3,6 +3,7 @@ package com.unknown.pilipili.domain;
 import com.unknown.pilipili.config.orm.IdEntity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -17,12 +18,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "T_NEWS")
 public class News extends IdEntity {
-
+    @Column(nullable = false)
     private String title;
 
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
+
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="type",referencedColumnName="id")
     private Type type;
