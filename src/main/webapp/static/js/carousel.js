@@ -1,4 +1,4 @@
-//封装get方法
+﻿//封装get方法
 var $ = function(x,y){
 	if(y===0){
 		return document.querySelector.bind(document)(x);
