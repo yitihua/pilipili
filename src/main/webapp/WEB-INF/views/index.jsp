@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
+    <script>var ctx =${ctx}</script>
     <script src="${ctx}/static/vue/vue.js"></script>
     <script src="${ctx}/static/js/indexStart.js"></script>
     <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
