@@ -1,18 +1,19 @@
 @charset "utf-8";
 body,div,img,a,ul,ol,p{
-	margin:0;
+    margin:0;
     padding:0;
 
 }
 ul{
-	list-style:none;
+    list-style:none;
 }
 body{
     font-size:12px;
+    font-family: "微软雅黑"
 }
 a{
-	color:#000;
-	text-decoration:none;
+    color:#000;
+    text-decoration:none;
 }
 /* 总定位居中设置 */
 .contenter{
@@ -34,6 +35,10 @@ a{
     font-size: 25px;
     font-family:"微软雅黑";
 }
+.logo img{
+    width: 200px;
+    transform: translateY(-30px);
+}
 .searchBox{
     float: left;
 }
@@ -46,7 +51,7 @@ a{
     width: 90px;
     height: 35px;
     border: none;
-    background:tomato;
+    background:#78a9f3;
     color:white;
     font-size: 18px;
 }
@@ -86,14 +91,14 @@ a{
     width: 10px;
     height: 8px;
     border: white 5px solid;
-    border-top: #000 5px solid; 
+    border-top: #000 5px solid;
 }
 .btn-white{
     width:50px;
     height: 20px;
     border-radius: 4px;
-    border:1px tomato solid;
-    color: tomato;
+    border:1px #78a9f3 solid;
+    color: #78a9f3;
     background: #fff;
 }
 /* 菜单栏 */
@@ -118,11 +123,11 @@ a{
     user-select:none;
 }
 .type li:hover{
-    color: tomato;
+    color: #78a9f3;
     cursor: pointer;
 }
 .bottom-red{
-    border-bottom: 2px tomato solid;
+    border-bottom: 2px #78a9f3 solid;
 }
 /* 新闻阅览、推荐栏 左阅览、右推荐*/
 .content{
@@ -130,19 +135,23 @@ a{
     width: 1080px;
     margin-top:10px;
 }
-
+/* 左 */
 .content-main{
     position: absolute;
     width: 690px;
 }
+.content-main-list{
+    position: absolute;
+    margin-top: 10px;
+    width: 690px;
+}
+/* 右 */
 .content-column{
     position: absolute;
+    right: 0px;
     width: 337px;
 }
-.news-list{
-    width: 337px;
-    border-top: #ccc;
-}
+
 .clearfix::after{
     content:"";
     display: block;

@@ -20,6 +20,19 @@
     <link href="${ctx}/static/css/hotNews.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/carousel.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/newsList.css"/>
+    <link href="${ctx}/static/css/iconfont.css" rel="stylesheet" type="text/css" />
+    <script>
+        //封装get方法
+        var $ = function(x,y){
+            if(y===0){
+                return document.querySelector.bind(document)(x);
+            }else{
+                return document.querySelectorAll.bind(document)(x);
+            }
+        }
+        //封装增加子节点方法
+        var addPara = document.createElement.bind(document);
+    </script>
     <script>var ctx=${ctx}</script>
     <script src="${ctx}/static/vue/vue.js"></script>
     <script src="${ctx}/static/js/indexStart.js"></script>
@@ -169,7 +182,9 @@
 
 </body>
 <script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/carousel.js" charset="utf-8"></script>
+<script src="${ctx}/static/js/carousel.js"></script>
+<script src="${ctx}/static/js/hotNews.js"></script>
+<script src="${ctx}/static/js/newsList.js"></script>
 </body>
 
 </html>
