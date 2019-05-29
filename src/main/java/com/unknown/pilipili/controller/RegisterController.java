@@ -29,6 +29,7 @@ public class RegisterController {
         String password = request.getParameter("password");
         User u = userService.findUserByUsername(username);
         if(u==null){
+            u = new User(username,password);
             accountService.register(u);
             model.addAttribute("user",u);
             return "/index";
