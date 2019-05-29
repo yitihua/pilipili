@@ -98,7 +98,7 @@
         <div class="widthfix">
             <div class="menu">
                 <ul class="type">
-                    <li>推荐</li>
+                    <li class="bottom-red">推荐</li>
                     <li>热点</li>
                     <li>英剧</li>
                     <li>美剧</li>
