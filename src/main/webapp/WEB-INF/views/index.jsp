@@ -64,10 +64,10 @@
                             </form>
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}' action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
-                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"><br>
+                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()" name="username"><br>
                                     <span v-html="nametip"></span><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
-                                                    v-on:keyup="ptip()"><br>
+                                                    v-on:keyup="ptip()" name="password"><br>
                                     <span v-html="pwdtip"></span>
                                 </div>
                                 <div class="login-btns">
