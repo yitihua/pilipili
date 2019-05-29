@@ -1,4 +1,12 @@
-﻿
+﻿var $ = function(x,y){
+    if(y===0){
+        return document.querySelector.bind(document)(x);
+    }else{
+        return document.querySelectorAll.bind(document)(x);
+    }
+}
+//封装增加子节点方法
+var addPara = document.createElement.bind(document);
 var hotnews={
     0:{
         0: "&#xe609" ,
@@ -23,13 +31,15 @@ var hotnews={
 }
 let list = $(".hot-news-list",0)
 for(i in hotnews){
-    let newli = document.createElement("li")
+    let newli = addPara("li")
     newli.setAttribute("class","hot-news-nav")
-    let newNum = document.createElement("span")
+    let newNum = addPara("span")
     newNum.setAttribute("class","iconfont")
     newNum.innerHTML=hotnews[i][0]
-    let newTitle = document.createElement("span")
+    let newTitle = addPara("span")
     newTitle.innerText=hotnews[i][1]
-    newli.addPara(newNum)
-    newli.addPara(newTitle)
+    newli.appendChild(newNum)
+    newli.appendChild(newTitle)
+    list.appendChild(newli)
+    console.log(i)
 }

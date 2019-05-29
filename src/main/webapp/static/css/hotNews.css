@@ -7,7 +7,13 @@
     border-bottom: 2px #78a9f3 solid;
 }
 .hot-news-list{
-
+    height: 250px;
+    line-height: 50px;
+}
+.hot-news-nav{
+    height: 50px;
+    width: 337px;
+    overflow: hidden;
 }
 .hot-news-nav .iconfont+span{
     font-family: "Verdana";
