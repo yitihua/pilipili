@@ -1,27 +1,14 @@
-//封装get方法
+﻿//封装get方法
 var $ = function(x,y){
-	if(y===0){
-		return document.querySelector.bind(document)(x);
-	}else{
-		return document.querySelectorAll.bind(document)(x);
-	}
+    if(y===0){
+        return document.querySelector.bind(document)(x);
+    }else{
+        return document.querySelectorAll.bind(document)(x);
+    }
 }
 //封装增加子节点方法
 var addPara = document.createElement.bind(document);
-// function GetUrlRelativePath()
-// {
-//     var url = document.location.toString();
-//     var arrUrl = url.split("//");
-//
-//     var start = arrUrl[1].indexOf("/");
-//     var relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
-//
-//     if(relUrl.indexOf("?") != -1){
-//         relUrl = relUrl.split("?")[0];
-//     }
-//     return relUrl;
-// }
-// const ctx = GetUrlRelativePath();
+
 //    menu list
 //获取新闻类型列表
 var types = document.querySelectorAll(".type li");
@@ -31,9 +18,9 @@ for(let i = 0,l = types.length;i<l;i++){
         let count = l-1
         while(count>=0){
             if(types[count].classList.contains("bottom-red")){
-                types[count].classList.remove("bottom-red") 
+                types[count].classList.remove("bottom-red")
             }
-                      
+
             count--
         }
         types[i].classList.add("bottom-red")
@@ -49,33 +36,30 @@ var vm = new Vue({
         password:"",
         str:"",
         nametip:"请输入4到16位字母，数字或下划线",
-        pwdtip:"以字母开头，长度在6-18之间，只能包含字符、数字和下划线",  
-        actived:true,     
+        pwdtip:"以字母开头，长度在6-18之间，只能包含字符、数字和下划线",
+        actived:true,
         h:0,
         seeme:false
     },
-    methods:{  
+    methods:{
         ntip:function(){
             let reg=/^[a-zA-Z0-9_]{4,16}$/;
             if(!reg.test(this.name) )this.nametip= "请输入4到16位字母，数字或下划线";
             //用户名正则，4到16位（字母，数字，下划线）
-            else this.nametip= "<img src='img/right.png'/> available"
+            else this.nametip= "<img src=`${ctx}/static/img/right.png`/> available"
         },
         ptip:function(){
             let reg = /^[a-zA-Z]\w{5,17}$/;
             if(!reg.test(this.password))this.pwdtip= "以字母开头，长度在6-18之间，只能包含字符、数字和下划线";
-            else this.pwdtip= "<img src='img/right.png'/> available"
+            else this.pwdtip= "<img src=`${ctx}/static/img/right.png`/> available"
         },
         goregister:function(){
-            let box = document.getElementById("loginBoxs");
-            box.style.left = -440+"px";
             this.actived = false
+            console.log(this.actived)
         },
         gologin:function(){
-            let box = document.getElementById("loginBoxs");
-            box.style.left = 0;
             this.actived = true
-            
+
         },
         getH:function(){
             this.h = document.documentElement.clientHeight || document.body.clientHeight;
@@ -87,14 +71,28 @@ var vm = new Vue({
         closeForm:function(){
             this.seeme = false;
         },
-        logOrRegist:function(){
-            if(registed){
-                // 登录的跳转
-                window.location.href=`${ctx}/`
-            }else{
-                // 注册的跳转
-                window.location.href=`${ctx}/`
-            }
-        }
+        // logOrRegist:function(){
+        //     if(registed){
+        //         // 登录的跳转
+        //         window.location.href=`${ctx}/register`
+        //     }else{
+        //         // 注册的跳转
+        //         window.location.href=`${ctx}/login`
+        //     }
+        // }
     }
 })
+// function GetUrlRelativePath()
+// {
+//     var url = document.location.toString();
+//     var arrUrl = url.split("//");
+
+//     var start = arrUrl[1].indexOf("/");
+//     var relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
+
+//     if(relUrl.indexOf("?") != -1){
+//         relUrl = relUrl.split("?")[0];
+//     }
+//     return relUrl;
+// }
+// const ctx = GetUrlRelativePath();

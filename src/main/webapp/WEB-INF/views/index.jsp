@@ -1,11 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
-  User: dandelion
+  Author:buza
   Date: 2019/5/25
   Time: 21:49
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
@@ -13,13 +13,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>霹哩霹哩(╯‵□′)╯︵┻━┻打人！pilipili</title>
+    <link rel="shorcut icon" type="image/x-icon" href="static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
-    <script>var ctx =${ctx}</script>
+    <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/hotNews.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/carousel.css" />
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/newsList.css"/>
+    <script>var ctx=${ctx}</script>
     <script src="${ctx}/static/vue/vue.js"></script>
     <script src="${ctx}/static/js/indexStart.js"></script>
-    <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/carousel.css" />
 </head>
 
 <body>
@@ -49,22 +52,29 @@
 								</span>
                         </div>
                         <div class="login-boxs clearfix" id="loginBoxs">
-                            <div class="login-box login-box-1">
-                                <p>用户名</p><input type="text"><br>
-                                <p>密码</p><input type="password">
-                            </div>
-                            <div id="loginbox" class="login-box login-box-2">
-                                <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"><br>
-                                <span v-html="nametip"></span><br>
-                                <p>密码</p><input type="password" ref="password" v-model="password"
-                                                v-on:keyup="ptip()"><br>
-                                <span v-html="pwdtip"></span>
-                            </div>
-                        </div>
-
-                        <div class="login-btns">
-                            <input type="button" value="确认" class="login-btns1"/>
-                            <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()"/>
+                            <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login">
+                                <div class="login-box login-box-1">
+                                    <p>用户名</p><input type="text" name="username"><br>
+                                    <p>密码</p><input type="password" name="password">
+                                </div>
+                                <div class="login-btns">
+                                    <input type="submit" value="确认" class="login-btns1"/>
+                                    <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
+                                </div>
+                            </form>
+                            <form method="POST" id="register-form" v-bind:class='{hide:actived}' action="${ctx}/register">
+                                <div id="loginbox" class="login-box login-box-2">
+                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"><br>
+                                    <span v-html="nametip"></span><br>
+                                    <p>密码</p><input type="password" ref="password" v-model="password"
+                                                    v-on:keyup="ptip()"><br>
+                                    <span v-html="pwdtip"></span>
+                                </div>
+                                <div class="login-btns">
+                                    <input type="submit" value="确认" class="login-btns1"/>
+                                    <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -114,11 +124,33 @@
                 <!-- 轮播部分结束 -->
                 <!-- 推荐内容1/2/3 -->
                 <div class="content-main-list">
-                    <!-- <c:forEach var="news" items="${newsList}">
-						</c:forEach> -->
-                    <div class="news-list">
-
-                    </div>
+                    <c:forEach var="news" items="${newsList}">
+                        <div class="news-list" id="news${news.id}" v-on:click="gotoNews(${news.id})">
+                            <c:choose>
+                                <c:when test="${news.img}">
+                                    <div class="news-pic"><img src="${news.img}"/></div>
+                                    <div class="news-doc">
+                                        <div class="news-title">${news.title}</div>
+                                        <div class="news-inf" id="news${news.id}">
+                                            <p class="news-author">${news.author}</p>
+                                            <p class = "news-time">上传时间${news.time}</p>
+                                            <p class = "news-comments">评论数：${news.comments}</p>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="news-onlydoc">
+                                        <div class="news-title">${news.title}</div>
+                                        <div class="news-inf">
+                                            <p class="news-author">${news.author}</p>
+                                            <p class="news-time">上传时间${news.time}</p>
+                                            <p class="news-comments">评论数：${news.comments}</p>
+                                        </div>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
             <!-- 右侧栏 -->
@@ -137,7 +169,6 @@
 
 </body>
 <script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/carousel.js" charset="utf-8"></script>
 <script src="${ctx}/static/js/carousel.js" charset="utf-8"></script>
 </body>
 
