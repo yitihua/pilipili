@@ -27,7 +27,6 @@ public class News extends IdEntity {
     private User author;
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="type",referencedColumnName="id")
-    @Column(nullable = false)
     private Type type;
     private String imgAddr;
     private LocalDateTime createAt = LocalDateTime.now();
