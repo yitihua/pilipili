@@ -18,8 +18,9 @@ public class User extends IdEntity {
     private String username;
     @Column(length = 128,nullable = false)
     private String password;
+    private String avatar;
     private LocalDateTime createAt = LocalDateTime.now();
-
+    public User(){}
     public User(String username,String password){
         this.username = username;
         this.password = password;

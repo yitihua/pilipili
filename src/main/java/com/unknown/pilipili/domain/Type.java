@@ -16,6 +16,7 @@ public class Type extends IdEntity {
     @Column(length = 128,unique = true,nullable = false)
     private String typeName;
 
+    public Type(){}
     public String getTypeName() {
         return typeName;
     }

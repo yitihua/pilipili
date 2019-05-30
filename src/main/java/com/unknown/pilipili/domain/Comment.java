@@ -24,6 +24,9 @@ public class Comment extends IdEntity {
     private User author;
     private LocalDateTime createAt = LocalDateTime.now();
 
+    public Comment() {
+    }
+
     public int getSort() {
         return sort;
     }

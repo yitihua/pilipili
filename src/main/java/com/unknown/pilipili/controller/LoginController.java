@@ -27,7 +27,7 @@ public class LoginController {
         String password = request.getParameter("password");
         User u = accountService.login(username,password);
         if(u==null){
-            model.addAttribute("message","用户名或密码错误");
+            model.addAttribute("loginFail","用户名或密码错误");
             return "/index";
         }
         else{

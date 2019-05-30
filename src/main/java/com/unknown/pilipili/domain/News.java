@@ -31,7 +31,7 @@ public class News extends IdEntity {
     private String imgAddr;
     private LocalDateTime createAt = LocalDateTime.now();
 
-
+    public News(){}
     public String getTitle() {
         return title;
     }
