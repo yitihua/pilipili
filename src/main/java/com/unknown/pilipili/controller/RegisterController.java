@@ -35,7 +35,7 @@ public class RegisterController {
             return "/index";
         }
         else {
-            model.addAttribute("message","用户名已被占用");
+            model.addAttribute("registerFail","用户名已被占用");
             return "/index";
         }
     }

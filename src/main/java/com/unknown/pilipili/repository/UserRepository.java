@@ -13,5 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends PlatformRepository<User,Long> {
     @Query("from User where username = ?1 and password = ?2")
     User findUserByUsernameAndPassword(String username, String password);
+    @Query("from User where username = ?1")
     User findUserByUsername(String username);
 }
