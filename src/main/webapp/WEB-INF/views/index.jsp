@@ -192,7 +192,7 @@
         vm.seeme = true
         alert("${loginFail}")
     }
-    if("${user}"){
+    if("${user.username}"){
         registed = true
     }
 </script>
