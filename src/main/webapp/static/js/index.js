@@ -74,7 +74,7 @@ var vm = new Vue({
         logOrRegist:function(){
             if(this.actived){
                 // 登录的跳转
-                window.location.href=`${ctx}/login`
+                // window.location.href=`${ctx}/login`
             }else{
                 // 注册的跳转
                 window.location.href=`${ctx}/register`
@@ -109,6 +109,7 @@ function check() {
                 vm.seeme=false
             }else {
                 alert("用户名或密码错误")
+                console.log("dd")
                 return false
             }
         }
