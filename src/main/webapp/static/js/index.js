@@ -31,7 +31,7 @@ for(let i = 0,l = types.length;i<l;i++){
 var vm = new Vue({
     el:'#topnav',
     data:{
-        registed:islogin,
+        registed:false,
         name:"",
         password:"",
         str:"",
