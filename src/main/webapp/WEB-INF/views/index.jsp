@@ -56,10 +56,10 @@
 								</span>
                         </div>
                         <div class="login-boxs clearfix" id="loginBoxs">
-                            <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login">
+                            <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login" onsubmit="check()">
                                 <div class="login-box login-box-1">
-                                    <p>用户名</p><input type="text" name="username"><br>
-                                    <p>密码</p><input type="password" name="password">
+                                    <p>用户名</p><input type="text" name="username" id="username"><br>
+                                    <p>密码</p><input type="password" name="password" id="password">
                                 </div>
                                 <div class="login-btns">
                                     <input type="submit" value="确认" class="login-btns1"/>
