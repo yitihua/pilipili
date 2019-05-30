@@ -40,8 +40,8 @@
                 <input type="text" class="search">
                 <input type="button" class="btn-red" value="搜 索">
             </div>
-            <div class="userInf" v-bind:class="{hide:registed}" id="unlog-userInf">
-                <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn">
+            <div class="userInf"  id="unlog-userInf">
+                <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"v-bind:class="{hide:registed}">
                 <!-- login&&register -->
                 <div class="login" id="login" v-bind:class="{seeme:seeme}">
                     <div class="login-bc" id="login-bc">

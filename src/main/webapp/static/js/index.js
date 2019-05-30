@@ -71,15 +71,15 @@ var vm = new Vue({
         closeForm:function(){
             this.seeme = false;
         },
-        // logOrRegist:function(){
-        //     if(registed){
-        //         // 登录的跳转
-        //         window.location.href=`${ctx}/register`
-        //     }else{
-        //         // 注册的跳转
-        //         window.location.href=`${ctx}/login`
-        //     }
-        // }
+        logOrRegist:function(){
+            if(this.actived){
+                // 登录的跳转
+                window.location.href=`${ctx}/login`
+            }else{
+                // 注册的跳转
+                window.location.href=`${ctx}/register`
+            }
+        }
     }
 })
 // function GetUrlRelativePath()
