@@ -25,9 +25,7 @@ public class News extends IdEntity {
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
-    @JoinColumn(name="type",referencedColumnName="id")
-    private Type type;
+    private String type;
     private String imgAddr;
     private LocalDateTime createAt = LocalDateTime.now();
 
@@ -56,14 +54,6 @@ public class News extends IdEntity {
         this.author = author;
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public String getImgAddr() {
         return imgAddr;
     }
@@ -78,5 +68,13 @@ public class News extends IdEntity {
 
     public void setCreateAt(LocalDateTime createAt) {
         this.createAt = createAt;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

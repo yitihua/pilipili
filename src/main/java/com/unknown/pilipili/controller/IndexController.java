@@ -1,8 +1,13 @@
 package com.unknown.pilipili.controller;
 
+import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.service.NewsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author <b>顾思宇</b>
@@ -11,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/index")
 public class IndexController {
+    @Autowired
+    private NewsService newsService;
     @RequestMapping("")
     public String Index(Model model){
+        List<News> newsList = newsService.findAll();
         return "/index";
     }
 
