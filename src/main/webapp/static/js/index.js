@@ -100,19 +100,16 @@ function check() {
     let xhr =new XMLHttpRequest()
     let user = document.getElementById("username").value
     let password=document.getElementById("password").value
-    let data = {
-        "username":user,
-        "password":password
-    }
-    xhr.open("post", "http://localhost:8080?", true)
+    xhr.open("post", `${ctx}/login`, true)
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-    xhr.send(data)
+    xhr.send("username="+user+"&password="+password)
     xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
             if(xhr.status>=200 && xhr.status<300 || xhr.status===304){
                 vm.seeme=false
             }else {
                 alert("用户名或密码错误")
+                return false
             }
         }
     }
