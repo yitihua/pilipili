@@ -187,10 +187,10 @@
 <script src="${ctx}/static/js/newsList.js"></script>
 </body>
 <script>
-    if("${message}"){
+    if("${loginFail}"){
         vm.registed = false
         vm.seeme = true
-        alert("${message}")
+        alert("${loginFail}")
     }
 </script>
 </html>
