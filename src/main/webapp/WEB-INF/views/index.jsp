@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>霹哩霹哩(╯‵□′)╯︵┻━┻打人！pilipili</title>
-    <link rel="shorcut icon" type="image/x-icon" href="static/img/favicon.ico">
+    <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/hotNews.css" rel="stylesheet" type="text/css">
