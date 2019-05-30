@@ -186,5 +186,11 @@
 <script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/newsList.js"></script>
 </body>
-
+<script>
+    if("${message}"){
+        vm.registed = false
+        vm.seeme = true
+        alert("${message}")
+    }
+</script>
 </html>
