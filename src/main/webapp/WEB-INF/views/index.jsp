@@ -88,7 +88,7 @@
             <!-- 登录后的用户信息栏 -->
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <div class="icon"><img src="static/img/indexPhoto.png"></div>
-                <span class="userInf-name clearfix">Buza<span></span></span>
+                <span class="userInf-name clearfix">${user.username}<span></span></span>
             </div>
             <!-- 登录后的用户信息栏结束 -->
         </div>
@@ -191,6 +191,9 @@
         vm.registed = false
         vm.seeme = true
         alert("${loginFail}")
+    }
+    if("${user}"){
+        registed = true
     }
 </script>
 </html>
