@@ -21,6 +21,7 @@ public class IndexController {
     @RequestMapping("")
     public String Index(Model model){
         List<News> newsList = newsService.findAll();
+        model.addAttribute("newsList",newsList);
         return "/index";
     }
 

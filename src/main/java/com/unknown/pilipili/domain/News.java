@@ -26,7 +26,7 @@ public class News extends IdEntity {
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
     private String type;
-    private String imgAddr;
+    private String img;
     private LocalDateTime createAt = LocalDateTime.now();
 
     public News(){}
@@ -54,12 +54,12 @@ public class News extends IdEntity {
         this.author = author;
     }
 
-    public String getImgAddr() {
-        return imgAddr;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgAddr(String imgAddr) {
-        this.imgAddr = imgAddr;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public LocalDateTime getCreateAt() {

@@ -136,9 +136,9 @@
                                     <div class="news-doc">
                                         <div class="news-title">${news.title}</div>
                                         <div class="news-inf" id="news${news.id}">
-                                            <p class="news-author">${news.author}</p>
-                                            <p class = "news-time">上传时间${news.time}</p>
-                                            <p class = "news-comments">评论数：${news.comments}</p>
+                                            <p class="news-author">${news.author.username}</p>
+                                            <p class = "news-time">上传时间${news.createAt}</p>
+                                            <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                         </div>
                                     </div>
                                 </c:when>
@@ -146,9 +146,9 @@
                                     <div class="news-onlydoc">
                                         <div class="news-title">${news.title}</div>
                                         <div class="news-inf">
-                                            <p class="news-author">${news.author}</p>
-                                            <p class="news-time">上传时间${news.time}</p>
-                                            <p class="news-comments">评论数：${news.comments}</p>
+                                            <p class="news-author">${news.author.username}</p>
+                                            <p class="news-time">上传时间${news.createAt}</p>
+                                            <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                         </div>
                                     </div>
                                 </c:otherwise>
