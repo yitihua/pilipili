@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author <b>顾思宇</b>
@@ -24,15 +25,14 @@ public class RegisterController {
     private UserService userService;
 
     @PostMapping(value = "")
-    public String register(Model model, ServletRequest request){
+    public String register(Model model, ServletRequest request, HttpSession httpSession){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User u = userService.findUserByUsername(username);
         if(u==null){
             u = new User(username,password);
             accountService.register(u);
-            model.addAttribute("user",u);
-            System.out.println(u.getCreateAt());
+            httpSession.setAttribute("user",u);
             return "redirect:/index";
         }
         else {
