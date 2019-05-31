@@ -32,6 +32,7 @@ public class RegisterController {
             u = new User(username,password);
             accountService.register(u);
             model.addAttribute("user",u);
+            System.out.println(u.getCreateAt());
             return "/index";
         }
         else {

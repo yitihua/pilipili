@@ -2,6 +2,7 @@ package com.unknown.pilipili.controller;
 
 import com.unknown.pilipili.domain.News;
 import com.unknown.pilipili.service.NewsService;
+import com.unknown.pilipili.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import java.util.List;
 public class IndexController {
     @Autowired
     private NewsService newsService;
+    @Autowired
+    private UserService userService;
     @RequestMapping("")
     public String Index(Model model){
         List<News> newsList = newsService.findAll();

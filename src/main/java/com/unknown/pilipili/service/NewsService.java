@@ -20,6 +20,9 @@ public class NewsService {
     @Autowired
     private UserRepository userRepository;
 
+    public News create(News news){
+        return newsRepository.save(news);
+    }
     public List<News> findAll(){
         return (List<News>) newsRepository.findAll();
     }
