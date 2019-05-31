@@ -193,7 +193,7 @@
         alert("${loginFail}")
     }
     if("${user.username}"){
-        registed = true
+        vm.registed = true
     }
 </script>
 </html>
