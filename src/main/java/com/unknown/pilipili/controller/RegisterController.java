@@ -33,11 +33,11 @@ public class RegisterController {
             accountService.register(u);
             model.addAttribute("user",u);
             System.out.println(u.getCreateAt());
-            return "/index";
+            return "redirect:/index";
         }
         else {
             model.addAttribute("registerFail","用户名已被占用");
-            return "/index";
+            return "redirect:/index";
         }
     }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author <b>顾思宇</b>
@@ -19,20 +20,21 @@ import javax.servlet.ServletRequest;
 public class LoginController {
     @Autowired
     private AccountService accountService;
+    HttpSession session;
 
     @PostMapping(value = "")
-    public String login(Model model, ServletRequest request){
+    public String login(Model model, ServletRequest request,HttpSession httpSession){
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User u = accountService.login(username,password);
         if(u==null){
             model.addAttribute("loginFail","用户名或密码错误");
-            return "/index";
+            return "redirect:/index";
         }
         else{
-            model.addAttribute("user",u);
-            return "/index";
+            httpSession.setAttribute("user",u);
+            return "redirect:/index";
         }
 
     }

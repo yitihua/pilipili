@@ -22,6 +22,12 @@ public class Comment extends IdEntity {
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
+    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @JoinColumn(name="fatherComment",referencedColumnName="id")
+    private Comment fatherComment;
+    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @JoinColumn(name="fatherNews",referencedColumnName="id")
+    private News fatherNews;
     private LocalDateTime createAt = LocalDateTime.now();
 
     public Comment() {
