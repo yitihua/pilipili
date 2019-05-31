@@ -63,21 +63,34 @@
                                     <p>密码</p><input type="password" name="password" id="password">
                                 </div>
                                 <div class="login-btns">
+                                    <input type="button" value="返回" class="login-btns2" v-on:click="closeForm()" />
                                     <input type="submit" value="确认" class="login-btns1"/>
-                                    <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
                                 </div>
                             </form>
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}' action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
-                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()" name="username"><br>
-                                    <span v-html="nametip"></span><br>
+                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()" name="username" class="register-name"><br>
+                                    <span><img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}" class="nametip"/><span v-html="nametip"></span></span><br>
+                                    <p>性别</p>
+                                    <input type="radio" name="gender" value="男" class="log-radio">男
+                                    <input type="radio" name="gender" value="女" class="log-radio">女
+                                    <input type="radio" name="gender" value="保密" class="log-radio">保密<br>
+                                    <p>学历</p>
+                                    <select name="educate">
+                                        <option value ="无">无</option>
+                                        <option value ="小学">小学</option>
+                                        <option value ="初中">初中</option>
+                                        <option value="高中">高中</option>
+                                        <option value="大学及以上">大学及以上</option>
+                                    </select><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
-                                                    v-on:keyup="ptip()" name="password"><br>
+                                                    v-on:keyup="ptip()" name="password" class="register-pwd"><br>
                                     <span v-html="pwdtip"></span>
+
                                 </div>
                                 <div class="login-btns">
-                                    <input type="submit" value="确认" class="login-btns1"/>
                                     <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
+                                    <input type="submit" value="确认" class="login-btns1"/>
                                 </div>
                             </form>
                         </div>
