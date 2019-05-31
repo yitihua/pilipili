@@ -46,10 +46,10 @@ a{
 .login-bar span:hover{
     cursor: pointer;
     background: #eee;
-    border-bottom: solid rgb(250, 117, 172) 4px;
+    border-bottom: solid #78a9f3 4px;
 }
 .borderHighLight{
-    border-bottom: solid rgb(250, 117, 172) 4px;
+    border-bottom: solid #78a9f3 4px;
 }
 .borderIndex{
     border-bottom: solid rgb(248, 253, 249) 4px;
@@ -67,7 +67,6 @@ a{
     line-height: 20px;
 }
 .login-box-1{
-    padding-top: 30px;
     height: 170px;
     padding-left: 70px;
 }
@@ -79,7 +78,7 @@ a{
     font-size: 16px;
 }
 .login-box-1 input{
-    margin-top: 25px;
+    margin-bottom: 25px;
     height: 18px;
     width: 200px;
     line-height: 18px;
@@ -115,6 +114,13 @@ a{
 .login-btns1{
     background: #78a9f3;
     color:white;
+}
+.logtip{
+    display: block;
+    height: 16px;
+    margin-top: 10px;
+    line-height: 15px;
+    color: red
 }
 .seeme{
     display: block;

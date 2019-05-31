@@ -34,7 +34,7 @@
     <div class="widthfix">
         <div class="topnav clearfix" id="topnav">
             <div class="logo">
-                HAPPYNEWS
+                <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">
                 <input type="text" class="search">
@@ -58,6 +58,7 @@
                         <div class="login-boxs clearfix" id="loginBoxs">
                             <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login" onsubmit="check()">
                                 <div class="login-box login-box-1">
+                                    <span class="logtip" id="logtip"></span>
                                     <p>用户名</p><input type="text" name="username" id="username"><br>
                                     <p>密码</p><input type="password" name="password" id="password">
                                 </div>
@@ -190,7 +191,7 @@
     if("${loginFail}"){
         vm.registed = false
         vm.seeme = true
-        alert("${loginFail}")
+        document.getElementById("logtip").innerText="${loginFail}"
     }
     if("${user.username}"){
         vm.registed = true
