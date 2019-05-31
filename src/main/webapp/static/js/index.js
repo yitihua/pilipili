@@ -39,19 +39,27 @@ var vm = new Vue({
         pwdtip:"以字母开头，长度在6-18之间，只能包含字符、数字和下划线",
         actived:true,
         h:0,
-        seeme:false
+        seeme:false,
+        namewrong:true,
+        pwdwrong:true
     },
     methods:{
         ntip:function(){
             let reg=/^[a-zA-Z0-9_]{4,16}$/;
             if(!reg.test(this.name) )this.nametip= "请输入4到16位字母，数字或下划线";
             //用户名正则，4到16位（字母，数字，下划线）
-            else this.nametip= "<img src=`${ctx}/static/img/right.png`/> available"
+            else{
+                this.nametip= `available`
+                this.namewrong = false
+            }
         },
         ptip:function(){
             let reg = /^[a-zA-Z]\w{5,17}$/;
-            if(!reg.test(this.password))this.pwdtip= "以字母开头，长度在6-18之间，只能包含字符、数字和下划线";
-            else this.pwdtip= "<img src=`${ctx}/static/img/right.png`/> available"
+            if(!reg.test(this.password)){this.pwdtip= "以字母开头，长度在6-18之间，只能包含字符、数字和下划线";}
+            else{
+                this.pwdtip= `available`
+                this.pwdwrong = false
+            }
         },
         goregister:function(){
             this.actived = false

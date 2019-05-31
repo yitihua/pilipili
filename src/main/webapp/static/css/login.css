@@ -6,6 +6,9 @@ a{
     color:#000;
     text-decoration:none;
 }
+form{
+    display: block;
+}
 .clearfix::after{
     content: "";
     clear: both;
@@ -24,7 +27,6 @@ a{
     position:relative;
     overflow: hidden;
     width: 450px;
-    height: 350px;
     margin:100px auto;
     background-color: #fff;
     padding: 15px 20px;
@@ -57,46 +59,59 @@ a{
 .login-boxs{
     position:relative;
     left: 0px;
-    height: 270px;
 }
 .login-box-2{
     width: 360px;
-    height: 200px;
+    height: 220px;
     padding-left:70px;
     overflow: hidden;
     line-height: 20px;
 }
+
 .login-box-1{
     height: 170px;
     padding-left: 70px;
 }
 .login-box p{
     display: inline-block;
-    height: 50px;
+    height: 40px;
     width: 75px;
-    line-height: 50px;
+    line-height: 40px;
     font-size: 16px;
 }
+
 .login-box-1 input{
     margin-bottom: 25px;
     height: 18px;
     width: 200px;
     line-height: 18px;
 }
-.login-box-2 input{
+.register-name{
     margin-top: 20px;
     height: 18px;
     width: 200px;
     line-height: 18px;
+}
+.register-pwd{
+    margin-top: 20px;
+    height: 18px;
+    width: 200px;
+    line-height: 18px;
+}
+.log-radio{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
 }
 .login-box span{
     color:gray;
 }
 .login-box span img{
     width:12px;
+
 }
 .login-btns{
-    height: 70px;
+
     width:450px;
     border-top:1px solid #ccc;
     padding-top:20px;
@@ -124,4 +139,7 @@ a{
 }
 .seeme{
     display: block;
+}
+.wrong{
+    display: none;
 }
