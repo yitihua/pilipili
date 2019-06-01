@@ -204,21 +204,22 @@ tbody a:hover{
 
 
 /*用户权限管理界面*/
-#change-authority-box, #add-box {
+#change-authority-box,#edit-box, #add-box,#add-box1,#add-box2 {
     display:none;
     padding-left: 100px;
-    padding-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     position:absolute;
     top: 200px;
     left: 400px;
     width:400px;
-    height:200px;
+    height:auto;
     border:#87CEFF solid 1px;
     border-radius: .25rem;
     z-index:100;
     background-color:white;
 }
-#change-authority-box li,#add-box li{
+#change-authority-box li,#edit-box li,#add-box li,#add-box1 li,#add-box2 li{
     display: block;
     list-style: none;
     margin: 20px;
@@ -248,37 +249,37 @@ tbody a:hover{
     top:0;
     left:0;
 }
-#change-authority-box input,#add-box input{
-    display: inline-block;
-    width: auto;
-    touch-action: manipulation;
-    margin-left: 0.5em;
-    padding: .25rem .5rem;
-    font-size: .875rem;
-    line-height: 1.5;
-    border-radius: .2rem;
-    color: #495057;
-    border: 1px solid #ced4da;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    overflow: visible;
-    font-family: inherit;
-}
-#change-authority-box select,#add-box select{
-    display: inline-block;
-    margin-left: 0.5em;
-    width: auto;
-    height: calc(1.8125rem + 2px);
-    touch-action: manipulation;
-    padding: .25rem .5rem;
-    font-size: .875rem;
-    line-height: 1.5;
-    border-radius: .2rem;
-    color: #495057;
-    border: 1px solid #ced4da;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    overflow: visible;
-    font-family: inherit;
-}
+#change-authority-box input,#edit-box input,#add-box input,#add-box1 input,#add-box2 input{
+                                                                                display: inline-block;
+                                                                                width: auto;
+                                                                                touch-action: manipulation;
+                                                                                margin-left: 0.5em;
+                                                                                padding: .25rem .5rem;
+                                                                                font-size: .875rem;
+                                                                                line-height: 1.5;
+                                                                                border-radius: .2rem;
+                                                                                color: #495057;
+                                                                                border: 1px solid #ced4da;
+                                                                                transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                                                                                overflow: visible;
+                                                                                font-family: inherit;
+                                                                            }
+#change-authority-box select,#edit-box select,#add-box select,#add-box1 select,#add-box2 select{
+                                                                                    display: inline-block;
+                                                                                    margin-left: 0.5em;
+                                                                                    width: auto;
+                                                                                    height: calc(1.8125rem + 2px);
+                                                                                    touch-action: manipulation;
+                                                                                    padding: .25rem .5rem;
+                                                                                    font-size: .875rem;
+                                                                                    line-height: 1.5;
+                                                                                    border-radius: .2rem;
+                                                                                    color: #495057;
+                                                                                    border: 1px solid #ced4da;
+                                                                                    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                                                                                    overflow: visible;
+                                                                                    font-family: inherit;
+                                                                                }
 /*删除时弹出界面*/
 #delect-box{
     display: none;
@@ -319,5 +320,6 @@ tbody a:hover{
 }
 .btnArea {
     margin-left: 70px;
-    margin-top: -20px;
+    /*margin-top: -40px;*/
+    margin-bottom: 40px;
 }

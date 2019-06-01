@@ -1,21 +1,31 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: orange
+  Date: 2019/6/1
+  Time: 22:33
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="${ctx}/static/css/reset.css">
-    <link href="${ctx}/static/font/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="css/manage_index.css">
 
 
-    <title>用户权限管理</title>
+    <title>数据字典</title>
+    <style type="text/css">
 
+    </style>
 </head>
 <body>
 
@@ -107,7 +117,7 @@
                 <a href="#">index</a>
             </li>
             <li class="breadcrumb-item">
-                <span>/ 用户权限管理</span>
+                <span>/ 数据字典</span>
             </li>
         </ol>
 
@@ -115,8 +125,8 @@
 
             <div class="card-header">
                 <i class="fa fa-table"></i>
-                <span>用户列表</span>
-                <a id="add">添加<i class="fa fa-plus-square"></i></a>
+                <span>数据字典</span>
+                <a id="addDict">添加<i class="fa fa-plus-square"></i></a>
             </div>
 
             <div class="card-body">
@@ -128,53 +138,51 @@
                         <table style="text-align: center;">
                             <thead>
                             <tr>
-                                <th>编号</th>
-                                <th>用户名</th>
-                                <th>级别</th>
+                                <th>字典名称</th>
+                                <th>属性名称</th>
+                                <th>属性状态</th>
                                 <th colspan="2" >操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>${user.username}</td>
-                                <td>${user.role}</td>
-                                <td><a id="change-authority" >更改权限</a></td>
+                                <td>${dict.type}</td>
+                                <td>${divt.name}</td>
+                                <td>${dict.status}</td>
+                                <td><a id="edit" >编辑</a></td>
                                 <td><a id="delect">删除</a></td>
                             </tr>
-
                             </tbody>
                         </table>
 
-                        <!-- 弹出窗口-添加账户 -->
-                        <div id="add-box1">
+                        <!-- 弹出窗口-添加字典 -->
+                        <div id="add-box">
                             <form>
                                 <li>
-                                    <lable>用户名：</lable>
-                                    <input type="text" name="username" value=""></li>
+                                    <lable>字典名称：</lable>
+                                    <input type="text" name="" value=""></li>
                                 <li>
-                                    <lable>权限级别：</lable>
-                                    <select>
-                                        <option value="administer">管理员</option>
-                                        <option value="ordinary-user">普通用户</option>
-                                    </select></li>
+                                    <lable>属性名称：</lable>
+                                    <input type="text" name="" value=""></li>
+                                <li>
+                                    <lable>属性状态：</lable>
+                                    <input type="text" name="" value=""></li>
                                 <a class="button" name="">确认添加</a>
-                                <a id="closeBtn1" class="button">取消添加</a>
+                                <a id="closeBtn" class="button">取消添加</a>
                             </form>
                         </div>
-
-                        <!-- 弹出窗口-更改权限 -->
-                        <div id="change-authority-box">
+                        <%--添加字典弹框--%>
+                        <div id="edit-box">
                             <form>
                                 <li>
-                                    <lable>用户名：</lable>
-                                    <input type="text" name="username" value="${user.username}"></li>
+                                    <lable>字典名称：</lable>
+                                    <input type="text" name="" value="${dict.type}"></li>
                                 <li>
-                                    <lable>更改权限：</lable>
-                                    <select>
-                                        <option value="administer">管理员</option>
-                                        <option value="ordinary-user">普通用户</option>
-                                    </select></li>
+                                    <lable>属性名称：</lable>
+                                    <input type="text" name="" value="${dict.name}"></li>
+                                <li>
+                                    <lable>属性状态：</lable>
+                                    <input type="text" name="" value="${dict.status}"></li>
                                 <a class="button" name="">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>
@@ -236,10 +244,74 @@
 
 
 </div>
-<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/navbar.js"></script>
+<!-- <script type="text/javascript" src="js/accessManagement.js"></script> -->
+<script type="text/javascript">
+    $(function(){
+
+        //add
+        $("#addDict").click(function(){
+            $('#add-box').show();
+
+            //获取页面文档的高度
+            var docheight = $(document).height();
+            //追加一个层，使背景变灰
+            $("body").append("<div id='greybackground'></div>");
+            $("#greybackground").css({"opacity":"0.3","height":docheight});
+            return false;
+
+        });
+        //点击关闭按钮
+        $("#closeBtn").click(function() {
+            $("#add-box").hide();
+            //删除变灰的层
+            $("#greybackground").remove();
+            return false;
+        });
+
+        // edit
+        $("#edit").click(function(){
+            $('#edit-box').show();
+
+            //获取页面文档的高度
+            var docheight = $(document).height();
+            //追加一个层，使背景变灰
+            $("body").append("<div id='greybackground'></div>");
+            $("#greybackground").css({"opacity":"0.3","height":docheight});
+            return false;
+
+        });
+        //点击关闭按钮
+        $("#closeBtn2").click(function() {
+            $("#edit-box").hide();
+            //删除变灰的层
+            $("#greybackground").remove();
+            return false;
+        });
+
+        // delect
+        $("#delect").click(function(){
+            $('#delect-box').show();
+
+            //获取页面文档的高度
+            var docheight = $(document).height();
+            //追加一个层，使背景变灰
+            $("body").append("<div id='greybackground'></div>");
+            $("#greybackground").css({"opacity":"0.3","height":docheight});
+            return false;
+
+        });
+        //点击关闭按钮
+        $("#closeBtn3").click(function() {
+            $("#delect-box").hide();
+            //删除变灰的层
+            $("#greybackground").remove();
+            return false;
+        });
+    })
+</script>
 
 </body>
 </html>
