@@ -24,7 +24,6 @@ public class LoginController {
 
     @PostMapping(value = "")
     public String login(Model model, ServletRequest request,HttpSession httpSession){
-
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User u = accountService.login(username,password);

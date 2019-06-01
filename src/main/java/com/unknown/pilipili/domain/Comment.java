@@ -3,12 +3,15 @@ package com.unknown.pilipili.domain;
 import com.unknown.pilipili.config.orm.IdEntity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author <b>顾思宇</b>
@@ -17,28 +20,35 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "t_comment")
 public class Comment extends IdEntity {
-    private int sort;
+    @Column(nullable = false)
     private String content;
+
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
+
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="fatherComment",referencedColumnName="id")
-    private Comment fatherComment;
+    private Comment father;
+
     @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
-    @JoinColumn(name="fatherNews",referencedColumnName="id")
-    private News fatherNews;
+    @JoinColumn(name="rootComment",referencedColumnName="id")
+    private Comment rootComment;
+
+    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @JoinColumn(name="Original",referencedColumnName="id")
+    private News original;
+
+    private int level;
+
+    private int layer;
+
     private LocalDateTime createAt = LocalDateTime.now();
 
+    @Transient
+    private List<Comment> replies;
+
     public Comment() {
-    }
-
-    public int getSort() {
-        return sort;
-    }
-
-    public void setSort(int sort) {
-        this.sort = sort;
     }
 
     public String getContent() {
@@ -55,5 +65,63 @@ public class Comment extends IdEntity {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public Comment getFather() {
+        return father;
+    }
+
+    public void setFather(Comment father) {
+        this.father = father;
+    }
+
+    public News getOriginal() {
+        return original;
+    }
+
+    public void setOriginal(News original) {
+        this.original = original;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getLayer() {
+        return layer;
+    }
+
+    public void setLayer(int layer) {
+        this.layer = layer;
+    }
+
+    public LocalDateTime getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
+    }
+
+
+    public Comment getRootComment() {
+        return rootComment;
+    }
+
+    public void setRootComment(Comment rootComment) {
+        this.rootComment = rootComment;
+    }
+
+    @Transient
+    public List<Comment> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Comment> replies) {
+        this.replies = replies;
     }
 }
