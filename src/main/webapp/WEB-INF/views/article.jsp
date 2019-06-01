@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>【pilipili】${news.title}</title>
+    <script>var ctx =${ctx}</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
@@ -48,8 +49,8 @@
                 <div class="comment-body">
                     <div class="comment-add">
                         <form action="" method="POST">
+                            <input type="hidden" name="newsId" value="${news.id}">
                             <span class="icon">
-
                             </span>
                             <textarea name="comment"></textarea>
                             <input type="submit">
@@ -74,7 +75,7 @@
                                         <span>
                                         ${comment.level}楼
                                     </span>
-                                        <a href="#">回复</a>
+                                        <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author}">回复</span>
                                     </div>
                                         <%-- commentator inf end--%>
                                         <%-- comment body--%>
@@ -96,11 +97,15 @@
                                                     <span>
                                                     ${reply.father.level}-${reply.level}楼
                                                      </span>
-                                                    <a href="#">回复</a>
+                                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author}">回复</span>
                                                 </div>
-                                                <div class="reply-area">
-                                                    <textarea></textarea>
-                                                    <p><input type=""></p>
+                                                <div>
+                                                    <form action="#" method="post" class="reply-area" id="reply-area-${comment.level}">
+                                                        <input type="hidden" name="newsId" value="${news.id}">
+                                                        <textarea class="reply-text" id="reply-text-${comment.level}"></textarea>
+                                                        <p><input type="submit" value="提交" class="submit-btn"/></p>
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </c:forEach>
@@ -123,4 +128,5 @@
     </div>
 </div>
 </body>
+<script src="${ctx}/static/js/article.js"></script>
 </html>

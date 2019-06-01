@@ -36,3 +36,6 @@ a {
 .comment-icon+div{
     float: right;
 }
+.reply-area{
+    display: none;
+}
