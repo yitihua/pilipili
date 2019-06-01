@@ -1,9 +1,34 @@
 package com.unknown.pilipili.service;
 
+import com.unknown.pilipili.domain.Comment;
+import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.repository.CommentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 /**
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/6/1 20:44
  */
-
+@Service
 public class CommentService {
+    @Autowired
+    private CommentRepository commentRepository;
+    List<Comment> findAllByOriginalAndLayer1(News news){
+        List<Comment> comments = commentRepository.findAllByOriginalAndLayer(news,1);
+        return comments;
+    }
+    List<Comment> findAllByRootComment(Comment comment){
+        List<Comment> replies = commentRepository.findAllByRootComment(comment);
+        return replies;
+    }
+    public List<Comment> findAllByOriginal(News news){
+        List<Comment> comments = findAllByOriginalAndLayer1(news);
+        for(int i=0;i<comments.size();i++){
+            comments.get(i).setReplies(findAllByRootComment(comments.get(i)));
+        }
+        return comments;
+    }
 }

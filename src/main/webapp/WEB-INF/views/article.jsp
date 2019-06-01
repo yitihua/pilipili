@@ -58,7 +58,7 @@
                     </div>
                     <%--comment list--%>
                     <div class="comment-list">
-                        <c:forEach var="comment" items="${comment}">
+                        <c:forEach var="comment" items="${commentList}">
                             <div class="comment-nav clearfix">
                                     <%--commentator inf--%>
                                 <div class="commentator-icon">

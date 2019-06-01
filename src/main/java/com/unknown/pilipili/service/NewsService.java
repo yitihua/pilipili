@@ -23,6 +23,9 @@ public class NewsService {
     public News create(News news){
         return newsRepository.save(news);
     }
+    public News findOne(Long pkId){
+        return newsRepository.findOne(pkId);
+    }
     public List<News> findAll(){
         return (List<News>) newsRepository.findAll();
     }
