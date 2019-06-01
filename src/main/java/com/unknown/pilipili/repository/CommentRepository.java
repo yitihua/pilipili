@@ -17,5 +17,9 @@ public interface CommentRepository extends PlatformRepository<Comment,Long> {
     List<Comment> findAllByOriginalAndLayer(News news, int layer);
     @Query("from Comment where original = ?1")
     List<Comment> findAllByRootComment(Comment rootComment);
+    @Query("from Comment where original = ?1 and layer = ?2")
+    int countAllByOriginalAndLayer(News news,int layer);
+    @Query("from  Comment where Comment = ?1")
+    int countAllByRootComment(Comment rootComment);
 
 }

@@ -16,11 +16,18 @@ import java.util.List;
 public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
-    List<Comment> findAllByOriginalAndLayer1(News news){
+
+    public Comment create(Comment comment){
+        return commentRepository.save(comment);
+    }
+    public Comment findOne(Long pkId){
+        return commentRepository.findOne(pkId);
+    }
+    public List<Comment> findAllByOriginalAndLayer1(News news){
         List<Comment> comments = commentRepository.findAllByOriginalAndLayer(news,1);
         return comments;
     }
-    List<Comment> findAllByRootComment(Comment comment){
+    public List<Comment> findAllByRootComment(Comment comment){
         List<Comment> replies = commentRepository.findAllByRootComment(comment);
         return replies;
     }
@@ -31,4 +38,11 @@ public class CommentService {
         }
         return comments;
     }
+    public int countAllByOriginalAndLayer1(News news){
+        return commentRepository.countAllByOriginalAndLayer(news,1);
+    }
+    public int countAllByRootComment(Comment comment){
+        return commentRepository.countAllByRootComment(comment);
+    }
+
 }
