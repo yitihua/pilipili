@@ -1,0 +1,38 @@
+@charset "utf-8";
+body, div, img, a, ul, ol, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-size: 12px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+.news-topnav{
+    padding:10px 0;
+}
+.news-body{
+    width:650px;
+}
+.news-title{
+    font-weight: 900;
+    font-size: 25px;
+}
+.news-type{
+    float: right;
+}
+/* comment */
+.comment-icon{
+    float: left;
+}
+.comment-icon+div{
+    float: right;
+}
