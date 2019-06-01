@@ -1,0 +1,106 @@
+@charset"utf-8";
+
+/*a*/
+a{
+	text-decoration: none;
+	background-color: transparent;
+}
+/*icon*/
+.icon{
+	height: 16px;
+	width: 16px;
+	font-style: normal;
+	display: inline-block;
+}
+.icon img{
+	max-height: 20px;
+	max-width: 20px;
+	display: block;
+	font-size: 0;
+}
+body {
+	line-height: 1.5px;
+	font-size: 2rem;
+	line-height: 1.5;
+	color: #212529;
+	text-align: left;
+}
+/*nav-top*/
+.nav-top{
+	width: 1300px;
+	height: 56px;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	background-color: rgb(52, 58, 64);
+	font-size: 16px;
+}
+.nav-top a{
+	color: rgba(255,255,255,.5);
+}
+.nav-top a:hover{
+	color: white;
+}
+.navbar-brand{
+
+	display: inline-block;
+	line-height: inherit;
+	padding-top: 0.9125rem;
+	padding-bottom: .3125rem;
+	margin-left: 2rem;
+	font-size: 1.25rem;
+	white-space: nowrap;
+}
+.navtop-items{
+	margin-left: 860px;
+	display: inline-block;
+}
+
+.navtop-item{
+	display: inline-block;
+	margin-left: 20px;
+}
+
+
+
+/*nav-side*/
+.nav-side{
+	position: fixed;
+	width: 250px;
+	height: 1000px;
+	font-family: "黑体";
+	font-size: 16px;
+	top:56px;
+	left: 0px;
+	text-align: left;
+	background-color: #212529;
+}
+.nav-side a{
+	color: #868e96;
+}
+.nav-side a:hover{
+	color: #adb5bd;
+	cursor: pointer;
+}
+.nav-side i{
+	display: inline-block;
+	margin-left: 60px;
+}
+.nav-item{
+	display: inline-block;
+	left: 0px;
+	width: 250px;
+	height: 46px;
+	padding-top: 20px;
+	background-color: rgb(52, 58, 64);
+}
+.nav-item .icon{
+	margin-left: 60px;
+}
+.navside-text{
+	display: inline-block;
+	margin-left: 40px;
+}
+.sidenav-second-level{
+	margin:20px 0;
+}

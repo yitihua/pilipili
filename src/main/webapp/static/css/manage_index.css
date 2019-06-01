@@ -1,0 +1,323 @@
+
+@charset"utf-8";
+
+.container{
+    /*overflow-x: hidden;*/
+    /*background-color: pink;*/
+    width: 980px;
+    margin-left: 250px;
+    margin-top: 56px;
+    padding-top: 1rem;
+    font-family: "黑体";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.container-fluid{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    /*    margin-right: auto;
+        margin-left: auto;*/
+}
+
+/*当前地址*/
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+.breadcrumb-item{
+    display: inline-block;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    color: #868e96;
+}
+.breadcrumb-item a{
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+.breadcrumb-item a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/*data table*/
+.card {
+    /*position: relative;*/
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+
+}
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-header a{
+    color: black;
+}
+.card-header a:hover{
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.card-body{
+    padding: 20px;
+}
+.row{
+    margin-left: 10px;
+}
+/*newsnumber*/
+.newsnumber{
+    display: inline-block;
+    max-width: 50%;
+    /*padding: 20px;*/
+}
+.newsnumber select{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: auto;
+    height: calc(1.8125rem + 2px);
+    touch-action: manipulation;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    overflow: visible;
+    font-family: inherit;
+}
+
+.searchbox{
+    display: inline-block;
+    max-width: 50%;
+    margin-left: 400px;
+    padding-left:  20px;
+    margin-bottom: .5rem;
+}
+.searchbox input{
+    display: inline-block;
+    width: auto;
+    touch-action: manipulation;
+    margin-left: 0.5em;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    overflow: visible;
+    font-family: inherit;
+}
+
+table{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;
+    border: 1px solid #e9ecef;
+}
+th{
+    width: 129px;
+    vertical-align: bottom;
+    border: 0.5px solid #e9ecef;
+    border-bottom: 2px solid #e9ecef;
+    padding: .75rem;
+    text-align: inherit;
+}
+td{
+    padding: .75rem;
+    vertical-align: top;
+    border: 0.5px solid #e9ecef;
+}
+tbody a{
+    color: black;
+}
+tbody a:hover{
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*分页*/
+.pagination{
+    margin-left: 260px;
+    white-space: nowrap;
+    text-align: right;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+.paginate_button{
+    /*position: relative;*/
+    color: #868e96;
+    margin: 2px 0;
+    margin-left: -1px;
+    padding: .5rem .75rem;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+    line-height: 1.25;
+}
+.page-link {
+    display: block;
+    pointer-events: none;
+    /*background-color: #fff;  */
+}
+.paginate_button:hover{
+    color: white;
+    background-color: #007bff;
+
+
+}
+
+
+
+
+/*用户权限管理界面*/
+#change-authority-box, #add-box {
+    display:none;
+    padding-left: 100px;
+    padding-top: 40px;
+    position:absolute;
+    top: 200px;
+    left: 400px;
+    width:400px;
+    height:200px;
+    border:#87CEFF solid 1px;
+    border-radius: .25rem;
+    z-index:100;
+    background-color:white;
+}
+#change-authority-box li,#add-box li{
+    display: block;
+    list-style: none;
+    margin: 20px;
+}
+.button{
+    display: inline-block;
+    border-radius: .25rem;
+    width: 80px;
+    height: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 20px;
+    background-color: #87CEFF;
+    cursor:pointer;
+    color: white;
+}
+#closeBtn {
+    background-color: #D4D4D4;
+
+}
+#greybackground {
+    background:#000;
+    display:block;
+    z-index: 1;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+#change-authority-box input,#add-box input{
+    display: inline-block;
+    width: auto;
+    touch-action: manipulation;
+    margin-left: 0.5em;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    overflow: visible;
+    font-family: inherit;
+}
+#change-authority-box select,#add-box select{
+    display: inline-block;
+    margin-left: 0.5em;
+    width: auto;
+    height: calc(1.8125rem + 2px);
+    touch-action: manipulation;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    overflow: visible;
+    font-family: inherit;
+}
+/*删除时弹出界面*/
+#delect-box{
+    display: none;
+    position:absolute;
+    top: 200px;
+    left: 400px;
+    background-color: #ffffff;
+    z-index: 100;
+    width: 570px;
+    height: 300px;
+    border:#87CEFF solid 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #535e66;
+}
+
+.ttBox {
+    height: 30px;
+    line-height: 30px;
+    padding: 14px 30px;
+    /*margin-left: 20px;*/
+    border-bottom: solid 1px #eef0f1;
+    font-size: 18px;
+    font-size: 20px;
+}
+.txtBox p{
+    display: block;
+    margin: 20px 40px;
+}
+
+.txtBox {
+    width: 570px;
+    height: 100px;
+    margin: 40px 0px;
+    overflow: hidden;
+    line-height: 26px;
+    border-bottom: solid 1px #eef0f1;
+}
+.btnArea {
+    margin-left: 70px;
+    margin-top: -20px;
+}
