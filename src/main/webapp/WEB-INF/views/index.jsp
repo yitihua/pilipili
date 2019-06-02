@@ -33,7 +33,7 @@
 <div class="contenter">
     <div class="widthfix">
         <div class="topnav clearfix" id="topnav">
-            <div class="logo">
+            <div class="logo" onclick="javascript:window.location.href='${ctx}/dataDictionary'">
                 <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">

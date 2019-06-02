@@ -1,0 +1,17 @@
+@charset 'utf-8'
+.news-topnav{
+    position: fixed;
+    display: block;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px #ccc solid;
+    background-color: #fff;
+    z-index: 2;
+}
+.news-logo img{
+    width: 40px;
+    height: 40px;
+}
+.news-logo:hover{
+    cursor: pointer;
+}

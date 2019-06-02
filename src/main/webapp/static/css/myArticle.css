@@ -1,0 +1,14 @@
+@charset 'utf-8';
+.main-body{
+    position: relative;
+    top:40px;
+}
+.main-content{
+    margin-left: 180px;
+    padding: 0 10px;
+}
+.article-nav{
+    position: relative;
+    height: 90px;
+    padding: 10px 0;
+}
