@@ -24,7 +24,7 @@ for(let i = 0;i<replyBtn2.length;i++){
         let commentNav = document.getElementById(`comment-nav-${commentLevel}`)
         //更改评论栏高度
         let olderH = commentNav.offsetHeight;
-        commentNav.style.height = (olderH+60)+"px"
+        commentNav.style.height = (olderH+45)+"px"
         //显示回复表单
         for(let j = 0;j<replyForms.length;j++){
             if(!replyForms[j].classList.contains("hide"))replyForms[j].classList.add("hide")
@@ -34,13 +34,13 @@ for(let i = 0;i<replyBtn2.length;i++){
         let replyText = document.getElementById(`reply-text-${commentLevel}`)
         replyText.onfocus=function(){
             replyForm.style.height = "120px"
-            let olderH = commentNav.style.height.slice(-1,2);
+            let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
-        replyForm.onblur=function(){
+        replyText.onblur=function(){
             replyForm.style.height = "40px"
-            let olderH = commentNav.style.height.slice(-1,2);
-            commentNav.style.height = (olderH-120)+"px"
+            let olderH = commentNav.offsetHeight;
+            commentNav.style.height = (olderH-80)+"px"
         }
         //设置textarea的默认输出“回复 某某”
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)
@@ -65,8 +65,8 @@ for(let i = 0;i<replyBtn1.length;i++){
         let replyForm = document.getElementById(`reply-form-${commentLevel}`)
         let commentNav = document.getElementById(`comment-nav-${commentLevel}`)
         //更改评论栏高度
-        let olderH = commentNav.style.height.slice(-1,2);
-        commentNav.style.height = (olderH+40)+"px"
+        let olderH = commentNav.offsetHeight;
+        commentNav.style.height = (olderH+45)+"px"
         //显示回复表单
         for(let j = 0;j<replyForms.length;j++){
             if(!replyForms[j].classList.contains("hide"))replyForms[j].classList.add("hide")
@@ -76,13 +76,13 @@ for(let i = 0;i<replyBtn1.length;i++){
         let replyText = document.getElementById(`reply-text-${commentLevel}`)
         replyText.onfocus=function(){
             replyForm.style.height = "120px"
-            let olderH = commentNav.style.height.slice(-1,2);
+            let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
-        replyForm.onblur=function(){
+        replyText.onblur=function(){
             replyForm.style.height = "40px"
-            let olderH = commentNav.style.height.slice(-1,2);
-            commentNav.style.height = (olderH-120)+"px"
+            let olderH = commentNav.offsetHeight;
+            commentNav.style.height = (olderH-80)+"px"
         }
         //设置textarea的默认输出“回复 某某”
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)
