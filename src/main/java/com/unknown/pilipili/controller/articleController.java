@@ -46,36 +46,34 @@ public class articleController {
         if(news==null) {
             return "redirect:/index/";
         }
-        String rootCtmp = request.getParameter("rootCommentId");
-        String fatherCtmp = request.getParameter("fatherCommentId");
-        Long rootCommentId = null;
-        Long fatherCommentId = null;
+        String rootCommentId = request.getParameter("rootCommentId");
+        String fatherCommentId = request.getParameter("fatherCommentId");
         Comment rootComment = null;
         Comment fatherComment = null;
         Comment newComment = new Comment();
-        if(rootCommentId == null && fatherCommentId ==null){//一级评论
+        if(rootCommentId == null && fatherCommentId == null){//一级评论
             newComment.setLayer(1);
             Long level = commentService.countByOriginalAndLayer1(news);
             if(level==null) newComment.setLevel(Long.valueOf(1));
-            else newComment.setLevel(commentService.countByOriginalAndLayer1(news)+1);
+            else newComment.setLevel(level+1);
         }
-        else if(rootCommentId == null) {//二级评论
-            fatherCommentId = Long.valueOf(rootCtmp);
+        else if(fatherCommentId == null && rootCommentId != null) {//二级评论
             newComment.setLayer(2);
-            rootCommentId = fatherCommentId;
-            rootComment = commentService.findOne(rootCommentId);
-            fatherComment = commentService.findOne(fatherCommentId);
-            Long level = commentService.countByRootComment(rootComment)+1;
+            rootComment = commentService.findOne(Long.valueOf(rootCommentId));
+            fatherComment = commentService.findOne(Long.valueOf(rootCommentId));
+            Long level = commentService.countByRootComment(rootComment);
             if(level==null) newComment.setLevel(Long.valueOf(1));
-            else newComment.setLevel(commentService.countByRootComment(rootComment)+1);
+            else newComment.setLevel(level+1);
         }
-        else {//多级评论
-            fatherCommentId = Long.valueOf(fatherCtmp);
-            rootCommentId = Long.valueOf(rootCtmp);
+        else if(rootCommentId != null && fatherCommentId != null) {//多级评论
             newComment.setLayer(2);
-            rootComment = commentService.findOne(rootCommentId);
-            fatherComment = commentService.findOne(fatherCommentId);
+            rootComment = commentService.findOne(Long.valueOf(rootCommentId));
+            fatherComment = commentService.findOne(Long.valueOf(fatherCommentId));
             newComment.setLevel(commentService.countByRootComment(rootComment)+1);
+        }
+        else{
+            System.out.println("error");
+            return "redirect:/index/";
         }
 
         User author = (User)httpSession.getAttribute("user");
