@@ -37,7 +37,7 @@ for(let i = 0;i<replyBtn2.length;i++){
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
-        replyText.onblur=function(){
+        replyForm.onblur=function(){
             replyForm.style.height = "40px"
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH-80)+"px"
@@ -79,7 +79,7 @@ for(let i = 0;i<replyBtn1.length;i++){
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
-        replyText.onblur=function(){
+        replyForm.onblur=function(){
             replyForm.style.height = "40px"
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH-80)+"px"

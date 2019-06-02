@@ -88,7 +88,7 @@
                                         <%--reply--%>
                                     <c:forEach var="reply" items="${comment.replies}">
                                         <div class="comment-reply">
-                                            <div class="reply-text">
+                                            <div class="reply-textfield">
                                                 <a>${reply.author.username}</a>:回复<span>${reply.father.author.username}</span>
                                                     ${reply.content}
                                             </div>
