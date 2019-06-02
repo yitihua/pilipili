@@ -156,17 +156,21 @@
 
                         <!-- 弹出窗口-添加字典 -->
                         <div id="add-box">
-                            <form>
+                            <form action="createDict" method="post">
                                 <li>
                                     <lable>字典名称：</lable>
-                                    <input type="text" name="type" value="${dict.type}"></li>
+                                    <input type="text" name="type"></li>
                                 <li>
                                     <lable>属性名称：</lable>
-                                    <input type="text" name="name" value="${dict.name}"></li>
+                                    <input type="text" name="name"></li>
                                 <li>
                                     <lable>属性状态：</lable>
-                                    <input type="text" name="status" value="${dict.status}"></li>
-                                <a class="button" name="">确认添加</a>
+                                    <select name="status">
+                                        <option value="1">启用</option>
+                                        <option value="0">禁用</option>
+                                    </select>
+                                    <%--<input type="text" name="status" value="${dict.status}"></li>--%>
+                                <input type="submit" value="确认添加" class="button">
                                 <a id="closeBtn" class="button">取消添加</a>
                             </form>
                         </div>
@@ -181,7 +185,10 @@
                                     <input type="text" name="name" value="${dict.name}"></li>
                                 <li>
                                     <lable>属性状态：</lable>
-                                    <input type="text" name="status" value="${dict.status}"></li>
+                                    <select name="status">
+                                        <option value="1">启用</option>
+                                        <option value="0">禁用</option>
+                                    </select>
                                 <a class="button" name="">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>
