@@ -2,10 +2,8 @@ package com.unknown.pilipili.domain;
 
 import com.unknown.pilipili.config.orm.IdEntity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -22,7 +20,7 @@ public class News extends IdEntity {
     private String title;
     @Column(nullable = false)
     private String content;
-    @ManyToOne(cascade= CascadeType.MERGE,fetch= FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
     @ManyToOne

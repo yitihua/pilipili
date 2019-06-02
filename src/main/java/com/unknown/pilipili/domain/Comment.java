@@ -2,10 +2,8 @@ package com.unknown.pilipili.domain;
 
 import com.unknown.pilipili.config.orm.IdEntity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -23,19 +21,19 @@ public class Comment extends IdEntity {
     @Column(nullable = false)
     private String content;
 
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
 
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="fatherComment",referencedColumnName="id")
     private Comment father;
 
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="rootComment",referencedColumnName="id")
     private Comment rootComment;
 
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name="Original",referencedColumnName="id")
     private News original;
 
