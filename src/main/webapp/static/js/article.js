@@ -7,13 +7,25 @@ for(let i = 0;i<replyBtn.length;i++){
         let commentId = this.getAttribute("data-comment-id")
         let commentAuthor = this.getAttribute("data-comment-author")
         let commentLevel = this.getAttribute("data-comment-level")
-    //    获取该一级评论下的回复框和回复框中的输入框
-    //    回复表单
+        //    获取该一级评论下的回复框和回复框中的输入框
+        //    当前回复表单
         let replyArea = document.getElementById(`reply-area-${commentLevel}`)
+        //所有回复表单
+        let replyForms = document.getElementsByClassName("reply-form")
+        let replyForm = document.getElementById("reply-form-1")
         //显示回复表单
-        replyArea.style.display = "block"
+        for(let j = 0;j<replyForms.length;j++){
+            if(!replyForms[j].classList.contains("hide"))replyForms[j].classList.add("hide")
+        }
+        replyForm.classList.remove("hide")
         //回复表单下的textarea
         let replyText = document.getElementById(`reply-text-${commentLevel}`)
+        replyText.onfocus=function(){
+            replyForm.style.height = "120px"
+        }
+        replyText.onblur=function(){
+            replyForm.style.height = "40px"
+        }
         //设置textarea的默认输出“回复 某某”
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)
         let sendId = document.createElement("input")

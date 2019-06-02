@@ -100,7 +100,7 @@
                                                      </span>
                                                     <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
                                                 </div>
-                                                <div>
+                                                <div class="reply-form hide" id="reply-form-${comment.level}">
                                                     <form action="#" method="post" class="reply-area" id="reply-area-${comment.level}">
                                                         <input type="hidden" name="newsId" value="${news.id}">
                                                         <textarea class="reply-text" id="reply-text-${comment.level}"></textarea>
