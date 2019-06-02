@@ -26,7 +26,7 @@
         <div class="news-topnav">
             <div class="widthfix">
                 <span class="news-logo">
-                    <img src="static/img/CN_bilibiliB.png">
+                    <img src="${ctx}/static/img/CN_bilibiliB.png">
                 </span>
                 <span class="icon">
 
@@ -50,83 +50,83 @@
                 </span>
             </div>
             <div class="news-content">
-            ${news.content}
+                ${news.content}
             </div>
             <%--news end--%>
-                <!-- comment -->
-                <div class="comment-body">
-                    <div class="comment-add">
-                        <form action="" method="POST">
-                            <input type="hidden" name="newsId" value="${news.id}">
-                            <span class="icon">
-                            </span>
-                            <textarea name="content"></textarea>
-                            <input type="submit" >
-                        </form>
-                    </div>
-                    <%--comment list--%>
-                    <div class="comment-list">
-                        <c:forEach var="comment" items="${commentList}">
-                            <div class="comment-nav">
-                                    <%--commentator inf--%>
-                                <div class="avatar"></div>
-                                <div class="comment-main">
-                                    <div class="comment-commentator">
+            <!-- comment -->
+            <div class="comment-body">
+                <div class="comment-add">
+                    <form action="" method="POST">
+                        <input type="hidden" name="newsId" value="${news.id}">
+                        <span class="icon">
+                        </span>
+                        <textarea name="content"></textarea>
+                        <p><input type="submit" value="发表" class="submit-btn"></p>
+                    </form>
+                </div>
+                <%--comment list--%>
+                <div class="comment-list">
+                    <c:forEach var="comment" items="${commentList}">
+                        <div class="comment-nav">
+                                <%--commentator inf--%>
+                            <div class="avatar"></div>
+                            <div class="comment-main">
+                                <div class="comment-commentator">
                                         <span>
                                                 ${comment.author.username}
                                         </span>
-                                        <span>
-                                                ${comment.createAt}
-                                            </span>
-                                            <span>
+                                    <span>
+                                            ${comment.createAt}
+                                    </span>
+                                    <span>
                                             ${comment.level}楼
                                         </span>
-                                        <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
+                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
+                                </div>
+                                    <%-- commentator inf end--%>
+                                    <%-- comment body--%>
+                                <div class="comment-content">
+                                    <div class="comment-text">
+                                            ${comment.content}
                                     </div>
-                                        <%-- commentator inf end--%>
-                                        <%-- comment body--%>
-                                    <div class="comment-content">
-                                        <div class="comment-text">
-                                                ${comment.content}
-                                        </div>
                                         <%--reply--%>
-                                        <c:forEach var="reply" items="${comment.replyList}">
-                                            <div class="comment-reply">
-                                                <div class="reply-text">
-                                                    <a>${reply.author.username}</a>:回复<span>${reply.father.author.username}</span>
-                                                        ${reply.content}
-                                                </div>
-                                                <div class="reply-inf">
+                                    <c:forEach var="reply" items="${comment.replyList}">
+                                        <div class="comment-reply">
+                                            <div class="reply-text">
+                                                <a>${reply.author.username}</a>:回复<span>${reply.father.author.username}</span>
+                                                    ${reply.content}
+                                            </div>
+                                            <div class="reply-inf">
                                                     <span>
-                                                    ${reply.createAt}
+                                                            ${reply.createAt}
                                                     </span>
-                                                    <span>
+                                                <span>
                                                     ${reply.father.level}-${reply.level}楼
                                                      </span>
-                                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
-                                                </div>
-                                                <div class="reply-form hide" id="reply-form-${comment.level}">
-                                                    <form action="#" method="post" class="reply-area" id="reply-area-${comment.level}">
-                                                        <input type="hidden" name="newsId" value="${news.id}">
-                                                        <textarea class="reply-text" id="reply-text-${comment.level}"></textarea>
-                                                        <p><input type="submit" value="提交" class="submit-btn"/></p>
-                                                    </form>
-
-                                                </div>
+                                                <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
                                             </div>
-                                        </c:forEach>
+                                            <div class="reply-form hide" id="reply-form-${comment.level}">
+                                                <form action="#" method="post" class="reply-area" id="reply-area-${comment.level}">
+                                                    <input type="hidden" name="newsId" value="${news.id}">
+                                                    <textarea class="reply-text" id="reply-text-${comment.level}"></textarea>
+                                                    <p><input type="submit" value="提交" class="submit-btn"/></p>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </c:forEach>
 
                                         <%--reply end--%>
-                                    </div>
-                                        <%--comment body end--%>
                                 </div>
+                                    <%--comment body end--%>
                             </div>
-                        </c:forEach>
+                        </div>
+                    </c:forEach>
 
-                    </div>
-                    <%--comment list end--%>
                 </div>
-                <!-- comment end -->
+                <%--comment list end--%>
+            </div>
+            <!-- comment end -->
         </div>
         <div class="">
 
