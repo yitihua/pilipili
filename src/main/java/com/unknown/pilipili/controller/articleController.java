@@ -55,7 +55,9 @@ public class articleController {
         Comment newComment = new Comment();
         if(rootCommentId == null && fatherCommentId ==null){//一级评论
             newComment.setLayer(1);
-            newComment.setLevel(commentService.countAllByOriginalAndLayer1(news)+1);
+            Long level = commentService.countByOriginalAndLayer1(news);
+            if(level==null) newComment.setLevel(Long.valueOf(1));
+            else newComment.setLevel(commentService.countByOriginalAndLayer1(news)+1);
         }
         else if(rootCommentId == null) {//二级评论
             fatherCommentId = Long.valueOf(rootCtmp);
@@ -63,7 +65,9 @@ public class articleController {
             rootCommentId = fatherCommentId;
             rootComment = commentService.findOne(rootCommentId);
             fatherComment = commentService.findOne(fatherCommentId);
-            newComment.setLevel(commentService.countAllByRootComment(rootComment)+1);
+            Long level = commentService.countByRootComment(rootComment)+1;
+            if(level==null) newComment.setLevel(Long.valueOf(1));
+            else newComment.setLevel(commentService.countByRootComment(rootComment)+1);
         }
         else {//多级评论
             fatherCommentId = Long.valueOf(fatherCtmp);
@@ -71,7 +75,7 @@ public class articleController {
             newComment.setLayer(2);
             rootComment = commentService.findOne(rootCommentId);
             fatherComment = commentService.findOne(fatherCommentId);
-            newComment.setLevel(commentService.countAllByRootComment(rootComment)+1);
+            newComment.setLevel(commentService.countByRootComment(rootComment)+1);
         }
 
         User author = (User)httpSession.getAttribute("user");

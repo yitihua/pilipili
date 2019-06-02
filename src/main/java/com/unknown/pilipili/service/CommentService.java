@@ -38,10 +38,10 @@ public class CommentService {
         }
         return comments;
     }
-    public int countAllByOriginalAndLayer1(News news){
-        return commentRepository.countAllByOriginalAndLayer(news,1);
+    public Long countByOriginalAndLayer1(News news){
+        return commentRepository.countByOriginalAndLayer(news,1);
     }
-    public int countAllByRootComment(Comment comment){
-        return commentRepository.countAllByRootComment(comment);
+    public Long countByRootComment(Comment comment){
+        return commentRepository.countByRootComment(comment);
     }
 }

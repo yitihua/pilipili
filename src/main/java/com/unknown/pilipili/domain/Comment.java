@@ -36,7 +36,7 @@ public class Comment extends IdEntity {
     @JoinColumn(name="Original",referencedColumnName="id")
     private News original;
 
-    private int level;
+    private Long level;
 
     private int layer;
 
@@ -80,11 +80,11 @@ public class Comment extends IdEntity {
         this.original = original;
     }
 
-    public int getLevel() {
+    public Long getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(Long level) {
         this.level = level;
     }
 
