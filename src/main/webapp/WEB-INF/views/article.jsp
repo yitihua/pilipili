@@ -63,7 +63,7 @@
                 <%--comment list--%>
                 <div class="comment-list">
                     <c:forEach var="comment" items="${commentList}">
-                        <div class="comment-nav">
+                        <div class="comment-nav" id="comment-nav-${comment.level}">
                                 <%--commentator inf--%>
                             <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
                             <div class="comment-main">
@@ -77,7 +77,7 @@
                                     <span>
                                             ${comment.level}楼
                                         </span>
-                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
+                                    <span class="reply-btn reply-btn-1" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
                                 </div>
                                     <%-- commentator inf end--%>
                                     <%-- comment body--%>
@@ -99,7 +99,7 @@
                                                 <span>
                                                     ${reply.father.level}-${reply.level}楼
                                                      </span>
-                                                <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
+                                                <span class="reply-btn reply-btn-2" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
                                             </div>
 
                                         </div>
