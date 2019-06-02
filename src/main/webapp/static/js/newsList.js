@@ -5,7 +5,7 @@
     },
     methods:{
         gotoNews:function(newsid){
-             window.location.href=`${ctx}/`
+             window.location.href=`${ctx}/article/view`
         }
     }
 })

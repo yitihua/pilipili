@@ -69,7 +69,7 @@
                     <c:forEach var="comment" items="${commentList}">
                         <div class="comment-nav">
                                 <%--commentator inf--%>
-                            <div class="avatar"></div>
+                            <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
                             <div class="comment-main">
                                 <div class="comment-commentator">
                                         <span>

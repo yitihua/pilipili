@@ -143,7 +143,7 @@
                 <!-- 推荐内容1/2/3 -->
                 <div class="content-main-list">
                     <c:forEach var="news" items="${newsList}">
-                        <div class="news-list" id="news${news.id}" v-on:click="gotoNews(${news.id})">
+                        <div class="news-list" id="news${news.id}" onclick="javascript:window.location.href=`${ctx}/article/view/${news.id}`">
                             <c:choose>
                                 <c:when test="${news.img}">
                                     <div class="news-pic"><img src="${news.img}"/></div>
