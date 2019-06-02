@@ -31,7 +31,7 @@ public class NewsService {
         return (List<News>) newsRepository.findAll();
     }
 
-    public List<News> findNewsByAuthor(String username){
+    public List<News> findNewsByAuthorName(String username){
         User u = userRepository.findUserByUsername(username);
         return newsRepository.findAllByAuthor(u);
     }
