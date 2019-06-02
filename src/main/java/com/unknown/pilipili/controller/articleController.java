@@ -46,8 +46,10 @@ public class articleController {
         if(news==null) {
             return "redirect:/index/";
         }
-        Long rootCommentId = Long.valueOf(request.getParameter("rootCommentId"));
-        Long fatherCommentId = Long.valueOf(request.getParameter("rootCommentId"));
+        String rootCtmp = request.getParameter("rootCommentId");
+        String fatherCtmp = request.getParameter("fatherCommentId");
+        Long rootCommentId = null;
+        Long fatherCommentId = null;
         Comment rootComment = null;
         Comment fatherComment = null;
         Comment newComment = new Comment();
@@ -56,6 +58,7 @@ public class articleController {
             newComment.setLevel(commentService.countAllByOriginalAndLayer1(news)+1);
         }
         else if(rootCommentId == null) {//二级评论
+            fatherCommentId = Long.valueOf(rootCtmp);
             newComment.setLayer(2);
             rootCommentId = fatherCommentId;
             rootComment = commentService.findOne(rootCommentId);
@@ -63,6 +66,8 @@ public class articleController {
             newComment.setLevel(commentService.countAllByRootComment(rootComment)+1);
         }
         else {//多级评论
+            fatherCommentId = Long.valueOf(fatherCtmp);
+            rootCommentId = Long.valueOf(rootCtmp);
             newComment.setLayer(2);
             rootComment = commentService.findOne(rootCommentId);
             fatherComment = commentService.findOne(fatherCommentId);
