@@ -243,9 +243,9 @@
 
 
 </div>
-<script type="text/javascript" src="js/vue.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/navbar.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <!-- <script type="text/javascript" src="js/accessManagement.js"></script> -->
 <script type="text/javascript">
     $(function(){

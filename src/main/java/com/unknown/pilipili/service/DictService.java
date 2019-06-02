@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 public class DictService {
     @Autowired
     private DictRepository dictRepo;
+    public Dict create(Dict dict){
+        return dictRepo.save(dict);
+    }
     public Dict findDictByTypeAndName(String type, String name){
         return dictRepo.findDictByTypeAndName(type, name);
     }
