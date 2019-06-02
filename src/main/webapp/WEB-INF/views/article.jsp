@@ -24,7 +24,14 @@
 <div class="contenter">
     <div class="widthfix">
         <div class="news-topnav">
+            <div class="widthfix">
+                <span class="news-logo">
+                    <img src="static/img/CN_bilibiliB.png">
+                </span>
+                <span class="icon">
 
+                </span>
+            </div>
         </div>
         <div class="news-body">
             <%--news--%>
@@ -60,22 +67,20 @@
                     <%--comment list--%>
                     <div class="comment-list">
                         <c:forEach var="comment" items="${commentList}">
-                            <div class="comment-nav clearfix">
+                            <div class="comment-nav">
                                     <%--commentator inf--%>
-                                <div class="commentator-icon">
-
-                                </div>
-                                <div>
+                                <div class="avatar"></div>
+                                <div class="comment-main">
                                     <div class="comment-commentator">
-                                    <span>
-                                            ${comment.author.username}
-                                    </span>
                                         <span>
-                                                ${comment.createAt}
+                                                ${comment.author.username}
                                         </span>
                                         <span>
-                                        ${comment.level}楼
-                                    </span>
+                                                ${comment.createAt}
+                                            </span>
+                                            <span>
+                                            ${comment.level}楼
+                                        </span>
                                         <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
                                     </div>
                                         <%-- commentator inf end--%>
