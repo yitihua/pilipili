@@ -16,10 +16,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/reset.css">
-    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="css/manage_index.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/font/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css" />
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css" />
 
     <title>数据字典</title>
     <style type="text/css">
