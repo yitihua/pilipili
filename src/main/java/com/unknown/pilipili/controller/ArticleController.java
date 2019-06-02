@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/article")
-public class articleController {
+public class ArticleController {
     @Autowired
     private NewsService newsService;
     @Autowired

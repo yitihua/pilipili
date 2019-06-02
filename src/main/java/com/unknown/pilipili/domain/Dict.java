@@ -21,6 +21,11 @@ public class Dict extends IdEntity {
     public Dict() {
     }
 
+    public Dict(String type, String name) {
+        this.type = type;
+        this.name = name;
+    }
+
     public String getType() {
         return type;
     }
