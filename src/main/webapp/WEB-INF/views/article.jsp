@@ -53,7 +53,7 @@
             <!-- comment -->
             <div class="comment-body">
                 <div class="comment-add">
-                    <div class="avatar" style="background-image: url('{ctx}/static/img/indexPhoto.png')"></div>
+                    <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
                     <form action="${news.id}/createComment" method="POST"  class="comment-add-form">
                         <input type="hidden" name="newsId" value="${news.id}">
                         <textarea name="content"></textarea>
@@ -86,7 +86,7 @@
                                             ${comment.content}
                                     </div>
                                         <%--reply--%>
-                                    <c:forEach var="reply" items="${comment.replyList}">
+                                    <c:forEach var="reply" items="${comment.replies}">
                                         <div class="comment-reply">
                                             <div class="reply-text">
                                                 <a>${reply.author.username}</a>:回复<span>${reply.father.author.username}</span>
