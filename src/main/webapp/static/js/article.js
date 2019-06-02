@@ -23,7 +23,7 @@ for(let i = 0;i<replyBtn.length;i++){
         replyText.onfocus=function(){
             replyForm.style.height = "120px"
         }
-        replyText.onblur=function(){
+        replyForm.onblur=function(){
             replyForm.style.height = "40px"
         }
         //设置textarea的默认输出“回复 某某”
