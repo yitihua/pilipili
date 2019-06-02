@@ -28,6 +28,7 @@
 </head>
 <body>
 
+
 <!-- navigation -->
 <div class="nav-top">
     <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
@@ -111,6 +112,64 @@
 <div class="container">
     <div class="container-fluid">
         <!-- 当前所在页面 -->
+
+        <!-- 弹出窗口-添加字典 -->
+        <div id="add-box">
+            <form action="${ctx}/dataDictionary/createDict" method="post">
+                <li>
+                    <lable>字典名称：</lable>
+                    <input type="text" name="type"></li>
+                <li>
+                    <lable>属性名称：</lable>
+                    <input type="text" name="name"></li>
+                <li>
+                    <lable>属性状态：</lable>
+                    <select name="status">
+                        <option value="1">启用</option>
+                        <option value="0">禁用</option>
+                    </select>
+                    <%--<input type="text" name="status" value="${dict.status}"></li>--%>
+                    <input type="submit" value="确认添加" class="button">
+                    <a id="closeBtn" class="button">取消添加</a>
+            </form>
+        </div>
+        <%--修改字典弹框--%>
+        <div id="edit-box">
+            <form>
+                <li>
+                    <lable>字典名称：</lable>
+                    <input type="text" name="type" value="${dict.type}"></li>
+                <li>
+                    <lable>属性名称：</lable>
+                    <input type="text" name="name" value="${dict.name}"></li>
+                <li>
+                    <lable>属性状态：</lable>
+                    <select name="status">
+                        <option value="1">启用</option>
+                        <option value="0">禁用</option>
+                    </select>
+                    <a class="button" name="">确认修改</a>
+                    <a id="closeBtn2" class="button">取消修改</a>
+            </form>
+        </div>
+
+        <!-- 弹出窗口-删除 -->
+        <div id="delect-box">
+            <form>
+                <div class="ttBox">
+                    <h1>提示</h1>
+                </div>
+                <div class="txtBox">
+                    <p>你确定要删除该用户吗？？？（小心挨打</p>
+                </div>
+                <div class="btnArea">
+                    <div class="btnArea">
+                        <a class="button">确定删除</a>
+                        <a class="button" id="closeBtn3">取消删除</a>
+                    </div>
+                </div>
+            </form>
+        </div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="#">index</a>
@@ -131,7 +190,7 @@
             <div class="card-body">
                 <div class="row"></div>
 
-                <!-- 用户列表 -->
+                <!-- 字典列表 -->
                 <div class="row">
                     <form>
                         <table style="text-align: center;">
@@ -146,7 +205,7 @@
                             <tbody>
                             <tr>
                                 <td>${dict.type}</td>
-                                <td>${divt.name}</td>
+                                <td>${dict.name}</td>
                                 <td>${dict.status}</td>
                                 <td><a id="edit" >编辑</a></td>
                                 <td><a id="delect">删除</a></td>
@@ -154,62 +213,7 @@
                             </tbody>
                         </table>
 
-                        <!-- 弹出窗口-添加字典 -->
-                        <div id="add-box">
-                            <form action="createDict" method="post">
-                                <li>
-                                    <lable>字典名称：</lable>
-                                    <input type="text" name="type"></li>
-                                <li>
-                                    <lable>属性名称：</lable>
-                                    <input type="text" name="name"></li>
-                                <li>
-                                    <lable>属性状态：</lable>
-                                    <select name="status">
-                                        <option value="1">启用</option>
-                                        <option value="0">禁用</option>
-                                    </select>
-                                    <%--<input type="text" name="status" value="${dict.status}"></li>--%>
-                                <input type="submit" value="确认添加" class="button">
-                                <a id="closeBtn" class="button">取消添加</a>
-                            </form>
-                        </div>
-                        <%--修改字典弹框--%>
-                        <div id="edit-box">
-                            <form>
-                                <li>
-                                    <lable>字典名称：</lable>
-                                    <input type="text" name="type" value="${dict.type}"></li>
-                                <li>
-                                    <lable>属性名称：</lable>
-                                    <input type="text" name="name" value="${dict.name}"></li>
-                                <li>
-                                    <lable>属性状态：</lable>
-                                    <select name="status">
-                                        <option value="1">启用</option>
-                                        <option value="0">禁用</option>
-                                    </select>
-                                <a class="button" name="">确认修改</a>
-                                <a id="closeBtn2" class="button">取消修改</a>
-                            </form>
-                        </div>
 
-                        <!-- 弹出窗口-删除 -->
-                        <div id="delect-box">
-                            <form>
-                                <div class="ttBox">
-                                    <h1>提示</h1>
-                                </div>
-                                <div class="txtBox">
-                                    <p>你确定要删除该用户吗？？？（小心挨打</p>
-                                </div>
-                                <div class="btnArea">
-                                    <div class="btnArea">
-                                        <a class="button">确定删除</a>
-                                        <a class="button" id="closeBtn3">取消删除</a>
-                                    </div>
-                                </div>
-                            </form></div>
 
 
 

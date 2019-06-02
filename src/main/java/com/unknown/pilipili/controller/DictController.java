@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
+import java.util.List;
 
 /**
  * @author <b>顾思宇</b>
@@ -21,7 +22,9 @@ public class DictController {
     @Autowired
     private DictService dictService;
     @RequestMapping("")
-    public String meow(Model model, ServletRequest request){
+    public String showDict(Model model, ServletRequest request){
+        List<Dict> dictList = dictService.findAll();
+        model.addAttribute("dictList",dictList);
         return "/dataDictionary";
     }
     @PostMapping("createDict")

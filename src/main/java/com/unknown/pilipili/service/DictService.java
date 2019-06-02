@@ -5,6 +5,8 @@ import com.unknown.pilipili.repository.DictRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/6/2 16:00
@@ -16,7 +18,11 @@ public class DictService {
     public Dict create(Dict dict){
         return dictRepo.save(dict);
     }
+
     public Dict findDictByTypeAndName(String type, String name){
         return dictRepo.findDictByTypeAndName(type, name);
+    }
+    public List<Dict> findAll(){
+        return (List<Dict>) dictRepo.findAll();
     }
 }
