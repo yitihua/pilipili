@@ -30,7 +30,16 @@ for(let i = 0;i<replyBtn.length;i++){
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)
         let sendId = document.createElement("input")
         sendId.setAttribute("type","hidden")
-        sendId.setAttribute("name","commentId")
+        sendId.setAttribute("name","fatherCommentId")
         sendId.setAttribute("value",`${commentId}`)
     }
+}
+let nav = document.getElementsByClassName("comment-nav")
+for(let i = 0;i<nav.length;i++){
+    let child = nav[i].children[1];
+    let h = child.offsetHeight
+    // console.log(child)
+    // console.log(h)
+    nav[i].style.height=(h+10)+"px"
+
 }
