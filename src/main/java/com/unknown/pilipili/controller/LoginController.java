@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     private AccountService accountService;
-    HttpSession session;
 
     @PostMapping(value = "")
     public String login(Model model, ServletRequest request,HttpSession httpSession){

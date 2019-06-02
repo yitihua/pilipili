@@ -22,7 +22,7 @@ public class News extends IdEntity {
     private String title;
     @Column(nullable = false)
     private String content;
-    @ManyToOne(cascade= CascadeType.ALL,fetch= FetchType.EAGER)
+    @ManyToOne(cascade= CascadeType.MERGE,fetch= FetchType.EAGER)
     @JoinColumn(name="author",referencedColumnName="id")
     private User author;
     @ManyToOne

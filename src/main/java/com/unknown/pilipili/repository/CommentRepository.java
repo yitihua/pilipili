@@ -13,13 +13,13 @@ import java.util.List;
  */
 
 public interface CommentRepository extends PlatformRepository<Comment,Long> {
-    @Query("from Comment where original = ?1 and layer = ?2")
+    @Query("from Comment c where c.original = ?1 and c.layer = ?2")
     List<Comment> findAllByOriginalAndLayer(News news, int layer);
-    @Query("from Comment where original = ?1")
+    @Query("from Comment c where c.rootComment = ?1")
     List<Comment> findAllByRootComment(Comment rootComment);
-    @Query("from Comment where original = ?1 and layer = ?2")
+    @Query("from Comment c where c.original = ?1 and c.layer = ?2")
     int countAllByOriginalAndLayer(News news,int layer);
-    @Query("from  Comment where Comment = ?1")
+    @Query("from Comment c where c.rootComment = ?1")
     int countAllByRootComment(Comment rootComment);
 
 }

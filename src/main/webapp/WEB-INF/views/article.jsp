@@ -32,10 +32,10 @@
             </div>
             <div class="news-inf">
                 <span>
-                        作者：${news.author}
+                        作者：${news.author.username}
                 </span>
                 <span>
-                        发布时间：${news.creatAt}
+                        发布时间：${news.createAt}
                 </span>
                 <span class="news-type">
                     ${news.type}
@@ -52,8 +52,8 @@
                             <input type="hidden" name="newsId" value="${news.id}">
                             <span class="icon">
                             </span>
-                            <textarea name="comment"></textarea>
-                            <input type="submit">
+                            <textarea name="content"></textarea>
+                            <input type="submit" >
                         </form>
                     </div>
                     <%--comment list--%>
@@ -67,15 +67,15 @@
                                 <div>
                                     <div class="comment-commentator">
                                     <span>
-                                            ${comment.author}
+                                            ${comment.author.username}
                                     </span>
                                         <span>
-                                                ${comment.creatAt}
+                                                ${comment.createAt}
                                         </span>
                                         <span>
                                         ${comment.level}楼
                                     </span>
-                                        <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author}">回复</span>
+                                        <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
                                     </div>
                                         <%-- commentator inf end--%>
                                         <%-- comment body--%>
@@ -87,17 +87,17 @@
                                         <c:forEach var="reply" items="${comment.replyList}">
                                             <div class="comment-reply">
                                                 <div class="reply-text">
-                                                    <a>${reply.author}</a>:回复<span>${reply.father.author}</span>
+                                                    <a>${reply.author.username}</a>:回复<span>${reply.father.author.username}</span>
                                                         ${reply.content}
                                                 </div>
                                                 <div class="reply-inf">
                                                     <span>
-                                                    ${reply.creatAt}
+                                                    ${reply.createAt}
                                                     </span>
                                                     <span>
                                                     ${reply.father.level}-${reply.level}楼
                                                      </span>
-                                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author}">回复</span>
+                                                    <span class="reply-btn" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
                                                 </div>
                                                 <div>
                                                     <form action="#" method="post" class="reply-area" id="reply-area-${comment.level}">
