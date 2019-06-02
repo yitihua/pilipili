@@ -9,6 +9,7 @@ import javax.persistence.Table;
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/5/31 23:18
  */
+
 @Entity
 @Table(name = "T_TYPE")
 public class Type extends IdEntity {

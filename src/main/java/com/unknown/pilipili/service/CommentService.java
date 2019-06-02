@@ -44,5 +44,4 @@ public class CommentService {
     public int countAllByRootComment(Comment comment){
         return commentRepository.countAllByRootComment(comment);
     }
-
 }

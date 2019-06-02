@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/5/24 23:40
  */
+
 @Entity
 @Table(name = "T_NEWS")
 public class News extends IdEntity {

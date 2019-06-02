@@ -28,6 +28,7 @@ public class articleController {
     private NewsService newsService;
     @Autowired
     private CommentService commentService;
+
     @GetMapping("view/{id}")
     public String viewArticle(@PathVariable("id") Long pkId, Model model){
         News news = newsService.findOne(pkId);

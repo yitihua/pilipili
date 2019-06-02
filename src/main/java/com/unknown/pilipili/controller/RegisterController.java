@@ -1,7 +1,9 @@
 package com.unknown.pilipili.controller;
 
+import com.unknown.pilipili.domain.Dict;
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.service.AccountService;
+import com.unknown.pilipili.service.DictService;
 import com.unknown.pilipili.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +25,20 @@ public class RegisterController {
     private AccountService accountService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private DictService dictService;
 
     @PostMapping(value = "")
     public String register(Model model, ServletRequest request, HttpSession httpSession){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String genderName = request.getParameter("gender");
+        String educationName = request.getParameter("education");
+        Dict gender = dictService.findDictByTypeAndName("gender",genderName);
+        Dict education = dictService.findDictByTypeAndName("education",educationName);
         User u = userService.findUserByUsername(username);
         if(u==null){
-            u = new User(username,password);
+            u = new User(username,password,gender,education);
             accountService.register(u);
             httpSession.setAttribute("user",u);
             return "redirect:/index";

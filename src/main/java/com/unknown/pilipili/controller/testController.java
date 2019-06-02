@@ -35,5 +35,4 @@ public class testController {
         newsService.create(news);
         return "redirect:/index/";
     }
-
 }

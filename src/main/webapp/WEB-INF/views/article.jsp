@@ -18,6 +18,7 @@
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
+
 </head>
 <body>
 <div class="contenter">

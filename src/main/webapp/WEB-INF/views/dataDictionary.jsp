@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
     <link rel="stylesheet" type="text/css" href="css/manage_index.css">
 
-
     <title>数据字典</title>
     <style type="text/css">
 

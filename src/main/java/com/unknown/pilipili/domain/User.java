@@ -45,6 +45,14 @@ public class User extends IdEntity {
         this.username = username;
         this.password = password;
     }
+
+    public User(String username, String password, Dict gender, Dict education) {
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.education = education;
+    }
+
     public String getUsername() {
         return username;
     }

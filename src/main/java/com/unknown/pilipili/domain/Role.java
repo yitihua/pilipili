@@ -10,6 +10,7 @@ import javax.persistence.Table;
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/5/31 23:02
  */
+
 @Entity
 @Table(name = "T_ROLE")
 public class Role extends IdEntity {

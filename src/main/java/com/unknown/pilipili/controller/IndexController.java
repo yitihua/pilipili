@@ -27,5 +27,4 @@ public class IndexController {
         model.addAttribute("newsList",newsList);
         return "/index";
     }
-
 }

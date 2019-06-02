@@ -32,7 +32,6 @@ public class Comment extends IdEntity {
     @ManyToOne
     @JoinColumn(name="rootComment",referencedColumnName="id")
     private Comment rootComment;
-
     @ManyToOne
     @JoinColumn(name="Original",referencedColumnName="id")
     private News original;

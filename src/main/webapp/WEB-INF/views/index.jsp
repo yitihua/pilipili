@@ -76,7 +76,7 @@
                                     <input type="radio" name="gender" value="女" class="log-radio">女
                                     <input type="radio" name="gender" value="保密" class="log-radio">保密<br>
                                     <p>学历</p>
-                                    <select name="educate">
+                                    <select name="education">
                                         <option value ="无">无</option>
                                         <option value ="小学">小学</option>
                                         <option value ="初中">初中</option>

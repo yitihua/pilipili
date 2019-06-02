@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
 
-
     <title>用户权限管理</title>
 
 </head>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/5/28 19:53
  */
+
 @Repository
 public interface UserRepository extends PlatformRepository<User,Long> {
     @Query("from User where username = ?1 and password = ?2")

@@ -12,6 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "T_DICT")
+
 public class Dict extends IdEntity {
     private String type;
     private String name;

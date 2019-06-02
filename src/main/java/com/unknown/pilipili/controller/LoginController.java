@@ -34,6 +34,5 @@ public class LoginController {
             httpSession.setAttribute("user",u);
             return "redirect:/index";
         }
-
     }
 }
