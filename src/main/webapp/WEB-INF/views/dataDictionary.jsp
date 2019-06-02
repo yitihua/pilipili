@@ -159,29 +159,29 @@
                             <form>
                                 <li>
                                     <lable>字典名称：</lable>
-                                    <input type="text" name="" value=""></li>
+                                    <input type="text" name="type" value="${dict.type}"></li>
                                 <li>
                                     <lable>属性名称：</lable>
-                                    <input type="text" name="" value=""></li>
+                                    <input type="text" name="name" value="${dict.name}"></li>
                                 <li>
                                     <lable>属性状态：</lable>
-                                    <input type="text" name="" value=""></li>
+                                    <input type="text" name="status" value="${dict.status}"></li>
                                 <a class="button" name="">确认添加</a>
                                 <a id="closeBtn" class="button">取消添加</a>
                             </form>
                         </div>
-                        <%--添加字典弹框--%>
+                        <%--修改字典弹框--%>
                         <div id="edit-box">
                             <form>
                                 <li>
                                     <lable>字典名称：</lable>
-                                    <input type="text" name="" value="${dict.type}"></li>
+                                    <input type="text" name="type" value="${dict.type}"></li>
                                 <li>
                                     <lable>属性名称：</lable>
-                                    <input type="text" name="" value="${dict.name}"></li>
+                                    <input type="text" name="name" value="${dict.name}"></li>
                                 <li>
                                     <lable>属性状态：</lable>
-                                    <input type="text" name="" value="${dict.status}"></li>
+                                    <input type="text" name="status" value="${dict.status}"></li>
                                 <a class="button" name="">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>

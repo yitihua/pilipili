@@ -236,7 +236,7 @@ tbody a:hover{
     cursor:pointer;
     color: white;
 }
-#closeBtn {
+#closeBtn,#closeBtn2,#closeBtn3 {
     background-color: #D4D4D4;
 
 }
