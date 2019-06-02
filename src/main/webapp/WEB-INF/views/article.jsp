@@ -22,17 +22,14 @@
 </head>
 <body>
 <div class="contenter">
-    <div class="widthfix">
-        <div class="news-topnav">
-            <div class="widthfix">
-                <span class="news-logo">
-                    <img src="${ctx}/static/img/CN_bilibiliB.png">
-                </span>
-                <span class="icon">
-
-                </span>
-            </div>
+    <div class="news-topnav">
+        <div class="widthfix">
+            <span  class="news-logo"><img src="${ctx}/static/img/CN_bilibiliB.png"></span>
+            <span class="icon">
+            </span>
         </div>
+    </div>
+    <div class="widthfix">
         <div class="news-body">
             <%--news--%>
             <div class="news-title">
@@ -56,10 +53,9 @@
             <!-- comment -->
             <div class="comment-body">
                 <div class="comment-add">
-                    <form action="${news.id}/createComment" method="POST">
+                    <div class="avatar" style="background-image: url('{ctx}/static/img/indexPhoto.png')"></div>
+                    <form action="${news.id}/createComment" method="POST"  class="comment-add-form">
                         <input type="hidden" name="newsId" value="${news.id}">
-                        <span class="icon">
-                        </span>
                         <textarea name="content"></textarea>
                         <p><input type="submit" value="发表" class="submit-btn"></p>
                     </form>

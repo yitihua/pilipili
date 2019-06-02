@@ -12,7 +12,7 @@ for(let i = 0;i<replyBtn.length;i++){
         let replyArea = document.getElementById(`reply-area-${commentLevel}`)
         //所有回复表单
         let replyForms = document.getElementsByClassName("reply-form")
-        let replyForm = document.getElementById("reply-form-1")
+        let replyForm = document.getElementById(`reply-form-${commentLevel}`)
         //显示回复表单
         for(let j = 0;j<replyForms.length;j++){
             if(!replyForms[j].classList.contains("hide"))replyForms[j].classList.add("hide")
