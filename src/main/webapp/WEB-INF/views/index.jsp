@@ -33,7 +33,7 @@
 <div class="contenter">
     <div class="widthfix">
         <div class="topnav clearfix" id="topnav">
-            <div class="logo" onclick="javascript:window.location.href='${ctx}/dataDictionary'">
+            <div class="logo" onclick="javascript:window.location.href='${ctx}/admin/dataDictionary'">
                 <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">
@@ -143,7 +143,7 @@
                 <!-- 推荐内容1/2/3 -->
                 <div class="content-main-list">
                     <c:forEach var="news" items="${newsList}">
-                        <div class="news-list" id="news${news.id}" onclick="javascript:window.location.href=`${ctx}/article/view/${news.id}`">
+                        <div class="news-list" id="news${news.id}" onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                             <c:choose>
                                 <c:when test="${news.img}">
                                     <div class="news-pic"><img src="${news.img}"/></div>

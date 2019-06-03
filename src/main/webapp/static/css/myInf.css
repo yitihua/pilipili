@@ -1,5 +1,42 @@
 @charset "utf-8";
 .inf-body{
     width: 930px;
-    height: 380px;
+    height: 500px;
+    padding-top:50px ;
+}
+.inf-box{
+    padding: 20px 0;
+}
+.inf-lable{
+    float: left;
+    width: 180px;
+    text-align: right;
+    font: 16px/24px PingFangSC-Regular,Microsoft YaHei,Arial,\\5B8B体,Arial Narrow;
+}
+.inf-box p{
+    margin-left: 200px;
+    font-size:16px;
+    height: 35px;
+}
+.inf-avatar{
+    width: 100px;
+    height: 100px;
+}
+.inf-update-btn{
+    color: #535e66;
+    font-size: 16px;
+}
+.inf-update-btn:hover{
+    cursor: pointer;
+}
+.inf-submit-btn{
+    margin-top: 10px;
+    height: 25px;
+    background-color: #78a9f3;
+    color: white;
+    border: none;
+}
+.gender-form,.edu-form{
+    margin-left: 200px;
+    padding-top: 10px;
 }

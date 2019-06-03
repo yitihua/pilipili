@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css" />
 
-    <title>数据字典</title>
+    <title>栏目管理</title>
     <style type="text/css">
 
     </style>
@@ -113,52 +113,37 @@
     <div class="container-fluid">
         <!-- 当前所在页面 -->
 
-        <!-- 弹出窗口-添加字典 -->
+        <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form action="${ctx}/dataDictionary/createDict" method="post" id="addDictform">
+            <form action="${ctx}/   " method="post" id="addform">
                 <li>
-                    <lable>字典名称：</lable>
+                    <lable>栏目名称：</lable>
                     <input type="text" name="type"></li>
-                <li>
-                    <lable>属性名称：</lable>
-                    <input type="text" name="name"></li>
-                <li>
-                    <lable>属性状态：</lable>
-                    <select name="status">
-                        <option value="1">启用</option>
-                        <option value="0">禁用</option>
-                    </select>
-                    <%--<input type="text" name="status" value="${dict.status}"></li>--%>
-                    <a  class="button" onclick="document:addDictform.submit()">确认添加</a>
-                    <a id="closeBtn" class="button">取消添加</a>
+
+                <a value="确认添加" class="button" onclick="document:addform.submit()"></a>
+                <a id="closeBtn" class="button">取消添加</a>
             </form>
         </div>
-        <%--弹框-修改字典--%>
+        <%--弹框-修改栏目--%>
         <div id="edit-box">
-            <form id="editDictform">
+            <form id="editform">
                 <li>
-                    <lable>字典名称：</lable>
-                    <input type="text" name="type" value="${dict.type}">
+                    <lable>栏目编号：</lable>
+                    <input type="text" name="type" value="${type.id}">
                 </li>
                 <li>
-                    <lable>属性名称：</lable>
-                    <input type="text" name="name" value="${dict.name}">
+                    <lable>栏目名称：</lable>
+                    <input type="text" name="name" value="${type.name}">
                 </li>
-                <li>
-                    <lable>属性状态：</lable>
-                    <select name="status">
-                        <option value="1">启用</option>
-                        <option value="0">禁用</option>
-                    </select>
-                </li>
-                    <a  class="button" name="" onclick="document:addDictform.submit()">确认修改</a>
+
+                    <a class="button" name="" onclick="document:editform.submit()">确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
             </form>
         </div>
 
-        <!-- 弹出窗口-删除字典 -->
+        <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
-            <form>
+            <form id="delectform">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -167,7 +152,7 @@
                 </div>
                 <div class="btnArea">
                     <div class="btnArea">
-                        <a  class="button" onclick="document:addDictform.submit()">确定删除</a>
+                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                         <a class="button" id="closeBtn3">取消删除</a>
                     </div>
                 </div>
@@ -178,7 +163,7 @@
                 <a href="#">index</a>
             </li>
             <li class="breadcrumb-item">
-                <span>/ 数据字典</span>
+                <span>/ 栏目管理</span>
             </li>
         </ol>
 
@@ -186,8 +171,8 @@
 
             <div class="card-header">
                 <i class="fa fa-table"></i>
-                <span>数据字典</span>
-                <a id="addDict">添加<i class="fa fa-plus-square"></i></a>
+                <span>栏目列表</span>
+                <a id="addType">添加<i class="fa fa-plus-square"></i></a>
             </div>
 
             <div class="card-body">
@@ -199,21 +184,19 @@
                         <table style="text-align: center;">
                             <thead>
                             <tr>
-                                <th>字典名称</th>
-                                <th>属性名称</th>
-                                <th>属性状态</th>
+                                <th>编号</th>
+                                <th>类名</th>
                                 <th colspan="2" >操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictlist}" var="each">
-                            <tr>
-                                <td>${dict.type}</td>
-                                <td>${dict.name}</td>
-                                <td>${dict.status}</td>
-                                <td><a id="edit" >编辑</a></td>
-                                <td><a id="delect">删除</a></td>
-                            </tr>
+                            <c:forEach items="${typelist}" var="each">
+                                <tr>
+                                    <td>${type.id}</td>
+                                    <td>${type.name}</td>
+                                    <td><a >编辑</a></td>
+                                    <td><a id="delect">删除</a></td>
+                                </tr>
                             </c:forEach>
                             </tbody>
                         </table>
@@ -230,9 +213,14 @@
                                     <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
                                 <li class="paginate_button">
                                     <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
-
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link">2</a></li>
+                                <li class="paginate_button">
+                                    <a href="" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page_link">3</a></li>
+                                <li class="paginate_button">
+                                    <a href="" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page_link">4</a></li>
+                                <li class="paginate_button">
+                                    <a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
                             </ul>
                         </div>
                     </form>
@@ -260,7 +248,7 @@
     $(function(){
 
         //add
-        $("#addDict").click(function(){
+        $("#adType").click(function(){
             $('#add-box').show();
 
             //获取页面文档的高度

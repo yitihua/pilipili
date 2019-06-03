@@ -144,9 +144,9 @@
                             </tbody>
                         </table>
 
-                        <!-- 弹出窗口-添加账户 -->
+                        <!-- 弹出窗口-添加用户 -->
                         <div id="add-box1">
-                            <form>
+                            <form id="addUserform">
                                 <li>
                                     <lable>用户名：</lable>
                                     <input type="text" name="username" value=""></li>
@@ -156,14 +156,14 @@
                                         <option value="administer">管理员</option>
                                         <option value="ordinary-user">普通用户</option>
                                     </select></li>
-                                <a class="button" name="">确认添加</a>
+                                <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>>
                                 <a id="closeBtn1" class="button">取消添加</a>
                             </form>
                         </div>
 
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
-                            <form>
+                            <form id="changeRoleform">
                                 <li>
                                     <lable>用户名：</lable>
                                     <input type="text" name="username" value="${user.username}"></li>
@@ -177,14 +177,14 @@
                                         </c:forEach>
                                     </select>
                                 </li>
-                                <a class="button" name="">确认修改</a>
+                                <a class="button" name="" onclick="document:changeRoleform.submit()">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>
                         </div>
 
-                        <!-- 弹出窗口-删除 -->
+                        <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
-                            <form>
+                            <form id="delectform">
                                 <div class="ttBox">
                                     <h1>提示</h1>
                                 </div>
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="btnArea">
                                     <div class="btnArea">
-                                        <a class="button">确定删除</a>
+                                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                                         <a class="button" id="closeBtn3">取消删除</a>
                                     </div>
                                 </div>
@@ -209,14 +209,9 @@
                                     <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
                                 <li class="paginate_button">
                                     <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
+
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link">2</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page_link">3</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page_link">4</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
                             </ul>
                         </div>
                     </form>
@@ -227,7 +222,7 @@
         </div>
     </div><!-- container-fluid -->
 
-    <div class="card-footer"></div>
+
 
 
 
