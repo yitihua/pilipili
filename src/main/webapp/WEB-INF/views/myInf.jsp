@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>霹哩霹哩(╯‵□′)╯︵┻━┻打人！pilipili</title>
-    <script>var ctx=${ctx}</script>
+    <script>var ctx="${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
@@ -57,9 +57,40 @@
                     </li>
                 </ul>
             </div>
+            <%--右边栏，用户信息详情--%>
             <div class="main-content">
-                <div class="inf-body">
-
+                <div class="inf-body" id="inf-body">
+                    <div class="inf-box">
+                        <span class="inf-lable">头像</span>
+                        <p><span class="inf-avatar"></span><span class="inf-update-btn">更改头像</span></p>
+                    </div>
+                    <div class="inf-box">
+                        <span class="inf-lable">用户名</span>
+                        <p>${user.username}</p>
+                    </div>
+                    <div class="inf-box">
+                        <span class="inf-lable">性别</span>
+                        <p>${user.gender}<span class="inf-update-btn" v-on:click="turnGenderBox">{{genderfix}}</span></p>
+                        <form method="post" action="#" v-bind:class="{hide:genderBox}" class="gender-form">
+                            <input type="radio" value="男">男
+                            <input type="radio" value="女">女
+                            <input type="radio" value="保密">保密<br>
+                            <input type="submit" class="inf-submit-btn" value="确认">
+                        </form>
+                    </div>
+                    <div class="inf-box">
+                        <span class="inf-lable">学历</span>
+                        <p>${user.education}<span class="inf-update-btn" v-on:click="turnEducationBox">{{educationfix}}</span></p>
+                        <form v-bind:class="{hide:educationBox}" class="edu-form">
+                            <select name="education" required="required">
+                                <option value="小学">小学</option>
+                                <option value="初中">初中</option>
+                                <option value="高中">高中</option>
+                                <option value="大学及以上">大学及以上</option>
+                            </select>
+                            <input type="submit" class="inf-submit-btn" value="确认">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
