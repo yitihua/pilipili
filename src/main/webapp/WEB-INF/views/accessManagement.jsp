@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="${ctx}/static/css/reset.css">
-    <link href="${ctx}/static/font/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${ctx}/static/font/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
 
