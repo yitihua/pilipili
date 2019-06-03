@@ -18,7 +18,7 @@ import java.util.List;
  * @version 1.0, 2019/6/2 17:02
  */
 @Controller
-@RequestMapping("/dataDictionary")
+@RequestMapping("/admin/dict")
 public class DictController {
     @Autowired
     private DictService dictService;
@@ -26,7 +26,7 @@ public class DictController {
     public String showDict(Model model, ServletRequest request){
         List<Dict> dictList = dictService.findAll();
         model.addAttribute("dictList",dictList);
-        return "/dataDictionary";
+        return "/admin/dict";
     }
     @PostMapping("createDict")
     public String createDict(Model model, ServletRequest request){
@@ -40,7 +40,7 @@ public class DictController {
                 dict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(dict);
-        return "redirect:/dataDictionary";
+        return "redirect:/admin/dict";
     }
     @PostMapping("updateDict/{id}")
     public String updateDict(@PathVariable("id") Long pkId, Model model, ServletRequest request){
@@ -55,6 +55,6 @@ public class DictController {
                 newDict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(newDict);
-        return "redirect:/dataDictionary";
+        return "redirect:/admin/dict";
     }
 }

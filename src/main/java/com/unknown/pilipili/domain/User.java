@@ -35,9 +35,10 @@ public class User extends IdEntity {
     private LocalDateTime createAt = LocalDateTime.now();
 
     @ManyToMany
-    @JoinTable(name = "T_USER_ROLE", joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private Set<Role> roles = new HashSet<>();
-
+    @JoinTable(name = "T_USER_ROLE",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    private Set<Role> roles = new HashSet<Role>();
     private String salt;
 
     public User(){}
@@ -116,4 +117,6 @@ public class User extends IdEntity {
     public void setSalt(String salt) {
         this.salt = salt;
     }
+
+
 }

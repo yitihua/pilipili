@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0, 2019/6/1 20:27
  */
 @Controller
-@RequestMapping("/manage_newsEdit")
+@RequestMapping("/admin/newsEdit")
 public class NewsEditController {
     @Autowired
     private NewsService newsService;
     @RequestMapping("")
     public String show(Model model){
-        return "/manage_newsEdit";
+        return "/admin/newsEdit";
     }
 }
