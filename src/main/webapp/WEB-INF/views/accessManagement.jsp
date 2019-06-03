@@ -127,21 +127,20 @@
                         <table style="text-align: center;">
                             <thead>
                             <tr>
-                                <th>编号</th>
                                 <th>用户名</th>
                                 <th>级别</th>
                                 <th colspan="2" >操作</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${userlist}" var="each">
                             <tr>
-                                <td>1</td>
                                 <td>${user.username}</td>
                                 <td>${user.role}</td>
                                 <td><a id="change-authority" >更改权限</a></td>
                                 <td><a id="delect">删除</a></td>
                             </tr>
-
+                            </c:forEach>
                             </tbody>
                         </table>
 
@@ -153,7 +152,7 @@
                                     <input type="text" name="username" value=""></li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <select>
+                                    <select name="role">
                                         <option value="administer">管理员</option>
                                         <option value="ordinary-user">普通用户</option>
                                     </select></li>
@@ -170,10 +169,14 @@
                                     <input type="text" name="username" value="${user.username}"></li>
                                 <li>
                                     <lable>更改权限：</lable>
-                                    <select>
-                                        <option value="administer">管理员</option>
-                                        <option value="ordinary-user">普通用户</option>
-                                    </select></li>
+                                    <input type="hidden" id ="selectRefundReason" value="${user.role}"/>
+                                    <select class="easyui-combobox"  name="role" id="refundReason"
+                                            style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+                                        <c:forEach items="${userlist}" var="each">
+                                            <option value="${each.role}">${each.role}</option>
+                                        </c:forEach>
+                                    </select>
+                                </li>
                                 <a class="button" name="">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>
@@ -239,6 +242,14 @@
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
+<%--根据后台显示权限--%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var key=$("#selectRefundReason").val();
+        //根据值让option选中
+        $("#refundReason option[value='"+key+"']").attr("selected","selected");
+    });
+</script>
 
 </body>
 </html>
