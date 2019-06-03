@@ -85,7 +85,7 @@ public class ArticleController {
         newComment.setRootComment(rootComment);
         newComment.setAuthor(author);
         newComment.setReplies(null);
-        commentService.create(newComment);
+        commentService.save(newComment);
         return "redirect:/article/view/{id}";
     }
 

@@ -21,7 +21,7 @@ public class NewsService {
     @Autowired
     private UserRepository userRepository;
 
-    public News create(News news){
+    public News save(News news){
         return newsRepository.save(news);
     }
     public News findOne(Long pkId){
