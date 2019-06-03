@@ -6,6 +6,7 @@ import com.unknown.pilipili.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -29,7 +30,6 @@ public class DictController {
     }
     @PostMapping("createDict")
     public String createDict(Model model, ServletRequest request){
-        System.out.println("yes");
         String type = request.getParameter("type");
         String name = request.getParameter("name");
         Dict dict = new Dict(type,name);
@@ -39,7 +39,22 @@ public class DictController {
             case 1:
                 dict.setStatus(Constants.Status.ENABLE);
         }
-        dictService.create(dict);
+        dictService.save(dict);
+        return "redirect:/dataDictionary";
+    }
+    @PostMapping("updateDict/{id}")
+    public String updateDict(@PathVariable("id") Long pkId, Model model, ServletRequest request){
+        Dict newDict = dictService.findOne(pkId);
+        newDict.setType(request.getParameter("type"));
+        newDict.setName(request.getParameter("name"));
+
+        switch (Integer.valueOf(request.getParameter("status"))){
+            case 0:
+                newDict.setStatus(Constants.Status.DISABLE);
+            case 1:
+                newDict.setStatus(Constants.Status.ENABLE);
+        }
+        dictService.save(newDict);
         return "redirect:/dataDictionary";
     }
 }

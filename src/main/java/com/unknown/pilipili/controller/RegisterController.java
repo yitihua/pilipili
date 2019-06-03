@@ -34,12 +34,12 @@ public class RegisterController {
         String password = request.getParameter("password");
         String genderName = request.getParameter("gender");
         String educationName = request.getParameter("education");
-        Dict gender = dictService.findDictByTypeAndName("gender",genderName);
-        Dict education = dictService.findDictByTypeAndName("education",educationName);
+        Dict gender = dictService.findDictByTypeAndName("性别",genderName);
+        Dict education = dictService.findDictByTypeAndName("学历",educationName);
         User u = userService.findUserByUsername(username);
         if(u==null){
             u = new User(username,password,gender,education);
-            accountService.register(u);
+            accountService.save(u);
             httpSession.setAttribute("user",u);
             return "redirect:/index";
         }

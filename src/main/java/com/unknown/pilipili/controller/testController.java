@@ -32,7 +32,7 @@ public class testController {
         System.out.println("aaa:"+u.getId());
         news.setAuthor(u);
         news.setTitle("aaaaaaaaaaaa");
-        newsService.create(news);
+        newsService.save(news);
         return "redirect:/index/";
     }
 }

@@ -19,7 +19,7 @@ public class AccountService {
         return userRepo.findUserByUsernameAndPassword(username,password);
     }
 
-    public User register(User u){
+    public User save(User u){
         return userRepo.save(u);
     }
 

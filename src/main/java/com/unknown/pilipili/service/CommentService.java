@@ -17,7 +17,7 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
-    public Comment create(Comment comment){
+    public Comment save(Comment comment){
         return commentRepository.save(comment);
     }
     public Comment findOne(Long pkId){
