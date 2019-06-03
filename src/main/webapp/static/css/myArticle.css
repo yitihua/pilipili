@@ -1,14 +1,26 @@
 @charset 'utf-8';
-.main-body{
-    position: relative;
-    top:40px;
-}
-.main-content{
-    margin-left: 180px;
-    padding: 0 10px;
-}
 .article-nav{
     position: relative;
     height: 90px;
+    width: 930px;
+    padding: 10px 0;
+}
+.article-nav:hover{
+    cursor: pointer;
+}
+.span-btn:hover{
+    cursor: pointer;
+    color: black;
+}
+.eidt-btn{
+    color: #78a9f3;
+}
+.remove-btn{
+    color:rgb(133, 102, 112);
+}
+.article-empty-nav{
+    position: relative;
+    height: 360px;
+    width: 930px;
     padding: 10px 0;
 }

@@ -1,0 +1,53 @@
+@charset "utf-8";
+.side-menu{
+    float: left;
+    width: 200px;
+    border: 1px #ccc solid;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
+.menu-avatar{
+    padding: 0 20px;
+    width: 160px;
+    height: 240px;
+    border-bottom: 1px #ccc solid;
+}
+.menu-myAvatar{
+    padding: 20px 0;
+    width: 160px;
+    height: 160px;
+}
+.menu-myAvatar img{
+    width: 160px;
+    height: 160px;
+}
+.menu-myName{
+    width:160px;
+    height: 40px;
+    text-align: center;
+}
+.menu-body li{
+    display:block;
+    height: 35px;
+    line-height: 35px;
+    width: 180px;
+    padding-left: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+.menu-body li:hover{
+    cursor: pointer;
+}
+.menu-body-nomal{
+    top:240px;
+    border-bottom: 1px #ccc solid;
+
+}
+.menu-body-author{
+    top: 310px;
+}
+.lowH{
+    height: 310px;
+}
+.highH{
+    height: 380px;
+}

@@ -38,7 +38,7 @@
             </div>
             <div class="searchBox">
                 <input type="text" class="search">
-                <input type="button" class="btn-red" value="搜 索">
+                <input type="button" class="btn-red" value="搜 索" onclick="javascript:window.location.href='${ctx}/myArticle'">
             </div>
             <div class="userInf"  id="unlog-userInf">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"v-bind:class="{hide:registed}">

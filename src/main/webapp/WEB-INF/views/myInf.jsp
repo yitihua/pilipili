@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 张慧
-  Date: 2019/6/2
-  Time: 21:47
+  Date: 2019/6/3
+  Time: 11:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,10 +19,9 @@
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
-    <link href="${ctx}/static/css/myArticle.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/myInf.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
-<body>
 <div class="contenter">
     <div class="news-topnav">
         <div class="widthfix">
@@ -42,50 +41,26 @@
                     <div class="menu-myName">${user.username}</div>
                 </div>
                 <ul class="menu-body menu-body-nomal" onselectstart="return flase">
-                    <li onclick="javascript:window.location.href='${ctx}/myInf'">
+                    <li>
                         个人信息
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/myComment'">
+                    <li>
                         我的评论
                     </li>
                 </ul>
                 <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
-                    <li onclick="javascript:window.location.href='${ctx}/myArticle'">
-                    文章管理
+                    <li>
+                        文章管理
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
-                    评论管理
+                    <li>
+                        评论管理
                     </li>
                 </ul>
             </div>
-            <div class="main-content" id="myarticle-area">
-                <div class="article-search"></div>
-                <ul class="article-list">
-                    <li class="article-empty-nav" v-bind:class="{hide:!noArticle}">
-                        这里什么都没有呀
-                    </li>
-                    <c:forEach var="article" items="${articleList}">
-                        <li class="article-nav" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
-                            <div class="article-title">
-                                <a>${article.title}</a>
-                            </div>
-                            <div class="atricle-inf">
-                                <span>
-                                    ${article.createAt}
-                                </span>
-                                <span>
-                                    评论数：
-                                </span>
-                                <span class="span-btn eidt-btn">
-                                        编辑
-                                </span>
-                                <span class="span-btn remove-btn">
-                                        删除
-                                </span>
-                            </div>
-                        </li>
-                    </c:forEach>
-                </ul>
+            <div class="main-content">
+                <div class="inf-body">
+
+                </div>
             </div>
         </div>
     </div>
@@ -93,8 +68,5 @@
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/sideMenu.js"></script>
-<script src="${ctx}/static/js/myArticle.js"></script>
-<script>
-    if(${articleList})myArticleVM.noArticle =false;
-</script>
+<script src="${ctx}/static/js/myInf.js"></script>
 </html>

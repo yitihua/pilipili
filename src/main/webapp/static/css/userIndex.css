@@ -1,0 +1,11 @@
+@charset 'utf-8';
+.main-body{
+    position: relative;
+    top:46px;
+}
+.main-content{
+    margin-left: 202px;
+    padding: 0 20px;
+    border:1px #ccc solid;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
