@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/newsList.css"/>
     <link href="${ctx}/static/css/iconfont.css" rel="stylesheet" type="text/css" />
     <script>
-        var ctx=${ctx}
+        var ctx="${ctx}"
     </script>
     <script></script>
     <script src="${ctx}/static/vue/vue.js"></script>
@@ -70,7 +70,10 @@
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}' action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
                                     <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()" name="username" class="register-name"><br>
-                                    <span><img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}" class="nametip"/><span v-html="nametip"></span></span><br>
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}" class="nametip"/>
+                                        <span v-html="nametip"></span>
+                                    </span><br>
                                     <p>性别</p>
                                     <input type="radio" name="gender" value="男" class="log-radio">男
                                     <input type="radio" name="gender" value="女" class="log-radio">女
@@ -85,8 +88,10 @@
                                     </select><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
                                                     v-on:keyup="ptip()" name="password" class="register-pwd"><br>
-                                    <span v-html="pwdtip"></span>
-
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:pwdwrong}" class="nametip"/>
+                                        <span v-html="pwdtip"></span>
+                                    </span><br>
                                 </div>
                                 <div class="login-btns">
                                     <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
@@ -199,6 +204,7 @@
 <script src="${ctx}/static/js/carousel.js"></script>
 <script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/newsList.js"></script>
+<script src="${ctx}/static/js/login.js"></script>
 </body>
 <script>
     if("${loginFail}"){

@@ -59,7 +59,9 @@
                 </ul>
             </div>
             <div class="main-content" id="myarticle-area">
-                <div class="article-search"></div>
+                <div class="article-search">
+                    <span onclick="javascript:window.location.href='${ctx}/add'">新增</span>
+                </div>
                 <ul class="article-list">
                     <li class="article-empty-nav" v-bind:class="{hide:!noArticle}">
                         这里什么都没有呀
