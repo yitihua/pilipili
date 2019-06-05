@@ -64,7 +64,7 @@
         <property name="filterChainDefinitions">
             <value>
                 <!--关闭过滤-->
-                <!--/** = anon-->
+                /** = anon
                 <!--游客可见-->
                 /index = anon
                 /article/view/** = anon
