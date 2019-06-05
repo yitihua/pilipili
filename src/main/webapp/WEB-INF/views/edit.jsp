@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 张慧
-  Date: 2019/6/4
-  Time: 12:47
+  Date: 2019/6/5
+  Time: 17:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -60,7 +60,7 @@
                 </ul>
             </div>
             <div class="main-content clearfix" id="myarticle-area">
-                <div class="title"><span>标题</span><input type="text" class="title-text"></div>
+                <div class="title"><span>标题</span><input type="text" class="title-text" value="${news.title}"></div>
                 <div class="type-btns">
                     <input type="checkbox" name="type" id="英剧" value="英剧"><label for="英剧">英剧</label>
                     <input type="checkbox" name="type" id="美剧" value="美剧"><label for="美剧">美剧</label>
@@ -72,8 +72,11 @@
                 </div>
                 <div id="editor-tools" class="editor-tools">
                 </div>
-                <div id="editor-text" class="editor-text"></div>
+                <div id="editor-text" class="editor-text">
+                    ${news.content}
+                </div>
                 <button id="btn1" class="submit-btn">提交</button>
+                <input type="checkbox" >
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
@@ -96,3 +99,4 @@
     editor.create();
 </script>
 </html>
+

@@ -26,7 +26,7 @@
 <div class="contenter">
     <div class="news-topnav">
         <div class="widthfix">
-                <span class="news-logo">
+                <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="static/img/CN_bilibiliB.png">
                 </span>
             <span class="icon">
@@ -50,7 +50,7 @@
                     </li>
                 </ul>
                 <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
-                    <li onclick="javascript:window.location.href='${ctx}/myArticle'">
+                    <li onclick="javascript:window.location.href='${ctx}/myArticle'" class="bc-highlight">
                     文章管理
                     </li>
                     <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
@@ -60,11 +60,18 @@
             </div>
             <div class="main-content" id="myarticle-area">
                 <div class="article-search">
-                    <span onclick="javascript:window.location.href='${ctx}/add'">新增</span>
+                    <form action="#" method="post" class="article-search">
+                        <input type="text" name="search" class="article-search-text">
+                        <input type="submit" value="查找" class="article-search-btn">
+                    </form>
+                    <span class="article-add-btn" onclick="javascript:window.location.href='${ctx}/add'">
+                        <img src="static/img/addnav.png"/>
+                        新增
+                    </span>
                 </div>
                 <ul class="article-list">
                     <li class="article-empty-nav" v-bind:class="{hide:!noArticle}">
-                        这里什么都没有呀
+                        <img src="static/img/none.jpg" style="width: 300px">
                     </li>
                     <c:forEach var="article" items="${articleList}">
                         <li class="article-nav" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
@@ -78,7 +85,7 @@
                                 <span>
                                     评论数：
                                 </span>
-                                <span class="span-btn eidt-btn">
+                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit'">
                                         编辑
                                 </span>
                                 <span class="span-btn remove-btn">

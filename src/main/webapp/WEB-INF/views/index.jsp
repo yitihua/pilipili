@@ -75,9 +75,9 @@
                                         <span v-html="nametip"></span>
                                     </span><br>
                                     <p>性别</p>
-                                    <input type="radio" name="gender" value="男" class="log-radio">男
-                                    <input type="radio" name="gender" value="女" class="log-radio">女
-                                    <input type="radio" name="gender" value="保密" class="log-radio">保密<br>
+                                    <input type="radio" name="gender" value="男" id="male" class="log-radio"><label for="male">男</label>
+                                    <input type="radio" name="gender" value="女" id="female" class="log-radio"><label for="female">女</label>
+                                    <input type="radio" name="gender" value="保密" id="secret" class="log-radio"><label for="secret">保密</label><br>
                                     <p>学历</p>
                                     <select name="education">
                                         <option value ="无">无</option>

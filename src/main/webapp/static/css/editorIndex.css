@@ -39,5 +39,13 @@ code {
 pre code {
     display: block;
 }
-
+.editor-tools{
+    height: 30px;
+    font-size: 18px;
+    border: 1px #cccccc solid;
+}
+.editor-text{
+    height: 550px;
+    border: 1px #cccccc solid;
+}
 

@@ -24,6 +24,7 @@
     width:160px;
     height: 40px;
     text-align: center;
+    font-size: 18px;
 }
 .menu-body li{
     display:block;
@@ -36,6 +37,8 @@
 }
 .menu-body li:hover{
     cursor: pointer;
+    background-color: #78a9f3;
+    color: white;
 }
 .menu-body-nomal{
     top:240px;
@@ -50,4 +53,8 @@
 }
 .highH{
     height: 380px;
+}
+.bc-highlight{
+    background-color: #78a9f3;
+    color: white;
 }
