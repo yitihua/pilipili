@@ -41,7 +41,7 @@ public class LoginController {
         }catch (Exception e){
             model.addAttribute("loginFail","登录失败");
             e.printStackTrace();
-            return "index";
+            return "/error";
         }
         User u = (User) subject.getPrincipal();
         httpSession.setAttribute("user",u);

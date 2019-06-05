@@ -137,7 +137,8 @@ form{
     color: red
 }
 .userInf{
-    float:right;
+    float: right;
+    right: 0px;
     text-align: center;
 }
 .icon{

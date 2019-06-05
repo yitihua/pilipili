@@ -54,7 +54,7 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/index"/>
         <property name="successUrl" value="/list.jsp"/>
-        <property name="unauthorizedUrl" value="/unauthorized"/>
+        <property name="unauthorizedUrl" value="/noAuthority"/>
         <!--
         	配置哪些页面需要受保护.
         	以及访问这些页面需要的权限.
@@ -66,9 +66,12 @@
                 <!--关闭过滤-->
                 /** = anon
                 <!--游客可见-->
-                /index = anon
-                /article/view/** = anon
                 /static/** = anon
+                /index = anon
+                /register = anon
+                /login = anon
+                /error = anon
+                /article/view/** = anon
                 <!--指定角色访问-->
                 /admin/** = roles[admin]
                 <!--登出-->

@@ -39,7 +39,6 @@ public class User extends IdEntity {
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Set<Role> roles = new HashSet<Role>();
-    private String salt;
 
     public User(){}
     public User(String username,String password){
@@ -110,13 +109,6 @@ public class User extends IdEntity {
         this.roles = roles;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
 
 
 }

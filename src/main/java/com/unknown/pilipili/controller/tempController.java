@@ -14,7 +14,7 @@ import javax.servlet.ServletRequest;
  * @version 1.0, 2019/6/5 0:30
  */
 @Controller
-@RequestMapping("/unauthorized")
+@RequestMapping("/error")
 public class tempController {
     @Autowired
     private NewsService newsService;
@@ -22,6 +22,6 @@ public class tempController {
     private UserService userService;
     @RequestMapping("")
     public String show(Model model, ServletRequest request){
-        return "/unauthorized";
+        return "/error";
     }
 }

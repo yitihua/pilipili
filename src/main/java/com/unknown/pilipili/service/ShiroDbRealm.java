@@ -3,7 +3,6 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
-import com.unknown.pilipili.util.Encodes;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -39,7 +38,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
         User user = userService.findUserByUsername(token.getUsername());
 
         if(user!=null){
-            byte[] salt = Encodes.decodeHex(user.getSalt());
+            //byte[] salt = Encodes.decodeHex(user.getSalt());
             Object principal = user.getUsername();
             Object credentials = user.getPassword();
             AuthenticationInfo info = new SimpleAuthenticationInfo(principal,

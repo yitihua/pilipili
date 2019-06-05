@@ -152,6 +152,7 @@ select::-ms-expand {
 /* 右 */
 .content-column{
     position: absolute;
+    z-index: -1;
     right: 0px;
     width: 337px;
 }

@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-没有权限
+抱歉，没有权限访问该资源！
 </body>
 </html>

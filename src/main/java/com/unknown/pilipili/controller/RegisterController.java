@@ -60,7 +60,7 @@ public class RegisterController {
         }
         else {
             model.addAttribute("registerFail","用户名已被占用");
-            return "redirect:/index";
+            return "/error";
         }
     }
 }

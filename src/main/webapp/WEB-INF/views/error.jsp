@@ -5,6 +5,6 @@
     <title>提示</title>
 </head>
 <body>
-抱歉，没有权限访问该资源！<br>
+error<br>
 </body>
 </html>
