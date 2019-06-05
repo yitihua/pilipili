@@ -15,8 +15,8 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
@@ -26,19 +26,25 @@ import java.io.Serializable;
  * @author <b>顾思宇</b>
  * @version 1.0, 2019/6/3 18:44
  */
-
+@Component
 public class ShiroDbRealm extends AuthorizingRealm {
+    @Autowired
     protected AccountService accountService;
+    @Autowired
     protected UserService userService;
     //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         User user = userService.findUserByUsername(token.getUsername());
+
         if(user!=null){
             byte[] salt = Encodes.decodeHex(user.getSalt());
-            return new SimpleAuthenticationInfo(new ShiroUser(user.getId(),user.getUsername()),
-                    user.getPassword(), ByteSource.Util.bytes(salt),getName());
+            Object principal = user.getUsername();
+            Object credentials = user.getPassword();
+            AuthenticationInfo info = new SimpleAuthenticationInfo(principal,
+                    credentials,getName());
+            return info;
         }else {
             throw new UnknownAccountException();
         }

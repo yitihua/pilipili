@@ -60,14 +60,16 @@ var vm = new Vue({
         closeForm:function(){
             this.seeme = false;
         },
-        logOrRegist:function(){
+        /*logOrRegist:function(){
             if(this.actived){
                 // 登录的跳转
-                window.location.href=`${ctx}/login`
+                console.log("a")
+                window.location.href=`${ctx}/userAuth/login`
+                console.log("aa")
             }else{
                 // 注册的跳转
                 window.location.href=`${ctx}/register`
             }
-        }
+        }*/
     }
 })
