@@ -27,6 +27,7 @@
     <script></script>
     <script src="${ctx}/static/vue/vue.js"></script>
     <script src="${ctx}/static/js/indexStart.js"></script>
+    <script src="${ctx}/static/js/dateFormat.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,7 @@
                 <input type="text" class="search">
                 <input type="button" class="btn-red" value="搜 索" onclick="javascript:window.location.href='${ctx}/myArticle'">
             </div>
-            <div class="userInf"  id="unlog-userInf">
+            <div class="userInf"  id="unlog-userInf clearfix">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"v-bind:class="{hide:registed}">
                 <!-- login&&register -->
                 <div class="login" id="login" v-bind:class="{seeme:seeme}">
@@ -106,8 +107,14 @@
             <!-- login&&regist结束 -->
             <!-- 登录后的用户信息栏 -->
             <div class="userInf" v-bind:class="{hide:!registed}">
-                <div class="icon"><img src="static/img/indexPhoto.png"></div>
+                <div class="icon" style="background-image: url('static/img/indexPhoto.png')"></div>
                 <span class="userInf-name clearfix">${user.username}<span></span></span>
+                <div class="userInf-drop-down">
+                    <span class="userInf-drop-down-name">${user.username}</span>
+                    <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
+                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <spanonclick="javascript:window.location.href='${ctx}/'">登出</span>
+                </div>
             </div>
             <!-- 登录后的用户信息栏结束 -->
         </div>
@@ -166,7 +173,8 @@
                                         <div class="news-title">${news.title}</div>
                                         <div class="news-inf">
                                             <p class="news-author">${news.author.username}</p>
-                                            <p class="news-time">上传时间${news.createAt}</p>
+                                            <script>var time = getgetDateDiff("${news.createAt}")</script>
+                                            <p class="news-time">上传时间<script>document.write(time)</script></p>
                                             <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                         </div>
                                     </div>
