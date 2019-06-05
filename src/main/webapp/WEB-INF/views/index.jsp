@@ -113,7 +113,7 @@
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
                     <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
-                    <spanonclick="javascript:window.location.href='${ctx}/logout'">登出</span>
+                    <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
                 </div>
             </div>
             <!-- 登录后的用户信息栏结束 -->
