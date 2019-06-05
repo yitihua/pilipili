@@ -58,6 +58,7 @@ form{
 }
 .login-boxs{
     position:relative;
+    text-align: left;
     left: 0px;
 }
 .login-box-2{
