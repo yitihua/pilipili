@@ -43,6 +43,7 @@ public class ShiroRealm extends AuthorizingRealm {
                 info.addRole(role.getName());
             }
         }
+
         return info;
 
     }

@@ -21,7 +21,7 @@
 	
 <!-- navigation -->
 	<div class="nav-top">
-		<a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
+		<a class="navbar-brand" href="" >PiliPili</a>
 		<ul class="navtop-items">
 			<li class="navtop-item">
 				<a href="" class="message">
@@ -40,11 +40,11 @@
 	</div>
 <div class="nav-side">
     <ul id="nav-side">
-        <li class="nav-item">
-            <a class="sidenav-first-level">
-                <span class="navside-text">新闻管理</span>
-                <i class="fa fa-angle-right "></i>
-            </a>
+        <%--<li class="nav-item">--%>
+            <%--<a class="sidenav-first-level">--%>
+                <%--<span class="navside-text">新闻管理</span>--%>
+                <%--<i class="fa fa-angle-right "></i>--%>
+            <%--</a>--%>
 
             <%--<ul class="sidenav-second-level">--%>
                 <%--<li class="nav-item">--%>
@@ -59,8 +59,12 @@
 
             <%--</ul>--%>
 
-        </li>
-
+        <%--</li>--%>
+		<li class="nav-item">
+			<a href="${ctx}/admin/index">
+				<span class="navside-text">新闻管理</span>
+			</a>
+		</li>
         <li class="nav-item">
             <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>

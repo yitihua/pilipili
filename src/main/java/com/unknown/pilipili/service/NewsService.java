@@ -1,6 +1,7 @@
 package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.repository.NewsRepository;
 import com.unknown.pilipili.repository.UserRepository;
@@ -33,7 +34,9 @@ public class NewsService {
     public List<News> findAll(){
         return (List<News>) newsRepository.findAll();
     }
-
+    public List<News> findNewsByType(Type type){
+        return newsRepository.findAllByType(type);
+    }
     public List<News> findNewsByAuthorName(String username){
         User u = userRepository.findUserByUsername(username);
         return newsRepository.findAllByAuthor(u);
