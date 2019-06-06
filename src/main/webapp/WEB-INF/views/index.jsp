@@ -130,7 +130,7 @@
         <div class="widthfix">
             <div class="menu">
                 <ul class="type">
-                    <li class="btn-red">首页</li>
+                    <li class="bottom-red">首页</li>
                     <c:forEach items="${typeList}" var="type">
                         <li>${type.name}</li>
                     </c:forEach>
