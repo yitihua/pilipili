@@ -123,6 +123,16 @@ a {
     width: 580px;
     height: 35px;
 }
+.comment-commentator-name{
+    color: #78a9f3;
+    font-size: 16px;
+}
+.comment-commentator-level{
+    position: absolute;
+    font-size: 14px;
+    top: 2px;
+    right: 45px;
+}
 .comment-commentator a{
     font-size: 16px;
     color: #78a9f3;
@@ -134,6 +144,9 @@ a {
 .comment-reply{
     background-color: #eee;
     margin-top: 10px;
+}
+.comment-text{
+    font: 14px/24px PingFangSC-Regular,Microsoft YaHei,Arial,\\5B8B体,Arial Narrow;
 }
 /* reply */
 .reply-btn{
@@ -164,6 +177,10 @@ a {
 }
 .reply-inf{
     position: relative;
+    line-height: 35px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #cccccc;
 }
 .reply-form{
     position: relative;
@@ -174,6 +191,14 @@ a {
 .reply-area{
     position: absolute;
     top:0px;
+}
+.reply-textfield{
+    font-size: 14px;
+    line-height: 35px;
+    padding: 5px 10px;
+}
+.reply-textfield a{
+    color: #78a9f3;
 }
 .submit-btn{
     height: 35px;

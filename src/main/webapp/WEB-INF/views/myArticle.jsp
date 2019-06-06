@@ -73,7 +73,7 @@
                     <li class="article-empty-nav" v-bind:class="{hide:!noArticle}">
                         <img src="static/img/none.jpg" style="width: 300px">
                     </li>
-                    <c:forEach var="article" items="${articleList}">
+                    <c:forEach var="article" items="${newsList}">
                         <li class="article-nav" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
                             <div class="article-title">
                                 <a>${article.title}</a>

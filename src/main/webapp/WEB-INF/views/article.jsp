@@ -68,15 +68,15 @@
                             <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
                             <div class="comment-main">
                                 <div class="comment-commentator">
-                                        <span>
+                                    <span class="comment-commentator-name">
                                                 ${comment.author.username}
-                                        </span>
+                                    </span>
                                     <span>
                                             ${comment.createAt}
                                     </span>
-                                    <span>
+                                    <span class="comment-commentator-level">
                                             ${comment.level}楼
-                                        </span>
+                                    </span>
                                     <span class="reply-btn reply-btn-1" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
                                 </div>
                                     <%-- commentator inf end--%>
@@ -89,8 +89,8 @@
                                     <c:forEach var="reply" items="${comment.replies}">
                                         <div class="comment-reply">
                                             <div class="reply-textfield">
-                                                <a>${reply.author.username}</a>：回复<span>${reply.father.author.username}</span>
-                                                    ${reply.content}
+                                                <a>${reply.author.username}</a>回复：<a>${reply.father.author.username}</a><br>
+                                                <span>${reply.content}</span>
                                             </div>
                                             <div class="reply-inf">
                                                     <span>
