@@ -31,7 +31,7 @@
 
 <!-- navigation -->
 <div class="nav-top">
-    <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
+    <a class="navbar-brand" href="" >PiliPili</a>
     <ul class="navtop-items">
         <li class="navtop-item">
             <a href="" class="message">
@@ -50,10 +50,11 @@
 </div>
 <div class="nav-side">
     <ul id="nav-side">
-        <li class="nav-item">
-            <a class="sidenav-first-level" herf="${ctx}/admin/index">
-                <span class="navside-text">新闻管理</span>
-                <i class="fa fa-angle-right "></i>
+        <%--<li class="nav-item">--%>
+            <%--&lt;%&ndash;<a class="sidenav-first-level" herf="${ctx}/admin/index">&ndash;%&gt;--%>
+            <%--<a  herf="${ctx}/admin/index">--%>
+            <%--<span class="navside-text">新闻管理</span>--%>
+            <%--<i class="fa fa-angle-right "></i>--%>
             </a>
 
             <%--<ul class="sidenav-second-level">--%>
@@ -69,8 +70,12 @@
 
             <%--</ul>--%>
 
+        <%--</li>--%>
+        <li class="nav-item">
+            <a href="${ctx}/admin/index">
+                <span class="navside-text">新闻管理</span>
+            </a>
         </li>
-
         <li class="nav-item">
             <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
@@ -119,8 +124,11 @@
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="name"></li>
+               <li>
+                   <label>英文名：</label>
+                   <input type="text" name="engName"></li>
 
-                <a value="确认添加" class="button" onclick="document:addform.submit()"></a>
+                <a class="button" onclick="document:addform.submit()">确认添加</a>
                 <a id="closeBtn" class="button">取消添加</a>
             </form>
         </div>
@@ -135,6 +143,10 @@
                     <lable>栏目名称：</lable>
                     <input type="text" name="name" value="${type.name}">
                 </li>
+                <li>
+                    <lable>英文名：</lable>
+                    <input type="text" name="engName" value="${type.engName}">
+                </li>
 
                     <a class="button" name="" onclick="document:editform.submit()">确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
@@ -148,7 +160,7 @@
                     <h1>提示</h1>
                 </div>
                 <div class="txtBox">
-                    <p>你确定要删除该用户吗？？？（小心挨打</p>
+                    <p>你确定要删除该目录吗？？？（小心挨打</p>
                 </div>
                 <div class="btnArea">
                     <div class="btnArea">
@@ -186,6 +198,7 @@
                             <tr>
                                 <th>编号</th>
                                 <th>类名</th>
+                                <th>英文名</th>
                                 <th colspan="2" >操作</th>
                             </tr>
                             </thead>
@@ -194,6 +207,7 @@
                                 <tr>
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>
+                                    <td>${type.engName}</td>
                                     <td><a >编辑</a></td>
                                     <td><a id="delect">删除</a></td>
                                 </tr>
