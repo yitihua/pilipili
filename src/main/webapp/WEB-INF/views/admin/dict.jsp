@@ -115,7 +115,7 @@
 
         <!-- 弹出窗口-添加字典 -->
         <div id="add-box">
-            <form action="${ctx}/dataDictionary/createDict" method="post" id="addDictform">
+            <form action="${ctx}/admin/dict/createDict" method="post" id="addDictform">
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type"></li>
@@ -135,7 +135,7 @@
         </div>
         <%--弹框-修改字典--%>
         <div id="edit-box">
-            <form id="editDictform">
+            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}>
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type" value="${dict.type}">
@@ -157,7 +157,7 @@
         </div>
 
         <!-- 弹出窗口-删除字典 -->
-        <div id="delect-box">
+        <div id="delect-box" action="${ctx}/admin/dict/delect/${dict.id}>
             <form id="delectDictform">
                 <div class="ttBox">
                     <h1>提示</h1>

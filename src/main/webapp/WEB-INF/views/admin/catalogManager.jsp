@@ -115,7 +115,7 @@
 
         <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form action="${ctx}/admin/dataDictionary/createType" method="post" id="addform">
+            <form action="${ctx}/admin/catalogManager/createType" method="post" id="addform">
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="type"></li>
