@@ -47,7 +47,7 @@
     <bean id="filterChainDefinitionMap"
           factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"/>
 
-    <!-- 配置一个bean，该bean实际上是一个Map，通过实例工厂方法的方式 -->
+    <!-- 配置地址权限映射 -->
     <bean id="filterChainDefinitionMapBuilder"
           class="com.unknown.pilipili.shiro.FilterChainDefinitionMapBuilder"/>
 

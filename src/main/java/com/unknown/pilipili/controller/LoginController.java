@@ -1,6 +1,6 @@
 package com.unknown.pilipili.controller;
 
-import com.unknown.pilipili.shiro.ShiroRealm;
+import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -42,7 +42,7 @@ public class LoginController {
             e.printStackTrace();
             return "/error";
         }
-        ShiroRealm.ShiroUser u = (ShiroRealm.ShiroUser) subject.getPrincipal();
+        User u = (User) subject.getPrincipal();
         httpSession.setAttribute("user",u);
         model.addAttribute("loginSuccess","登录成功");
         return "redirect:/index";
