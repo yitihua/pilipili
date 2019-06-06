@@ -20,6 +20,11 @@ public class Role extends IdEntity {
     public Role() {
     }
 
+    public Role(String name, Constants.Status status) {
+        this.name = name;
+        this.status = status;
+    }
+
     public String getName() {
         return name;
     }

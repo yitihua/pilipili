@@ -1,57 +1,44 @@
-package com.unknown.pilipili.service;
-
+package com.unknown.pilipili.shiro;
 
 import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
+import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.io.Serializable;
 
+public class ShiroRealm extends AuthorizingRealm {
+    @Autowired
+    private UserService userService;
 
-/**
- * @author <b>顾思宇</b>
- * @version 1.0, 2019/6/3 18:44
- */
-@Component
-public class ShiroDbRealm extends AuthorizingRealm {
-    @Autowired
-    protected AccountService accountService;
-    @Autowired
-    protected UserService userService;
-    //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         User user = userService.findUserByUsername(token.getUsername());
 
         if(user!=null){
-            //byte[] salt = Encodes.decodeHex(user.getSalt());
-            Object principal = user.getUsername();
-            Object credentials = user.getPassword();
-            AuthenticationInfo info = new SimpleAuthenticationInfo(principal,
-                    credentials,getName());
+            ByteSource credentialsSalt = ByteSource.Util.bytes(user.getUsername());
+            AuthenticationInfo info = new SimpleAuthenticationInfo(new ShiroUser(user.getId(),user.getUsername()),
+                    user.getPassword(),credentialsSalt,getName());
             return info;
         }else {
             throw new UnknownAccountException();
         }
     }
-    //授权
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection princials){
-        ShiroUser shiroUser = (ShiroUser) princials.getPrimaryPrincipal();
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
         User user = userService.findUserByUsername(shiroUser.getUsername());
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         if(user.getRoles()!=null){
@@ -60,16 +47,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
             }
         }
         return info;
-    }
-    @PostConstruct
-    public void initCredentialsMatcher(){
-        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(AccountService.HASH_ALGORITHM);
-        matcher.setHashIterations(AccountService.HASH_INTERATIONS);
-        setCredentialsMatcher(matcher);
-    }
 
-    @Autowired
-    public void setAccountService(AccountService accountService){this.accountService = accountService;}
+    }
 
     public static class ShiroUser implements Serializable {
         private static final long serivalVersionUID = -1373760761780840081L;
@@ -98,6 +77,4 @@ public class ShiroDbRealm extends AuthorizingRealm {
             this.username = username;
         }
     }
-
 }
-

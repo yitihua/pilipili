@@ -2,6 +2,7 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.repository.RoleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RoleService {
+    @Autowired
     private RoleRepository roleRepo;
     public Role findRoleByName(String name){
         return roleRepo.findRoleByName(name);

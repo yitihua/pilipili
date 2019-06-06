@@ -1,6 +1,6 @@
 package com.unknown.pilipili.controller;
 
-import com.unknown.pilipili.domain.User;
+import com.unknown.pilipili.shiro.ShiroRealm;
 import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -34,7 +34,6 @@ public class LoginController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         try{
-            User u = userService.findUserByUsername(username);
             AuthenticationToken token = new UsernamePasswordToken(username,password);
             ((UsernamePasswordToken) token).setRememberMe(true);
             subject.login(token);
@@ -43,7 +42,7 @@ public class LoginController {
             e.printStackTrace();
             return "/error";
         }
-        User u = (User) subject.getPrincipal();
+        ShiroRealm.ShiroUser u = (ShiroRealm.ShiroUser) subject.getPrincipal();
         httpSession.setAttribute("user",u);
         model.addAttribute("loginSuccess","登录成功");
         return "redirect:/index";
