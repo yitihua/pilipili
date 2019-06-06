@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
@@ -129,21 +129,21 @@
                             <tr>
                                 <th>用户名</th>
                                 <th>级别</th>
-                                <th colspan="2" >操作</th>
+                                <th colspan="2">操作</th>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach items="${userList}" var="user">
-                            <tr>
-                                <td>${user.username}</td>
-                                <td>
-                                       <c:forEach items="${user.roles}" var="role">
-                                           ${role.name}
-                                       </c:forEach>
-                                </td>
-                                <td><a id="change-authority" >更改权限</a></td>
-                                <td><a id="delect">删除</a></td>
-                            </tr>
+                                <tr>
+                                    <td>${user.username}</td>
+                                    <td>
+                                        <c:forEach items="${user.roles}" var="role">
+                                            ${role.name}
+                                        </c:forEach>
+                                    </td>
+                                    <td><a id="change-authority">更改权限</a></td>
+                                    <td><a id="delect">删除</a></td>
+                                </tr>
                             </c:forEach>
                             </tbody>
                         </table>
@@ -156,8 +156,9 @@
                                     <input type="text" name="username" value=""></li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <select class="easyui-combobox"  name="roles" id="refundReason"
-                                            style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+                                    <select class="easyui-combobox" name="roles" id="refundReason"
+                                            style="resize: none"
+                                            data-options="width:220,height:30,editable:false,panelHeight:'auto'">
                                         <c:forEach items="${userList}" var="user">
                                             <option value="${user.roles}">${user.roles}</option>
                                         </c:forEach>
@@ -176,9 +177,10 @@
                                     <input type="text" name="username" value="${user.username}"></li>
                                 <li>
                                     <lable>更改权限：</lable>
-                                    <input type="hidden" id ="selectRefundReason" value="${user.roles}"/>
-                                    <select class="easyui-combobox"  name="roles" id="refundReason"
-                                            style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+                                    <input type="hidden" id="selectRefundReason" value="${user.roles}"/>
+                                    <select class="easyui-combobox" name="roles" id="refundReason"
+                                            style="resize: none"
+                                            data-options="width:220,height:30,editable:false,panelHeight:'auto'">
                                         <c:forEach items="${userList}" var="user">
                                             <option value="${user.roles}">${user.roles}</option>
                                         </c:forEach>
@@ -204,21 +206,23 @@
                                         <a class="button" id="closeBtn3">取消删除</a>
                                     </div>
                                 </div>
-                            </form></div>
-
-
+                            </form>
+                        </div>
 
 
                         <!-- 分页 -->
                         <div class="row">
                             <ul class="pagination">
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link"
+                                       id="dataTable_previous disabled">Previous</a></li>
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a>
+                                </li>
 
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0"
+                                       class="page_link next" id="dataTable_next">Next</a></li>
                             </ul>
                         </div>
                     </form>
@@ -230,13 +234,7 @@
     </div><!-- container-fluid -->
 
 
-
-
-
-
-
 </div>
-
 
 
 </div>
@@ -246,12 +244,13 @@
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
 <%--根据后台显示权限--%>
 <script type="text/javascript">
-    $(document).ready(function(){
-        var key=$("#selectRefundReason").val();
+    $(document).ready(function () {
+        var key = $("#selectRefundReason").val();
         //根据值让option选中
-        $("#refundReason option[value='"+key+"']").attr("selected","selected");
+        $("#refundReason option[value='" + key + "']").attr("selected", "selected");
     });
 </script>
 
 </body>
 </html>
+</jsp:root>
