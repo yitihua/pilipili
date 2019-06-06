@@ -132,14 +132,9 @@
                 <ul class="type">
                     <li class="bottom-red">推荐</li>
                     <li>热点</li>
-                    <li>英剧</li>
-                    <li>美剧</li>
-                    <li>韩剧</li>
-                    <li>日剧</li>
-                    <li>国产</li>
-                    <li>泰剧</li>
-                    <li>番剧</li>
-                    <li>游戏</li>
+                    <c:forEach items="${typeList}" var="type">
+                        <li>${type.name}</li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
