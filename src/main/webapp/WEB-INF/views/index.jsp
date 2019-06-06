@@ -130,8 +130,7 @@
         <div class="widthfix">
             <div class="menu">
                 <ul class="type">
-                    <li class="bottom-red">推荐</li>
-                    <li>热点</li>
+                    <li class="btn-red">首页</li>
                     <c:forEach items="${typeList}" var="type">
                         <li>${type.name}</li>
                     </c:forEach>
