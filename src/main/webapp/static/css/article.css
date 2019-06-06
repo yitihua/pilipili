@@ -208,3 +208,8 @@ a {
     background: #78a9f3;
     color: white;
 }
+.comment-text img{
+    max-width: 100%;
+    display: block;
+    margin:auto;
+}
