@@ -74,12 +74,13 @@ select::-ms-expand {
 }
 .logo{
     float: left;
+    margin-top: 15px;
     width: 200px;
     font-size: 25px;
     font-family:"微软雅黑";
 }
 .logo img{
-    width: 200px;
+    width: 180px;
     transform: translateY(-30px);
 }
 .searchBox{
@@ -124,7 +125,7 @@ select::-ms-expand {
 }
 .type li{
     display: inline-block;
-    padding:13px 25px;
+    padding:13px 22px;
     font-size: 18px;
     font-family:"微软雅黑";
     -webkit-user-select:none;
