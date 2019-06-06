@@ -32,11 +32,12 @@ public class DictController {
     public String createDict(Model model, ServletRequest request){
         String type = request.getParameter("type");
         String name = request.getParameter("name");
+        String status = request.getParameter("status");
         Dict dict = new Dict(type,name);
-        switch (Integer.valueOf(request.getParameter("status"))){
-            case 0:
+        switch (status){
+            case "0":
                 dict.setStatus(Constants.Status.DISABLE);
-            case 1:
+            case "1":
                 dict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(dict);
@@ -48,10 +49,10 @@ public class DictController {
         newDict.setType(request.getParameter("type"));
         newDict.setName(request.getParameter("name"));
 
-        switch (Integer.valueOf(request.getParameter("status"))){
-            case 0:
+        switch (request.getParameter("status")){
+            case "0":
                 newDict.setStatus(Constants.Status.DISABLE);
-            case 1:
+            case "1":
                 newDict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(newDict);

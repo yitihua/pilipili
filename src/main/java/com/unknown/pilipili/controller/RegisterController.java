@@ -1,6 +1,7 @@
 package com.unknown.pilipili.controller;
 
 import com.unknown.pilipili.domain.Dict;
+import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.service.AccountService;
 import com.unknown.pilipili.service.DictService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author <b>顾思宇</b>
@@ -50,9 +53,9 @@ public class RegisterController {
 
             u = new User(username,password,gender,education);
 
-            /*Set<Role> roles = new HashSet<Role>();
+            Set<Role> roles = new HashSet<Role>();
             roles.add(roleService.findRoleByName("user"));
-            u.setRoles(roles);*/
+            u.setRoles(roles);
 
             accountService.save(u);
 
