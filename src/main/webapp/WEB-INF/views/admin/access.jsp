@@ -136,11 +136,9 @@
                             <c:forEach items="${userList}" var="user">
                                 <tr>
                                     <td>${user.username}</td>
-                                    <td>
-                                        <c:forEach items="${user.roles}" var="role">
+                                    <td><c:forEach items="${user.roles}" var="role">
                                             ${role.name}
-                                        </c:forEach>
-                                    </td>
+                                        </c:forEach></td>
                                     <td><a id="change-authority">更改权限</a></td>
                                     <td><a id="delect">删除</a></td>
                                 </tr>
@@ -160,8 +158,12 @@
                                             style="resize: none"
                                             data-options="width:220,height:30,editable:false,panelHeight:'auto'">
                                         <c:forEach items="${userList}" var="user">
-                                            <option value="${user.roles}">${user.roles}</option>
+                                            <c:forEach items="${user.roles}" var="role">
+                                                <option value="${role.name}">${role.name}</option>
+                                            </c:forEach>
+                                            <%--<option value="${user.roles}">${user.roles}</option>--%>
                                         </c:forEach>
+
                                     </select>
                                 </li>
                                 <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>>
@@ -182,7 +184,9 @@
                                             style="resize: none"
                                             data-options="width:220,height:30,editable:false,panelHeight:'auto'">
                                         <c:forEach items="${userList}" var="user">
-                                            <option value="${user.roles}">${user.roles}</option>
+                                            <c:forEach items="${user.roles}" var="role">
+                                                <option value="${role.name}">${role.name}</option>
+                                            </c:forEach>
                                         </c:forEach>
                                     </select>
                                 </li>
