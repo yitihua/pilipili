@@ -115,7 +115,7 @@
 
         <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form action="${ctx}/   " method="post" id="addform">
+            <form action="   " method="post" id="addform">
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="type"></li>
@@ -248,7 +248,7 @@
     $(function(){
 
         //add
-        $("#adType").click(function(){
+        $("#addType").click(function(){
             $('#add-box').show();
 
             //获取页面文档的高度
