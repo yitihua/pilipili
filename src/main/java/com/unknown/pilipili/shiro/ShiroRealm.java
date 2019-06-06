@@ -1,7 +1,8 @@
-package com.unknown.pilipili.service;
+package com.unknown.pilipili.shiro;
 
 import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
+import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

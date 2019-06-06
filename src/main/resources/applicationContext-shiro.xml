@@ -17,7 +17,7 @@
     </bean>
 
     <!--配置 Realm-->
-    <bean id="shiroRealm" class="com.unknown.pilipili.service.ShiroRealm">
+    <bean id="shiroRealm" class="com.unknown.pilipili.shiro.ShiroRealm">
         <property name="credentialsMatcher">
             <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
                 <property name="hashAlgorithmName" value="MD5"/>
@@ -42,32 +42,13 @@
         <property name="loginUrl" value="/index"/>
         <property name="successUrl" value="/list.jsp"/>
         <property name="unauthorizedUrl" value="/noAuthority"/>
-        <property name="filterChainDefinitions">
-            <value>
-                <!--关闭过滤-->
-                <!--/** = anon-->
-
-                <!--游客可见-->
-                /static/** = anon
-                /index = anon
-                /register = anon
-                /login = anon
-                /error = anon
-                /article/view/** = anon
-
-                <!--指定角色访问-->
-                /admin/** = roles[admin]
-
-                <!--登出-->
-                /logout = logout
-
-                <!--登录可见-->
-                /** = authc
-            </value>
-        </property>
-
-
+        <property name ="filterChainDefinitionMap" ref="filterChainDefinitionMap"/>
     </bean>
+    <bean id="filterChainDefinitionMap"
+          factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"/>
 
+    <!-- 配置一个bean，该bean实际上是一个Map，通过实例工厂方法的方式 -->
+    <bean id="filterChainDefinitionMapBuilder"
+          class="com.unknown.pilipili.shiro.FilterChainDefinitionMapBuilder"/>
 
 </beans>

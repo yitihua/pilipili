@@ -1,6 +1,6 @@
 package com.unknown.pilipili.controller;
 
-import com.unknown.pilipili.service.ShiroRealm;
+import com.unknown.pilipili.shiro.ShiroRealm;
 import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
