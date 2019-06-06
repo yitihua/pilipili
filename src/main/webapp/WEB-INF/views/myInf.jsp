@@ -70,8 +70,8 @@
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">性别</span>
-                        <p>${user.gender}<span class="inf-update-btn" v-on:click="turnGenderBox">{{genderfix}}</span></p>
-                        <form method="post" action="#" v-bind:class="{hide:genderBox}" class="gender-form">
+                        <p>${user.gender.name}<span class="inf-update-btn" v-on:click="turnGenderBox">{{genderfix}}</span></p>
+                        <form method="post" action="${ctx}/myInf/editGender" v-bind:class="{hide:genderBox}" class="gender-form">
                             <input name="gender" type="radio" value="男" id="male"><label for="male">男</label><br>
                             <input name="gender" type="radio" value="女" id="female"><label for="female">女</label><br>
                             <input name="gender" type="radio" value="保密" id="secret"><label for="secret">保密</label><br>
@@ -80,8 +80,8 @@
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">学历</span>
-                        <p>${user.education}<span class="inf-update-btn" v-on:click="turnEducationBox">{{educationfix}}</span></p>
-                        <form v-bind:class="{hide:educationBox}" class="edu-form">
+                        <p>${user.education.name}<span class="inf-update-btn" v-on:click="turnEducationBox">{{educationfix}}</span></p>
+                        <form method="post" action="${ctx}/myInf/editEducation" v-bind:class="{hide:educationBox}" class="edu-form">
                             <select name="education" required="required">
                                 <option value="无">无</option>
                                 <option value="小学">小学</option>

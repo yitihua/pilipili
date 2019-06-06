@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 
@@ -41,6 +42,9 @@
                 <input type="text" class="search">
                 <input type="button" class="btn-red" value="搜 索" onclick="javascript:window.location.href='${ctx}/myArticle'">
             </div>
+            <shiro:hasRole name="admin">
+                <a href="${ctx}/admin/index" class="admin-page">管理员界面</a>
+            </shiro:hasRole>
             <div class="userInf"  id="unlog-userInf clearfix">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"v-bind:class="{hide:registed}">
                 <!-- login&&register -->
@@ -61,7 +65,8 @@
                                 <div class="login-box login-box-1">
                                     <span class="logtip" id="logtip"></span>
                                     <p>用户名</p><input type="text" name="username" id="username"><br>
-                                    <p>密码</p><input type="password" name="password" id="password">
+                                    <p>密码</p><input type="password" name="password" id="password"><br>
+                                    <input type="checkbox" name="rememberMe" id="rememberMe" style="width: 20px"><label for="rememberMe">记住我</label>
                                 </div>
                                 <div class="login-btns">
                                     <input type="button" value="返回" class="login-btns2" v-on:click="closeForm()" />
@@ -106,8 +111,9 @@
             </div>
             <!-- login&&regist结束 -->
             <!-- 登录后的用户信息栏 -->
+
             <div class="userInf" v-bind:class="{hide:!registed}">
-                <div class="icon" style="background-image: url('static/img/indexPhoto.png')"></div>
+                <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
                 <span class="userInf-name clearfix">${user.username}<span></span></span>
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>

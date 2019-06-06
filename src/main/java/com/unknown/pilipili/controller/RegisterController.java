@@ -3,7 +3,6 @@ package com.unknown.pilipili.controller;
 import com.unknown.pilipili.domain.Dict;
 import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
-import com.unknown.pilipili.service.AccountService;
 import com.unknown.pilipili.service.DictService;
 import com.unknown.pilipili.service.RoleService;
 import com.unknown.pilipili.service.UserService;
@@ -28,8 +27,6 @@ import java.util.Set;
 @RequestMapping(value = "/register")
 public class RegisterController {
     @Autowired
-    private AccountService accountService;
-    @Autowired
     private UserService userService;
     @Autowired
     private DictService dictService;
@@ -48,7 +45,7 @@ public class RegisterController {
             Dict gender = dictService.findDictByTypeAndName("性别",genderName);
             Dict education = dictService.findDictByTypeAndName("学历",educationName);
 
-            SimpleHash result = new SimpleHash(AccountService.HASH_ALGORITHM, password, ByteSource.Util.bytes(username), AccountService.HASH_INTERATIONS);
+            SimpleHash result = new SimpleHash(UserService.HASH_ALGORITHM, password, ByteSource.Util.bytes(username), UserService.HASH_INTERATIONS);
             password = result.toString();
 
             u = new User(username,password,gender,education);
@@ -57,7 +54,7 @@ public class RegisterController {
             roles.add(roleService.findRoleByName("user"));
             u.setRoles(roles);
 
-            accountService.save(u);
+            userService.save(u);
 
             return "redirect:/index";
         }
