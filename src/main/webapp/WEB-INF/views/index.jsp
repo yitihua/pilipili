@@ -132,7 +132,7 @@
                 <ul class="type">
                     <li class="bottom-red">首页</li>
                     <c:forEach items="${typeList}" var="type">
-                        <li>${type.name}</li>
+                        <li id="${type.engName}">${type.name}</li>
                     </c:forEach>
                 </ul>
             </div>

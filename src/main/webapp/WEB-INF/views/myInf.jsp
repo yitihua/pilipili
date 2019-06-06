@@ -52,7 +52,7 @@
                     <li onclick="javascript:window.location.href='${ctx}/myArticle'">
                         文章管理
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
+                    <li onclick="javascript:window.location.href='${ctx}/myComment'">
                         评论管理
                     </li>
                 </ul>

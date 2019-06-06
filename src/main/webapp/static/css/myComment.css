@@ -1,0 +1,11 @@
+@charset "utf-8";
+.comment-list{
+    font-size:16px;
+    line-height: 30px;
+}
+.commentator{
+    color: #78a9f3;
+}
+.comment-inf{
+    color: #bbb;
+}

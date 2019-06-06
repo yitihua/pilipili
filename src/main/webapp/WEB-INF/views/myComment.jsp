@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 张慧
-  Date: 2019/6/2
-  Time: 21:47
+  Date: 2019/6/6
+  Time: 21:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,14 +12,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>我的文章</title>
+    <title>我的评论</title>
     <script>var ctx="${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
-    <link href="${ctx}/static/css/myArticle.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/myComment.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <body>
@@ -51,47 +51,44 @@
                 </ul>
                 <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
                     <li onclick="javascript:window.location.href='${ctx}/myArticle'" class="bc-highlight">
-                    文章管理
+                        文章管理
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/myComment'">
-                    评论管理
+                    <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
+                        评论管理
                     </li>
                 </ul>
             </div>
-            <div class="main-content" id="myarticle-area">
-                <div>
-                    <form action="#" method="post" class="article-search">
-                        <input type="text" name="search" class="article-search-text">
-                        <input type="submit" value="查找" class="article-search-btn">
-                    </form>
-                    <span class="article-add-btn" onclick="javascript:window.location.href='${ctx}/add'">
-                        <img src="static/img/addnav.png"/>
-                        新增
-                    </span>
-                </div>
-                <ul class="article-list">
-                    <li class="article-empty-nav" v-bind:class="{hide:noArticle}">
-                        <img src="static/img/none.jpg" style="width: 300px">
+            <div class="main-content" id="mycomment-area">
+                <ul class="comment-list">
+                    <%--<c:forEach var="comment" items="commentList">--%>
+                        <%--<li>--%>
+                            <%--<p>--%>
+                                <%--<span>我评论了</span>--%>
+                                <%--<span class="commentator">${comment.author.username}狗剩</span>:--%>
+                            <%--</p>--%>
+                            <%--<a>--%>
+                                <%--${comment.content}--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
+                    <%--</c:forEach>--%>
+                    <li>
+                        <p>
+                            <span>
+                                我评论了
+                            </span>
+                            <span class="commentator">
+                                大土豆
+                            </span>:<br>
+                            <span class="remove-btn"></span>
+                            <span></span>
+                            <a class="comment-content">
+                                你可真帅
+                            </a><br>
+                            <span class="comment-inf">
+                                2019-12-2
+                            </span>
+                        </p>
                     </li>
-                    <c:forEach var="article" items="${newsList}">
-                        <li class="article-nav">
-                            <div class="article-title" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
-                                <a>${article.title}</a>
-                            </div>
-                            <div class="atricle-inf">
-                                <span class="time-btn">
-                                    ${article.createAt}
-                                </span>
-                                <span class="span-btn remove-btn">
-                                        删除
-                                </span>
-                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
-                                        编辑
-                                </span>
-
-                            </div>
-                        </li>
-                    </c:forEach>
                 </ul>
             </div>
         </div>
@@ -100,8 +97,5 @@
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/sideMenu.js"></script>
-<script src="${ctx}/static/js/myArticle.js"></script>
-<script>
-    if(${articleList})myArticleVM.noArticle =false;
-</script>
+<%--<script src="${ctx}/static/js/myComment.js"></script>--%>
 </html>
