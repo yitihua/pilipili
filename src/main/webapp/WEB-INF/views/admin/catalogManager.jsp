@@ -115,7 +115,7 @@
 
         <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form action="   " method="post" id="addform">
+            <form action="${ctx}/admin/catalogManager/createType" method="post" id="addform">
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="type"></li>
@@ -126,7 +126,7 @@
         </div>
         <%--弹框-修改栏目--%>
         <div id="edit-box">
-            <form id="editform">
+            <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}">
                 <li>
                     <lable>栏目编号：</lable>
                     <input type="text" name="type" value="${type.id}">
@@ -143,7 +143,7 @@
 
         <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
-            <form id="delectform">
+            <form id="delectform" action="${ctx}/admin/catalogManager/delect/${type.id}">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
