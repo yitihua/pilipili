@@ -136,7 +136,11 @@
                             <c:forEach items="${userList}" var="user">
                             <tr>
                                 <td>${user.username}</td>
-                                <td>${user.roles}</td>
+                                <td>
+                                       <c:forEach items="${user.roles}" var="role">
+                                           ${role.name}
+                                       </c:forEach>
+                                </td>
                                 <td><a id="change-authority" >更改权限</a></td>
                                 <td><a id="delect">删除</a></td>
                             </tr>
