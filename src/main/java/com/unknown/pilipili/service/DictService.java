@@ -18,6 +18,9 @@ public class DictService {
     public Dict save(Dict dict){
         return dictRepo.save(dict);
     }
+    public void delete(Long id){
+        dictRepo.delete(id);
+    }
     public Dict findOne(Long pkId){
         return dictRepo.findOne(pkId);
     }

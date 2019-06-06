@@ -118,7 +118,7 @@
             <form action="${ctx}/admin/catalogManager/createType" method="post" id="addform">
                 <li>
                     <lable>栏目名称：</lable>
-                    <input type="text" name="type"></li>
+                    <input type="text" name="name"></li>
 
                 <a value="确认添加" class="button" onclick="document:addform.submit()"></a>
                 <a id="closeBtn" class="button">取消添加</a>
@@ -129,7 +129,7 @@
             <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}">
                 <li>
                     <lable>栏目编号：</lable>
-                    <input type="text" name="type" value="${type.id}">
+                    <input type="text" name="id" value="${type.id}">
                 </li>
                 <li>
                     <lable>栏目名称：</lable>

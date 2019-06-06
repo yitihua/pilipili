@@ -20,6 +20,9 @@ public class CommentService {
     public Comment save(Comment comment){
         return commentRepository.save(comment);
     }
+    public void delete(Long id){
+        commentRepository.delete(id);
+    }
     public Comment findOne(Long pkId){
         return commentRepository.findOne(pkId);
     }

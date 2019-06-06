@@ -1,7 +1,6 @@
 package com.unknown.pilipili.controller;
 
 import com.unknown.pilipili.domain.News;
-import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.service.NewsService;
 import com.unknown.pilipili.service.TypeService;
@@ -30,8 +29,6 @@ public class MyArticleController {
         User u = (User) session.getAttribute("user");
         List<News> newsList = newsService.findNewsByAuthorName(u.getUsername());
         model.addAttribute("newsList",newsList);
-        List<Type> typeList = typeService.findAll();
-        model.addAttribute("typeList",typeList);
         return "/myArticle";
     }
 }

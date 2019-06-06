@@ -1,22 +1,44 @@
 package com.unknown.pilipili.controller;
 
-import com.unknown.pilipili.service.UserService;
+import com.unknown.pilipili.domain.Type;
+import com.unknown.pilipili.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.ServletRequest;
+import java.util.List;
 
 /**
  * @author <b>zhangfei/b>
  * @version 1.0, 2019/6/1 20:27
  */
 @Controller
-@RequestMapping("/catalogManager")//这个地方改成jsp文件的名字且不加后缀名
-public class CatalogManagerController {//类名和java文件名一样
+@RequestMapping("/admin/catalogManager")
+public class CatalogManagerController {
     @Autowired
-    private UserService userService;
+    private TypeService typeService;
     @RequestMapping("")
-    public String viewArticle(Model model){
-        return "/catalogManager";//这个地方也改成jsp文件的名字且不加后缀名
+    public String show(Model model){
+        List<Type> typeList = typeService.findAll();
+        model.addAttribute("typeList",typeList);
+        return "/admin/catalogManager";
+    }
+    @PostMapping("createType")
+    public String createType(Model model, ServletRequest request){
+        String name = request.getParameter("name");
+        Type type = new Type(name);
+        typeService.save(type);
+        return "redirect:/admin/catalogManager";
+    }
+    @PostMapping("updateType/{id}")
+    public String updateType(@PathVariable("id") Long pkId, Model model, ServletRequest request){
+        Type newType = typeService.findOne(pkId);
+        newType.setName(request.getParameter("name"));
+        typeService.save(newType);
+        return "redirect:/admin/catalogManager";
     }
 }
