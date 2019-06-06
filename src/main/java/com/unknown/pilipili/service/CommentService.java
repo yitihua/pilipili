@@ -2,6 +2,7 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Comment;
 import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,9 @@ public class CommentService {
             comments.get(i).setReplies(findAllByRootComment(comments.get(i)));
         }
         return comments;
+    }
+    public List<Comment> findAllByAuthor(User user){
+        return commentRepository.findAllByAuthor(user);
     }
     public Long countByOriginalAndLayer1(News news){
         return commentRepository.countByOriginalAndLayer(news,1);
