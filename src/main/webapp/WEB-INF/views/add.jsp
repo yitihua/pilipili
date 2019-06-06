@@ -73,7 +73,7 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" action="#">
+                <form id="new-article" method="post" action="${ctx}/add/create">
                 </form>
             </div>
         </div>
