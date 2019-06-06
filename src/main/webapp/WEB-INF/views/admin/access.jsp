@@ -133,7 +133,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${userlist}" var="each">
+                            <c:forEach items="${userlist}" var="user">
                             <tr>
                                 <td>${user.username}</td>
                                 <td>${user.role}</td>
@@ -172,8 +172,8 @@
                                     <input type="hidden" id ="selectRefundReason" value="${user.role}"/>
                                     <select class="easyui-combobox"  name="role" id="refundReason"
                                             style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
-                                        <c:forEach items="${userlist}" var="each">
-                                            <option value="${each.role}">${each.role}</option>
+                                        <c:forEach items="${userlist}" var="user">
+                                            <option value="${user.role}">${user.role}</option>
                                         </c:forEach>
                                     </select>
                                 </li>

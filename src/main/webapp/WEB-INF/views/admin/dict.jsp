@@ -206,7 +206,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictlist}" var="each">
+                            <c:forEach items="${dictlist}" var="dict">
                             <tr>
                                 <td>${dict.type}</td>
                                 <td>${dict.name}</td>
