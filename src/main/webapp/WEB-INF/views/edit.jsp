@@ -72,7 +72,6 @@
                     ${news.content}
                 </div>
                 <button id="btn1" class="submit-btn">提交</button>
-                <input type="checkbox" >
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>

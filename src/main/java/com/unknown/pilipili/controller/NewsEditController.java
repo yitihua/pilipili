@@ -1,6 +1,7 @@
 package com.unknown.pilipili.controller;
 
 import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.service.NewsService;
 import com.unknown.pilipili.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
+import java.util.List;
 
 /**
  * @author <b>顾思宇</b>
@@ -26,6 +28,8 @@ public class NewsEditController {
     private TypeService typeService;
     @GetMapping("{id}")
     public String showEdit(@PathVariable("id") Long id, Model model, ServletRequest request){
+        List<Type> typeList = typeService.findAll();
+        model.addAttribute("typeList",typeList);
         News news = newsService.findOne(id);
         model.addAttribute("news",news);
         return "/edit";
