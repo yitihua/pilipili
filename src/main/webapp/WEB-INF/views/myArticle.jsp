@@ -70,7 +70,7 @@
                     </span>
                 </div>
                 <ul class="article-list">
-                    <li class="article-empty-nav" v-bind:class="{hide:!noArticle}">
+                    <li class="article-empty-nav" v-bind:class="{hide:noArticle}">
                         <img src="static/img/none.jpg" style="width: 300px">
                     </li>
                     <c:forEach var="article" items="${newsList}">
