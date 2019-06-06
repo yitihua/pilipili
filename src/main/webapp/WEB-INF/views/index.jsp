@@ -61,7 +61,8 @@
                                 <div class="login-box login-box-1">
                                     <span class="logtip" id="logtip"></span>
                                     <p>用户名</p><input type="text" name="username" id="username"><br>
-                                    <p>密码</p><input type="password" name="password" id="password">
+                                    <p>密码</p><input type="password" name="password" id="password"><br>
+                                    <input type="checkbox" name="rememberMe" id="rememberMe" style="width: 20px"><label for="rememberMe">记住我</label>
                                 </div>
                                 <div class="login-btns">
                                     <input type="button" value="返回" class="login-btns2" v-on:click="closeForm()" />

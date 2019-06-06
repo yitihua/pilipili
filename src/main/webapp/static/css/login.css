@@ -225,3 +225,10 @@ form{
     -ms-user-select:none;
     user-select:none;
 }
+#rememberMe{
+    width: 20px;
+}
+#rememberMe+label{
+    transform: translateY(4px);
+    position: absolute;
+}
