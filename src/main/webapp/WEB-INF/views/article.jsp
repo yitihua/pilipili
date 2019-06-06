@@ -43,7 +43,7 @@
                         发布时间：${news.createAt}
                 </span>
                 <span class="news-type">
-                    ${type.name}
+                    ${news.type.name}
                 </span>
             </div>
             <div class="news-content">
