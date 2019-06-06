@@ -45,18 +45,18 @@
                 <i class="fa fa-angle-right "></i>
             </a>
 
-            <ul class="sidenav-second-level">
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">全部资讯</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">最新咨询</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">热点资讯</span></a>
-                </li>
+            <%--<ul class="sidenav-second-level">--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
+                <%--</li>--%>
 
-            </ul>
+            <%--</ul>--%>
 
         </li>
 
@@ -71,12 +71,13 @@
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
-
         <li class="nav-item">
-            <a href="">
-                <span class="navside-text">用户信息管理</span>
+            <a href="${ctx}/index">
+                <span class="navside-text">返回首页</span>
             </a>
         </li>
+
+
 
         <li class="nav-item">
             <a href="">
@@ -139,8 +140,8 @@
                                     <td><c:forEach items="${user.roles}" var="role">
                                             ${role.name}
                                         </c:forEach></td>
-                                    <td><a id="change-authority">更改权限</a></td>
-                                    <td><a id="delect">删除</a></td>
+                                    <td><a class="change-authority">更改权限</a></td>
+                                    <td><a class="delect">删除</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -148,10 +149,11 @@
 
                         <!-- 弹出窗口-添加用户 -->
                         <div id="add-box1">
-                            <form id="addUserform">
+                            <form id="addUserform" action="${ctx}/admin/access/createUser">
                                 <li>
                                     <lable>用户名：</lable>
-                                    <input type="text" name="username" value=""></li>
+                                    <input type="text" name="username" value="">
+                                </li>
                                 <li>
                                     <lable>权限级别：</lable>
                                     <select class="easyui-combobox" name="roles" id="refundReason"
@@ -163,20 +165,19 @@
                                             </c:forEach>
                                             <%--<option value="${user.roles}">${user.roles}</option>--%>
                                         </c:forEach>
-
                                     </select>
                                 </li>
-                                <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>>
+                                <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>
                                 <a id="closeBtn1" class="button">取消添加</a>
-                            </form>
-                        </div>
+                            </form></div>
 
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
-                            <form id="changeRoleform">
+                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}>
                                 <li>
                                     <lable>用户名：</lable>
-                                    <input type="text" name="username" value="${user.username}"></li>
+                                    <input type="text" name="username" value="${user.username}">
+                                </li>
                                 <li>
                                     <lable>更改权限：</lable>
                                     <input type="hidden" id="selectRefundReason" value="${user.roles}"/>
@@ -197,7 +198,7 @@
 
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
-                            <form id="delectform">
+                            <form id="delectform" action="${ctx}/admin/access/delect/${user.id}">
                                 <div class="ttBox">
                                     <h1>提示</h1>
                                 </div>
@@ -233,16 +234,16 @@
                 </div>
 
 
-            </div><!-- card -->
-        </div>
-    </div><!-- container-fluid -->
+        </div><!-- card -->
+    </div>
+</div><!-- container-fluid -->
 
 
 </div>
 
 
 </div>
-<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
+<%--<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>--%>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
@@ -257,4 +258,3 @@
 
 </body>
 </html>
-</jsp:root>

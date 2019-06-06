@@ -1,3 +1,4 @@
+
 $(function(){
 // 添加账户
 	$("#add").click(function(){
@@ -10,6 +11,7 @@ $(function(){
 		$("#greybackground").css({"opacity":"0.3","height":docheight});
 		return false;
 	});
+	console.log("hellohi")
 	//点击关闭按钮
 	$("#closeBtn1").click(function() {
 		$("#add-box1").hide();
@@ -20,7 +22,9 @@ $(function(){
 
 
 // 修改权限
-	$("#change-authority").click(function(){
+	console.log("hello")
+	$(".change-authority").click(function(){
+		// console.log("aaaaaaaaa")
 		$('#change-authority-box').show();
 		//获取页面文档的高度
 		var docheight = $(document).height();
@@ -40,7 +44,7 @@ $(function(){
 
 
 // 删除账户
-	$('#delect').click(function() {
+	$(".delect").click(function() {
 		$('#delect-box').show();
 		//获取页面文档的高度
 		var docheight = $(document).height();

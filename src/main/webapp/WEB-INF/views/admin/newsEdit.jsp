@@ -43,41 +43,41 @@
     <div class="nav-side">
         <ul id="nav-side">
             <li class="nav-item">
-                <a class="sidenav-first-level">
+                <a class="sidenav-first-level" herf="${ctx}/admin/index">
                     <span class="navside-text">新闻管理</span>
                     <i class="fa fa-angle-right "></i>
                 </a>
 
-                <ul class="sidenav-second-level">
-                    <li class="nav-item">
-                        <a href=""><span class="navside-text">全部资讯</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href=""><span class="navside-text">最新咨询</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href=""><span class="navside-text">热点资讯</span></a>
-                    </li>
+                <%--<ul class="sidenav-second-level">--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
+                    <%--</li>--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
+                    <%--</li>--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
+                    <%--</li>--%>
 
-                </ul>
+                <%--</ul>--%>
 
             </li>
 
             <li class="nav-item">
-                <a href="">
+                <a href="${ctx}/admin/catalogManager">
                     <span class="navside-text">栏目管理</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="">
+                <a href="${ctx}/admin/access">
                     <span class="navside-text">用户权限管理</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="">
-                    <span class="navside-text">用户信息管理</span>
+                <a href="${ctx}/index">
+                    <span class="navside-text">返回首页</span>
                 </a>
             </li>
 
@@ -137,12 +137,12 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" action="#" id="newsEditform">
+                <form id="new-article" method="post" id="newsEditform" action="${ctx}/admin/newsEdit/update/${user.content}>
                 </form>
             </div>
 
             <div >
-                <a href="" class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
+                <a  class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
             </div>
         </div>
 
