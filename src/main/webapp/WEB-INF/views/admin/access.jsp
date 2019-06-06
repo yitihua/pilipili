@@ -133,10 +133,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${userlist}" var="user">
+                            <c:forEach items="${userList}" var="user">
                             <tr>
                                 <td>${user.username}</td>
-                                <td>${user.role}</td>
+                                <td>${user.roles}</td>
                                 <td><a id="change-authority" >更改权限</a></td>
                                 <td><a id="delect">删除</a></td>
                             </tr>
@@ -152,10 +152,10 @@
                                     <input type="text" name="username" value=""></li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <select class="easyui-combobox"  name="role" id="refundReason"
+                                    <select class="easyui-combobox"  name="roles" id="refundReason"
                                             style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
-                                        <c:forEach items="${userlist}" var="user">
-                                            <option value="${user.role}">${user.role}</option>
+                                        <c:forEach items="${userList}" var="user">
+                                            <option value="${user.roles}">${user.roles}</option>
                                         </c:forEach>
                                     </select>
                                 </li>
@@ -172,11 +172,11 @@
                                     <input type="text" name="username" value="${user.username}"></li>
                                 <li>
                                     <lable>更改权限：</lable>
-                                    <input type="hidden" id ="selectRefundReason" value="${user.role}"/>
-                                    <select class="easyui-combobox"  name="role" id="refundReason"
+                                    <input type="hidden" id ="selectRefundReason" value="${user.roles}"/>
+                                    <select class="easyui-combobox"  name="roles" id="refundReason"
                                             style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
-                                        <c:forEach items="${userlist}" var="user">
-                                            <option value="${user.role}">${user.role}</option>
+                                        <c:forEach items="${userList}" var="user">
+                                            <option value="${user.roles}">${user.roles}</option>
                                         </c:forEach>
                                     </select>
                                 </li>

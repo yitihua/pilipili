@@ -152,7 +152,7 @@
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${newslist}" var="news">
+								<c:forEach items="${newsList}" var="news">
                                     <tr>
                                         <td>${news.title}</td>
                                         <td>${news.type}</td>

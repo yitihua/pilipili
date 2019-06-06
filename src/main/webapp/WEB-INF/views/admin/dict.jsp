@@ -151,14 +151,14 @@
                         <option value="0">禁用</option>
                     </select>
                 </li>
-                    <a  class="button" name="" onclick="document:addDictform.submit()">确认修改</a>
+                    <a  class="button" name="" onclick="document:editDictform.submit()">确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
             </form>
         </div>
 
         <!-- 弹出窗口-删除字典 -->
         <div id="delect-box">
-            <form>
+            <form id="delectDictform">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="btnArea">
                     <div class="btnArea">
-                        <a  class="button" onclick="document:addDictform.submit()">确定删除</a>
+                        <a  class="button" onclick="document:delectDictform.submit()">确定删除</a>
                         <a class="button" id="closeBtn3">取消删除</a>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictlist}" var="dict">
+                            <c:forEach items="${dictList}" var="dict">
                             <tr>
                                 <td>${dict.type}</td>
                                 <td>${dict.name}</td>
