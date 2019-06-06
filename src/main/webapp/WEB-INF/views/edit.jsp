@@ -60,7 +60,7 @@
                 </ul>
             </div>
             <div class="main-content clearfix" id="myarticle-area">
-                <div class="title"><span>标题</span><input type="text" class="title-text" value="${news.title}"></div>
+                <div class="title"><span>标题</span><input type="text" class="title-text" value="${news.title}" id="title"></div>
                 <div class="type-btns">
                     <c:forEach var="type" items="${typeList}">
                         <input type="checkbox" name="type" id="${type.name}" value="${type.name}"><label for="${type.name}">${type.name}</label>
