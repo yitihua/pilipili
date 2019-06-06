@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="${ctx}/static/css/reset.css">
-	<link href="${ctx}/static/font/css/font-awesome.min.css" rel="stylesheet">
+	<link href="${ctx}/static/font/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
 
@@ -46,38 +46,40 @@
                 <i class="fa fa-angle-right "></i>
             </a>
 
-            <ul class="sidenav-second-level">
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">全部资讯</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">最新咨询</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">热点资讯</span></a>
-                </li>
+            <%--<ul class="sidenav-second-level">--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
+                <%--</li>--%>
 
-            </ul>
+            <%--</ul>--%>
 
         </li>
 
         <li class="nav-item">
-            <a href="">
+            <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="">
+            <a href="${ctx}/admin/access">
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="">
-                <span class="navside-text">用户信息管理</span>
+            <a href="${ctx}/index">
+                <span class="navside-text">返回首页</span>
             </a>
         </li>
+
+
 
         <li class="nav-item">
             <a href="">

@@ -51,41 +51,41 @@
 <div class="nav-side">
     <ul id="nav-side">
         <li class="nav-item">
-            <a class="sidenav-first-level">
+            <a class="sidenav-first-level" herf="${ctx}/admin/index">
                 <span class="navside-text">新闻管理</span>
                 <i class="fa fa-angle-right "></i>
             </a>
 
-            <ul class="sidenav-second-level">
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">全部资讯</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">最新咨询</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href=""><span class="navside-text">热点资讯</span></a>
-                </li>
+            <%--<ul class="sidenav-second-level">--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
+                <%--</li>--%>
 
-            </ul>
+            <%--</ul>--%>
 
         </li>
 
         <li class="nav-item">
-            <a href="">
+            <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="">
+            <a href="${ctx}/admin/access">
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="">
-                <span class="navside-text">用户信息管理</span>
+            <a href="${ctx}/index">
+                <span class="navside-text">返回首页</span>
             </a>
         </li>
 
@@ -211,8 +211,8 @@
                                 <td>${dict.type}</td>
                                 <td>${dict.name}</td>
                                 <td>${dict.status}</td>
-                                <td><a id="edit" >编辑</a></td>
-                                <td><a id="delect">删除</a></td>
+                                <td><a class="edit" >编辑</a></td>
+                                <td><a class="delect">删除</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>
@@ -280,7 +280,7 @@
         });
 
         // edit
-        $("#edit").click(function(){
+        $(".edit").click(function(){
             $('#edit-box').show();
 
             //获取页面文档的高度
@@ -300,7 +300,7 @@
         });
 
         // delect
-        $("#delect").click(function(){
+        $(".delect").click(function(){
             $('#delect-box').show();
 
             //获取页面文档的高度
