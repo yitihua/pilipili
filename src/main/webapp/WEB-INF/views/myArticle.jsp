@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>我的文章</title>
-    <script>var ctx=${ctx}</script>
+    <script>var ctx="${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
@@ -59,7 +59,7 @@
                 </ul>
             </div>
             <div class="main-content" id="myarticle-area">
-                <div class="article-search">
+                <div>
                     <form action="#" method="post" class="article-search">
                         <input type="text" name="search" class="article-search-text">
                         <input type="submit" value="查找" class="article-search-btn">
@@ -79,18 +79,16 @@
                                 <a>${article.title}</a>
                             </div>
                             <div class="atricle-inf">
-                                <span>
+                                <span class="time-btn">
                                     ${article.createAt}
-                                </span>
-                                <span>
-                                    评论数：
-                                </span>
-                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
-                                        编辑
                                 </span>
                                 <span class="span-btn remove-btn">
                                         删除
                                 </span>
+                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
+                                        编辑
+                                </span>
+
                             </div>
                         </li>
                     </c:forEach>

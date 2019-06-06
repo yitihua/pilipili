@@ -1,22 +1,11 @@
-@charset 'utf-8';
+@charset "utf-8";
 .article-nav{
     position: relative;
-    height: 90px;
-    width: 930px;
+    width: 710px;
     padding: 10px 0;
 }
 .article-nav:hover{
     cursor: pointer;
-}
-.span-btn:hover{
-    cursor: pointer;
-    color: black;
-}
-.eidt-btn{
-    color: #78a9f3;
-}
-.remove-btn{
-    color:rgb(133, 102, 112);
 }
 .article-empty-nav{
     position: relative;
@@ -58,4 +47,34 @@
 .article-add-btn:hover img{
     transform:rotate(60deg) scale(1.5,1.5);
     transform-origin: center;
+}
+.article-list{
+    padding: 0 50px;
+}
+.article-nav{
+    border-bottom: 1px #e7e1cd solid;
+}
+.article-title{
+    font-size: 24px;
+    line-height: 45px;
+}
+.article-inf{
+    font-size: 14px;
+}
+.span-btn{
+    float: right;
+    margin-left: 20px;
+}
+.span-btn:hover{
+    cursor: pointer;
+    color: black;
+}
+.eidt-btn{
+    color: #78a9f3;
+}
+.remove-btn{
+    color:peru;
+}
+.time-btn{
+    color: #bbb;
 }

@@ -1,13 +1,14 @@
 package com.unknown.pilipili.controller;
 
+import com.unknown.pilipili.domain.News;
 import com.unknown.pilipili.service.NewsService;
-import com.unknown.pilipili.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletRequest;
+import java.util.List;
 
 /**
  * @author <b>顾思宇</b>
@@ -19,11 +20,10 @@ import javax.servlet.ServletRequest;
 public class AdminIndexController {
     @Autowired
     private NewsService newsService;
-    @Autowired
-    private UserService userService;
     @RequestMapping("")
     public String show(Model model, ServletRequest request){
-
+        List<News> newsList = newsService.findAll();
+        model.addAttribute("newsList",newsList);
         return "/admin/index";
     }
 }

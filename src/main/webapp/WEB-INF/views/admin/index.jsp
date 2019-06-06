@@ -157,9 +157,9 @@
 								<c:forEach items="${newsList}" var="news">
                                     <tr>
                                         <td>${news.title}</td>
-                                        <td>${news.type}</td>
-                                        <td>${news.author}</td>
-                                        <td>${news.create}</td>
+                                        <td>${news.type.name}</td>
+                                        <td>${news.author.username}</td>
+                                        <td>${news.createAt}</td>
                                         <td>编辑</td>
                                     </tr>
 								</c:forEach>

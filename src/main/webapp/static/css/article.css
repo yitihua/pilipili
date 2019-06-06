@@ -100,6 +100,7 @@ a {
 }
 .comment-list{
     position: relative;
+    margin-bottom: 20px;
     top: 150px;
 }
 .comment-nav{
@@ -207,4 +208,17 @@ a {
     border: none;
     background: #78a9f3;
     color: white;
+}
+.news-content{
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: break-word;
+    word-spacing: normal;
+    letter-spacing: normal;
+}
+.news-content img{
+    margin: 5px 0;
+    max-width: 580px;
+    display: block;
+    margin:auto;
 }

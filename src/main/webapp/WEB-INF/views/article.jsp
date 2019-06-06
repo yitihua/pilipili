@@ -43,7 +43,7 @@
                         发布时间：${news.createAt}
                 </span>
                 <span class="news-type">
-                    ${news.type}
+                    ${news.type.name}
                 </span>
             </div>
             <div class="news-content">
@@ -123,9 +123,6 @@
                 <%--comment list end--%>
             </div>
             <!-- comment end -->
-        </div>
-        <div class="">
-
         </div>
     </div>
 </div>
