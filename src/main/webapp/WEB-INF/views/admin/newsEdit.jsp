@@ -114,35 +114,35 @@
         <div class="biaoti">
             <label class="fn0">标题：</label>
             <div class="bz0">
-                <input type="text" name="" value="梅西：没有赢球 我负全部责任 下场必胜克罗地亚" class="inputTitle">
+                <input type="text" class="title-text" value="${news.title}" class="inputTitle">
             </div>
         </div>
         <div class="fenlei">
             <label class="fn0">分类：</label>
             <div class="bz0">
-                <select >
-                    <option value="国内新闻">国内新闻</option>
-                    <option value="国际新闻">国际新闻</option>
-                    <option value="社会">社会</option>
-                    <option value="军事">军事</option>
-                    <option value="财经">财经</option>
-                    <option value="科技">科技</option>
-                    <option value="体育" selected = "selected">体育</option>
-                    <option value="娱乐">娱乐</option>
-                    <option value="时尚">时尚</option>
-                    <option value="其他">其他</option>
+                <input type="hidden" id ="selectRefundReason" value="${type.name}"/>
+                <select name="type" >
+                    <c:forEach items="${typeList}" var="type">
+                        <option value="${type.name}">${type.name}</option>
+                    </c:forEach>
                 </select>
+            </select>
             </div>
         </div>
 
         <div class="content">
-
-            <div id="editor">
-                <p>请输入...</p>
+            <div id="editor-tools" class="editor-tools"></div>
+            <div id="editor-text">
+                <p>${news.content}</p>
+            </div>
+            <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
+            <div>
+                <form id="new-article" method="post" action="#" id="newsEditform">
+                </form>
             </div>
 
             <div >
-                <a href="" class="btnrg" style="color: white;">立即发布</a>
+                <a href="" class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
             </div>
         </div>
 
@@ -156,11 +156,25 @@
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/wangEditor.min.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="${ctx}/static/js/editorIndex.js"></script>
+<%--<script type="text/javascript">--%>
+    <%--var E = window.wangEditor--%>
+    <%--var editor = new E('#editor')--%>
+    <%--// 或者 var editor = new E( document.getElementById('editor') )--%>
+    <%--editor.create()--%>
+<%--</script>--%>
+<script>
     var E = window.wangEditor
-    var editor = new E('#editor')
-    // 或者 var editor = new E( document.getElementById('editor') )
-    editor.create()
+    var editor = new E('#editor-tools','#editor-text');
+    editor.create();
+</script>
+<%--根据后台显示权限--%>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var key=$("#selectRefundReason").val();
+        //根据值让option选中
+        $("#refundReason option[value='"+key+"']").attr("selected","selected");
+    });
 </script>
 
 </body>
