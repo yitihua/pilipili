@@ -1,0 +1,29 @@
+@charset "utf-8";
+.title{
+    height: 55px;
+    padding: 10px 0;
+}
+.title-text{
+    width: 275px;
+    height: 35px;
+    font-size: 16px;
+    border: 1px #ccc solid;
+}
+.title span{
+    font-size: 18px;
+    margin-right: 25px;
+}
+.submit-btn{
+    float: right;
+    width: 75px;
+    height: 30px;
+    margin: 8px 0;
+}
+.type-btns{
+    height: 35px;
+    line-height: 35px;
+}
+.type-btns label{
+    font-size: 16px;
+    margin-right: 20px;
+}
