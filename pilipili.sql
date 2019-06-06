@@ -11,7 +11,7 @@
  Target Server Version : 50720
  File Encoding         : 65001
 
- Date: 06/06/2019 21:46:32
+ Date: 06/06/2019 23:29:08
 */
 
 SET NAMES utf8mb4;
@@ -57,14 +57,14 @@ CREATE TABLE `t_dict`  (
 -- ----------------------------
 -- Records of t_dict
 -- ----------------------------
-INSERT INTO `t_dict` VALUES (1, '女', 1, '性别');
-INSERT INTO `t_dict` VALUES (2, '男', 1, '性别');
-INSERT INTO `t_dict` VALUES (3, '保密', 1, '性别');
-INSERT INTO `t_dict` VALUES (4, '无', 1, '学历');
-INSERT INTO `t_dict` VALUES (5, '小学', 1, '学历');
-INSERT INTO `t_dict` VALUES (6, '初中', 1, '学历');
-INSERT INTO `t_dict` VALUES (7, '高中', 1, '学历');
-INSERT INTO `t_dict` VALUES (8, '大学及以上', 1, '学历');
+INSERT INTO `t_dict` VALUES (1, '女', 0, '性别');
+INSERT INTO `t_dict` VALUES (2, '男', 0, '性别');
+INSERT INTO `t_dict` VALUES (3, '保密', 0, '性别');
+INSERT INTO `t_dict` VALUES (4, '无', 0, '学历');
+INSERT INTO `t_dict` VALUES (5, '小学', 0, '学历');
+INSERT INTO `t_dict` VALUES (6, '初中', 0, '学历');
+INSERT INTO `t_dict` VALUES (7, '高中', 0, '学历');
+INSERT INTO `t_dict` VALUES (8, '大学及以上', 0, '学历');
 
 -- ----------------------------
 -- Table structure for t_news
@@ -104,9 +104,9 @@ CREATE TABLE `t_role`  (
 -- ----------------------------
 -- Records of t_role
 -- ----------------------------
-INSERT INTO `t_role` VALUES (1, 'admin', 1);
-INSERT INTO `t_role` VALUES (2, 'user', 1);
-INSERT INTO `t_role` VALUES (3, 'guest', 1);
+INSERT INTO `t_role` VALUES (1, 'admin', 0);
+INSERT INTO `t_role` VALUES (2, 'user', 0);
+INSERT INTO `t_role` VALUES (3, 'guest', 0);
 
 -- ----------------------------
 -- Table structure for t_type
@@ -114,22 +114,23 @@ INSERT INTO `t_role` VALUES (3, 'guest', 1);
 DROP TABLE IF EXISTS `t_type`;
 CREATE TABLE `t_type`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `eng_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of t_type
 -- ----------------------------
-INSERT INTO `t_type` VALUES (1, '动画');
-INSERT INTO `t_type` VALUES (2, '影视');
-INSERT INTO `t_type` VALUES (3, '音乐');
-INSERT INTO `t_type` VALUES (4, '舞蹈');
-INSERT INTO `t_type` VALUES (5, '游戏');
-INSERT INTO `t_type` VALUES (6, '科技');
-INSERT INTO `t_type` VALUES (7, '数码');
-INSERT INTO `t_type` VALUES (8, '生活');
-INSERT INTO `t_type` VALUES (9, '鬼畜');
+INSERT INTO `t_type` VALUES (1, '动画', 'animation');
+INSERT INTO `t_type` VALUES (2, '影视', 'film');
+INSERT INTO `t_type` VALUES (3, '音乐', 'music');
+INSERT INTO `t_type` VALUES (4, '舞蹈', 'dance');
+INSERT INTO `t_type` VALUES (5, '游戏', 'game');
+INSERT INTO `t_type` VALUES (6, '科技', 'tech');
+INSERT INTO `t_type` VALUES (7, '数码', 'digital');
+INSERT INTO `t_type` VALUES (8, '生活', 'life');
+INSERT INTO `t_type` VALUES (9, '美食', 'food');
 
 -- ----------------------------
 -- Table structure for t_user

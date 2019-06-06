@@ -1,12 +1,10 @@
 package com.unknown.pilipili.controller;
 
 import com.unknown.pilipili.domain.User;
-import com.unknown.pilipili.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +20,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-    @Autowired
-    private UserService userService;
 
     @PostMapping(value = "")
     public String login(Model model, ServletRequest request,HttpSession httpSession){
@@ -33,9 +29,14 @@ public class LoginController {
         }
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String rememberMeTmp = request.getParameter("rememberMe");
+        boolean rememberMe = false;
+        if(rememberMeTmp.equals("on")){
+            rememberMe = true;
+        }
         try{
             AuthenticationToken token = new UsernamePasswordToken(username,password);
-            ((UsernamePasswordToken) token).setRememberMe(true);
+            ((UsernamePasswordToken) token).setRememberMe(rememberMe);
             subject.login(token);
         }catch (Exception e){
             model.addAttribute("loginFail","登录失败");

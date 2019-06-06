@@ -28,6 +28,10 @@ public class IndexController {
         model.addAttribute("newsList",newsList);
         List<Type> typeList = typeService.findAll();
         model.addAttribute("typeList",typeList);
+        for(Type type: typeList){
+            String listName = type.getEngName()+"List";
+            model.addAttribute(listName,newsService.findNewsByType(type));
+        }
         return "/index";
     }
 }

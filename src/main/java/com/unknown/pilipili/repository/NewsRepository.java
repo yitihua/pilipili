@@ -2,6 +2,7 @@ package com.unknown.pilipili.repository;
 
 import com.unknown.pilipili.config.orm.PlatformRepository;
 import com.unknown.pilipili.domain.News;
+import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.domain.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface NewsRepository extends PlatformRepository<News,Long> {
     @Query ("from News where author = ?1")
     List<News> findAllByAuthor(User u);
+    @Query("from News where type = ?1")
+    List<News> findAllByType(Type type);
 }

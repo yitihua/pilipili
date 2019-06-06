@@ -1,5 +1,9 @@
 package com.unknown.pilipili.shiro;
 
+import com.unknown.pilipili.service.CommentService;
+import com.unknown.pilipili.service.NewsService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.LinkedHashMap;
 
 /**
@@ -8,6 +12,10 @@ import java.util.LinkedHashMap;
  */
 
 public class FilterChainDefinitionMapBuilder {
+    @Autowired
+    private NewsService newsService;
+    @Autowired
+    private CommentService commentService;
     public LinkedHashMap<String,String> buildFilterChainDefinitionMap(){
         LinkedHashMap<String,String> map = new LinkedHashMap<String,String>();
         //关闭过滤
