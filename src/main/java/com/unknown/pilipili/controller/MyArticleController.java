@@ -31,4 +31,5 @@ public class MyArticleController {
         model.addAttribute("newsList",newsList);
         return "/myArticle";
     }
+
 }

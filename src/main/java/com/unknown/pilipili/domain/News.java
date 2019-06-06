@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 public class News extends IdEntity {
     @Column(nullable = false)
     private String title;
-    @Column(nullable = false)
+    @Column(nullable = false,columnDefinition="TEXT")
     private String content;
     @ManyToOne
     @JoinColumn(name="author",referencedColumnName="id")

@@ -85,7 +85,7 @@
                                 <span>
                                     评论数：
                                 </span>
-                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit'">
+                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
                                         编辑
                                 </span>
                                 <span class="span-btn remove-btn">
