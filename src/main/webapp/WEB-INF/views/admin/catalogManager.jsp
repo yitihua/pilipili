@@ -190,7 +190,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${typelist}" var="each">
+                            <c:forEach items="${typelist}" var="type">
                                 <tr>
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>

@@ -133,7 +133,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${userlist}" var="each">
+                            <c:forEach items="${userlist}" var="user">
                             <tr>
                                 <td>${user.username}</td>
                                 <td>${user.role}</td>
@@ -152,10 +152,13 @@
                                     <input type="text" name="username" value=""></li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <select name="role">
-                                        <option value="administer">管理员</option>
-                                        <option value="ordinary-user">普通用户</option>
-                                    </select></li>
+                                    <select class="easyui-combobox"  name="role" id="refundReason"
+                                            style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+                                        <c:forEach items="${userlist}" var="user">
+                                            <option value="${user.role}">${user.role}</option>
+                                        </c:forEach>
+                                    </select>
+                                </li>
                                 <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>>
                                 <a id="closeBtn1" class="button">取消添加</a>
                             </form>
@@ -172,8 +175,8 @@
                                     <input type="hidden" id ="selectRefundReason" value="${user.role}"/>
                                     <select class="easyui-combobox"  name="role" id="refundReason"
                                             style="resize: none" data-options="width:220,height:30,editable:false,panelHeight:'auto'">
-                                        <c:forEach items="${userlist}" var="each">
-                                            <option value="${each.role}">${each.role}</option>
+                                        <c:forEach items="${userlist}" var="user">
+                                            <option value="${user.role}">${user.role}</option>
                                         </c:forEach>
                                     </select>
                                 </li>

@@ -152,6 +152,7 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach items="${newslist}" var="news">
                                     <tr>
                                         <td>${news.title}</td>
                                         <td>${news.type}</td>
@@ -159,6 +160,7 @@
                                         <td>${news.create}</td>
                                         <td>编辑</td>
                                     </tr>
+								</c:forEach>
 								</tbody>
 							</table>
 						</form>

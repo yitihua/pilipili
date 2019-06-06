@@ -115,7 +115,7 @@
 
         <!-- 弹出窗口-添加字典 -->
         <div id="add-box">
-            <form action="${ctx}/admin/dict/createDict" method="post" id="addDictform">
+            <form action="${ctx}/dataDictionary/createDict" method="post" id="addDictform">
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type"></li>
@@ -206,7 +206,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictList}" var="dict">
+                            <c:forEach items="${dictlist}" var="dict">
                             <tr>
                                 <td>${dict.type}</td>
                                 <td>${dict.name}</td>
