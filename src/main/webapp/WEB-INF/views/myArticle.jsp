@@ -74,8 +74,8 @@
                         <img src="static/img/none.jpg" style="width: 300px">
                     </li>
                     <c:forEach var="article" items="${newsList}">
-                        <li class="article-nav" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
-                            <div class="article-title">
+                        <li class="article-nav">
+                            <div class="article-title" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
                                 <a>${article.title}</a>
                             </div>
                             <div class="atricle-inf">
