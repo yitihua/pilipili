@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Dict extends IdEntity {
     private String type;
     private String name;
-    private Constants.Status status = Constants.Status.DISABLE;
+    private Constants.Status status;
 
     public Dict() {
     }

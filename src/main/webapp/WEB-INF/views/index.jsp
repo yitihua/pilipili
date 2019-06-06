@@ -22,11 +22,12 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/newsList.css"/>
     <link href="${ctx}/static/css/iconfont.css" rel="stylesheet" type="text/css" />
     <script>
-        var ctx=${ctx}
+        var ctx="${ctx}"
     </script>
     <script></script>
     <script src="${ctx}/static/vue/vue.js"></script>
     <script src="${ctx}/static/js/indexStart.js"></script>
+    <script src="${ctx}/static/js/dateFormat.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,7 @@
                 <input type="text" class="search">
                 <input type="button" class="btn-red" value="搜 索" onclick="javascript:window.location.href='${ctx}/myArticle'">
             </div>
-            <div class="userInf"  id="unlog-userInf">
+            <div class="userInf"  id="unlog-userInf clearfix">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"v-bind:class="{hide:registed}">
                 <!-- login&&register -->
                 <div class="login" id="login" v-bind:class="{seeme:seeme}">
@@ -70,11 +71,14 @@
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}' action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
                                     <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()" name="username" class="register-name"><br>
-                                    <span><img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}" class="nametip"/><span v-html="nametip"></span></span><br>
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}" class="nametip"/>
+                                        <span v-html="nametip"></span>
+                                    </span><br>
                                     <p>性别</p>
-                                    <input type="radio" name="gender" value="男" class="log-radio">男
-                                    <input type="radio" name="gender" value="女" class="log-radio">女
-                                    <input type="radio" name="gender" value="保密" class="log-radio">保密<br>
+                                    <input type="radio" name="gender" value="男" id="male" class="log-radio"><label for="male">男</label>
+                                    <input type="radio" name="gender" value="女" id="female" class="log-radio"><label for="female">女</label>
+                                    <input type="radio" name="gender" value="保密" id="secret" class="log-radio"><label for="secret">保密</label><br>
                                     <p>学历</p>
                                     <select name="education">
                                         <option value ="无">无</option>
@@ -85,8 +89,10 @@
                                     </select><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
                                                     v-on:keyup="ptip()" name="password" class="register-pwd"><br>
-                                    <span v-html="pwdtip"></span>
-
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:pwdwrong}" class="nametip"/>
+                                        <span v-html="pwdtip"></span>
+                                    </span><br>
                                 </div>
                                 <div class="login-btns">
                                     <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()" />
@@ -101,8 +107,14 @@
             <!-- login&&regist结束 -->
             <!-- 登录后的用户信息栏 -->
             <div class="userInf" v-bind:class="{hide:!registed}">
-                <div class="icon"><img src="static/img/indexPhoto.png"></div>
+                <div class="icon" style="background-image: url('static/img/indexPhoto.png')"></div>
                 <span class="userInf-name clearfix">${user.username}<span></span></span>
+                <div class="userInf-drop-down">
+                    <span class="userInf-drop-down-name">${user.username}</span>
+                    <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
+                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
+                </div>
             </div>
             <!-- 登录后的用户信息栏结束 -->
         </div>
@@ -161,7 +173,8 @@
                                         <div class="news-title">${news.title}</div>
                                         <div class="news-inf">
                                             <p class="news-author">${news.author.username}</p>
-                                            <p class="news-time">上传时间${news.createAt}</p>
+                                            <script>var time = getgetDateDiff("${news.createAt}")</script>
+                                            <p class="news-time">上传时间<script>document.write(time)</script></p>
                                             <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                         </div>
                                     </div>
@@ -199,6 +212,7 @@
 <script src="${ctx}/static/js/carousel.js"></script>
 <script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/newsList.js"></script>
+<script src="${ctx}/static/js/login.js"></script>
 </body>
 <script>
     if("${loginFail}"){

@@ -1,22 +1,20 @@
 package com.unknown.pilipili.controller;
 
-import com.unknown.pilipili.service.NewsService;
+import com.unknown.pilipili.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * @author <b>顾思宇</b>
- * @version 1.0, 2019/6/1 20:27
- */
+import javax.servlet.ServletRequest;
+
 @Controller
-@RequestMapping("/admin/newsEdit")
-public class NewsEditController {
+@RequestMapping("/add")
+public class addController {
     @Autowired
-    private NewsService newsService;
+    private UserService userService;
     @RequestMapping("")
-    public String show(Model model){
-        return "/admin/newsEdit";
+    public String show(Model model, ServletRequest request){
+        return "/add";
     }
 }

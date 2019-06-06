@@ -2,7 +2,6 @@
 body,div,img,a,ul,ol,p{
     margin:0;
     padding:0;
-
 }
 ul{
     list-style:none;
@@ -15,16 +14,45 @@ a{
     color:#000;
     text-decoration:none;
 }
+/*radio默认样式*/
+input[type="radio"]{
+    position: absolute;
+    clip: rect(0,0,0,0);
+}
+input[type="radio"]+label::before{
+    content: "";
+    display: inline-block;
+    transform: translateY(4px);
+    margin-right: 4px;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px #e7e1cd solid;
+}
+input[type="radio"]:checked+label::before{
+    background-color: #e7e1cd;
+    width: 11px;
+    height: 11px;
+    background-clip: content-box;
+    padding: 2px;
+}
+/*select默认样式*/
 select {
     border: solid 1px #000;
     width: 125px;
     height: 25px;
-    border: 1px #87CEFF solid;
+    border: 1px #ccc solid;
     appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
-    background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+    background: url("../img/selet-triangle.png") no-repeat scroll transparent;
+    background-size: 12px 8px;
+    background-position: 105px 7px;
     padding-right: 14px;
+}
+select:hover{
+    background-image: url("../img/tran-triangle.png");
 }
 /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
 select::-ms-expand {
@@ -56,11 +84,14 @@ select::-ms-expand {
 }
 .searchBox{
     float: left;
+    font-size: 0px;
 }
 .search{
     width: 410px;
     height: 35px;
-    transform: translateY(-2px);
+    padding-left: 6px;
+    font-size: 18px;
+    border: 1px #ccc solid;
 }
 .btn-red{
     width: 90px;
@@ -73,49 +104,7 @@ select::-ms-expand {
 .hide{
     display: none;
 }
-.userInf{
-    width: 120px;
-    float:right;
-    line-height: 40px;
-}
-.icon{
-    display: inline-block;
-    height: 40px;
-    width:40px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-.icon:hover{
-    cursor: pointer;
-}
-.icon img{
-    height: 40px;
-    width:40px;
-}
-.userInf-name{
-    display: inline-block;
-    transform:translateY(-13px);
-    width: 60px;
-    line-height: 40px;
-    font-size: 16px;
-}
-.userInf-name span{
-    box-sizing: border-box;
-    float: right;
-    transform: translateY(17px);
-    width: 10px;
-    height: 8px;
-    border: white 5px solid;
-    border-top: #000 5px solid;
-}
-.btn-white{
-    width:50px;
-    height: 20px;
-    border-radius: 4px;
-    border:1px #78a9f3 solid;
-    color: #78a9f3;
-    background: #fff;
-}
+
 /* 菜单栏 */
 .borderbottom{
     border-bottom: 1px #ccc solid;
@@ -163,6 +152,7 @@ select::-ms-expand {
 /* 右 */
 .content-column{
     position: absolute;
+    z-index: -1;
     right: 0px;
     width: 337px;
 }

@@ -58,6 +58,7 @@ form{
 }
 .login-boxs{
     position:relative;
+    text-align: left;
     left: 0px;
 }
 .login-box-2{
@@ -136,9 +137,91 @@ form{
     line-height: 15px;
     color: red
 }
+.userInf{
+    float: right;
+    right: 0px;
+    text-align: center;
+}
+.icon{
+    display: inline-block;
+    height: 40px;
+    width:40px;
+    background-size: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.icon:hover{
+    cursor: pointer;
+}
+.userInf:hover .userInf-name{
+    display: none;
+}
+/*.userInf:hover .icon{*/
+    /*width: 80px;*/
+    /*height: 80px;*/
+/*}*/
+.icon img{
+    height: 40px;
+    width:40px;
+}
+.userInf-name{
+    display: inline-block;
+    transform:translateY(-13px);
+    width: 60px;
+    line-height: 40px;
+    font-size: 16px;
+}
+.userInf-name span{
+    box-sizing: border-box;
+    float: right;
+    transform: translateY(17px);
+    width: 10px;
+    height: 8px;
+    border: white 5px solid;
+    border-top: #000 5px solid;
+}
+.btn-white{
+    width:50px;
+    height: 20px;
+    border-radius: 4px;
+    border:1px #78a9f3 solid;
+    color: #78a9f3;
+    background: #fff;
+}
 .seeme{
     display: block;
 }
 .wrong{
     display: none;
+}
+.userInf-name:hover{
+    cursor: pointer;
+}
+.userInf-drop-down{
+    display: none;
+    z-index: 5;
+}
+.userInf:hover .userInf-drop-down{
+    display: block;
+}
+.userInf-drop-down span+span:hover{
+    cursor: pointer;
+    color: #78a9f3;
+}
+.userInf-drop-down span{
+    display: block;
+    height: 40px;
+    width: 125px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(244,244,244);
+    border-top: none;
+}
+.userInf-drop-down-name{
+    font-weight: lighter;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
 }

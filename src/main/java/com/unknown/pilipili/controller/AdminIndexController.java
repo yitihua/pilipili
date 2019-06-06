@@ -15,8 +15,8 @@ import javax.servlet.ServletRequest;
  */
 
 @Controller
-@RequestMapping("/manage_index")
-public class ManageIndexController {
+@RequestMapping("/admin/index")
+public class AdminIndexController {
     @Autowired
     private NewsService newsService;
     @Autowired
@@ -24,6 +24,6 @@ public class ManageIndexController {
     @RequestMapping("")
     public String show(Model model, ServletRequest request){
 
-        return "/manage_index";
+        return "/admin/index";
     }
 }

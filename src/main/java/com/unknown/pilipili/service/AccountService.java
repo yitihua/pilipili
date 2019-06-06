@@ -12,10 +12,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountService {
+    public static final String HASH_ALGORITHM = "MD5";
+    public static final int HASH_INTERATIONS = 1024;
     @Autowired
     private UserRepository userRepo;
-
-    public User login(String username, String password){
+    public User findUserByUsernameAndPassword(String username, String password){
         return userRepo.findUserByUsernameAndPassword(username,password);
     }
 

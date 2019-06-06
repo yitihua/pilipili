@@ -18,7 +18,7 @@ import java.util.List;
  * @version 1.0, 2019/6/2 17:02
  */
 @Controller
-@RequestMapping("/dataDictionary")
+@RequestMapping("/admin/dict")
 public class DictController {
     @Autowired
     private DictService dictService;
@@ -26,21 +26,22 @@ public class DictController {
     public String showDict(Model model, ServletRequest request){
         List<Dict> dictList = dictService.findAll();
         model.addAttribute("dictList",dictList);
-        return "/dataDictionary";
+        return "/admin/dict";
     }
     @PostMapping("createDict")
     public String createDict(Model model, ServletRequest request){
         String type = request.getParameter("type");
         String name = request.getParameter("name");
+        String status = request.getParameter("status");
         Dict dict = new Dict(type,name);
-        switch (Integer.valueOf(request.getParameter("status"))){
-            case 0:
+        switch (status){
+            case "0":
                 dict.setStatus(Constants.Status.DISABLE);
-            case 1:
+            case "1":
                 dict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(dict);
-        return "redirect:/dataDictionary";
+        return "redirect:/admin/dict";
     }
     @PostMapping("updateDict/{id}")
     public String updateDict(@PathVariable("id") Long pkId, Model model, ServletRequest request){
@@ -48,13 +49,13 @@ public class DictController {
         newDict.setType(request.getParameter("type"));
         newDict.setName(request.getParameter("name"));
 
-        switch (Integer.valueOf(request.getParameter("status"))){
-            case 0:
+        switch (request.getParameter("status")){
+            case "0":
                 newDict.setStatus(Constants.Status.DISABLE);
-            case 1:
+            case "1":
                 newDict.setStatus(Constants.Status.ENABLE);
         }
         dictService.save(newDict);
-        return "redirect:/dataDictionary";
+        return "redirect:/admin/dict";
     }
 }

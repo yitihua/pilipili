@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--配置全局权限过滤器-->
-    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <!--shiro最核心组件，具体后面说-->
-        <property name="securityManager" ref="securityManager"/>
-        <!--设置没有登录时的跳转地址-->
-        <property name="loginUrl" value="/index"/>
-        <!--设置权限不足时的跳转地址-->
-        <property name="unauthorizedUrl" value="/static/html/noPerm.html"/>
-        <!--对哪个后端接口使用哪个过滤器进行配置，等号后边是shiro内置过滤器的名字-->
-        <property name="filterChainDefinitions">
-            <value>
-                <!--匿名访问，/api/login是登陆接口，当然可以随便访问-->
-                /api/login = anon
-                /api/test? = authc
-                <!--本工程中上传文件的接口，只允许有common角色的用户访问-->
-                /api/file = roles[common]
-                <!--用户退出登录的接口，后端不需要实现该接口，logout拦截到/api/logout的url后，就自动清除登录状态回到首页了-->
-                <!--因为在web.xml中设置的url-parttern是/api/*，随意只有api开头的url才会被拦截-->
-                /api/logout = logout
-                <!--使用自定义拦截器的接口-->
-                <!--/api/selfFilter = myFilter-->
-                <!--其他所有接口都需要认证，也就是需要之前输入过账号密码登录过-->
-                /** = authc
-            </value>
-        </property>
-        <!--加入自定义filter，在filterChainDefinitions可以通过key来引用-->
-        <!--<property name="filters">-->
-        <!--<map>-->
-        <!--<entry key="myFilter">-->
-        <!--<bean class="MyFilter"/>-->
-        <!--</entry>-->
-        <!--</map>-->
-        <!--</property>-->
+    <description>Shiro安全配置</description>
+
+    <!--配置 SecurityManager-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="realm" ref="shiroRealm"/>
     </bean>
+
+    <!--配置 CacheManager-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/>
+    </bean>
+
+    <!--配置 Realm-->
+    <bean id="shiroRealm" class="com.unknown.pilipili.shiro.ShiroRealm">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <property name="hashIterations" value="1024"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--配置 LifecycleBeanPostProcessor-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!--启用 IOC 容器中使用 shiro 的注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!-- 配置 ShiroFilter-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/index"/>
+        <property name="successUrl" value="/list.jsp"/>
+        <property name="unauthorizedUrl" value="/noAuthority"/>
+        <property name ="filterChainDefinitionMap" ref="filterChainDefinitionMap"/>
+    </bean>
+    <bean id="filterChainDefinitionMap"
+          factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"/>
+
+    <!-- 配置一个bean，该bean实际上是一个Map，通过实例工厂方法的方式 -->
+    <bean id="filterChainDefinitionMapBuilder"
+          class="com.unknown.pilipili.shiro.FilterChainDefinitionMapBuilder"/>
+
 </beans>

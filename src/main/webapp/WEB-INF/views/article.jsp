@@ -24,7 +24,7 @@
 <div class="contenter">
     <div class="news-topnav">
         <div class="widthfix">
-            <span  class="news-logo"><img src="${ctx}/static/img/CN_bilibiliB.png"></span>
+            <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'"><img src="${ctx}/static/img/CN_bilibiliB.png"></span>
             <span class="icon">
             </span>
         </div>

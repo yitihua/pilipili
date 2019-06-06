@@ -4,6 +4,7 @@ import com.unknown.pilipili.config.orm.IdEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -34,11 +35,11 @@ public class User extends IdEntity {
 
     private LocalDateTime createAt = LocalDateTime.now();
 
-    @ManyToMany
-    @JoinTable(name = "T_USER_ROLE", joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private Set<Role> roles = new HashSet<>();
-
-    private String salt;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "T_USER_ROLE",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")})
+    private Set<Role> roles = new HashSet<Role>();
 
     public User(){}
     public User(String username,String password){
@@ -109,11 +110,6 @@ public class User extends IdEntity {
         this.roles = roles;
     }
 
-    public String getSalt() {
-        return salt;
-    }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
+
 }
