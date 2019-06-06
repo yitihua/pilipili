@@ -18,6 +18,10 @@ public class Type extends IdEntity {
     public Type() {
     }
 
+    public Type(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

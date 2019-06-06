@@ -20,6 +20,9 @@ public class UserService {
     public User save(User u){
         return userRepo.save(u);
     }
+    public void delete(Long id){
+        userRepo.delete(id);
+    }
     public User findUserByUsername(String username){
         return userRepo.findUserByUsername(username);
     }

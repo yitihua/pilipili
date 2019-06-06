@@ -24,6 +24,9 @@ public class NewsService {
     public News save(News news){
         return newsRepository.save(news);
     }
+    public void delete(Long id){
+        newsRepository.delete(id);
+    }
     public News findOne(Long pkId){
         return newsRepository.findOne(pkId);
     }
