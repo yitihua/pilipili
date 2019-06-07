@@ -53,6 +53,11 @@ for(let m=0;m<types.length;m++){
         }
         types[m].classList.add("bottom-red")
         let pageName = this.getAttribute("id")
+        if(pageName!="index"){
+            document.getElementById("carousel").style.display = "none"
+        }else {
+            document.getElementById("carousel").style.display = "block"
+        }
         for(item in newsVM.gohide){
             Vue.set(newsVM.gohide,item,true)
             console.log(newsVM.gohide[item])

@@ -82,7 +82,7 @@
                                 <span class="time-btn">
                                     ${article.createAt}
                                 </span>
-                                <span class="span-btn remove-btn">
+                                <span class="span-btn remove-btn" onclick="javascript:window.location.href='${ctx}/delet/${article.id}'">
                                         删除
                                 </span>
                                 <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
