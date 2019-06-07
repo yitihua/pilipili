@@ -26,7 +26,6 @@ public class testController {
     @RequestMapping("")
     public String list(@RequestParam(value = "sortType", defaultValue = "auto") String sortType,
                        @RequestParam(value = "page", defaultValue = "1") int pageNumber, Model model, ServletRequest request){
-
         Map<String, Object> searchParams = HttpServlet.getParametersStartingWith(request, "s_");
         Page<News> newsList = newsService.getEntityPage(searchParams, pageNumber, PAGE_SIZE, sortType);
         model.addAttribute("newsList", newsList);
