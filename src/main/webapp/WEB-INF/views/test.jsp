@@ -44,7 +44,10 @@
             </form>
         </div>
     </div>
-    <%--                    分页部分结束                                   --%>
+
+
+
+    <%--                    分页部分开始                                  --%>
     <table id="contentTable" class="table table-striped table-hover">
         <thead><tr>
             <th><input type="checkbox" id="chkAll"></th>
@@ -72,6 +75,9 @@
     </table>
     <tags:pagination page="${newsList}" paginationSize="${PAGE_SIZE}"/>  <%--这行的page_size不能改--%>
     <%--                   分页部分结束                                   --%>
+
+
+
 </div>
 
 
