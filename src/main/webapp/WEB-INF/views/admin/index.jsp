@@ -164,7 +164,7 @@
                                         <td>${news.type.name}</td>
                                         <td>${news.author.username}</td>
                                         <td>${news.createAt}</td>
-                                        <td>编辑</td>
+                                        <td><a herf="${ctx}/newsEdit/${news.id}">编辑</a></td>
                                     </tr>
 								</c:forEach>
 								</tbody>
