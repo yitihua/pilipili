@@ -64,6 +64,7 @@
                             <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login"
                                   onsubmit="check()">
                                 <div class="login-box login-box-1">
+                                    <input type="hidden" name="nextUrl" value="${ctx}/index">
                                     <span class="logtip" id="logtip"></span>
                                     <p>用户名</p><input type="text" name="username" id="username"><br>
                                     <p>密码</p><input type="password" name="password" id="password"><br>
@@ -78,6 +79,7 @@
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}'
                                   action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
+                                    <input type="hidden" name="nextUrl" value="${ctx}/index">
                                     <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"
                                                      name="username" class="register-name"><br>
                                     <span>
@@ -505,6 +507,9 @@
     }
     if ("${user.username}") {
         vm.registed = true
+    }
+    if("${nextUrl}"&&"${nextUrl}"!="${ctx}/index"){
+        window.location.href="${nextUrl}"
     }
 </script>
 </html>

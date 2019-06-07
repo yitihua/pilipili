@@ -26,14 +26,12 @@
 </head>
 <body>
 <div class="contenter">
-    <div class="news-topnav">
+    <div class="news-topnav" id="topnav">
         <div class="widthfix">
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="static/img/CN_bilibiliB.png">
                 </span>
-            <span class="icon">
 
-                </span>
         </div>
     </div>
     <div class="main-body">
@@ -103,6 +101,7 @@
         </div>
     </div>
 </div>
+
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/sideMenu.js"></script>

@@ -17,16 +17,106 @@
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 
 </head>
 <body>
-<div class="contenter">
-    <div class="news-topnav">
+<div class="contenter" id="contenter">
+    <div class="news-topnav" id="topnav">
         <div class="widthfix">
             <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'"><img src="${ctx}/static/img/CN_bilibiliB.png"></span>
-            <span class="icon">
-            </span>
+            <%--登录注册--%>
+            <div class="userInf" id="unlog-userInf clearfix">
+                <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"
+                       v-bind:class="{hide:registed}">
+                <!-- login&&register -->
+                <div class="login" id="login" v-bind:class="{seeme:seeme}">
+                    <div class="login-bc" id="login-bc">
+                        <div class="login-bar">
+								<span v-on:click="gologin()"
+                                      v-bind:class="{borderHighLight:actived,borderIndex:!actived}">
+									登录
+								</span>
+                            <span v-on:click="goregister()"
+                                  v-bind:class="{borderHighLight:!actived,borderIndex:actived}">
+									注册
+								</span>
+                        </div>
+                        <div class="login-boxs clearfix" id="loginBoxs">
+                            <form method="POST" id="login-form" v-bind:class='{hide:!actived}' action="${ctx}/login"
+                                  onsubmit="check()">
+                                <div class="login-box login-box-1">
+                                    <input type="hidden" name="nextUrl" value="${ctx}/article/view/${news.id}">
+                                    <span class="logtip" id="logtip"></span>
+                                    <p>用户名</p><input type="text" name="username" id="username"><br>
+                                    <p>密码</p><input type="password" name="password" id="password"><br>
+                                    <input type="checkbox" name="rememberMe" id="rememberMe" style="width: 20px"><label
+                                        for="rememberMe">记住我</label>
+                                </div>
+                                <div class="login-btns">
+                                    <input type="button" value="返回" class="login-btns2" v-on:click="closeForm()"/>
+                                    <input type="submit" value="确认" class="login-btns1"/>
+                                </div>
+                            </form>
+                            <form method="POST" id="register-form" v-bind:class='{hide:actived}'
+                                  action="${ctx}/register">
+                                <div id="loginbox" class="login-box login-box-2">
+                                    <input type="hidden" name="nextUrl" value="${ctx}/article/view/${news.id}">
+                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"
+                                                     name="username" class="register-name"><br>
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}"
+                                             class="nametip"/>
+                                        <span v-html="nametip"></span>
+                                    </span><br>
+                                    <p>性别</p>
+                                    <input type="radio" name="gender" value="男" id="male" class="log-radio"><label
+                                        for="male">男</label>
+                                    <input type="radio" name="gender" value="女" id="female" class="log-radio"><label
+                                        for="female">女</label>
+                                    <input type="radio" name="gender" value="保密" id="secret" class="log-radio"><label
+                                        for="secret">保密</label><br>
+                                    <p>学历</p>
+                                    <select name="education">
+                                        <option value="无">无</option>
+                                        <option value="小学">小学</option>
+                                        <option value="初中">初中</option>
+                                        <option value="高中">高中</option>
+                                        <option value="大学及以上">大学及以上</option>
+                                    </select><br>
+                                    <p>密码</p><input type="password" ref="password" v-model="password"
+                                                    v-on:keyup="ptip()" name="password" class="register-pwd"><br>
+                                    <span>
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:pwdwrong}"
+                                             class="nametip"/>
+                                        <span v-html="pwdtip"></span>
+                                    </span><br>
+                                </div>
+                                <div class="login-btns">
+                                    <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()"/>
+                                    <input type="submit" value="确认" class="login-btns1"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- login&&regist结束 -->
+            <!-- 登录后的用户信息栏 -->
+
+            <div class="userInf" v-bind:class="{hide:!registed}">
+                <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
+                <span class="userInf-name clearfix">${user.username}<span></span></span>
+                <div class="userInf-drop-down">
+                    <span class="userInf-drop-down-name">${user.username}</span>
+                    <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
+                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
+                </div>
+            </div>
+            <%--登录注册结束--%>
         </div>
     </div>
     <div class="widthfix">
@@ -128,4 +218,5 @@
 </div>
 </body>
 <script src="${ctx}/static/js/article.js"></script>
+<script src="${ctx}/static/js/articleLog.js"></script>
 </html>

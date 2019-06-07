@@ -31,7 +31,7 @@
                 </span>
             <span class="icon">
 
-                </span>
+            </span>
         </div>
     </div>
     <div class="main-body">
@@ -45,12 +45,12 @@
                     <li onclick="javascript:window.location.href='${ctx}/myInf'">
                         个人信息
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/myComment'">
+                    <li onclick="javascript:window.location.href='${ctx}/myComment'" class="bc-highlight">
                         我的评论
                     </li>
                 </ul>
                 <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
-                    <li onclick="javascript:window.location.href='${ctx}/myArticle'" class="bc-highlight">
+                    <li onclick="javascript:window.location.href='${ctx}/myArticle'">
                         文章管理
                     </li>
                     <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
@@ -60,35 +60,35 @@
             </div>
             <div class="main-content" id="mycomment-area">
                 <ul class="comment-list">
-                    <%--<c:forEach var="comment" items="commentList">--%>
-                        <%--<li>--%>
-                            <%--<p>--%>
-                                <%--<span>我评论了</span>--%>
-                                <%--<span class="commentator">${comment.author.username}狗剩</span>:--%>
-                            <%--</p>--%>
-                            <%--<a>--%>
-                                <%--${comment.content}--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
-                    <%--</c:forEach>--%>
-                    <li>
-                        <p>
-                            <span>
-                                我评论了
-                            </span>
-                            <span class="commentator">
-                                大土豆
-                            </span>:<br>
-                            <span class="remove-btn"></span>
-                            <span></span>
-                            <a class="comment-content">
-                                你可真帅
-                            </a><br>
-                            <span class="comment-inf">
-                                2019-12-2
-                            </span>
-                        </p>
-                    </li>
+                    <c:forEach var="comment" items="${commentList}">
+                        <li>
+                            <p>
+                                <span>我评论了</span>
+                                <span class="commentator">${comment.father.author.username}</span>:
+                            </p>
+                            <a>
+                                ${comment.content}
+                            </a>
+                        </li>
+                    </c:forEach>
+                    <%--<li>--%>
+                        <%--<p>--%>
+                            <%--<span>--%>
+                                <%--我评论了--%>
+                            <%--</span>--%>
+                            <%--<span class="commentator">--%>
+                                <%--大土豆--%>
+                            <%--</span>:<br>--%>
+                            <%--<span class="remove-btn"></span>--%>
+                            <%--<span></span>--%>
+                            <%--<a class="comment-content">--%>
+                                <%--你可真帅--%>
+                            <%--</a><br>--%>
+                            <%--<span class="comment-inf">--%>
+                                <%--2019-12-2--%>
+                            <%--</span>--%>
+                        <%--</p>--%>
+                    <%--</li>--%>
                 </ul>
             </div>
         </div>
