@@ -2,10 +2,15 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.repository.UserRepository;
+import com.unknown.pilipili.util.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author <b>顾思宇</b>
@@ -32,6 +37,10 @@ public class UserService {
     public List<User> findAll(){
         return (List<User>) userRepo.findAll();
     }
-
+    public Page<User> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
+        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<User> spec = Paging.buildSpecification(filterParams,User.class);
+        return userRepo.findAll(spec,pageRequest);
+    }
 
 }

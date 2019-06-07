@@ -2,10 +2,15 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Dict;
 import com.unknown.pilipili.repository.DictRepository;
+import com.unknown.pilipili.util.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author <b>顾思宇</b>
@@ -29,5 +34,10 @@ public class DictService {
     }
     public List<Dict> findAll(){
         return (List<Dict>) dictRepo.findAll();
+    }
+    public Page<Dict> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
+        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Dict> spec = Paging.buildSpecification(filterParams,Dict.class);
+        return dictRepo.findAll(spec,pageRequest);
     }
 }
