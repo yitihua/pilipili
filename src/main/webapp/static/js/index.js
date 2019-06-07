@@ -13,21 +13,54 @@ var addPara = document.createElement.bind(document);
 //获取新闻类型列表
 var types = document.querySelectorAll(".type li");
 //新闻列表选中nav被选中底部边框标红
+// animation   film   music   dance   game   tech   digital   life   food
+var newsVM = new Vue({
+    el:"#index-news-list",
+    data:{
+        gohide:{
+            index:false,
+            animation:true,
+            film:true,
+            music:true,
+            dance:true,
+            game:true,
+            tech:true,
+            digital:true,
+            life:true,
+            food:true
+        }
+    },
+    watch:{
+        gohide: function () {
+            
+        }
+    }
+})
 for(let i = 0,l = types.length;i<l;i++){
     types[i].onclick = function(){
-        let count = l-1
+
+        console.log(i)
+    }
+}
+for(let m=0;m<types.length;m++){
+    types[m].onclick=function () {
+        let count = types.length-1
         while(count>=0){
             if(types[count].classList.contains("bottom-red")){
                 types[count].classList.remove("bottom-red")
             }
-
             count--
         }
-        types[i].classList.add("bottom-red")
-        console.log(i)
+        types[m].classList.add("bottom-red")
+        let pageName = this.getAttribute("id")
+        for(item in newsVM.gohide){
+            Vue.set(newsVM.gohide,item,true)
+            console.log(newsVM.gohide[item])
+        }
+        Vue.set(newsVM.gohide,pageName,false)
+        console.log(newsVM.gohide[pageName])
     }
 }
-
 // function GetUrlRelativePath()
 // {
 //     var url = document.location.toString();
