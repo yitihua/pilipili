@@ -70,7 +70,9 @@
                 <td> <a href="${ctx}/dict/update/${news.id}">编辑</a>  |   <a href="#" id="id_delete" dict="${news.id}">删除</a>
                 </td>
             </tr>
-        </c:forEach>
+        </c:forEach>     <%--程羚--%>
+                                <%--程羚--%>
+        <%--!!!!!程羚注意了！！！！程羚底下还有一行！！！！--%>
         </tbody>
     </table>
     <tags:pagination page="${newsList}" paginationSize="${PAGE_SIZE}"/>  <%--这行的page_size不能改--%>

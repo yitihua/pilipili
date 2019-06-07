@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>我的文章</title>
-    <script>var ctx="${ctx}"</script>
+    <script>var ctx = "${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
@@ -51,10 +51,10 @@
                 </ul>
                 <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
                     <li onclick="javascript:window.location.href='${ctx}/myArticle'" class="bc-highlight">
-                    文章管理
+                        文章管理
                     </li>
                     <li onclick="javascript:window.location.href='${ctx}/myComment'">
-                    评论管理
+                        评论管理
                     </li>
                 </ul>
             </div>
@@ -73,25 +73,29 @@
                     <li class="article-empty-nav" v-bind:class="{hide:noArticle}">
                         <img src="static/img/none.jpg" style="width: 300px">
                     </li>
-                    <c:forEach var="article" items="${newsList}">
+                    <c:forEach items="${newsList.content}" var="article" varStatus="idxStatus">
                         <li class="article-nav">
-                            <div class="article-title" onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
+                            <div class="article-title"
+                                 onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
                                 <a>${article.title}</a>
                             </div>
                             <div class="atricle-inf">
                                 <span class="time-btn">
-                                    ${article.createAt}
+                                        ${article.createAt}
                                 </span>
-                                <span class="span-btn remove-btn" onclick="javascript:window.location.href='${ctx}/delet/${article.id}'">
+                                <span class="span-btn remove-btn"
+                                      onclick="javascript:window.location.href='${ctx}/myArticle/delete/${article.id}'">
                                         删除
                                 </span>
-                                <span class="span-btn eidt-btn" onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
+                                <span class="span-btn eidt-btn"
+                                      onclick="javascript:window.location.href='${ctx}/myArticle/edit/${article.id}'">
                                         编辑
                                 </span>
 
                             </div>
                         </li>
                     </c:forEach>
+                    <tags:pagination page="${newsList}" paginationSize="${PAGE_SIZE}"/>
                 </ul>
             </div>
         </div>
@@ -102,6 +106,6 @@
 <script src="${ctx}/static/js/sideMenu.js"></script>
 <script src="${ctx}/static/js/myArticle.js"></script>
 <script>
-    if(${articleList})myArticleVM.noArticle =false;
+    if (${articleList}) myArticleVM.noArticle = false;
 </script>
 </html>
