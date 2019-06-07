@@ -59,7 +59,7 @@
             <th>管理</th></tr></thead>
         <tbody>
         <c:forEach items="${newsList.content}" var="news" varStatus="idxStatus">   <%--这行的EL表达式中的.content不能改 varStatus里的不要改--%>
-            <tr>
+            <tr>   <%--程羚程羚程羚！！！！最顶上有个标签库的链接！！！！叫tag毛的，别忘了链上--%>
                 <td><input type="checkbox" name="chkIds" value="${news.id}"></td>
                 <td>${idxStatus.index+1}</td> <%--表示序号 不要改--%>
                 <td>${news.type.name}

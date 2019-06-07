@@ -1,0 +1,14 @@
+@charset "utf-8";
+.pagination{
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+}
+.pagination li{
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+.disabled{
+    background-color: palegoldenrod;
+}

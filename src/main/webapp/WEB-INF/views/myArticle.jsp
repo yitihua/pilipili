@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -20,6 +21,7 @@
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/myArticle.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/page.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <body>
@@ -73,7 +75,7 @@
                     <li class="article-empty-nav" v-bind:class="{hide:noArticle}">
                         <img src="static/img/none.jpg" style="width: 300px">
                     </li>
-                    <c:forEach items="${newsList.content}" var="article" varStatus="idxStatus">
+                    <c:forEach items="${newsPage.content}" var="article">
                         <li class="article-nav">
                             <div class="article-title"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">
@@ -88,14 +90,14 @@
                                         删除
                                 </span>
                                 <span class="span-btn eidt-btn"
-                                      onclick="javascript:window.location.href='${ctx}/myArticle/edit/${article.id}'">
+                                      onclick="javascript:window.location.href='${ctx}/edit/${article.id}'">
                                         编辑
                                 </span>
 
                             </div>
                         </li>
                     </c:forEach>
-                    <tags:pagination page="${newsList}" paginationSize="${PAGE_SIZE}"/>
+                    <tags:pagination page="${newsPage}" paginationSize="${PAGE_SIZE}"/>
                 </ul>
             </div>
         </div>
