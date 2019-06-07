@@ -23,15 +23,15 @@
 	<div class="nav-top">
 		<a class="navbar-brand" href="" >PiliPili</a>
 		<ul class="navtop-items">
-			<li class="navtop-item">
-				<a href="" class="message">
-					<i class="fa fa-fw fa-envelope"></i>
-					<span>Message</span>
-				</a>
-			</li>
+			<%--<li class="navtop-item">--%>
+				<%--<a href="" class="message">--%>
+					<%--<i class="fa fa-fw fa-envelope"></i>--%>
+					<%--<span>Message</span>--%>
+				<%--</a>--%>
+			<%--</li>--%>
 			
 			<li class="navtop-item">
-				<a href="" class="logout">
+				<a href="${ctx}/logout" class="logout">
 					<i class="fa fa-fw fa-sign-out"></i>
 					<span>Logout</span>
 				</a>
@@ -63,6 +63,11 @@
 		<li class="nav-item">
 			<a href="${ctx}/admin/index">
 				<span class="navside-text">新闻管理</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="${ctx}/edit">
+				<span class="navside-text">新闻添加</span>
 			</a>
 		</li>
         <li class="nav-item">
@@ -112,7 +117,7 @@
 					<a href="#">index</a>
 				</li>
 				<li class="breadcrumb-item">
-					<span>/ 时政要闻管理</span>
+					<span>/ 新闻管理</span>
 				</li>
 			</ol>
 
@@ -121,6 +126,7 @@
 				<div class="card-header">
 					<i class="fa fa-table"></i>
 					<span>最新资讯</span>
+					<a herf="${ctx}/edit" >添加<i class="fa fa-plus-square"></i></a>
 				</div>
 
 				<div class="card-body">
