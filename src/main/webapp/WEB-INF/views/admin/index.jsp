@@ -65,11 +65,11 @@
 				<span class="navside-text">新闻管理</span>
 			</a>
 		</li>
-		<li class="nav-item">
-			<a href="${ctx}/edit">
-				<span class="navside-text">新闻添加</span>
-			</a>
-		</li>
+		<%--<li class="nav-item">--%>
+			<%--<a href="${ctx}/edit">--%>
+				<%--<span class="navside-text">新闻添加</span>--%>
+			<%--</a>--%>
+		<%--</li>--%>
         <li class="nav-item">
             <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
@@ -81,7 +81,11 @@
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
-
+		<li class="nav-item">
+			<a href="${ctx}/admin/dict">
+				<span class="navside-text">数据字典</span>
+			</a>
+		</li>
         <li class="nav-item">
             <a href="${ctx}/index">
                 <span class="navside-text">返回首页</span>
