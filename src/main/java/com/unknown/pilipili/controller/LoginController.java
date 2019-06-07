@@ -31,7 +31,7 @@ public class LoginController {
         String password = request.getParameter("password");
         String rememberMeTmp = request.getParameter("rememberMe");
         boolean rememberMe = false;
-        if(rememberMeTmp.equals("on")){
+        if(rememberMeTmp!=null&&rememberMeTmp.equals("on")){
             rememberMe = true;
         }
         try{
