@@ -33,15 +33,15 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
     <ul class="navtop-items">
-        <li class="navtop-item">
-            <a href="" class="message">
-                <i class="fa fa-fw fa-envelope"></i>
-                <span>Message</span>
-            </a>
-        </li>
+        <%--<li class="navtop-item">--%>
+            <%--<a href="" class="message">--%>
+                <%--<i class="fa fa-fw fa-envelope"></i>--%>
+                <%--<span>Message</span>--%>
+            <%--</a>--%>
+        <%--</li>--%>
 
         <li class="navtop-item">
-            <a href="" class="logout">
+            <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
                 <span>Logout</span>
             </a>
@@ -50,11 +50,11 @@
 </div>
 <div class="nav-side">
     <ul id="nav-side">
-        <li class="nav-item">
-            <a class="sidenav-first-level" herf="${ctx}/admin/index">
-                <span class="navside-text">新闻管理</span>
-                <i class="fa fa-angle-right "></i>
-            </a>
+        <%--<li class="nav-item">--%>
+            <%--<a class="sidenav-first-level" herf="${ctx}/admin/index">--%>
+                <%--<span class="navside-text">新闻管理</span>--%>
+                <%--<i class="fa fa-angle-right "></i>--%>
+            <%--</a>--%>
 
             <%--<ul class="sidenav-second-level">--%>
                 <%--<li class="nav-item">--%>
@@ -69,8 +69,12 @@
 
             <%--</ul>--%>
 
+        <%--</li>--%>
+        <li class="nav-item">
+            <a href="${ctx}/admin/index">
+                <span class="navside-text">新闻管理</span>
+            </a>
         </li>
-
         <li class="nav-item">
             <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
@@ -82,7 +86,11 @@
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
-
+        <li class="nav-item">
+            <a href="${ctx}/admin/dict">
+                <span class="navside-text">数据字典</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="${ctx}/index">
                 <span class="navside-text">返回首页</span>
@@ -133,9 +141,11 @@
                     <a id="closeBtn" class="button">取消添加</a>
             </form>
         </div>
+        <c:forEach items="${dictList}" var="dict">
         <%--弹框-修改字典--%>
         <div id="edit-box">
-            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}>
+            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}">
+
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type" value="${dict.type}">
@@ -155,9 +165,10 @@
                     <a id="closeBtn2" class="button">取消修改</a>
             </form>
         </div>
+        </c:forEach>
 
         <!-- 弹出窗口-删除字典 -->
-        <div id="delect-box" action="${ctx}/admin/dict/delect/${dict.id}>
+        <div id="delect-box" action="${ctx}/admin/dict/delect/${dict.id}">
             <form id="delectDictform">
                 <div class="ttBox">
                     <h1>提示</h1>

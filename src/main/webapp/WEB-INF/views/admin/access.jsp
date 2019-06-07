@@ -22,15 +22,15 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
     <ul class="navtop-items">
-        <li class="navtop-item">
-            <a href="" class="message">
-                <i class="fa fa-fw fa-envelope"></i>
-                <span>Message</span>
-            </a>
-        </li>
+        <%--<li class="navtop-item">--%>
+            <%--<a href="" class="message">--%>
+                <%--<i class="fa fa-fw fa-envelope"></i>--%>
+                <%--<span>Message</span>--%>
+            <%--</a>--%>
+        <%--</li>--%>
 
         <li class="navtop-item">
-            <a href="" class="logout">
+            <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
                 <span>Logout</span>
             </a>
@@ -73,6 +73,11 @@
         <li class="nav-item">
             <a href="">
                 <span class="navside-text">用户权限管理</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="${ctx}/admin/dict">
+                <span class="navside-text">数据字典</span>
             </a>
         </li>
         <li class="nav-item">
@@ -151,6 +156,7 @@
                             </tbody>
                         </table>
 
+
                         <!-- 弹出窗口-添加用户 -->
                         <div id="add-box1">
                             <form id="addUserform" action="${ctx}/admin/access/createUser">
@@ -160,45 +166,55 @@
                                 </li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <select class="easyui-combobox" name="roles" id="refundReason"
-                                            style="resize: none"
-                                            data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+                                    <%--<select class="easyui-combobox" name="roles" id="refundReason"--%>
+                                            <%--style="resize: none"--%>
+                                            <%--data-options="width:220,height:30,editable:false,panelHeight:'auto'">--%>
                                         <c:forEach items="${userList}" var="user">
                                             <c:forEach items="${user.roles}" var="role">
-                                                <option value="${role.name}">${role.name}</option>
+                                                <%--<option value="${role.name}">${role.name}</option>--%>
+                                                <input type="checkbox" name="" value="${role.name}">${role.name}
+                                                <%--<input type="checkbox" name="" value="用户">用户--%>
                                             </c:forEach>
                                             <%--<option value="${user.roles}">${user.roles}</option>--%>
                                         </c:forEach>
-                                    </select>
+                                    <%--</select>--%>
                                 </li>
                                 <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>
                                 <a id="closeBtn1" class="button">取消添加</a>
                             </form></div>
 
+                        <c:forEach items="${userList}" var="user">
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
-                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}>
+                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}">
                                 <li>
                                     <lable>用户名：</lable>
-                                    <input type="text" name="username" value="${user.username}">
+                                    <label>${user.username}</label>
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
-                                    <input type="hidden" id="selectRefundReason" value="${user.roles}"/>
-                                    <select class="easyui-combobox" name="roles" id="refundReason"
-                                            style="resize: none"
-                                            data-options="width:220,height:30,editable:false,panelHeight:'auto'">
+
+                                    <%--<select class="easyui-combobox" name="roles" id="refundReason"--%>
+                                            <%--style="resize: none"--%>
+                                            <%--data-options="width:220,height:30,editable:false,panelHeight:'auto'">--%>
                                         <c:forEach items="${userList}" var="user">
                                             <c:forEach items="${user.roles}" var="role">
-                                                <option value="${role.name}">${role.name}</option>
+
+                                                <%--<option value="${role.name}">${role.name}</option>--%>
+                                                <%--<input type="hidden" id="selectRefundReason" value="${role.name}"/>--%>
+                                                <input type="checkbox" name="" value="${role.name}">${role.name}
+                                                <%--<input type="checkbox" name="" value="用户">用户--%>
+                                                <%--<input type="checkbox" name="" value="">--%>
+                                                <%--<input type="checkbox" name="" value="">--%>
                                             </c:forEach>
                                         </c:forEach>
-                                    </select>
+                                    <%--</select>--%>
                                 </li>
                                 <a class="button" name="" onclick="document:changeRoleform.submit()">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
                             </form>
                         </div>
+                        </c:forEach>
 
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
@@ -255,7 +271,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var key = $("#selectRefundReason").val();
-        //根据值让option选中
+        //根据值让复选框选中
         $("#refundReason option[value='" + key + "']").attr("selected", "selected");
     });
 </script>

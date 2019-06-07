@@ -25,15 +25,9 @@
     <div class="nav-top">
         <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
         <ul class="navtop-items">
-            <li class="navtop-item">
-                <a href="" class="message">
-                    <i class="fa fa-fw fa-envelope"></i>
-                    <span>Message</span>
-                </a>
-            </li>
 
             <li class="navtop-item">
-                <a href="" class="logout">
+                <a href="${ctx}/logout" class="logout">
                     <i class="fa fa-fw fa-sign-out"></i>
                     <span>Logout</span>
                 </a>
@@ -48,19 +42,6 @@
                     <i class="fa fa-angle-right "></i>
                 </a>
 
-                <%--<ul class="sidenav-second-level">--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
-                    <%--</li>--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
-                    <%--</li>--%>
-                    <%--<li class="nav-item">--%>
-                        <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
-                    <%--</li>--%>
-
-                <%--</ul>--%>
-
             </li>
 
             <li class="nav-item">
@@ -74,7 +55,11 @@
                     <span class="navside-text">用户权限管理</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a href="${ctx}/admin/dict">
+                    <span class="navside-text">数据字典</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="${ctx}/index">
                     <span class="navside-text">返回首页</span>
@@ -111,6 +96,7 @@
             </li>
         </ol>
 
+        <form action="${ctx}/newsEdit/update/${ news.id}" id="newsEditform">
         <div class="biaoti">
             <label class="fn0">标题：</label>
             <div class="bz0">
@@ -137,15 +123,15 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" id="newsEditform" action="${ctx}/admin/newsEdit/update/${user.content}>
+                <form id="new-article" action="${ctx}/admin/newsEdit/update/${user.content}>
                 </form>
             </div>
 
             <div >
-                <a  class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
+                <a class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
             </div>
         </div>
-
+        </form>
 
 
     </div>
@@ -163,6 +149,7 @@
     <%--// 或者 var editor = new E( document.getElementById('editor') )--%>
     <%--editor.create()--%>
 <%--</script>--%>
+<%--编辑器--%>
 <script>
     var E = window.wangEditor
     var editor = new E('#editor-tools','#editor-text');
@@ -176,6 +163,20 @@
         $("#refundReason option[value='"+key+"']").attr("selected","selected");
     });
 </script>
+<%--判断事件为新增还是修改--%>
+<script>
+    $(document).ready(function () {
+        $('.btng').click(){
+            var addPath = "${ctx}/newsEdit/create";
+            if($(".title-text").val() == ""){
+                $('#newsEditform').attr("action",addPath).submit();
+            }
+        }
+        <%--var path = "${ctx}/student/traScore.action?method=exportExcel";--%>
+        <%--$('#queryForm').attr("action", path).submit();;--%>
+    })
+</script>
+
 
 </body>
 </html>

@@ -33,15 +33,15 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" >PiliPili</a>
     <ul class="navtop-items">
-        <li class="navtop-item">
-            <a href="" class="message">
-                <i class="fa fa-fw fa-envelope"></i>
-                <span>Message</span>
-            </a>
-        </li>
+        <%--<li class="navtop-item">--%>
+            <%--<a href="" class="message">--%>
+                <%--<i class="fa fa-fw fa-envelope"></i>--%>
+                <%--<span>Message</span>--%>
+            <%--</a>--%>
+        <%--</li>--%>
 
         <li class="navtop-item">
-            <a href="" class="logout">
+            <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
                 <span>Logout</span>
             </a>
@@ -87,7 +87,11 @@
                 <span class="navside-text">用户权限管理</span>
             </a>
         </li>
-
+        <li class="nav-item">
+            <a href="${ctx}/admin/dict">
+                <span class="navside-text">数据字典</span>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="${ctx}/index">
                 <span class="navside-text">返回首页</span>
@@ -132,6 +136,7 @@
                 <a id="closeBtn" class="button">取消添加</a>
             </form>
         </div>
+    <c:forEach items="${typeList}" var="type">
         <%--弹框-修改栏目--%>
         <div id="edit-box">
             <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}">
@@ -152,6 +157,7 @@
                     <a id="closeBtn2" class="button">取消修改</a>
             </form>
         </div>
+    </c:forEach>
 
         <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
@@ -208,8 +214,8 @@
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>
                                     <td>${type.engName}</td>
-                                    <td><a >编辑</a></td>
-                                    <td><a id="delect">删除</a></td>
+                                    <td><a class="edit">编辑</a></td>
+                                    <td><a class="delect">删除</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -282,7 +288,7 @@
         });
 
         // edit
-        $("#edit").click(function(){
+        $(".edit").click(function(){
             $('#edit-box').show();
 
             //获取页面文档的高度
@@ -302,7 +308,7 @@
         });
 
         // delect
-        $("#delect").click(function(){
+        $(".delect").click(function(){
             $('#delect-box').show();
 
             //获取页面文档的高度
