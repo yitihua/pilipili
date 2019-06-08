@@ -4,6 +4,8 @@ import com.unknown.pilipili.config.orm.PlatformRepository;
 import com.unknown.pilipili.domain.News;
 import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +22,6 @@ public interface NewsRepository extends PlatformRepository<News,Long> {
     List<News> findAllByAuthor(User u);
     @Query("from News where type = ?1")
     List<News> findAllByType(Type type);
+    @Query("select n from News n where n.author = ?1")
+    Page<News> findAllByAuthor(User u, Pageable pageable);
 }

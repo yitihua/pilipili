@@ -2,7 +2,7 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.repository.UserRepository;
-import com.unknown.pilipili.util.Paging;
+import com.unknown.pilipili.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,8 +38,8 @@ public class UserService {
         return (List<User>) userRepo.findAll();
     }
     public Page<User> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
-        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
-        Specification<User> spec = Paging.buildSpecification(filterParams,User.class);
+        PageRequest pageRequest = PageUtil.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<User> spec = PageUtil.buildSpecification(filterParams,User.class);
         return userRepo.findAll(spec,pageRequest);
     }
 

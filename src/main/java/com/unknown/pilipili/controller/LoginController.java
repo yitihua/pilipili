@@ -23,6 +23,8 @@ public class LoginController {
 
     @PostMapping(value = "")
     public String login(Model model, ServletRequest request,HttpSession httpSession){
+        String nextUrl = request.getParameter("nextUrl");
+        model.addAttribute("nextUrl",nextUrl);
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()){
             return "redirect:/index";

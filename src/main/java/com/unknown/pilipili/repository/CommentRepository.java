@@ -4,6 +4,8 @@ import com.unknown.pilipili.config.orm.PlatformRepository;
 import com.unknown.pilipili.domain.Comment;
 import com.unknown.pilipili.domain.News;
 import com.unknown.pilipili.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -19,6 +21,8 @@ public interface CommentRepository extends PlatformRepository<Comment,Long> {
     List<Comment> findAllByRootComment(Comment rootComment);
     @Query("from Comment c where c.author = ?1")
     List<Comment> findAllByAuthor(User user);
+    @Query("from Comment c where c.author = ?1")
+    Page<Comment> findAllByAuthor(User user, Pageable pageable);
     @Query("select count(*) from Comment c where c.original = ?1 and c.layer = ?2")
     Long countByOriginalAndLayer(News news,int layer);
     @Query("select count(*) from Comment c where c.rootComment = ?1")

@@ -4,7 +4,7 @@ import com.unknown.pilipili.domain.Comment;
 import com.unknown.pilipili.domain.News;
 import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.repository.CommentRepository;
-import com.unknown.pilipili.util.Paging;
+import com.unknown.pilipili.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -57,8 +57,12 @@ public class CommentService {
         return commentRepository.countByRootComment(comment);
     }
     public Page<Comment> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
-        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
-        Specification<Comment> spec = Paging.buildSpecification(filterParams,Comment.class);
+        PageRequest pageRequest = PageUtil.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Comment> spec = PageUtil.buildSpecification(filterParams,Comment.class);
         return commentRepository.findAll(spec,pageRequest);
+    }
+    public Page<Comment> findAllByAuthor(User u, PageRequest pageable){
+        Page<Comment> page = commentRepository.findAllByAuthor(u, pageable);
+        return page;
     }
 }

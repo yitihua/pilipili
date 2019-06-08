@@ -2,7 +2,7 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Type;
 import com.unknown.pilipili.repository.TypeRepository;
-import com.unknown.pilipili.util.Paging;
+import com.unknown.pilipili.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,8 +36,8 @@ public class TypeService {
         typeRepo.delete(id);
     }
     public Page<Type> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
-        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
-        Specification<Type> spec = Paging.buildSpecification(filterParams,Type.class);
+        PageRequest pageRequest = PageUtil.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Type> spec = PageUtil.buildSpecification(filterParams,Type.class);
         return typeRepo.findAll(spec,pageRequest);
     }
 }

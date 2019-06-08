@@ -13,7 +13,7 @@ import java.util.Map;
  * @version 1.0, 2019/6/7 20:21
  */
 
-public class Paging{
+public class PageUtil {
     public static PageRequest buildPageRequest(int pageNumber, int pageSize, String sortType) {
         Sort sort = null;
         if ("auto".equals(sortType)) {

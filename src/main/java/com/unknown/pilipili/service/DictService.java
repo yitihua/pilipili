@@ -2,7 +2,7 @@ package com.unknown.pilipili.service;
 
 import com.unknown.pilipili.domain.Dict;
 import com.unknown.pilipili.repository.DictRepository;
-import com.unknown.pilipili.util.Paging;
+import com.unknown.pilipili.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,8 +36,8 @@ public class DictService {
         return (List<Dict>) dictRepo.findAll();
     }
     public Page<Dict> getEntityPage(Map<String, Object> filterParams, int pageNumber, int pageSize, String sortType){
-        PageRequest pageRequest = Paging.buildPageRequest(pageNumber, pageSize, sortType);
-        Specification<Dict> spec = Paging.buildSpecification(filterParams,Dict.class);
+        PageRequest pageRequest = PageUtil.buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Dict> spec = PageUtil.buildSpecification(filterParams,Dict.class);
         return dictRepo.findAll(spec,pageRequest);
     }
 }
