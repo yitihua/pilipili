@@ -39,7 +39,7 @@
             <input type="button" class="btn-red" value="搜 索">
         </div>
         <div class="news-list">
-            <c:forEach var="article" items="newsList">
+            <c:forEach var="article" items="${newsList}">
                 <c:choose>
                     <c:when test="${article.img}">
                         <div class="news-pic"><img src="${article.img}"/></div>

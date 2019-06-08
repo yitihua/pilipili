@@ -28,6 +28,7 @@ public class FilterChainDefinitionMapBuilder {
         map.put("/login","anon");
         map.put("/error","anon");
         map.put("/article/view/**","anon");
+        map.put("/search","anon");
 
         //指定角色访问
         map.put("/admin/**","roles[admin]");
