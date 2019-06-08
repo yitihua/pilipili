@@ -38,7 +38,7 @@
                 <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">
-                <form>
+                <form action="${ctx}/search" method="post">
                     <input type="text" class="search" name="search">
                     <input type="submit" class="btn-red" value="搜 索">
                 </form>
