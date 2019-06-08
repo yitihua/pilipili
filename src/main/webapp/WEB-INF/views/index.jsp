@@ -38,8 +38,10 @@
                 <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">
-                <input type="text" class="search">
-                <input type="button" class="btn-red" value="搜 索">
+                <form>
+                    <input type="text" class="search" name="search">
+                    <input type="submit" class="btn-red" value="搜 索">
+                </form>
             </div>
             <shiro:hasRole name="admin">
                 <a href="${ctx}/admin/index" class="admin-page">管理员界面</a>

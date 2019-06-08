@@ -29,8 +29,9 @@
                     <img src="static/img/CN_bilibiliB.png">
                 </span>
             <span class="icon">
-
-                </span>
+                <img src="${ctx}/static/img/indexPhoto.png">
+                <div>${user.username}</div>
+            </span>
         </div>
     </div>
     <div class="main-body">

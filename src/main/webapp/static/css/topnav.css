@@ -18,3 +18,17 @@
 .userInf{
     top:5px;
 }
+.icon{
+    float: right;
+}
+.icon img{
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+}
+.icon div{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
