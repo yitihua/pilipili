@@ -35,16 +35,23 @@
 <div class="main-body">
     <div class="widthfix">
         <div class="search-box">
-            <input type="text" class="search">
-            <input type="button" class="btn-red" value="搜 索">
+            <form action="${ctx}/search" method="post">
+                <input type="text" class="search" name="search">
+                <input type="submit" class="btn-red" value="搜 索">
+            </form>
         </div>
         <div class="news-list">
+            <c:if test="${empty newsList}">
+                <div class="empty-search">
+                    <img src="${ctx}/static/img/none.jpg" style="height: 400px;width: 400px">
+                </div>
+            </c:if>
             <c:forEach var="article" items="${newsList}">
                 <c:choose>
                     <c:when test="${article.img}">
-                        <div class="news-pic"><img src="${article.img}"/></div>
+                        <div class="news-pic"onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'"><img src="${article.img}"/></div>
                         <div class="news-doc">
-                            <div class="news-title">${article.title}</div>
+                            <div class="news-title"onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">${article.title}</div>
                             <div class="news-inf" id="news${article.id}">
                                 <p class="news-author">${article.author.username}</p>
                                 <p class="news-time">上传时间${article.createAt}</p>
@@ -54,7 +61,7 @@
                     </c:when>
                     <c:otherwise>
                         <div class="news-onlydoc">
-                            <div class="news-title">${article.title}</div>
+                            <div class="news-title"onclick="javascript:window.location.href='${ctx}/article/view/${article.id}'">${article.title}</div>
                             <div class="news-inf">
                                 <p class="news-author">${article.author.username}</p>
                                 <p class="news-time">上传时间:${article.createAt}</p>
