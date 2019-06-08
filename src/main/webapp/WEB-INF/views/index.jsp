@@ -127,7 +127,7 @@
 
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
-                <span class="userInf-name clearfix">${user.username}<span></span></span>
+                <span class="userInf-name clearfix">${user.username}</span>
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
@@ -494,7 +494,6 @@
         </div>
     </div>
 </div>
-
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/carousel.js"></script>
@@ -509,9 +508,6 @@
     }
     if ("${user.username}") {
         vm.registed = true
-    }
-    if("${nextUrl}"&&"${nextUrl}"!="${ctx}/index"){
-        window.location.href="${nextUrl}"
     }
 </script>
 </html>

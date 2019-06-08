@@ -48,6 +48,6 @@ public class LoginController {
         User u = (User) subject.getPrincipal();
         httpSession.setAttribute("user",u);
         model.addAttribute("loginSuccess","登录成功");
-        return "redirect:/index";
+        return "/loading";
     }
 }
