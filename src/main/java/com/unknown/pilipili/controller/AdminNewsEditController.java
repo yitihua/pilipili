@@ -26,6 +26,12 @@ public class AdminNewsEditController {
     private NewsService newsService;
     @Autowired
     private TypeService typeService;
+    @RequestMapping("create")
+    public String show(Model model){
+        List<Type> typeList = typeService.findAll();
+        model.addAttribute("typeList",typeList);
+        return "/admin/newsEdit";
+    }
     @GetMapping("{id}")
     public String showEdit(@PathVariable("id") Long id, Model model, ServletRequest request){
         List<Type> typeList = typeService.findAll();
