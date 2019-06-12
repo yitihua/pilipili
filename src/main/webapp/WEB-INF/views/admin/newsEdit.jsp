@@ -102,7 +102,7 @@
         <div class="fenlei">
             <label class="fn0">分类：</label>
             <div class="bz0">
-                <input type="hidden" id ="selectRefundReason" value="${type.name}"/>
+                <input type="hidden" id ="selectRefundReason" value="${news.type.name}"/>
                 <select name="type" >
                     <c:forEach items="${typeList}" var="type">
                         <option value="${type.name}">${type.name}</option>
@@ -117,8 +117,6 @@
             <div id="editor-text">
                 <p>${news.content}</p>
             </div>
-            <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
-
         </div>
         <div >
             <a class="btnrg" id="btn1">立即发布</a>
@@ -130,37 +128,10 @@
         </div>
     </div>
 
-<%--</div>--%>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/wangEditor.min.js"></script>
-<%--编辑器--%>
-<script>
-
-$(document).ready(function(){
-    //编辑器的初始化
-    var E = window.wangEditor;
-    var editor = new E('#editor-tools','#editor-text');
-    editor.create();
-
-    $('#btn1').click(function () {
-        //获取表单信息并提交
-        var content = editor.txt.html();
-        var tit = $('#title').val();
-        $('#new-article').append("<input type='text' name='content' class='newContent'>");
-        $('#new-article').append("<input type='text' name= 'title' class='newTitle'> ");
-        $('.newContent').val(content);
-        $('.newTitle').val(tit);
-        //判断事件为新增还是修改,然后提交表单
-        var addPath = "${ctx}/newsEdit/create";
-        if($(".title-text").val() == ""){
-            $('#new-article').attr("action",addPath).submit();
-        }else {
-            $('#new-article').submit();
-        }
-    });
-});
-</script>
+<script src="${ctx}/static/js/admin_newsEdit.js"></script>
 
 </body>
 </html>

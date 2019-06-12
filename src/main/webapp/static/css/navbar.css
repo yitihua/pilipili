@@ -27,13 +27,14 @@ body {
 }
 /*nav-top*/
 .nav-top{
+	top:0;
 	width: 1300px;
 	height: 56px;
-	top: 0px;
-	left: 0px;
 	position: fixed;
 	background-color: rgb(52, 58, 64);
 	font-size: 16px;
+	/*float: left;*/
+	z-index: 10000;
 }
 .nav-top a{
 	color: rgba(255,255,255,.5);

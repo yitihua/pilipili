@@ -48,7 +48,7 @@ public class AdminNewsEditController {
         news.setType(typeService.findTypeByName(request.getParameter("type")));
         //news.setImg(request.getParameter("img"));
         newsService.save(news);
-        return "redirect:/admin/newsEdit";
+        return "redirect:/admin/index";
     }
 
 }

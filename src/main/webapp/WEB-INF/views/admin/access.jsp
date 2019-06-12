@@ -1,7 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -125,100 +127,85 @@
             <div class="card-header">
                 <i class="fa fa-table"></i>
                 <span>用户列表</span>
-                <a id="add">添加<i class="fa fa-plus-square"></i></a>
+                <a id="addUser">添加用户<i class="fa fa-plus-square"></i></a>
+                <%--<a id="addRole">添加权限<i class="fa fa-plus-square"></i></a>--%>
+
             </div>
 
             <div class="card-body">
                 <div class="row"></div>
-
-                <!-- 用户列表 -->
+            <!-- 用户列表 -->
                 <div class="row">
                     <form>
                         <table style="text-align: center;">
-                            <thead>
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>用户名</th>
+                            <th>级别</th>
+                            <th colspan="2">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${userList}" var="user" varStatus="i">
                             <tr>
-                                <th>用户名</th>
-                                <th>级别</th>
-                                <th colspan="2">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${userList}" var="user">
-                                <tr>
-                                    <td>${user.username}</td>
-                                    <td><c:forEach items="${user.roles}" var="role">
-                                            ${role.name}
-                                        </c:forEach></td>
-                                    <td><a class="change-authority">更改权限</a></td>
-                                    <td><a class="delect">删除</a></td>
+                                <td>${idxStatus.index+1}</td> <%--表示序号 不要改--%>
+                                <td>${user.username}</td>
+                                <td>
+                                    <c:forEach items="${user.roles}" var="role" >
+                                        ${role.name}
+                                        <option type="text" id="refundReason" style="display: none">${role.name}</option>
+                                    </c:forEach>
+                                </td>
+                                <td><a class="change-authority" user-name="${user.username}" user-roles="${role.name} ">更改权限</a></td>
+                                <td><a class="delect" user-id="${user.id}">删除</a></td>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
+                        </c:forEach>
+                        </tbody>
                         </table>
 
 
                         <!-- 弹出窗口-添加用户 -->
                         <div id="add-box1">
-                            <form id="addUserform" action="${ctx}/admin/access/createUser">
+                            <form id="createUserform" action="${ctx}/admin/access/createUser" method="post">
                                 <li>
                                     <lable>用户名：</lable>
                                     <input type="text" name="username" value="">
                                 </li>
                                 <li>
                                     <lable>权限级别：</lable>
-                                    <%--<select class="easyui-combobox" name="roles" id="refundReason"--%>
-                                            <%--style="resize: none"--%>
-                                            <%--data-options="width:220,height:30,editable:false,panelHeight:'auto'">--%>
-                                        <c:forEach items="${userList}" var="user">
-                                            <c:forEach items="${user.roles}" var="role">
-                                                <%--<option value="${role.name}">${role.name}</option>--%>
-                                                <input type="checkbox" name="" value="${role.name}">${role.name}
-                                                <%--<input type="checkbox" name="" value="用户">用户--%>
-                                            </c:forEach>
-                                            <%--<option value="${user.roles}">${user.roles}</option>--%>
-                                        </c:forEach>
-                                    <%--</select>--%>
+                                    <input type="checkbox" name="" value="admin">admin
+                                    <input type="checkbox" name="" value="user">user
                                 </li>
-                                <a class="button" name="" onclick="document:addUserform.submit()">确认添加</a>
                                 <a id="closeBtn1" class="button">取消添加</a>
+                                <a class="button" onclick="document:createUserform.submit()">确认添加</a>
+
                             </form></div>
+
 
                         <c:forEach items="${userList}" var="user">
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
-                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}">
+                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}" method="post">
                                 <li>
                                     <lable>用户名：</lable>
-                                    <label>${user.username}</label>
+                                    <label id="edit-name">${user.username}</label>
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
 
-                                    <%--<select class="easyui-combobox" name="roles" id="refundReason"--%>
-                                            <%--style="resize: none"--%>
-                                            <%--data-options="width:220,height:30,editable:false,panelHeight:'auto'">--%>
-                                        <c:forEach items="${userList}" var="user">
-                                            <c:forEach items="${user.roles}" var="role">
-
-                                                <%--<option value="${role.name}">${role.name}</option>--%>
-                                                <%--<input type="hidden" id="selectRefundReason" value="${role.name}"/>--%>
-                                                <input type="checkbox" name="" value="${role.name}">${role.name}
-                                                <%--<input type="checkbox" name="" value="用户">用户--%>
-                                                <%--<input type="checkbox" name="" value="">--%>
-                                                <%--<input type="checkbox" name="" value="">--%>
-                                            </c:forEach>
-                                        </c:forEach>
-                                    <%--</select>--%>
+                                    <input type="checkbox" name="" value="admin" class="checkbox" >admin
+                                    <input type="checkbox" name="" value="user" class="checkbox">user
                                 </li>
-                                <a class="button" name="" onclick="document:changeRoleform.submit()">确认修改</a>
                                 <a id="closeBtn2" class="button">取消修改</a>
+                                <a class="button" onclick="document:changeRoleform.submit()">确认修改</a>
                             </form>
                         </div>
                         </c:forEach>
 
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
-                            <form id="delectform" action="${ctx}/admin/access/delect/${user.id}">
+                            <form id="delectform" action="${ctx}/admin/access/delect/${user.id}" method="post">
                                 <div class="ttBox">
                                     <h1>提示</h1>
                                 </div>
@@ -227,8 +214,8 @@
                                 </div>
                                 <div class="btnArea">
                                     <div class="btnArea">
-                                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                                         <a class="button" id="closeBtn3">取消删除</a>
+                                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                                     </div>
                                 </div>
                             </form>
@@ -263,18 +250,8 @@
 
 
 </div>
-<%--<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>--%>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
-<%--<script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>--%>
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
-<%--根据后台显示权限--%>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var key = $("#selectRefundReason").val();
-        //根据值让复选框选中
-        $("#refundReason option[value='" + key + "']").attr("selected", "selected");
-    });
-</script>
 
 </body>
 </html>

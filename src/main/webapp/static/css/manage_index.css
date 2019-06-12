@@ -4,6 +4,7 @@
 .container{
     /*overflow-x: hidden;*/
     /*background-color: pink;*/
+    top:0;
     width: 980px;
     margin-left: 250px;
     margin-top: 56px;

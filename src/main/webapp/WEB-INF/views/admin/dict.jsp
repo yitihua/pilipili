@@ -7,9 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %> //分页
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +20,9 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/font/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css" />
-
+    <%--引入jquery--%>
+    <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
     <title>数据字典</title>
-    <style type="text/css">
-
-    </style>
 </head>
 <body>
 
@@ -33,13 +31,6 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
     <ul class="navtop-items">
-        <%--<li class="navtop-item">--%>
-            <%--<a href="" class="message">--%>
-                <%--<i class="fa fa-fw fa-envelope"></i>--%>
-                <%--<span>Message</span>--%>
-            <%--</a>--%>
-        <%--</li>--%>
-
         <li class="navtop-item">
             <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
@@ -50,26 +41,6 @@
 </div>
 <div class="nav-side">
     <ul id="nav-side">
-        <%--<li class="nav-item">--%>
-            <%--<a class="sidenav-first-level" herf="${ctx}/admin/index">--%>
-                <%--<span class="navside-text">新闻管理</span>--%>
-                <%--<i class="fa fa-angle-right "></i>--%>
-            <%--</a>--%>
-
-            <%--<ul class="sidenav-second-level">--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
-                <%--</li>--%>
-
-            <%--</ul>--%>
-
-        <%--</li>--%>
         <li class="nav-item">
             <a href="${ctx}/admin/index">
                 <span class="navside-text">新闻管理</span>
@@ -136,40 +107,42 @@
                         <option value="1">启用</option>
                         <option value="0">禁用</option>
                     </select>
-                    <%--<input type="text" name="status" value="${dict.status}"></li>--%>
-                    <a  class="button" onclick="document:addDictform.submit()">确认添加</a>
+                </li>
                     <a id="closeBtn" class="button">取消添加</a>
+                <a  class="button" onclick="document:addDictform.submit()">确认添加</a>
             </form>
         </div>
-        <c:forEach items="${dictList}" var="dict">
+        <c:forEach items="${dictList}" var="dict" >
         <%--弹框-修改字典--%>
         <div id="edit-box">
-            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}">
-
+            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}" method="post">
                 <li>
                     <lable>字典名称：</lable>
-                    <input type="text" name="type" value="${dict.type}">
+                    <input type="text" name="type" id="edit-name">
                 </li>
                 <li>
                     <lable>属性名称：</lable>
-                    <input type="text" name="name" value="${dict.name}">
+                    <input type="text" name="name" id="edit-type">
                 </li>
                 <li>
                     <lable>属性状态：</lable>
-                    <select name="status">
+                    <select name="status" id="edit-status">
                         <option value="1">启用</option>
                         <option value="0">禁用</option>
                     </select>
                 </li>
-                    <a  class="button" name="" onclick="document:editDictform.submit()">确认修改</a>
+                    <a  class="button"  onclick="document:editDictform.submit()" >确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
             </form>
         </div>
+        <script>
+
+        </script>
         </c:forEach>
 
         <!-- 弹出窗口-删除字典 -->
-        <div id="delect-box" action="${ctx}/admin/dict/delect/${dict.id}">
-            <form id="delectDictform">
+        <div id="delect-box"  >
+            <form id="delectDictform" action="${ctx}/admin/dict/delect/" method="post">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -210,6 +183,7 @@
                         <table style="text-align: center;">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>字典名称</th>
                                 <th>属性名称</th>
                                 <th>属性状态</th>
@@ -217,22 +191,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictList}" var="dict">
+                            <c:forEach items="${dictList}" var="dict" varStatus="idxStatus">
                             <tr>
+                                <td>${idxStatus.index+1}</td> <%--表示序号 不要改--%>
                                 <td>${dict.type}</td>
                                 <td>${dict.name}</td>
                                 <td>${dict.status}</td>
-                                <td><a class="edit" >编辑</a></td>
-                                <td><a class="delect">删除</a></td>
+                                <td>
+                                    <a class="edit"  dict-type="${dict
+                                .type}" dict-name="${dict.name}" dict.status="${dict.status}">编辑</a>
+                                </td>
+                                <td><a class="delect" dict-id="${dict.id}">删除</a></td>
                             </tr>
                             </c:forEach>
                             </tbody>
+                        <%--<tags:pagination page="${dictList}" paginationSize="${PAGE_SIZE}"/>--%>
                         </table>
-
-
-
-
-
 
                         <!-- 分页 -->
                         <div class="row">
@@ -248,89 +222,15 @@
                         </div>
                     </form>
                 </div>
-
-
             </div><!-- card -->
         </div>
     </div><!-- container-fluid -->
 
-
-
-
-
 </div>
-
-
-
 </div>
 <script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
-<!-- <script type="text/javascript" src="js/accessManagement.js"></script> -->
-<script type="text/javascript">
-    $(function(){
-
-        //add
-        $("#addDict").click(function(){
-            $('#add-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn").click(function() {
-            $("#add-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-
-        // edit
-        $(".edit").click(function(){
-            $('#edit-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn2").click(function() {
-            $("#edit-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-
-        // delect
-        $(".delect").click(function(){
-            $('#delect-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn3").click(function() {
-            $("#delect-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-    })
-</script>
+<script type="text/javascript" src="${ctx}/static/js/admin_dict.js"></script>
 
 </body>
 </html>

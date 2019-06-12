@@ -22,9 +22,6 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css" />
 
     <title>栏目管理</title>
-    <style type="text/css">
-
-    </style>
 </head>
 <body>
 
@@ -33,13 +30,6 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" >PiliPili</a>
     <ul class="navtop-items">
-        <%--<li class="navtop-item">--%>
-            <%--<a href="" class="message">--%>
-                <%--<i class="fa fa-fw fa-envelope"></i>--%>
-                <%--<span>Message</span>--%>
-            <%--</a>--%>
-        <%--</li>--%>
-
         <li class="navtop-item">
             <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
@@ -50,27 +40,6 @@
 </div>
 <div class="nav-side">
     <ul id="nav-side">
-        <%--<li class="nav-item">--%>
-            <%--&lt;%&ndash;<a class="sidenav-first-level" herf="${ctx}/admin/index">&ndash;%&gt;--%>
-            <%--<a  herf="${ctx}/admin/index">--%>
-            <%--<span class="navside-text">新闻管理</span>--%>
-            <%--<i class="fa fa-angle-right "></i>--%>
-            </a>
-
-            <%--<ul class="sidenav-second-level">--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
-                <%--</li>--%>
-
-            <%--</ul>--%>
-
-        <%--</li>--%>
         <li class="nav-item">
             <a href="${ctx}/admin/index">
                 <span class="navside-text">新闻管理</span>
@@ -97,7 +66,6 @@
                 <span class="navside-text">返回首页</span>
             </a>
         </li>
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text"></span>
@@ -124,44 +92,43 @@
 
         <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form action="${ctx}/admin/catalogManager/createType" method="post" id="addform">
+            <form id="addform" action="${ctx}/admin/catalogManager/createType" method="post" >
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="name"></li>
                <li>
                    <label>英文名：</label>
                    <input type="text" name="engName"></li>
-
-                <a class="button" onclick="document:addform.submit()">确认添加</a>
                 <a id="closeBtn" class="button">取消添加</a>
+                <a class="button" onclick="document:addform.submit()">确认添加</a>
             </form>
         </div>
+
     <c:forEach items="${typeList}" var="type">
         <%--弹框-修改栏目--%>
         <div id="edit-box">
-            <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}">
+            <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}" method="post">
                 <li>
                     <lable>栏目编号：</lable>
-                    <input type="text" name="id" value="${type.id}">
+                    <label>${type.id}</label>
                 </li>
                 <li>
                     <lable>栏目名称：</lable>
-                    <input type="text" name="name" value="${type.name}">
+                    <input type="text" name="name" id="type-name" value="${type.name}">
                 </li>
                 <li>
                     <lable>英文名：</lable>
-                    <input type="text" name="engName" value="${type.engName}">
+                    <input type="text" name="engName" id="type-engName" value="${type.engName}">
                 </li>
-
-                    <a class="button" name="" onclick="document:editform.submit()">确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
+                    <a class="button" onclick="document:editform.submit()">确认修改</a>
             </form>
         </div>
     </c:forEach>
 
         <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
-            <form id="delectform" action="${ctx}/admin/catalogManager/delect/${type.id}">
+            <form id="delectform" action="${ctx}/admin/catalogManager/delect/${type.id}" method="post">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -170,12 +137,13 @@
                 </div>
                 <div class="btnArea">
                     <div class="btnArea">
-                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                         <a class="button" id="closeBtn3">取消删除</a>
+                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
                     </div>
                 </div>
             </form>
         </div>
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="#">index</a>
@@ -196,7 +164,7 @@
             <div class="card-body">
                 <div class="row"></div>
 
-                <!-- 字典列表 -->
+                <!-- 栏目列表 -->
                 <div class="row">
                     <form>
                         <table style="text-align: center;">
@@ -214,17 +182,12 @@
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>
                                     <td>${type.engName}</td>
-                                    <td><a class="edit">编辑</a></td>
-                                    <td><a class="delect">删除</a></td>
+                                    <td><a class="edit" type-name="${type.name}" type-engName="${type.engName}">编辑</a></td>
+                                    <td><a class="delect" type-id="${type.id}">删除</a></td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>
-
-
-
-
-
 
                         <!-- 分页 -->
                         <div class="row">
@@ -234,13 +197,7 @@
                                 <li class="paginate_button">
                                     <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
                                 <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link">2</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page_link">3</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page_link">4</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
+                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
                             </ul>
                         </div>
                     </form>
@@ -262,71 +219,9 @@
 </div>
 <script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
-<!-- <script type="text/javascript" src="js/accessManagement.js"></script> -->
+<script type="text/javascript" src="${ctx}/static/js/admin_catalog.js"></script>
 <script type="text/javascript">
-    $(function(){
 
-        //add
-        $("#addType").click(function(){
-            $('#add-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn").click(function() {
-            $("#add-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-
-        // edit
-        $(".edit").click(function(){
-            $('#edit-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn2").click(function() {
-            $("#edit-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-
-        // delect
-        $(".delect").click(function(){
-            $('#delect-box').show();
-
-            //获取页面文档的高度
-            var docheight = $(document).height();
-            //追加一个层，使背景变灰
-            $("body").append("<div id='greybackground'></div>");
-            $("#greybackground").css({"opacity":"0.3","height":docheight});
-            return false;
-
-        });
-        //点击关闭按钮
-        $("#closeBtn3").click(function() {
-            $("#delect-box").hide();
-            //删除变灰的层
-            $("#greybackground").remove();
-            return false;
-        });
-    })
 </script>
 
 </body>
