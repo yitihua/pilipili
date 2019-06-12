@@ -24,4 +24,5 @@ public interface NewsRepository extends PlatformRepository<News,Long> {
     List<News> findAllByType(Type type);
     @Query("select n from News n where n.author = ?1")
     Page<News> findAllByAuthor(User u, Pageable pageable);
+    List<News> findByTitleLike(String title);
 }

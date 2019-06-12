@@ -18,3 +18,44 @@
 .userInf{
     top:5px;
 }
+.icon{
+    float: right;
+    height: 40px;
+    text-align: center;
+}
+.icon img{
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+}
+.icon:hover{
+    cursor: pointer;
+}
+.userInf-drop-down{
+    display: none;
+    z-index: 5;
+}
+.icon:hover .userInf-drop-down{
+    display: block;
+}
+.userInf-drop-down span+span:hover{
+    cursor: pointer;
+    color: #78a9f3;
+}
+.userInf-drop-down span{
+    display: block;
+    height: 40px;
+    width: 125px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(244,244,244);
+    border-top: none;
+}
+.userInf-drop-down-name{
+    font-weight: lighter;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}

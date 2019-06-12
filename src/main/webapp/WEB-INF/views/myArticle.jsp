@@ -26,12 +26,20 @@
 </head>
 <body>
 <div class="contenter">
-    <div class="news-topnav" id="topnav">
+    <div class="news-topnav">
         <div class="widthfix">
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="static/img/CN_bilibiliB.png">
                 </span>
-
+            <span class="icon">
+                <img src="${ctx}/static/img/indexPhoto.png">
+                <div class="userInf-drop-down">
+                    <span class="userInf-drop-down-name">${user.username}</span>
+                    <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
+                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
+                </div>
+            </span>
         </div>
     </div>
     <div class="main-body">

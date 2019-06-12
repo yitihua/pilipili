@@ -58,6 +58,8 @@ public class NewsService {
         Page<News> page = newsRepository.findAllByAuthor(u, pageable);
         return page;
     }
-
+    public List<News> findByTitleLike(String title){
+        return newsRepository.findByTitleLike("%"+title+"%");
+    }
 
 }

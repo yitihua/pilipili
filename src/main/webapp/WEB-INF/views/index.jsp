@@ -38,8 +38,10 @@
                 <img src="${ctx}/static/img/pilipili.png">
             </div>
             <div class="searchBox">
-                <input type="text" class="search">
-                <input type="button" class="btn-red" value="搜 索">
+                <form action="${ctx}/search" method="post">
+                    <input type="text" class="search" name="search">
+                    <input type="submit" class="btn-red" value="搜 索">
+                </form>
             </div>
             <shiro:hasRole name="admin">
                 <a href="${ctx}/admin/index" class="admin-page">管理员界面</a>
@@ -125,7 +127,7 @@
 
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
-                <span class="userInf-name clearfix">${user.username}<span></span></span>
+                <span class="userInf-name clearfix">${user.username}</span>
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
@@ -492,7 +494,6 @@
         </div>
     </div>
 </div>
-
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/carousel.js"></script>
@@ -507,9 +508,6 @@
     }
     if ("${user.username}") {
         vm.registed = true
-    }
-    if("${nextUrl}"&&"${nextUrl}"!="${ctx}/index"){
-        window.location.href="${nextUrl}"
     }
 </script>
 </html>
