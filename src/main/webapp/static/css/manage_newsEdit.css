@@ -5,8 +5,8 @@
 	/*overflow-x: hidden;*/
     /*background-color: pink;*/
     width: 980px;
-    margin-left: 150px;
-    margin-top: 26px;
+    margin-left: 265px;
+    margin-top: 56px;
     padding-top: 1rem;
     font-family: "黑体";
     font-size: 1rem;
@@ -119,7 +119,6 @@ input[type="text"]:focus{
 
 .content{
 	width: 900px;
-	/*height: 30px;*/
 	/*background-color: gray;*/
 	float: left;
 	border-bottom: #ccc 1px solid;
@@ -132,6 +131,10 @@ input[type="text"]:focus{
 .bz0{
 	display: inline-block;
 }
+.bz0 input{
+    width: 300px;
+}
+
 
 /*按钮样式*/
 .btnrg{

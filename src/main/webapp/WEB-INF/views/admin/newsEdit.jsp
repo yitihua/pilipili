@@ -15,12 +15,12 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_newsEdit.css">
 
 
-    <title>navbar</title>
+    <title>新闻修改</title>
     <script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
 </head>
 <body>
 
-<div class="container">
+<%--<div class="container">--%>
     <!-- navigation -->
     <div class="nav-top">
         <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
@@ -37,13 +37,10 @@
     <div class="nav-side">
         <ul id="nav-side">
             <li class="nav-item">
-                <a class="sidenav-first-level" herf="${ctx}/admin/index">
+                <a href="${ctx}/admin/index">
                     <span class="navside-text">新闻管理</span>
-                    <i class="fa fa-angle-right "></i>
                 </a>
-
             </li>
-
             <li class="nav-item">
                 <a href="${ctx}/admin/catalogManager">
                     <span class="navside-text">栏目管理</span>
@@ -95,18 +92,17 @@
                 <span>/ 新闻修改</span>
             </li>
         </ol>
-
-        <form action="${ctx}/newsEdit/update/${ news.id}" id="newsEditform">
-        <div class="biaoti">
-            <label class="fn0">标题：</label>
+        <form >
+            <div class="biaoti">
+            <label class="fn0" >标题：</label>
             <div class="bz0">
-                <input type="text" class="title-text" value="${news.title}" class="inputTitle">
+                <input type="text" class="title-text" id="title" value="${news.title}" class="inputTitle">
             </div>
         </div>
         <div class="fenlei">
             <label class="fn0">分类：</label>
             <div class="bz0">
-                <input type="hidden" id ="selectRefundReason" value="${type.name}"/>
+                <input type="hidden" id ="selectRefundReason" value="${news.type.name}"/>
                 <select name="type" >
                     <c:forEach items="${typeList}" var="type">
                         <option value="${type.name}">${type.name}</option>
@@ -121,62 +117,21 @@
             <div id="editor-text">
                 <p>${news.content}</p>
             </div>
-            <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
-            <div>
-                <form id="new-article" action="${ctx}/admin/newsEdit/update/${user.content}>
-                </form>
-            </div>
-
-            <div >
-                <a class="btnrg" style="color: white;" onclick="document:newsEditform.submit()">立即发布</a>
-            </div>
+        </div>
+        <div >
+            <a class="btnrg" id="btn1">立即发布</a>
         </div>
         </form>
-
-
+        <div style="visibility:hidden">
+            <form id="new-article" action="${ctx}/admin/newsEdit/edit/${news.id}" method="post">
+            </form>
+        </div>
     </div>
 
-
-
-</div>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/wangEditor.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/js/editorIndex.js"></script>
-<%--<script type="text/javascript">--%>
-    <%--var E = window.wangEditor--%>
-    <%--var editor = new E('#editor')--%>
-    <%--// 或者 var editor = new E( document.getElementById('editor') )--%>
-    <%--editor.create()--%>
-<%--</script>--%>
-<%--编辑器--%>
-<script>
-    var E = window.wangEditor
-    var editor = new E('#editor-tools','#editor-text');
-    editor.create();
-</script>
-<%--根据后台显示权限--%>
-<script type="text/javascript">
-    $(document).ready(function(){
-        var key=$("#selectRefundReason").val();
-        //根据值让option选中
-        $("#refundReason option[value='"+key+"']").attr("selected","selected");
-    });
-</script>
-<%--判断事件为新增还是修改--%>
-<script>
-    $(document).ready(function () {
-        $('.btng').click(){
-            var addPath = "${ctx}/newsEdit/create";
-            if($(".title-text").val() == ""){
-                $('#newsEditform').attr("action",addPath).submit();
-            }
-        }
-        <%--var path = "${ctx}/student/traScore.action?method=exportExcel";--%>
-        <%--$('#queryForm').attr("action", path).submit();;--%>
-    })
-</script>
-
+<script src="${ctx}/static/js/admin_newsEdit.js"></script>
 
 </body>
 </html>

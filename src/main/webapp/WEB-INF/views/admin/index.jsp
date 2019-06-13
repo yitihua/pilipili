@@ -23,13 +23,6 @@
 	<div class="nav-top">
 		<a class="navbar-brand" href="" >PiliPili</a>
 		<ul class="navtop-items">
-			<%--<li class="navtop-item">--%>
-				<%--<a href="" class="message">--%>
-					<%--<i class="fa fa-fw fa-envelope"></i>--%>
-					<%--<span>Message</span>--%>
-				<%--</a>--%>
-			<%--</li>--%>
-			
 			<li class="navtop-item">
 				<a href="${ctx}/logout" class="logout">
 					<i class="fa fa-fw fa-sign-out"></i>
@@ -40,36 +33,12 @@
 	</div>
 <div class="nav-side">
     <ul id="nav-side">
-        <%--<li class="nav-item">--%>
-            <%--<a class="sidenav-first-level">--%>
-                <%--<span class="navside-text">新闻管理</span>--%>
-                <%--<i class="fa fa-angle-right "></i>--%>
-            <%--</a>--%>
 
-            <%--<ul class="sidenav-second-level">--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
-                <%--</li>--%>
-
-            <%--</ul>--%>
-
-        <%--</li>--%>
 		<li class="nav-item">
 			<a href="${ctx}/admin/index">
 				<span class="navside-text">新闻管理</span>
 			</a>
 		</li>
-		<%--<li class="nav-item">--%>
-			<%--<a href="${ctx}/edit">--%>
-				<%--<span class="navside-text">新闻添加</span>--%>
-			<%--</a>--%>
-		<%--</li>--%>
         <li class="nav-item">
             <a href="${ctx}/admin/catalogManager">
                 <span class="navside-text">栏目管理</span>
@@ -130,7 +99,7 @@
 				<div class="card-header">
 					<i class="fa fa-table"></i>
 					<span>最新资讯</span>
-					<a herf="${ctx}/edit" >添加<i class="fa fa-plus-square"></i></a>
+					<a href="${ctx}/admin/newsEdit/create">添加<i class="fa fa-plus-square"></i></a>
 				</div>
 
 				<div class="card-body">
@@ -149,14 +118,13 @@
 						<!-- 搜索框 -->
 						<div class="searchbox">
 							<span>查询：</span>
-							<input type="search" aria-controls="dataTable" name="">
+							<input type="search" aria-controls="dataTable" name="search">
 						</div>
-
 					</div>							
 
 					<!-- 新闻 -->
 					<div class="row">
-						<form>
+						<form >
 							<table>
 								<thead>
 									<tr>
@@ -174,7 +142,9 @@
                                         <td>${news.type.name}</td>
                                         <td>${news.author.username}</td>
                                         <td>${news.createAt}</td>
-                                        <td><a herf="${ctx}/newsEdit/${news.id}">编辑</a></td>
+                                        <td>
+											<a herf="${ctx}/admin/newsEdit/${news.id}" onclick="javascript:window.location.href='${ctx}/admin/newsEdit/${news.id}'">编辑</a>
+										</td>
                                     </tr>
 								</c:forEach>
 								</tbody>
@@ -190,27 +160,15 @@
 							<li class="paginate_button">
 								<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
 							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link">2</a></li>
-							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page_link">3</a></li>
-							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page_link">4</a></li>
-							<li class="paginate_button">
 								<a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
 						</ul>
 					</div>
 			</div><!-- card -->
 		</div>
 		</div><!-- container-fluid -->
-
-				<div class="card-footer"></div>
 	</div><!-- container -->
 
-
 	<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
-	<!-- <script type="text/javascript" src="js/jquery.dataTables.js"></script> -->
-
-
 
 </body>
 </html>

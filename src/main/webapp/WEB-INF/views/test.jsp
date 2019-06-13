@@ -67,7 +67,8 @@
                 <td>${news.author.username}</td>
                 <td>${news.title}</td>
                 <td>${news.createAt}</td>
-                <td> <a href="${ctx}/dict/update/${news.id}">编辑</a>  |   <a href="#" id="id_delete" dict="${news.id}">删除</a>
+                <td> <a href="${ctx}/dict/update/${news.id}">编辑</a>  |
+                    <a href="#" id="id_delete" dict="${news.id}">删除</a>
                 </td>
             </tr>
         </c:forEach>     <%--程羚--%>
