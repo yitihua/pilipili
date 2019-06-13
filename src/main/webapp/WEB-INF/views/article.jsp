@@ -7,13 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>【pilipili】${news.title}</title>
-    <script>var ctx =${ctx}</script>
+    <script>var ctx ="${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
@@ -112,7 +113,9 @@
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
-                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <shiro:hasRole name="admin">
+                        <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    </shiro:hasRole>
                     <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
                 </div>
             </div>
@@ -217,11 +220,13 @@
     </div>
 </div>
 </body>
-<script src="${ctx}/static/js/article.js"></script>
+
 <script src="${ctx}/static/js/articleLog.js"></script>
 <script>
     if ("${user.username}") {
         vm.registed = true
     }
 </script>
+<script src="${ctx}/static/js/article.js"></script>
+
 </html>
