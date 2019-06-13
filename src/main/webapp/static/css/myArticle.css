@@ -53,10 +53,14 @@
 }
 .article-nav{
     border-bottom: 1px #e7e1cd solid;
+    padding: 5px 5px;
+    margin-bottom:15px ;
+    border: 1px #d0e5f2 solid;
+    background-color: rgba(255,255,255,0.9);
 }
 .article-title{
-    font-size: 24px;
-    line-height: 45px;
+    font-size: 26px;
+    line-height: 55px;
 }
 .article-title:hover{
     cursor: pointer;
@@ -79,5 +83,5 @@
     color:peru;
 }
 .time-btn{
-    color: #bbb;
+    color: #ccc;
 }

@@ -9,6 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -21,6 +22,7 @@
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/myComment.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/page.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <body>
@@ -71,7 +73,7 @@
             </div>
             <div class="main-content" id="mycomment-area">
                 <ul class="comment-list">
-                    <c:forEach var="comment" items="${commentList}">
+                    <c:forEach var="comment" items="${commentPage.content}">
                         <li>
                             <p>
                                 <span>我评论了</span>
@@ -82,6 +84,7 @@
                             </a>
                         </li>
                     </c:forEach>
+                    <tags:pagination page="${commentPage}" paginationSize="${PAGE_SIZE}"/>
                     <%--<li>--%>
                         <%--<p>--%>
                             <%--<span>--%>
@@ -101,6 +104,7 @@
                         <%--</p>--%>
                     <%--</li>--%>
                 </ul>
+
             </div>
         </div>
     </div>
