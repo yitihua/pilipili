@@ -70,7 +70,7 @@
                 <div class="title"><span>标题</span><input type="text" class="title-text" value="${news.title}" id="title"></div>
                 <div class="type-btns">
                     <c:forEach var="type" items="${typeList}">
-                        <input type="radio" name="type" id="${type.name}" value="${type.name}"><label for="${type.name}">${type.name}</label>
+                        <input class="radioes" type="radio" name="type" id="${type.name}" value="${type.name}"><label for="${type.name}">${type.name}</label>
                     </c:forEach>
                 </div>
                 <div id="editor-tools" class="editor-tools">
