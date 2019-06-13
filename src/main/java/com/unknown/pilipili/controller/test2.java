@@ -40,7 +40,7 @@ public class test2 {
             try {
                 FileUtils.copyInputStreamToFile(file.getInputStream(), destFile);
                 User user = (User)session.getAttribute("user");
-                user.setAvatar("/upload/" + filename);
+                user.setAvatar(filename);
                 userService.save(user);
             } catch (IOException e) {
                 e.printStackTrace();

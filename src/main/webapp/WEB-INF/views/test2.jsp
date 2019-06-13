@@ -15,10 +15,13 @@
     <title>Title</title>
 </head>
 <body>
+    <%--上传代码--%>
     <form action="${ctx}/test2/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="uploadfile" required="required">
         <input type="submit">
     </form>
-    <img src="${ctx}${user.avatar}">
+
+    <%--显示代码--%>
+    <img src="${ctx}/upload/${user.avatar}">
 </body>
 </html>
