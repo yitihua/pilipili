@@ -34,7 +34,7 @@ body {
 	background-color: rgb(52, 58, 64);
 	font-size: 16px;
 	/*float: left;*/
-	z-index: 10000;
+	z-index: 10002;
 }
 .nav-top a{
 	color: rgba(255,255,255,.5);
