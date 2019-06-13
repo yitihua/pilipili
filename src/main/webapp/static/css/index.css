@@ -19,6 +19,11 @@ input[type="radio"]{
     position: absolute;
     clip: rect(0,0,0,0);
 }
+input[type="text"],input[type="password"]{
+    background-color: white;
+    border: 1px #aaa solid;
+    font-size: 14px;
+}
 input[type="radio"]+label::before{
     content: "";
     display: inline-block;

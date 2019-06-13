@@ -82,10 +82,10 @@
                                   action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
                                     <input type="hidden" name="nextUrl" value="${ctx}/index">
-                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"
+                                    <p>用户名</p><input type="text" ref="name" v-model="name"
                                                      name="username" class="register-name"><br>
                                     <span>
-                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}"
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{hide:namewrong}"
                                              class="nametip"/>
                                         <span v-html="nametip"></span>
                                     </span><br>
@@ -94,7 +94,7 @@
                                         for="male">男</label>
                                     <input type="radio" name="gender" value="女" id="female" class="log-radio"><label
                                         for="female">女</label>
-                                    <input type="radio" name="gender" value="保密" id="secret" class="log-radio"><label
+                                    <input type="radio" name="gender" value="保密" id="secret" class="log-radio" checked="checked"><label
                                         for="secret">保密</label><br>
                                     <p>学历</p>
                                     <select name="education">
@@ -105,16 +105,16 @@
                                         <option value="大学及以上">大学及以上</option>
                                     </select><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
-                                                    v-on:keyup="ptip()" name="password" class="register-pwd"><br>
+                                                    name="password" class="register-pwd"><br>
                                     <span>
-                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:pwdwrong}"
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{hide:pwdwrong}"
                                              class="nametip"/>
                                         <span v-html="pwdtip"></span>
                                     </span><br>
                                 </div>
                                 <div class="login-btns">
                                     <input type="button" value="退出" class="login-btns2" v-on:click="closeForm()"/>
-                                    <input type="submit" value="确认" class="login-btns1"/>
+                                    <input type="submit" value="确认" class="login-btns1" disabled="disabled" id="submit-btn"/>
                                 </div>
                             </form>
                         </div>

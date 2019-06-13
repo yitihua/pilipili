@@ -25,28 +25,47 @@ var vm = new Vue({
         namewrong:true,
         pwdwrong:true,
     },
-    methods:{
-        ntip:function(){
-            let reg=/^[a-zA-Z0-9_]{2,16}$/;
+    watch:{
+        name:function(){
+            let subBtn = document.getElementById("submit-btn")
+            let reg=/^[\u4E00-\u9FA5A-Za-z0-9_]{2,16}$/;
             if(!reg.test(this.name) ){
-                this.nametip= "请输入2到16位字母，数字或下划线";
+                this.nametip= "请输入2到16位中文字符、字母、数字或下划线";
+                this.namewrong = true
+                if(subBtn.disabled=false){
+                    subBtn.setAttribute("disabled","true")
+                }
             }
             //用户名正则，2到16位（字母，数字，下划线）
             else{
                 this.nametip= `available`
                 this.namewrong = false
+                if(subBtn.disabled = true){
+                    subBtn.removeAttribute("disabled")
+                }
             }
         },
-        ptip:function(){
+        password:function(){
+            let subBtn = document.getElementById("submit-btn")
+
             let reg = /^[a-zA-Z]\w{5,17}$/;
             if(!reg.test(this.password)){
                 this.pwdtip= "长度在6-18之间，只能包含字符、数字和下划线";
+                this.pwdwrong = true
+                if(subBtn.disabled=false){
+                    subBtn.setAttribute("disabled","true")
+                }
             }
             else{
                 this.pwdtip= `available`
                 this.pwdwrong = false
+                if(subBtn.disabled = true){
+                    subBtn.removeAttribute("disabled")
+                }
             }
         },
+    },
+        methods:{
         goregister:function(){
             this.actived = false
             console.log(this.actived)

@@ -62,11 +62,11 @@
                             <form method="POST" id="register-form" v-bind:class='{hide:actived}'
                                   action="${ctx}/register">
                                 <div id="loginbox" class="login-box login-box-2">
-                                    <input type="hidden" name="nextUrl" value="${ctx}/article/view/${news.id}">
-                                    <p>用户名</p><input type="text" ref="name" v-model="name" v-on:keyup="ntip()"
+                                    <input type="hidden" name="nextUrl" value="${ctx}/index">
+                                    <p>用户名</p><input type="text" ref="name" v-model="name"
                                                      name="username" class="register-name"><br>
                                     <span>
-                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:namewrong}"
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{hide:namewrong}"
                                              class="nametip"/>
                                         <span v-html="nametip"></span>
                                     </span><br>
@@ -86,9 +86,9 @@
                                         <option value="大学及以上">大学及以上</option>
                                     </select><br>
                                     <p>密码</p><input type="password" ref="password" v-model="password"
-                                                    v-on:keyup="ptip()" name="password" class="register-pwd"><br>
+                                                    name="password" class="register-pwd"><br>
                                     <span>
-                                        <img src='${ctx}/static/img/right.png' v-bind:class="{wrong:pwdwrong}"
+                                        <img src='${ctx}/static/img/right.png' v-bind:class="{hide:pwdwrong}"
                                              class="nametip"/>
                                         <span v-html="pwdtip"></span>
                                     </span><br>
@@ -219,4 +219,9 @@
 </body>
 <script src="${ctx}/static/js/article.js"></script>
 <script src="${ctx}/static/js/articleLog.js"></script>
+<script>
+    if ("${user.username}") {
+        vm.registed = true
+    }
+</script>
 </html>
