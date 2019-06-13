@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <title>编辑</title>
     <script>var ctx="${ctx}"</script>
+    <base href="${ctx}/edit">
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
@@ -46,7 +47,7 @@
             <div class="side-menu" id="side-menu" v-bind:class="{lowH:notauthor,highH:!notauthor}">
                 <div class="menu-avatar">
                     <div class="menu-myAvatar"><img src="static/img/indexPhoto.png"></div>
-                    <div class="menu-myName">${user.username}BUZA</div>
+                    <div class="menu-myName">${user.username}</div>
                 </div>
                 <ul class="menu-body menu-body-nomal" onselectstart="return flase">
                     <li onclick="javascript:window.location.href='${ctx}/myInf'">
@@ -81,7 +82,7 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" action="update">
+                <form id="new-article" method="post" action="${ctx}/edit/${news.id}/update">
                 </form>
             </div>
         </div>
@@ -91,7 +92,6 @@
 </body>
 <script src="${ctx}/static/js/wangEditor.min.js"></script>
 <script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/sideMenu.js"></script>
 <script src="${ctx}/static/js/myArticle.js"></script>
 <script src="${ctx}/static/js/editorIndex.js"></script>
 <script>
