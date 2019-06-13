@@ -14,10 +14,11 @@
     margin-right: 25px;
 }
 .submit-btn{
-    float: right;
     width: 75px;
     height: 30px;
     margin: 8px 0;
+    background-color: white;
+    border: none;
 }
 .type-btns{
     height: 35px;

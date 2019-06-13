@@ -3,6 +3,13 @@
     font-size:16px;
     line-height: 30px;
 }
+.comment-list li{
+    padding: 5px 5px;
+    margin-bottom:15px ;
+    border-radius:4px;
+    border: 1px #d0e5f2 solid;
+    background-color: #fff;
+}
 .commentator{
     color: #78a9f3;
 }

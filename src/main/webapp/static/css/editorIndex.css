@@ -48,4 +48,6 @@ pre code {
     height: 550px;
     border: 1px #cccccc solid;
 }
-
+.w-e-toolbar{
+    background-color: rgba(255,255,255,0.5);
+}

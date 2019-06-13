@@ -1,4 +1,7 @@
-@charset 'utf-8';
+@charset "utf-8";
+body{
+    background:url("../../static/img/infbackground.jpg") top/cover no-repeat fixed;
+}
 .main-body{
     position: relative;
     top:46px;
@@ -8,4 +11,6 @@
     padding: 0 20px;
     border:1px #ccc solid;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    background-color: rgba(255,255,255,0.5);
+
 }

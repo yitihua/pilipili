@@ -14,13 +14,12 @@
     <meta charset="UTF-8">
     <title>编辑</title>
     <script>var ctx="${ctx}"</script>
-    <base href="${ctx}/edit">
+    <link href="${ctx}/static/css/editorIndex.css" rel="stylesheet" type="text/css">
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
-    <link href="${ctx}/static/css/editorIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/add.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>

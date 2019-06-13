@@ -7,7 +7,7 @@
     top: 0;
     border-bottom: 1px #ccc solid;
     background-color: #fff;
-    z-index: 2;
+    z-index: 100000;
 }
 .news-logo img{
     width: 40px;
@@ -37,7 +37,7 @@
 }
 .userInf-drop-down{
     display: none;
-    z-index: 5;
+    z-index: 50;
 }
 .icon:hover .userInf-drop-down{
     display: block;
