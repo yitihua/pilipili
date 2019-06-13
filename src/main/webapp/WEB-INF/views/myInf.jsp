@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 <html>
@@ -33,7 +34,9 @@
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
-                    <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    <shiro:hasRole name="admin">
+                        <span onclick="javascript:window.location.href='${ctx}/add'">写文章</span>
+                    </shiro:hasRole>
                     <span onclick="javascript:window.location.href='${ctx}/logout'">登出</span>
                 </div>
             </span>
@@ -41,7 +44,7 @@
     </div>
     <div class="main-body">
         <div class="widthfix">
-            <div class="side-menu" id="side-menu" v-bind:class="{lowH:notauthor,highH:!notauthor}">
+            <div class="side-menu" id="side-menu">
                 <div class="menu-avatar">
                     <div class="menu-myAvatar"><img src="static/img/indexPhoto.png"></div>
                     <div class="menu-myName">${user.username}</div>
@@ -54,14 +57,16 @@
                         我的评论
                     </li>
                 </ul>
-                <ul class="menu-body menu-body-author" v-bind:class="{hide:notauthor}" onselectstart="return flase">
-                    <li onclick="javascript:window.location.href='${ctx}/myArticle'">
-                        文章管理
-                    </li>
-                    <li onclick="javascript:window.location.href='${ctx}/myComment'">
-                        评论管理
-                    </li>
-                </ul>
+                <shiro:hasRole name="admin">
+                    <ul class="menu-body menu-body-author" onselectstart="return flase">
+                        <li onclick="javascript:window.location.href='${ctx}/myArticle'">
+                            文章管理
+                        </li>
+                        <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
+                            评论管理
+                        </li>
+                    </ul>
+                </shiro:hasRole>
             </div>
             <%--右边栏，用户信息详情--%>
             <div class="main-content">
