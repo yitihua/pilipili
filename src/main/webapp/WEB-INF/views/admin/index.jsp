@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 
@@ -136,7 +137,7 @@
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach items="${newsList}" var="news">
+								<c:forEach items="${newsPage.content}" var="news">
                                     <tr>
                                         <td>${news.title}</td>
                                         <td>${news.type.name}</td>
@@ -149,20 +150,21 @@
 								</c:forEach>
 								</tbody>
 							</table>
+							<tags:pagination page="${newsPage}" paginationSize="${PAGE_SIZE}"/>
 						</form>
 					</div>
 			
 					<!-- 分页 -->
-					<div class="row">
-						<ul class="pagination">
-							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
-							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
-							<li class="paginate_button">
-								<a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
-						</ul>
-					</div>
+					<%--<div class="row">--%>
+						<%--<ul class="pagination">--%>
+							<%--<li class="paginate_button">--%>
+								<%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>--%>
+							<%--<li class="paginate_button">--%>
+								<%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>--%>
+							<%--<li class="paginate_button">--%>
+								<%--<a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>--%>
+						<%--</ul>--%>
+					<%--</div>--%>
 			</div><!-- card -->
 		</div>
 		</div><!-- container-fluid -->

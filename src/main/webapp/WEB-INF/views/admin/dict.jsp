@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %> //分页
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 
@@ -115,7 +115,7 @@
         <c:forEach items="${dictList}" var="dict" >
         <%--弹框-修改字典--%>
         <div id="edit-box">
-            <form id="editDictform" action="${ctx}/admin/dict/update/${dict.id}" method="post">
+            <form id="editDictform" action="${ctx}/admin/dict/updateDict/${dict.id}" method="post">
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type" id="edit-name">
@@ -191,7 +191,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dictList}" var="dict" varStatus="idxStatus">
+                            <c:forEach items="${dictPage.content}" var="dict" varStatus="idxStatus">
                             <tr>
                                 <td>${idxStatus.index+1}</td> <%--表示序号 不要改--%>
                                 <td>${dict.type}</td>
@@ -205,21 +205,22 @@
                             </tr>
                             </c:forEach>
                             </tbody>
-                        <%--<tags:pagination page="${dictList}" paginationSize="${PAGE_SIZE}"/>--%>
+
                         </table>
+                        <tags:pagination page="${dictPage}" paginationSize="${PAGE_SIZE}"/>
 
                         <!-- 分页 -->
-                        <div class="row">
-                            <ul class="pagination">
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
+                        <%--<div class="row">--%>
+                            <%--<ul class="pagination">--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>--%>
 
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
-                            </ul>
-                        </div>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>--%>
+                            <%--</ul>--%>
+                        <%--</div>--%>
                     </form>
                 </div>
             </div><!-- card -->

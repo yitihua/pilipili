@@ -5,8 +5,9 @@
   Time: 22:33
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%@ page isELIgnored="false" %>
 
@@ -177,7 +178,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${typeList}" var="type">
+                            <c:forEach items="${typePage.content}" var="type">
                                 <tr>
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>
@@ -188,18 +189,19 @@
                             </c:forEach>
                             </tbody>
                         </table>
+                        <tags:pagination page="${typePage}" paginationSize="${PAGE_SIZE}"/>
 
                         <!-- 分页 -->
-                        <div class="row">
-                            <ul class="pagination">
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>
-                            </ul>
-                        </div>
+                        <%--<div class="row">--%>
+                            <%--<ul class="pagination">--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>--%>
+                            <%--</ul>--%>
+                        <%--</div>--%>
                     </form>
                 </div>
 

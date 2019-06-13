@@ -147,7 +147,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${userList}" var="user" varStatus="i">
+                        <c:forEach items="${userPage.content}" var="user" varStatus="i">
                             <tr>
                                 <td>${idxStatus.index+1}</td> <%--表示序号 不要改--%>
                                 <td>${user.username}</td>
@@ -163,6 +163,7 @@
                         </c:forEach>
                         </tbody>
                         </table>
+                        <tags:pagination page="${userPage}" paginationSize="${PAGE_SIZE}"/>
 
 
                         <!-- 弹出窗口-添加用户 -->
@@ -223,20 +224,20 @@
 
 
                         <!-- 分页 -->
-                        <div class="row">
-                            <ul class="pagination">
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link"
-                                       id="dataTable_previous disabled">Previous</a></li>
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a>
-                                </li>
+                        <%--<div class="row">--%>
+                            <%--<ul class="pagination">--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link"--%>
+                                       <%--id="dataTable_previous disabled">Previous</a></li>--%>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a>--%>
+                                <%--</li>--%>
 
-                                <li class="paginate_button">
-                                    <a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0"
-                                       class="page_link next" id="dataTable_next">Next</a></li>
-                            </ul>
-                        </div>
+                                <%--<li class="paginate_button">--%>
+                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0"--%>
+                                       <%--class="page_link next" id="dataTable_next">Next</a></li>--%>
+                            <%--</ul>--%>
+                        <%--</div>--%>
                     </form>
                 </div>
 
