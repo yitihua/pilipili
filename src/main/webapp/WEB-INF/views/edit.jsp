@@ -79,9 +79,6 @@
                     <li onclick="javascript:window.location.href='${ctx}/myArticle'" class="bc-highlight">
                         文章管理
                     </li>
-                    <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
-                        评论管理
-                    </li>
                 </ul>
             </div>
             <div class="main-content clearfix" id="myarticle-area">

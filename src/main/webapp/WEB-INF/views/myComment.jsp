@@ -81,9 +81,6 @@
                         <li onclick="javascript:window.location.href='${ctx}/myArticle'">
                             文章管理
                         </li>
-                        <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
-                            评论管理
-                        </li>
                     </ul>
                 </shiro:hasRole>
             </div>

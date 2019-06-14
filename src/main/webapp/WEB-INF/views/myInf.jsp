@@ -21,6 +21,7 @@
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/myInf.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/imgUpload.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <div class="contenter">
@@ -78,9 +79,6 @@
                         <li onclick="javascript:window.location.href='${ctx}/myArticle'">
                             文章管理
                         </li>
-                        <li onclick="javascript:window.location.href='${ctx}/commentManagement'">
-                            评论管理
-                        </li>
                     </ul>
                 </shiro:hasRole>
             </div>
@@ -101,13 +99,21 @@
                                 </c:choose>
                             </span>
                             <span class="inf-update-btn">
-                                <label for="input-file">更改头像</label>
+                                <span id="show-field" v-on:click="turnUploadBox">{{avatarfix}}</span>
                             </span>
-                        <form action="${ctx}/test2/upload" method="post" enctype="multipart/form-data">
-                            <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
-                                   required="required">
-                        </form>
                         </p>
+                        <div class="upload-field" v-bind:class="{hide:avatarBox}">
+                            <div class="show-field">
+                                <form action="${ctx}/myInf/upload" method="post" enctype="multipart/form-data">
+                                    <img src="${ctx}/static/img/show.png" id="show-img">
+                                    <span>拖入此框或点击下面按钮选择本地图片</span><br>
+                                    <label for="input-file">从本地选择</label><br>
+                                    <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
+                                           required="required" class="hide" onchange="preview()">
+                                    <input type="submit" value="提交">
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">用户名</span>
@@ -148,7 +154,6 @@
     </div>
 </div>
 </body>
-<script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/sideMenu.js"></script>
 <script src="${ctx}/static/js/myInf.js"></script>
+<script src="${ctx}/static/js/imgUpload.js"></script>
 </html>

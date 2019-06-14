@@ -3,8 +3,10 @@
     data:{
         genderBox:true,
         educationBox:true,
+        avatarBox:true,
         genderfix:"修改",
-        educationfix:"修改"
+        educationfix:"修改",
+        avatarfix:"更改头像"
     },
     methods:{
         turnGenderBox:function () {
@@ -26,6 +28,16 @@
             else {
                 this.educationBox=true
                 this.educationfix="修改"
+            }
+        },
+        turnUploadBox:function () {
+            if(this.avatarBox){
+                this.avatarBox=false
+                this.avatarfix="取消修改"
+            }else {
+                this.avatarBox=true
+                this.avatarfix="更改头像"
+
             }
         }
     }
