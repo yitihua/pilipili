@@ -129,7 +129,7 @@
 
         <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
-            <form id="delectform" action="${ctx}/admin/catalogManager/delect/${type.id}" method="post">
+            <form id="delectform" action="${ctx}/admin/catalogManager/delete/${type.id}" method="post">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>

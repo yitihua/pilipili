@@ -142,7 +142,7 @@
 
         <!-- 弹出窗口-删除字典 -->
         <div id="delect-box"  >
-            <form id="delectDictform" action="${ctx}/admin/dict/delect/" method="post">
+            <form id="delectDictform" action="${ctx}/admin/dict/delete/" method="post">
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>

@@ -103,9 +103,9 @@
             <label class="fn0">分类：</label>
             <div class="bz0">
                 <input type="hidden" id ="selectRefundReason" value="${news.type.name}"/>
-                <select name="type" >
+                <select name="type" id="type">
                     <c:forEach items="${typeList}" var="type">
-                        <option value="${type.name}">${type.name}</option>
+                        <option value="${type.name}" >${type.name}</option>
                     </c:forEach>
                 </select>
             </select>

@@ -154,10 +154,10 @@
                                 <td>
                                     <c:forEach items="${user.roles}" var="role" >
                                         ${role.name}
-                                        <option type="text" id="refundReason" style="display: none">${role.name}</option>
                                     </c:forEach>
                                 </td>
-                                <td><a class="change-authority" user-name="${user.username}" user-roles="${role.name} ">更改权限</a></td>
+                                <td><a class="change-authority" user-name="${user.username}" user-roles="${user.roles} ">更改权限</a></td>
+                                <td>${user.roles}</td>
                                 </tr>
                         </c:forEach>
                         </tbody>
@@ -176,6 +176,7 @@
                                     <lable>权限级别：</lable>
                                     <input type="checkbox" name="" value="admin">admin
                                     <input type="checkbox" name="" value="user">user
+
                                 </li>
                                 <a id="closeBtn1" class="button">取消添加</a>
                                 <a class="button" onclick="createUserform.submit()">确认添加</a>
@@ -193,9 +194,9 @@
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
-
                                     <input type="checkbox" name="" value="admin" class="checkbox" >admin
                                     <input type="checkbox" name="" value="user" class="checkbox">user
+                                    <input type="text" id="refundReason" style="display: none" >
                                 </li>
                                 <a id="closeBtn2" class="button">取消修改</a>
                                 <a class="button" onclick="changeRoleform.submit()">确认修改</a>
@@ -205,7 +206,7 @@
 
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
-                            <form id="delectform" action="${ctx}/admin/access/delect/${user.id}" method="post">
+                            <form id="delectform" action="${ctx}/admin/access/delete/${user.id}" method="post">
                                 <div class="ttBox">
                                     <h1>提示</h1>
                                 </div>
