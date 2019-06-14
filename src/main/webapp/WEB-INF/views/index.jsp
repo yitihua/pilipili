@@ -126,7 +126,14 @@
             <!-- 登录后的用户信息栏 -->
 
             <div class="userInf" v-bind:class="{hide:!registed}">
-                <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
+                <c:choose>
+                    <c:when test="${user.avatar!=''}">
+                        <div class="icon" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.jpg')"></div>
+                    </c:otherwise>
+                </c:choose>
                 <span class="userInf-name clearfix">${user.username}</span>
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
