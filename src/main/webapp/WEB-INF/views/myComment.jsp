@@ -93,7 +93,7 @@
                                 <span class="commentator">${comment.father.author.username}</span>:
                                 <span class="delete-btn" onclick="javascript:window.location.href='${ctx}/myComment/delete/${comment.id}'">删除</span>
                             </p>
-                            <a>
+                            <a href="${ctx}/article/view/${comment.original.id}" style="color: #0077aa;">
                                 ${comment.content}
                             </a>
                         </li>
