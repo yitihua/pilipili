@@ -41,26 +41,6 @@
 </div>
 <div class="nav-side">
     <ul id="nav-side">
-        <%--<li class="nav-item">--%>
-            <%--<a  herf="${ctx}/admin/index">--%>
-                <%--<span class="navside-text">新闻管理</span>--%>
-                <%--<i class="fa fa-angle-right "></i>--%>
-            <%--</a>--%>
-
-            <%--<ul class="sidenav-second-level">--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">全部资讯</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">最新咨询</span></a>--%>
-                <%--</li>--%>
-                <%--<li class="nav-item">--%>
-                    <%--<a href=""><span class="navside-text">热点资讯</span></a>--%>
-                <%--</li>--%>
-
-            <%--</ul>--%>
-
-        <%--</li>--%>
         <li class="nav-item">
             <a href="${ctx}/admin/index">
                 <span class="navside-text">新闻管理</span>
@@ -71,7 +51,6 @@
                 <span class="navside-text">栏目管理</span>
             </a>
         </li>
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text">用户权限管理</span>
@@ -88,8 +67,6 @@
             </a>
         </li>
 
-
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text"></span>
@@ -98,13 +75,10 @@
             <a href="">
                 <span class="navside-text"></span>
             </a></li>
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text"></span>
             </a></li>
-
-
     </ul>
 </div>
 
@@ -127,8 +101,7 @@
             <div class="card-header">
                 <i class="fa fa-table"></i>
                 <span>用户列表</span>
-                <a id="addUser">添加用户<i class="fa fa-plus-square"></i></a>
-                <%--<a id="addRole">添加权限<i class="fa fa-plus-square"></i></a>--%>
+                <%--<a id="addUser">添加用户<i class="fa fa-plus-square"></i></a>--%>
 
             </div>
 
@@ -156,57 +129,37 @@
                                         ${role.name}
                                     </c:forEach>
                                 </td>
-                                <td><a class="change-authority" user-name="${user.username}" user-roles="${user.roles} ">更改权限</a></td>
-                                <td>${user.roles}</td>
+                                <td><a class="change-authority" user-name="${user.username}" user-id="${user.id}">更改权限</a></td>
                                 </tr>
                         </c:forEach>
                         </tbody>
                         </table>
                         <tags:pagination page="${userPage}" paginationSize="${PAGE_SIZE}"/>
-
-
-                        <!-- 弹出窗口-添加用户 -->
-                        <div id="add-box1">
-                            <form id="createUserform" action="${ctx}/admin/access/createUser" method="post">
-                                <li>
-                                    <lable>用户名：</lable>
-                                    <input type="text" name="username" value="">
-                                </li>
-                                <li>
-                                    <lable>权限级别：</lable>
-                                    <input type="checkbox" name="" value="admin">admin
-                                    <input type="checkbox" name="" value="user">user
-
-                                </li>
-                                <a id="closeBtn1" class="button">取消添加</a>
-                                <a class="button" onclick="createUserform.submit()">确认添加</a>
-
-                            </form></div>
-
+                    </form>
 
                         <c:forEach items="${userPage.content}" var="user">
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
-                            <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}" method="post">
+                            <form id="changeRoleform" action="${ctx}/admin/access/update/" method="post">
                                 <li>
                                     <lable>用户名：</lable>
-                                    <label id="edit-name">${user.username}</label>
+                                    <label>${user.username}</label>
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
                                     <input type="checkbox" name="roles" value="admin" class="checkbox" >admin
                                     <input type="checkbox" name="roles" value="user" class="checkbox">user
-                                    <input type="text" id="refundReason" style="display: none" >
                                 </li>
                                 <a id="closeBtn2" class="button">取消修改</a>
-                                <a class="button" onclick="changeRoleform.submit()">确认修改</a>
+                                <a  class="button" onclick="document.getElementById('changeRoleform').submit();">确认修改</a>
                             </form>
+
                         </div>
                         </c:forEach>
 
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
-                            <form id="delectform" action="${ctx}/admin/access/delete/${user.id}" method="post">
+                            <form id="delectform" action="${ctx}/admin/access/delete/${user.id}" >
                                 <div class="ttBox">
                                     <h1>提示</h1>
                                 </div>
@@ -238,7 +191,7 @@
                                        <%--class="page_link next" id="dataTable_next">Next</a></li>--%>
                             <%--</ul>--%>
                         <%--</div>--%>
-                    </form>
+
                 </div>
 
 
@@ -253,6 +206,13 @@
 </div>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
+<script>
+    $(function () {
+        $('#test').click(function () {
+            alert('test');
+        })
+    })
+</script>
 
 </body>
 </html>
