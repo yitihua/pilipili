@@ -51,7 +51,7 @@ select {
     appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
-    background: url("/static/img/selet-triangle.png") no-repeat scroll transparent;
+    background: url("../img/select-triangle.png") no-repeat scroll transparent;
     background-size: 12px 8px;
     background-position: 105px 7px;
     padding-right: 14px;
