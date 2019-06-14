@@ -24,8 +24,8 @@ $(function(){
     $(".edit").click(function(){
         $('#edit-box').show();
 
-        var currentName = this.getAttribute("type-name")
-        var currentEngName = this.getAttribute("type-engName")
+        var currentName = this.getAttribute("type-name");
+        var currentEngName = this.getAttribute("type-engName");
         $("#type-name").val(currentName);
         $("#type-engName").val(currentEngName);
 
@@ -69,4 +69,4 @@ $(function(){
         $("#greybackground").remove();
         return false;
     });
-})
+});

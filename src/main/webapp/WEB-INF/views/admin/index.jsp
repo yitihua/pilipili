@@ -105,22 +105,22 @@
 
 				<div class="card-body">
 					<div class="row">
-						<!-- 控制每页显示新闻数目 -->
-						<div class="newsnumber">
-								<span>显示</span>
-								<select name=""  aria-controls="dataTable">
-									<option value="10">10</option>
-									<option value="25">25</option>
-									<option value="50">50</option>
-									<option value="100">100</option>
-								</select>
-								<span>条信息</span>
-						</div>
-						<!-- 搜索框 -->
-						<div class="searchbox">
-							<span>查询：</span>
-							<input type="search" aria-controls="dataTable" name="search">
-						</div>
+						<%--<!-- 控制每页显示新闻数目 -->--%>
+						<%--<div class="newsnumber">--%>
+								<%--<span>显示</span>--%>
+								<%--<select name=""  aria-controls="dataTable">--%>
+									<%--<option value="10">10</option>--%>
+									<%--<option value="25">25</option>--%>
+									<%--<option value="50">50</option>--%>
+									<%--<option value="100">100</option>--%>
+								<%--</select>--%>
+								<%--<span>条信息</span>--%>
+						<%--</div>--%>
+						<%--<!-- 搜索框 -->--%>
+						<%--<div class="searchbox">--%>
+							<%--<span>查询：</span>--%>
+							<%--<input type="search" aria-controls="dataTable" name="search">--%>
+						<%--</div>--%>
 					</div>							
 
 					<!-- 新闻 -->
@@ -144,7 +144,7 @@
                                         <td>${news.author.username}</td>
                                         <td>${news.createAt}</td>
                                         <td>
-											<a herf="${ctx}/admin/newsEdit/${news.id}" onclick="javascript:window.location.href='${ctx}/admin/newsEdit/${news.id}'">编辑</a>
+											<a herf="${ctx}/admin/newsEdit/${news.id}" onclick="window.location.href='${ctx}/admin/newsEdit/${news.id}'">编辑</a>
 										</td>
                                     </tr>
 								</c:forEach>

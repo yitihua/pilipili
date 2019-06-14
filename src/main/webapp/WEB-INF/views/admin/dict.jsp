@@ -109,10 +109,11 @@
                     </select>
                 </li>
                     <a id="closeBtn" class="button">取消添加</a>
-                <a  class="button" onclick="document:addDictform.submit()">确认添加</a>
+                <a  class="button" onclick="addDictform.submit()">确认添加</a>
             </form>
         </div>
-        <c:forEach items="${dictList}" var="dict" >
+
+        <c:forEach items="${dictPage.content}" var="dict" >
         <%--弹框-修改字典--%>
         <div id="edit-box">
             <form id="editDictform" action="${ctx}/admin/dict/updateDict/${dict.id}" method="post">
@@ -131,14 +132,13 @@
                         <option value="0">禁用</option>
                     </select>
                 </li>
-                    <a  class="button"  onclick="document:editDictform.submit()" >确认修改</a>
                     <a id="closeBtn2" class="button">取消修改</a>
+                    <a  class="button"  onclick="editDictform.submit()" >确认修改</a>
             </form>
         </div>
-        <script>
-
-        </script>
         </c:forEach>
+
+
 
         <!-- 弹出窗口-删除字典 -->
         <div id="delect-box"  >
@@ -151,7 +151,7 @@
                 </div>
                 <div class="btnArea">
                     <div class="btnArea">
-                        <a  class="button" onclick="document:delectDictform.submit()">确定删除</a>
+                        <a  class="button" onclick="delectDictform.submit()">确定删除</a>
                         <a class="button" id="closeBtn3">取消删除</a>
                     </div>
                 </div>
@@ -229,7 +229,6 @@
 
 </div>
 </div>
-<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/navbar.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/admin_dict.js"></script>
 

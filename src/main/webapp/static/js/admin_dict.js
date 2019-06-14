@@ -21,8 +21,8 @@ $(function(){
     $(".edit").click(function(){
         $('#edit-box').show();
 
-        var currentType = this.getAttribute("dict-type")
-        var currentName = this.getAttribute("dict-name")
+        var currentType = this.getAttribute("dict-type");
+        var currentName = this.getAttribute("dict-name");
         $("#edit-name").val(currentName);
         $("#edit-type").val(currentType);
 
@@ -51,7 +51,7 @@ $(function(){
         var tempurl =actionIndex +currentId;
         $('#delectDictform').attr('action',tempurl);
 
-        getElementById("delectDictform").submit()
+        getElementById("delectDictform").submit();
         //获取页面文档的高度
         var docheight = $(document).height();
         //追加一个层，使背景变灰
@@ -67,4 +67,4 @@ $(function(){
         $("#greybackground").remove();
         return false;
     });
-})
+});

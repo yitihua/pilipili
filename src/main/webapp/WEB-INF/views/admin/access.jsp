@@ -143,7 +143,7 @@
                             <th>序号</th>
                             <th>用户名</th>
                             <th>级别</th>
-                            <th colspan="2">操作</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -158,7 +158,6 @@
                                     </c:forEach>
                                 </td>
                                 <td><a class="change-authority" user-name="${user.username}" user-roles="${role.name} ">更改权限</a></td>
-                                <td><a class="delect" user-id="${user.id}">删除</a></td>
                                 </tr>
                         </c:forEach>
                         </tbody>
@@ -179,12 +178,12 @@
                                     <input type="checkbox" name="" value="user">user
                                 </li>
                                 <a id="closeBtn1" class="button">取消添加</a>
-                                <a class="button" onclick="document:createUserform.submit()">确认添加</a>
+                                <a class="button" onclick="createUserform.submit()">确认添加</a>
 
                             </form></div>
 
 
-                        <c:forEach items="${userList}" var="user">
+                        <c:forEach items="${userPage.content}" var="user">
                         <!-- 弹出窗口-更改权限 -->
                         <div id="change-authority-box">
                             <form id="changeRoleform" action="${ctx}/admin/access/update/${user.id}" method="post">
@@ -199,7 +198,7 @@
                                     <input type="checkbox" name="" value="user" class="checkbox">user
                                 </li>
                                 <a id="closeBtn2" class="button">取消修改</a>
-                                <a class="button" onclick="document:changeRoleform.submit()">确认修改</a>
+                                <a class="button" onclick="changeRoleform.submit()">确认修改</a>
                             </form>
                         </div>
                         </c:forEach>
@@ -216,7 +215,7 @@
                                 <div class="btnArea">
                                     <div class="btnArea">
                                         <a class="button" id="closeBtn3">取消删除</a>
-                                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
+                                        <a class="button" onclick="delectform.submit()">确定删除</a>
                                     </div>
                                 </div>
                             </form>

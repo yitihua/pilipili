@@ -28,7 +28,7 @@ body {
 /*nav-top*/
 .nav-top{
 	top:0;
-	width: 1300px;
+	width: 100%;
 	height: 56px;
 	position: fixed;
 	background-color: rgb(52, 58, 64);

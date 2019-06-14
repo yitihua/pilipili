@@ -101,11 +101,11 @@
                    <label>英文名：</label>
                    <input type="text" name="engName"></li>
                 <a id="closeBtn" class="button">取消添加</a>
-                <a class="button" onclick="document:addform.submit()">确认添加</a>
+                <a class="button" onclick="addform.submit()">确认添加</a>
             </form>
         </div>
 
-    <c:forEach items="${typeList}" var="type">
+    <c:forEach items="${typePage.content}" var="type">
         <%--弹框-修改栏目--%>
         <div id="edit-box">
             <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}" method="post">
@@ -122,7 +122,7 @@
                     <input type="text" name="engName" id="type-engName" value="${type.engName}">
                 </li>
                     <a id="closeBtn2" class="button">取消修改</a>
-                    <a class="button" onclick="document:editform.submit()">确认修改</a>
+                    <a class="button" onclick="editform.submit()">确认修改</a>
             </form>
         </div>
     </c:forEach>
@@ -139,7 +139,7 @@
                 <div class="btnArea">
                     <div class="btnArea">
                         <a class="button" id="closeBtn3">取消删除</a>
-                        <a class="button" onclick="document:delectform.submit()">确定删除</a>
+                        <a class="button" onclick="delectform.submit()">确定删除</a>
                     </div>
                 </div>
             </form>
@@ -219,7 +219,7 @@
 
 
 </div>
-<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>
+<%--<script type="text/javascript" src="${ctx}/static/js/vue.js"></script>--%>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/admin_catalog.js"></script>
 <script type="text/javascript">
