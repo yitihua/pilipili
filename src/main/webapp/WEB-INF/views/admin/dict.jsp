@@ -94,7 +94,7 @@
 
         <!-- 弹出窗口-添加字典 -->
         <div id="add-box">
-            <form action="${ctx}/admin/dict/createDict" method="post" id="addDictform">
+            <form action="${ctx}/admin/dict/create" method="post" id="addDictform">
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type"></li>
@@ -116,7 +116,7 @@
         <c:forEach items="${dictPage.content}" var="dict" >
         <%--弹框-修改字典--%>
         <div id="edit-box">
-            <form id="editDictform" action="${ctx}/admin/dict/updateDict/${dict.id}" method="post">
+            <form id="editDictform" action="${ctx}/admin/dict/update/" method="post">
                 <li>
                     <lable>字典名称：</lable>
                     <input type="text" name="type" id="edit-name">
@@ -142,7 +142,7 @@
 
         <!-- 弹出窗口-删除字典 -->
         <div id="delect-box"  >
-            <form id="delectDictform" action="${ctx}/admin/dict/delete/" method="post">
+            <form id="delectDictform" action="${ctx}/admin/dict/delete/" >
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -199,7 +199,7 @@
                                 <td>${dict.status}</td>
                                 <td>
                                     <a class="edit"  dict-type="${dict
-                                .type}" dict-name="${dict.name}" dict.status="${dict.status}">编辑</a>
+                                .type}" dict-name="${dict.name}" dict.status="${dict.status}" dict-id="${dict.id}">编辑</a>
                                 </td>
                                 <td><a class="delect" dict-id="${dict.id}">删除</a></td>
                             </tr>

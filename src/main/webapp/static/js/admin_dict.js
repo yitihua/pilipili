@@ -25,6 +25,10 @@ $(function(){
         var currentName = this.getAttribute("dict-name");
         $("#edit-name").val(currentName);
         $("#edit-type").val(currentType);
+        var currentId = this.getAttribute("dict-id");
+        var actionIndex=$('#editDictform').attr('action');
+        var tempurl =actionIndex +currentId;
+        $('#editDictform').attr('action',tempurl);
 
         //获取页面文档的高度
         var docheight = $(document).height();

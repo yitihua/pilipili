@@ -28,6 +28,10 @@ $(function(){
         var currentEngName = this.getAttribute("type-engName");
         $("#type-name").val(currentName);
         $("#type-engName").val(currentEngName);
+        var currentId = this.getAttribute("type-id");
+        var actionIndex=$('#editform').attr('action');
+        var tempurl =actionIndex +currentId;
+        $('#editform').attr('action',tempurl);
 
         //获取页面文档的高度
         var docheight = $(document).height();

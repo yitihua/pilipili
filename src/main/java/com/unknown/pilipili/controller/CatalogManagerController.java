@@ -36,7 +36,7 @@ public class CatalogManagerController {
         model.addAttribute("sortType",sortType);
         return "/admin/catalogManager";
     }
-    @PostMapping("createType")
+    @PostMapping("create")
     public String createType(Model model, ServletRequest request){
         String name = request.getParameter("name");
         String engName = request.getParameter("engName");
@@ -44,7 +44,7 @@ public class CatalogManagerController {
         typeService.save(type);
         return "redirect:/admin/catalogManager";
     }
-    @PostMapping("updateType/{id}")
+    @PostMapping("update/{id}")
     public String updateType(@PathVariable("id") Long pkId, Model model, ServletRequest request){
         Type newType = typeService.findOne(pkId);
         newType.setName(request.getParameter("name"));

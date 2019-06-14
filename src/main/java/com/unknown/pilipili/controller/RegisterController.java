@@ -6,11 +6,7 @@ import com.unknown.pilipili.domain.User;
 import com.unknown.pilipili.service.DictService;
 import com.unknown.pilipili.service.RoleService;
 import com.unknown.pilipili.service.UserService;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,12 +55,6 @@ public class RegisterController {
             u.setRoles(roles);
 
             userService.save(u);
-
-            Subject subject = SecurityUtils.getSubject();
-            AuthenticationToken token = new UsernamePasswordToken(username,password);
-            ((UsernamePasswordToken) token).setRememberMe(false);
-            subject.login(token);
-
             return "redirect:/index";
         }
         else {

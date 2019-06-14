@@ -37,7 +37,7 @@ public class DictController {
         model.addAttribute("sortType",sortType);
         return "/admin/dict";
     }
-    @PostMapping("createDict")
+    @PostMapping("create")
     public String createDict(Model model, ServletRequest request){
         String type = request.getParameter("type");
         String name = request.getParameter("name");
@@ -52,7 +52,7 @@ public class DictController {
         dictService.save(dict);
         return "redirect:/admin/dict";
     }
-    @PostMapping("updateDict/{id}")
+    @PostMapping("update/{id}")
     public String updateDict(@PathVariable("id") Long pkId, Model model, ServletRequest request){
         Dict newDict = dictService.findOne(pkId);
         newDict.setType(request.getParameter("type"));

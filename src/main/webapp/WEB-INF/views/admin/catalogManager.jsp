@@ -93,7 +93,7 @@
 
         <!-- 弹出窗口-添加栏目 -->
         <div id="add-box">
-            <form id="addform" action="${ctx}/admin/catalogManager/createType" method="post" >
+            <form id="addform" action="${ctx}/admin/catalogManager/create" method="post" >
                 <li>
                     <lable>栏目名称：</lable>
                     <input type="text" name="name"></li>
@@ -108,7 +108,7 @@
     <c:forEach items="${typePage.content}" var="type">
         <%--弹框-修改栏目--%>
         <div id="edit-box">
-            <form id="editform" action="${ctx}/admin/catalogManager/update/${type.id}" method="post">
+            <form id="editform" action="${ctx}/admin/catalogManager/update/" method="post">
                 <li>
                     <lable>栏目编号：</lable>
                     <label>${type.id}</label>
@@ -129,7 +129,7 @@
 
         <!-- 弹出窗口-删除栏目 -->
         <div id="delect-box">
-            <form id="delectform" action="${ctx}/admin/catalogManager/delete/${type.id}" method="post">
+            <form id="delectform" action="${ctx}/admin/catalogManager/delete/${type.id}" >
                 <div class="ttBox">
                     <h1>提示</h1>
                 </div>
@@ -183,7 +183,7 @@
                                     <td>${type.id}</td>
                                     <td>${type.name}</td>
                                     <td>${type.engName}</td>
-                                    <td><a class="edit" type-name="${type.name}" type-engName="${type.engName}">编辑</a></td>
+                                    <td><a class="edit" type-name="${type.name}" type-engName="${type.engName}" type-id="${type.id}">编辑</a></td>
                                     <td><a class="delect" type-id="${type.id}">删除</a></td>
                                 </tr>
                             </c:forEach>
