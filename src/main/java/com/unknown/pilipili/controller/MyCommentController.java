@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,5 +36,10 @@ public class MyCommentController {
         model.addAttribute("sortType", sortType);
         model.addAttribute("PAGE_SIZE", PAGE_SIZE);
         return "/myComment";
+    }
+    @RequestMapping("delete/{id}")
+    public String delete(@PathVariable("id") Long id,Model model){
+        commentService.delete(id);
+        return "redirect:/myComment";
     }
 }

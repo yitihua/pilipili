@@ -194,8 +194,8 @@
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
-                                    <input type="checkbox" name="" value="admin" class="checkbox" >admin
-                                    <input type="checkbox" name="" value="user" class="checkbox">user
+                                    <input type="checkbox" name="roles" value="admin" class="checkbox" >admin
+                                    <input type="checkbox" name="roles" value="user" class="checkbox">user
                                     <input type="text" id="refundReason" style="display: none" >
                                 </li>
                                 <a id="closeBtn2" class="button">取消修改</a>

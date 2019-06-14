@@ -49,7 +49,8 @@ public class NewsEditController {
         news.setType(typeService.findTypeByName(request.getParameter("type")));
 
         if (!file.isEmpty()) {
-            String type = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+            String originalFilename = file.getOriginalFilename();
+            String type = originalFilename.substring(originalFilename.lastIndexOf("."));
             String filename = System.currentTimeMillis() + type;
             String path = session.getServletContext().getRealPath("/upload/" + filename);
             File destFile = new File(path);

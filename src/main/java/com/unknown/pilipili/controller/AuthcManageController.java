@@ -1,6 +1,8 @@
 package com.unknown.pilipili.controller;
 
+import com.unknown.pilipili.domain.Role;
 import com.unknown.pilipili.domain.User;
+import com.unknown.pilipili.service.RoleService;
 import com.unknown.pilipili.service.UserService;
 import com.unknown.pilipili.util.HttpServlet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.ServletRequest;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author <b>顾思宇</b>
@@ -25,6 +30,8 @@ public class AuthcManageController {
     private static final int PAGE_SIZE = 15;
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
     @RequestMapping("")
     public String viewArticle(@RequestParam(value = "sortType",defaultValue = "auto") String sortType,
             @RequestParam(value = "page",defaultValue = "1") int pageNumber, Model model, ServletRequest request){
@@ -38,6 +45,18 @@ public class AuthcManageController {
     @GetMapping("delete/{id}")
     public String delete(@PathVariable("id") Long id, Model model){
         userService.delete(id);
+        return "redirect:/admin/access";
+    }
+    @PostMapping("update/{id}")
+    public String update(@PathVariable("id") Long id, Model model, ServletRequest request){
+        String []rolesTmp = request.getParameterValues("roles");
+        Set<Role> roles = new HashSet<Role>();
+        for(String role:rolesTmp){
+            roles.add(roleService.findRoleByName(role));
+        }
+        User user = userService.findUserById(id);
+        user.setRoles(roles);
+        userService.save(user);
         return "redirect:/admin/access";
     }
 }
