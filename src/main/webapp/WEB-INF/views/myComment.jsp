@@ -91,6 +91,7 @@
                             <p>
                                 <span>我评论了</span>
                                 <span class="commentator">${comment.father.author.username}</span>:
+                                <span class="delete-btn" onclick="javascript:window.location.href='${ctx}/delete/${comment.id}'">删除</span>
                             </p>
                             <a>
                                 ${comment.content}

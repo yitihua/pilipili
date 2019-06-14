@@ -47,3 +47,6 @@
     width: 260px;
     height: 100px;
 }
+.icon img{
+    border-radius: 50%;
+}

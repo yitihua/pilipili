@@ -16,3 +16,11 @@
 .comment-inf{
     color: #bbb;
 }
+.delete-btn{
+    float: right;
+    color: #666;
+}
+.delete-btn:hover{
+    cursor: pointer;
+    color: black;
+}
