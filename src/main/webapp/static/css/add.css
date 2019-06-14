@@ -28,3 +28,22 @@
     font-size: 16px;
     margin-right: 20px;
 }
+.upload-field{
+    margin: 10px 0;
+}
+.show-field{
+    width: 720px;
+    height: 120px;
+    text-align: center;
+}
+.upload-field label{
+    font-size: 14px;
+}
+.upload-field label:hover{
+    cursor: pointer;
+    color: #000000;
+}
+#show-img{
+    width: 260px;
+    height: 100px;
+}

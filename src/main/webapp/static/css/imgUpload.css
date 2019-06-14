@@ -1,28 +1,25 @@
 @charset "utf-8";
-.upload-field{
-    width: 280px;
-    height: 100px;
-    background-color: white;
+.upload-tip{
+    color: #666;
+}
+.show-field{
     border: 4px #ccc dashed;
-    padding: 20px 20px;
+    padding: 20px 40px;
 }
-#show-img{
-    float: left;
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
+
 .upload-field form label{
+    float: left;
     color: gray;
 }
-.upload-field form label:hover{
-    cursor: pointer;
-    color: #78a9f3;
-}
 .upload-field form input{
-    width: 60px;
-    height: 25px;
+    width: 80px;
+    height: 30px;
     background: #b3d4fc;
     color: white;
     border: none;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.upload-field form span{
+    font-size: 12px;
 }

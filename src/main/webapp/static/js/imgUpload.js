@@ -11,6 +11,7 @@ field .ondrop = function (e) {
     console.log(e.dataTransfer.files);
     var file = e.dataTransfer.files.item(0);
     fileBtn.files[0]=file
+    console.log(fileBtn.files[0])
     // 创建文件读取对象
     let f = new FileReader();
     // 读取图片 格式base64

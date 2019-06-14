@@ -57,3 +57,17 @@
     margin-left: 150px;
     margin-top: 40px;
 }
+.show-field{
+    width: 240px;
+    height: 120px;
+    background-color: white;
+}
+.upload-field form label:hover{
+    cursor: pointer;
+    color: #78a9f3;
+}
+#show-img{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}

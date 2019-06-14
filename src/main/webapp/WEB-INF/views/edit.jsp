@@ -88,6 +88,15 @@
                         <input class="radioes" type="radio" name="type" id="${type.name}" value="${type.name}"><label for="${type.name}">${type.name}</label>
                     </c:forEach>
                 </div>
+                <div class="upload-field" v-bind:class="{hide:avatarBox}">
+                    <span class="upload-tip">将jpg、jpeg或png格式图片拖入此框或点击下面按钮选择本地图片</span><br>
+                    <div class="show-field">
+                        <label for="input-file">
+                            <img src="${ctx}/static/img/show.png" id="show-img"><br>
+                            从本地选择
+                        </label><br>
+                    </div>
+                </div>
                 <div id="editor-tools" class="editor-tools">
                 </div>
                 <div id="editor-text" class="editor-text">
@@ -98,6 +107,8 @@
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
                 <form id="new-article" method="post" action="${ctx}/edit/${news.id}/update">
+                    <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
+                           required="required" class="hide" onchange="preview()">
                 </form>
             </div>
         </div>

@@ -103,11 +103,13 @@
                             </span>
                         </p>
                         <div class="upload-field" v-bind:class="{hide:avatarBox}">
+                            <span class="upload-tip">将jpg、jpeg或png格式图片拖入此框或点击下面按钮选择本地图片</span><br>
                             <div class="show-field">
                                 <form action="${ctx}/myInf/upload" method="post" enctype="multipart/form-data">
-                                    <img src="${ctx}/static/img/show.png" id="show-img">
-                                    <span>拖入此框或点击下面按钮选择本地图片</span><br>
-                                    <label for="input-file">从本地选择</label><br>
+                                    <label for="input-file">
+                                        <img src="${ctx}/static/img/show.png" id="show-img"><br>
+                                        从本地选择
+                                    </label><br>
                                     <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
                                            required="required" class="hide" onchange="preview()">
                                     <input type="submit" value="提交">
