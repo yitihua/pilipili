@@ -46,6 +46,9 @@ function preview() {
             f.onload=function () {
                 img.src = this.result
             }
+            if(fileSubmit.hasOwnProperty("disabled")){
+                fileSubmit.removeAttribute("disabled")
+            }
         }else {
             fileTip.innerText="请提交格式为png、jpg或jpeg的图片"
             fileSubmit.setAttribute("disabled","true")
