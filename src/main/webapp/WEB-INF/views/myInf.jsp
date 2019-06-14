@@ -32,7 +32,7 @@
                 </span>
             <span class="icon">
                 <c:choose>
-                    <c:when test="${user.avatar!=''}">
+                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">
                     </c:when>
                     <c:otherwise>
@@ -56,7 +56,7 @@
                 <div class="menu-avatar">
                     <div class="menu-myAvatar">
                         <c:choose>
-                            <c:when test="${user.avatar!=''}">
+                            <c:when test="${user.avatar!=''&&user.avatar!=null}">
                                 <img src="${ctx}/upload/${user.avatar}">
                             </c:when>
                             <c:otherwise>
@@ -90,7 +90,7 @@
                         <p>
                             <span class="inf-avatar">
                                 <c:choose>
-                                    <c:when test="${user.avatar!=''}">
+                                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                                         <img src="${ctx}/upload/${user.avatar}">
                                     </c:when>
                                     <c:otherwise>

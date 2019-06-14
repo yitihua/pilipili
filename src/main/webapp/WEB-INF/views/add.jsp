@@ -34,7 +34,7 @@
                 </span>
             <span class="icon">
                 <c:choose>
-                    <c:when test="${user.avatar!=''}">
+                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">
                     </c:when>
                     <c:otherwise>
@@ -58,7 +58,7 @@
                 <div class="menu-avatar">
                     <div class="menu-myAvatar">
                         <c:choose>
-                            <c:when test="${user.avatar!=''}">
+                            <c:when test="${user.avatar!=''&&user.avatar!=null}">
                                 <img src="${ctx}/upload/${user.avatar}">
                             </c:when>
                             <c:otherwise>
@@ -117,7 +117,6 @@
 </body>
 <script src="${ctx}/static/js/wangEditor.min.js"></script>
 <script src="${ctx}/static/js/index.js"></script>
-<script src="${ctx}/static/js/sideMenu.js"></script>
 <script src="${ctx}/static/js/myArticle.js"></script>
 <script src="${ctx}/static/js/editorIndex.js"></script>
 <script src="${ctx}/static/js/imgUpload.js"></script>

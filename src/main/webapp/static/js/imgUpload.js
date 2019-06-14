@@ -1,10 +1,17 @@
-var field = document.querySelector('.upload-field');
-var fileBtn = document.getElementById("input-file")
-var fileTip= document.getElementById("upload-tip")
+var $ = function(x,y){
+    if(y===0){
+        return document.querySelector.bind(document)(x);
+    }else{
+        return document.querySelectorAll.bind(document)(x);
+    }
+}
+var field = $('.upload-field',0);
+var fileBtn = $("#input-file",0)
+var fileTip= $("#upload-tip",0)
 if(document.getElementById("avatar-submit")){
-    var fileSubmit = document.getElementById("avatar-submit")
+    var fileSubmit = $("avatar-submit",0)
 }else {
-    var fileSubmit =document.getElementById("btn1")
+    var fileSubmit =$("btn1",0)
 }
 var img = document.getElementById("show-img")
 field .ondragover = function (e) {

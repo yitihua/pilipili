@@ -127,7 +127,7 @@
 
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <c:choose>
-                    <c:when test="${user.avatar!=''}">
+                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <div class="icon" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
                     </c:when>
                     <c:otherwise>
@@ -184,7 +184,7 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
+                                    <c:when test="${news.img!=''&&news.img!=null}">
                                         <div class="news-pic"><img src="${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>

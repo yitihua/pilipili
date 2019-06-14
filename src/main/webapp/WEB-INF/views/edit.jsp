@@ -22,6 +22,7 @@
     <link href="${ctx}/static/css/topnav.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/add.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/imgUpload.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <body>
@@ -33,7 +34,7 @@
                 </span>
             <span class="icon">
                 <c:choose>
-                    <c:when test="${user.avatar!=''}">
+                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">
                     </c:when>
                     <c:otherwise>
@@ -57,7 +58,7 @@
                 <div class="menu-avatar">
                     <div class="menu-myAvatar">
                         <c:choose>
-                            <c:when test="${user.avatar!=''}">
+                            <c:when test="${user.avatar!=''&&user.avatar!=null}">
                                 <img src="${ctx}/upload/${user.avatar}">
                             </c:when>
                             <c:otherwise>
@@ -120,6 +121,7 @@
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/myArticle.js"></script>
 <script src="${ctx}/static/js/editorIndex.js"></script>
+<script src="${ctx}/static/js/imgUpload.js"></script>
 <script>
     var E = window.wangEditor
     var editor = new E('#editor-tools','#editor-text');

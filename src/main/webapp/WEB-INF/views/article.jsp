@@ -109,7 +109,7 @@
 
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <c:choose>
-                    <c:when test="${user.avatar!=''}">
+                    <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <div class="icon" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
                     </c:when>
                     <c:otherwise>
