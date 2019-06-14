@@ -105,7 +105,7 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" action="${ctx}/add/create">
+                <form id="new-article" method="post" action="${ctx}/add/create"  enctype="multipart/form-data">
                     <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
                            required="required" class="hide" onchange="preview()">
                 </form>

@@ -10,23 +10,28 @@ var addPara = document.createElement.bind(document);
 var hotnews={
     0:{
         0: "&#xe609" ,
-        1:"国产动画电影《哪吒之魔童降世》定档8月16日"
+        1:"国产动画电影《哪吒之魔童降世》定档8月16日",
+        2:`${ctx}/article/view/1`
     },
     1:{
         0: "&#xe60b" ,
-        1:"《FGO》、《猎人任务第5弹》开播，首日放送道具是\“凶骨\” "
+        1:"《FGO》、《猎人任务第5弹》开播，首日放送道具是\“凶骨\” ",
+        2:`${ctx}/article/view/1`
     },
     2:{
         0: "&#xe610" ,
-        1:"广告位招租"
+        1:"广告位招租",
+        2:`${ctx}/article/view/1`
     },
     3:{
         0: "&#xe60d" ,
-        1:"广告位招租"
+        1:"广告位招租",
+        2:`${ctx}/article/view/1`
     },
     4:{
         0: "&#xe60c" ,
-        1:"广告位招租"
+        1:"广告位招租",
+        2:`${ctx}/article/view/1`
     }
 }
 let list = $(".hot-news-list",0)
@@ -41,5 +46,8 @@ for(i in hotnews){
     newli.appendChild(newNum)
     newli.appendChild(newTitle)
     list.appendChild(newli)
+    newli.onclick=function(){
+        window.location.href=hotnews[i][2]
+    }
     console.log(i)
 }

@@ -17,6 +17,12 @@
 }
 .hot-news-nav .iconfont+span{
     font-family: "Verdana";
+    font-size: 14px;
+    color: deepskyblue;
+}
+.hot-news-nav .iconfont+span:hover{
+    cursor: pointer;
+    color: black;
 }
 .iconfont {
     font-family: "iconfont" !important;

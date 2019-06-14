@@ -185,12 +185,12 @@
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
                                     <c:when test="${news.img!=''&&news.img!=null}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -200,7 +200,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -214,13 +214,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -230,7 +230,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -245,13 +245,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -261,7 +261,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -275,13 +275,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -291,7 +291,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -305,13 +305,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -321,7 +321,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -335,13 +335,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -351,7 +351,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -365,13 +365,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -381,7 +381,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -395,13 +395,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -411,7 +411,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -425,13 +425,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -441,7 +441,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -455,13 +455,13 @@
                             <div class="news-list" id="news${news.id}"
                                  onclick="javascript:window.location.href='${ctx}/article/view/${news.id}'">
                                 <c:choose>
-                                    <c:when test="${news.img}">
-                                        <div class="news-pic"><img src="${news.img}"/></div>
+                                    <c:when test="${news.img!=''&&news.img!=null}">
+                                        <div class="news-pic"><img src="${ctx}/upload/${news.img}"/></div>
                                         <div class="news-doc">
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf" id="news${news.id}">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class = "news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -471,7 +471,7 @@
                                             <div class="news-title">${news.title}</div>
                                             <div class="news-inf">
                                                 <p class="news-author">${news.author.username}</p>
-                                                <p class="news-time">上传时间:${news.createAt}</p>
+                                                <p class="news-time">上传时间:<span class="time">${news.createAt}</span></p>
                                                     <%--<p class="news-comments">评论数：${news.comments}</p>--%>
                                             </div>
                                         </div>
@@ -508,6 +508,7 @@
 <script src="${ctx}/static/js/carousel.js"></script>
 <script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/login.js"></script>
+<script src="${ctx}/static/js/dateFormat.js"></script>
 </body>
 <script>
     if ("${loginFail}") {

@@ -93,7 +93,7 @@
                     <span class="upload-tip">将jpg、jpeg或png格式图片拖入此框或点击下面按钮选择本地图片</span><br>
                     <div class="show-field">
                         <label for="input-file">
-                            <img src="${ctx}/static/img/show.png" id="show-img"><br>
+                            <img src="${ctx}/upload/${news.img}" id="show-img"><br>
                             从本地选择
                         </label><br>
                     </div>
@@ -107,7 +107,7 @@
             </div>
             <%--为提交富文本编辑器中的内容，引入下面的div和editorIndex.js文件--%>
             <div>
-                <form id="new-article" method="post" action="${ctx}/edit/${news.id}/update">
+                <form id="new-article" method="post" action="${ctx}/edit/${news.id}/update" enctype="multipart/form-data">
                     <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
                            required="required" class="hide" onchange="preview()">
                 </form>

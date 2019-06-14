@@ -1,30 +1,36 @@
 @charset "utf-8";
-body,div,img,a,ul,ol,p{
-    margin:0;
-    padding:0;
+body, div, img, a, ul, ol, p {
+    margin: 0;
+    padding: 0;
 }
-ul{
-    list-style:none;
+
+ul {
+    list-style: none;
 }
-body{
-    font-size:12px;
+
+body {
+    font-size: 12px;
     font-family: "微软雅黑"
 }
-a{
-    color:#000;
-    text-decoration:none;
+
+a {
+    color: #000;
+    text-decoration: none;
 }
+
 /*radio默认样式*/
-input[type="radio"]{
+input[type="radio"] {
     position: absolute;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
 }
-input[type="text"],input[type="password"]{
+
+input[type="text"], input[type="password"] {
     background-color: white;
     border: 1px #aaa solid;
     font-size: 14px;
 }
-input[type="radio"]+label::before{
+
+input[type="radio"] + label::before {
     content: "";
     display: inline-block;
     transform: translateY(4px);
@@ -35,142 +41,167 @@ input[type="radio"]+label::before{
     border-radius: 50%;
     border: 2px #e7e1cd solid;
 }
-input[type="radio"]:checked+label::before{
+
+input[type="radio"]:checked + label::before {
     background-color: #e7e1cd;
     width: 11px;
     height: 11px;
     background-clip: content-box;
     padding: 2px;
 }
+
 /*select默认样式*/
 select {
     border: solid 1px #000;
     width: 125px;
     height: 25px;
     border: 1px #ccc solid;
-    appearance:none;
-    -moz-appearance:none;
-    -webkit-appearance:none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     background: url("../img/select-triangle.png") no-repeat scroll transparent;
     background-size: 12px 8px;
     background-position: 105px 7px;
     padding-right: 14px;
 }
-select:hover{
+
+select:hover {
     background-image: url("../img/tran-triangle.png");
 }
+
 /*清除ie的默认选择框样式清除，隐藏下拉箭头*/
 select::-ms-expand {
     display: none;
 }
+
 /* 总定位居中设置 */
-.contenter{
+.contenter {
     width: 100%;
 }
-.widthfix{
-    width:1080px;
+
+.widthfix {
+    width: 1080px;
     margin: auto;
 }
+
 /* 头导航栏：logo 、搜索框和用户信息 */
-.topnav{
+.topnav {
     padding: 40px 0;
     width: 1080px;
     height: 40px;
 }
-.logo{
+
+.logo {
     float: left;
     margin-top: 15px;
     width: 200px;
     font-size: 25px;
-    font-family:"微软雅黑";
+    font-family: "微软雅黑";
 }
-.logo img{
+
+.logo img {
     width: 180px;
     transform: translateY(-30px);
 }
-.searchBox{
+
+.searchBox {
     float: left;
     font-size: 0px;
 }
-.search{
+
+.search {
     width: 410px;
     height: 35px;
     padding-left: 6px;
     font-size: 18px;
     border: 1px #ccc solid;
 }
-.btn-red{
+
+.btn-red {
     width: 90px;
     height: 35px;
-    border: none;
-    background:#78a9f3;
-    color:white;
+    background: #78a9f3;
+    color: white;
     font-size: 18px;
+    transform: translateY(1px);
+    border-left: none;
 }
-.hide{
+
+.hide {
     display: none;
 }
-.admin-page{
+
+.admin-page {
     margin-left: 75px;
-    font-size:16px;
+    font-size: 16px;
     color: #0086b3;
     height: 35px;
     line-height: 35px;
 }
+
 /* 菜单栏 */
-.borderbottom{
+.borderbottom {
     border-bottom: 1px #ccc solid;
 }
-.menu{
+
+.menu {
     width: 1080px;
     height: 50px;
 }
-.type{
+
+.type {
     text-align: center;
 }
-.type li{
+
+.type li {
     display: inline-block;
-    padding:13px 22px;
+    padding: 13px 22px;
     font-size: 18px;
-    font-family:"微软雅黑";
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+    font-family: "微软雅黑";
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-.type li:hover{
+
+.type li:hover {
     color: #78a9f3;
     cursor: pointer;
 }
-.bottom-red{
+
+.bottom-red {
     border-bottom: 2px #78a9f3 solid;
 }
+
 /* 新闻阅览、推荐栏 左阅览、右推荐*/
-.content{
+.content {
     position: relative;
     width: 1080px;
-    margin-top:10px;
+    margin-top: 10px;
 }
+
 /* 左 */
-.content-main{
+.content-main {
     position: absolute;
     width: 690px;
 }
-.content-main-list{
+
+.content-main-list {
     position: absolute;
     margin-top: 10px;
     width: 690px;
 }
+
 /* 右 */
-.content-column{
+.content-column {
     position: absolute;
     z-index: -1;
     right: 0px;
     width: 337px;
 }
 
-.clearfix::after{
-    content:"";
+.clearfix::after {
+    content: "";
     display: block;
     clear: both;
 }
