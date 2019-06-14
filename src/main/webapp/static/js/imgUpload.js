@@ -8,12 +8,12 @@ var $ = function(x,y){
 var field = $('.upload-field',0);
 var fileBtn = $("#input-file",0)
 var fileTip= $("#upload-tip",0)
-if(document.getElementById("avatar-submit")){
-    var fileSubmit = $("avatar-submit",0)
+if($("#avatar-submit",0)){
+    var fileSubmit = $("#avatar-submit",0)
 }else {
-    var fileSubmit =$("btn1",0)
+    var fileSubmit =$("#btn1",0)
 }
-var img = document.getElementById("show-img")
+var img = $("#show-img",0)
 field .ondragover = function (e) {
     e.preventDefault();
     e.stopPropagation();
