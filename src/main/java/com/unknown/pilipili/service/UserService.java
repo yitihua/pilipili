@@ -31,6 +31,9 @@ public class UserService {
     public User findUserByUsername(String username){
         return userRepo.findUserByUsername(username);
     }
+    public User findUserById(Long id){
+        return userRepo.findUserById(id);
+    }
     public User findUserByUsernameAndPassword(String username, String password){
         return userRepo.findUserByUsernameAndPassword(username,password);
     }

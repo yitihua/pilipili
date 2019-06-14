@@ -59,7 +59,8 @@ public class MyInfoController {
     public String upload(@RequestParam("uploadfile") CommonsMultipartFile file,
                          HttpServletRequest request, HttpSession session){
         if (!file.isEmpty()) {
-            String type = file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+            String originalFilename = file.getOriginalFilename();
+            String type = originalFilename.substring(originalFilename.lastIndexOf("."));
             String filename = System.currentTimeMillis() + type;
             String path = request.getSession().getServletContext().getRealPath("/upload/" + filename);
             File destFile = new File(path);
