@@ -30,10 +30,17 @@
     <div class="news-topnav">
         <div class="widthfix">
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
-                    <img src="static/img/CN_bilibiliB.png">
+                    <img src="${ctx}/static/img/CN_bilibiliB.png">
                 </span>
             <span class="icon">
-                <img src="${ctx}/static/img/indexPhoto.png">
+                <c:choose>
+                    <c:when test="${user.img}">
+                        <img src="${user.img}">
+                    </c:when>
+                    <c:otherwise>
+                        <img src="${ctx}/static/img/indexPhoto.jpg">
+                    </c:otherwise>
+                </c:choose>
                 <div class="userInf-drop-down">
                     <span class="userInf-drop-down-name">${user.username}</span>
                     <span onclick="javascript:window.location.href='${ctx}/myInf'">个人中心</span>
@@ -49,7 +56,16 @@
         <div class="widthfix">
             <div class="side-menu" id="side-menu">
                 <div class="menu-avatar">
-                    <div class="menu-myAvatar"><img src="static/img/indexPhoto.png"></div>
+                    <div class="menu-myAvatar">
+                        <c:choose>
+                            <c:when test="${user.img}">
+                                <img src="${user.img}">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="${ctx}/static/img/indexPhoto.jpg">
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
                     <div class="menu-myName">${user.username}</div>
                 </div>
                 <ul class="menu-body menu-body-nomal" onselectstart="return flase">
