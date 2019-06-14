@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>个人信息</title>
-    <script>var ctx="${ctx}"</script>
+    <script>var ctx = "${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/sideMenu.css" rel="stylesheet" type="text/css">
@@ -31,8 +31,8 @@
                 </span>
             <span class="icon">
                 <c:choose>
-                    <c:when test="${user.img}">
-                        <img src="${user.img}">
+                    <c:when test="${user.avatar}">
+                        <img src="${ctx}/upload/${user.avatar}">
                     </c:when>
                     <c:otherwise>
                         <img src="${ctx}/static/img/indexPhoto.jpg">
@@ -55,8 +55,8 @@
                 <div class="menu-avatar">
                     <div class="menu-myAvatar">
                         <c:choose>
-                            <c:when test="${user.img}">
-                                <img src="${user.img}">
+                            <c:when test="${user.avatar}">
+                                <img src="${ctx}/upload/${user.avatar}">
                             </c:when>
                             <c:otherwise>
                                 <img src="${ctx}/static/img/indexPhoto.jpg">
@@ -87,9 +87,27 @@
             <%--右边栏，用户信息详情--%>
             <div class="main-content">
                 <div class="inf-body" id="inf-body">
-                    <div class="inf-box">
+                    <div class="avatar-box">
                         <span class="inf-lable">头像</span>
-                        <p><span class="inf-avatar"></span><span class="inf-update-btn">更改头像</span></p>
+                        <p>
+                            <span class="inf-avatar">
+                                <c:choose>
+                                    <c:when test="${user.avatar}">
+                                        <img src="${ctx}/upload/${user.avatar}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="${ctx}/static/img/indexPhoto.jpg">
+                                    </c:otherwise>
+                                </c:choose>
+                            </span>
+                            <span class="inf-update-btn">
+                                <label for="input-file">更改头像</label>
+                            </span>
+                        <form action="${ctx}/test2/upload" method="post" enctype="multipart/form-data">
+                            <input type="file" accept="image/jpeg,image/jpg,image/png" id="input-file" name="uploadfile"
+                                   required="required">
+                        </form>
+                        </p>
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">用户名</span>
@@ -97,8 +115,10 @@
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">性别</span>
-                        <p>${user.gender.name}<span class="inf-update-btn" v-on:click="turnGenderBox">{{genderfix}}</span></p>
-                        <form method="post" action="${ctx}/myInf/editGender" v-bind:class="{hide:genderBox}" class="gender-form">
+                        <p>${user.gender.name}<span class="inf-update-btn"
+                                                    v-on:click="turnGenderBox">{{genderfix}}</span></p>
+                        <form method="post" action="${ctx}/myInf/editGender" v-bind:class="{hide:genderBox}"
+                              class="gender-form">
                             <input name="gender" type="radio" value="男" id="male"><label for="male">男</label><br>
                             <input name="gender" type="radio" value="女" id="female"><label for="female">女</label><br>
                             <input name="gender" type="radio" value="保密" id="secret"><label for="secret">保密</label><br>
@@ -107,8 +127,10 @@
                     </div>
                     <div class="inf-box">
                         <span class="inf-lable">学历</span>
-                        <p>${user.education.name}<span class="inf-update-btn" v-on:click="turnEducationBox">{{educationfix}}</span></p>
-                        <form method="post" action="${ctx}/myInf/editEducation" v-bind:class="{hide:educationBox}" class="edu-form">
+                        <p>${user.education.name}<span class="inf-update-btn" v-on:click="turnEducationBox">{{educationfix}}</span>
+                        </p>
+                        <form method="post" action="${ctx}/myInf/editEducation" v-bind:class="{hide:educationBox}"
+                              class="edu-form">
                             <select name="education" required="required">
                                 <option value="无">无</option>
                                 <option value="小学">小学</option>
