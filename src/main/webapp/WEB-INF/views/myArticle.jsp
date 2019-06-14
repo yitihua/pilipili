@@ -107,7 +107,7 @@
                                 <a>${article.title}</a>
                             </div>
                             <div class="atricle-inf">
-                                <span class="time-btn">
+                                <span class="time-btn time">
                                         ${article.createAt}
                                 </span>
                                 <span class="span-btn remove-btn"
@@ -133,6 +133,7 @@
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/sideMenu.js"></script>
 <script src="${ctx}/static/js/myArticle.js"></script>
+<script src="${ctx}/static/js/dateFormat.js"></script>
 <script>
     if (${articleList}) myArticleVM.noArticle = false;
 </script>
