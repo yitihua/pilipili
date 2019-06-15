@@ -24,7 +24,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin/dict")
 public class DictController {
-    private static final int PAGE_SIZE = 15;
+    private static final int PAGE_SIZE = 8;
     @Autowired
     private DictService dictService;
     @RequestMapping("")

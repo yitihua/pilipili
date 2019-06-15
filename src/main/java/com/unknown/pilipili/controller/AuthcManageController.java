@@ -27,7 +27,7 @@ import java.util.Set;
 @Controller
 @RequestMapping("/admin/access")
 public class AuthcManageController {
-    private static final int PAGE_SIZE = 15;
+    private static final int PAGE_SIZE = 8;
     @Autowired
     private UserService userService;
     @Autowired
