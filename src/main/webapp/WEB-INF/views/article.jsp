@@ -166,7 +166,7 @@
                         <div class="comment-nav" id="comment-nav-${comment.level}">
                                 <%--commentator inf--%>
                             <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
-                            <div class="comment-main">
+                            <div class="comment-main clearfix">
                                 <div class="comment-commentator">
                                     <span class="comment-commentator-name">
                                                 ${comment.author.username}
