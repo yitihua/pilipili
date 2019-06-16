@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>【pilipili】${news.title}</title>
-    <script>var ctx ="${ctx}"</script>
+    <script>var ctx = "${ctx}"</script>
     <link rel="shorcut icon" type="image/x-icon" href="${ctx}/static/img/favicon.ico">
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
@@ -26,7 +26,8 @@
 <div class="contenter" id="contenter">
     <div class="news-topnav" id="topnav">
         <div class="widthfix">
-            <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'"><img src="${ctx}/static/img/CN_bilibiliB.png"></span>
+            <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'"><img
+                    src="${ctx}/static/img/CN_bilibiliB.png"></span>
             <%--登录注册--%>
             <div class="userInf" id="unlog-userInf clearfix">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"
@@ -153,8 +154,21 @@
             <!-- comment -->
             <div class="comment-body">
                 <div class="comment-add">
-                    <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
-                    <form action="${news.id}/createComment" method="POST"  class="comment-add-form">
+                    <c:choose>
+                        <c:when test="${user.avatar!=''&&user.avatar!=null}">
+                            <div class="avatar"
+                                 style="background-image: url('${ctx}/upload/${user.avatar}')">
+                                <img src="${ctx}/upload/${user.avatar}">
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="avatar"
+                                 style="background-image: url('${ctx}/static/img/indexPhoto.jpg')">
+                                <img src="${ctx}/static/img/indexPhoto.jpg">
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                    <form action="${news.id}/createComment" method="POST" class="comment-add-form">
                         <input type="hidden" name="newsId" value="${news.id}">
                         <textarea name="content"></textarea>
                         <p><input type="submit" value="发表" class="submit-btn"></p>
@@ -165,11 +179,23 @@
                     <c:forEach var="comment" items="${commentList}">
                         <div class="comment-nav" id="comment-nav-${comment.level}">
                                 <%--commentator inf--%>
-                            <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.png')"></div>
+                            <c:choose>
+                                <c:when test="${user.avatar!=''&&user.avatar!=null}">
+                                    <div class="avatar">
+                                        <img src="${ctx}/upload/${comment.author.avatar}">
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="avatar"
+                                         style="background-image: url('${ctx}/static/img/indexPhoto.jpg')">
+                                        <img src="${ctx}/static/img/indexPhoto.jpg">
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                             <div class="comment-main clearfix">
                                 <div class="comment-commentator">
                                     <span class="comment-commentator-name">
-                                                ${comment.author.username}
+                                            ${comment.author.username}
                                     </span>
                                     <span>
                                             ${comment.createAt}
@@ -177,7 +203,9 @@
                                     <span class="comment-commentator-level">
                                             ${comment.level}楼
                                     </span>
-                                    <span class="reply-btn reply-btn-1" data-comment-level="${comment.level}" data-comment-id="${comment.id}" data-comment-author="${comment.author.username}">回复</span>
+                                    <span class="reply-btn reply-btn-1" data-comment-level="${comment.level}"
+                                          data-comment-id="${comment.id}"
+                                          data-comment-author="${comment.author.username}">回复</span>
                                 </div>
                                     <%-- commentator inf end--%>
                                     <%-- comment body--%>
@@ -199,15 +227,20 @@
                                                 <span>
                                                     ${reply.father.level}-${reply.level}楼
                                                      </span>
-                                                <span class="reply-btn reply-btn-2" data-comment-level="${comment.level}" data-comment-id="${reply.id}" data-comment-author="${reply.author.username}">回复</span>
+                                                <span class="reply-btn reply-btn-2"
+                                                      data-comment-level="${comment.level}"
+                                                      data-comment-id="${reply.id}"
+                                                      data-comment-author="${reply.author.username}">回复</span>
                                             </div>
 
                                         </div>
                                     </c:forEach>
                                     <div class="reply-form hide" id="reply-form-${comment.level}">
-                                        <form action="${news.id}/createComment" method="post" class="reply-area" id="reply-area-${comment.level}">
+                                        <form action="${news.id}/createComment" method="post" class="reply-area"
+                                              id="reply-area-${comment.level}">
                                             <input type="hidden" name="rootCommentId" value="${comment.id}">
-                                            <textarea class="reply-text" id="reply-text-${comment.level}" name="content"></textarea>
+                                            <textarea class="reply-text" id="reply-text-${comment.level}"
+                                                      name="content"></textarea>
                                             <p><input type="submit" value="发表" class="submit-btn"/></p>
                                         </form>
 
