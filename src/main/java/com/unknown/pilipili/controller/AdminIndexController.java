@@ -23,7 +23,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin/index")
 public class AdminIndexController {
-    private static final int PAGE_SIZE = 15;
+    private static final int PAGE_SIZE = 8;
     @Autowired
     private NewsService newsService;
     @RequestMapping("")
