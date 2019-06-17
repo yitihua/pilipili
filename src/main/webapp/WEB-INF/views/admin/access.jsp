@@ -14,6 +14,7 @@
     <link href="${ctx}/static/font/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
+    <%--<link href="${ctx}/static/css/page.css" rel="stylesheet" type="text/css">--%>
 
     <title>用户权限管理</title>
 

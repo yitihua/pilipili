@@ -177,7 +177,10 @@ tbody a:hover{
     list-style: none;
     border-radius: .25rem;
 }
-.paginate_button{
+.pagination:nth-child(2){
+    margin-left: 290px;
+}
+.pagination li{
     /*position: relative;*/
     color: #868e96;
     margin: 2px 0;
@@ -189,17 +192,20 @@ tbody a:hover{
     border-bottom-left-radius: .25rem;
     line-height: 1.25;
 }
-.page-link {
+.pagination li a{
     display: block;
     pointer-events: none;
     /*background-color: #fff;  */
+    color: black;
 }
-.paginate_button:hover{
+.pagination li:hover{
     color: white;
     background-color: #007bff;
-
-
 }
+/*.disabled{*/
+    /*background-color: white;*/
+    /*border: 2px #b3d4fc solid;*/
+/*}*/
 
 
 
