@@ -180,7 +180,7 @@
                         <div class="comment-nav" id="comment-nav-${comment.level}">
                                 <%--commentator inf--%>
                             <c:choose>
-                                <c:when test="${user.avatar!=''&&user.avatar!=null}">
+                                <c:when test="${comment.author.avatar!=''&&comment.author.avatar!=null}">
                                     <div class="avatar">
                                         <img src="${ctx}/upload/${comment.author.avatar}">
                                     </div>
