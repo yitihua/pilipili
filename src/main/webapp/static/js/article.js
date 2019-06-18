@@ -33,7 +33,8 @@ for(let i=0;i<replyBtn1.length;i++){
         //将上一点击过的评论栏高度归回原样
         if(levelCounter[0]!=0&&levelCounter[levelCounter[0]]&&levelCounter[0]!=commentLevel){
             let temp=Number(levelCounter[0])-1
-            nav[temp].style.height=(nav[temp].offsetHeight-45)+"px"
+            let h=Number(document.getElementById(`reply-form-${Number(levelCounter[0])}`).style.height.slice(0,-2))
+            nav[temp].style.height=(nav[temp].offsetHeight-h)+"px"
             levelCounter[temp+1]=0
         }
         levelCounter[0]=Number(commentLevel)
@@ -51,15 +52,21 @@ for(let i=0;i<replyBtn1.length;i++){
         replyForm.classList.remove("hide")
         //回复表单下的textarea
         let replyText = document.getElementById(`reply-text-${commentLevel}`)
+        //初始化回复表单样式
+        replyText.value=""
+        replyForm.style.height = "40px"
+
         replyText.onfocus=function(){
             replyForm.style.height = "120px"
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
         replyText.onblur=function(){
-            replyForm.style.height = "40px"
-            let olderH = commentNav.offsetHeight;
-            commentNav.style.height = (olderH-80)+"px"
+            if(replyText.value==""||replyText.value==null){
+                replyForm.style.height = "40px"
+                let olderH = commentNav.offsetHeight;
+                commentNav.style.height = (olderH-80)+"px"
+            }
         }
         //设置textarea的默认输出“回复 某某”
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)
@@ -82,7 +89,8 @@ for(let i = 0;i<replyBtn2.length;i++){
         //将上一点击过的评论栏高度归回原样
         if(levelCounter[0]!=0&&levelCounter[levelCounter[0]]&&levelCounter[0]!=commentLevel){
             let temp=Number(levelCounter[0])-1
-            nav[temp].style.height=(nav[temp].offsetHeight-45)+"px"
+            let h=Number(document.getElementById(`reply-form-${Number(levelCounter[0])}`).style.height.slice(0,-2))
+            nav[temp].style.height=(nav[temp].offsetHeight-h)+"px"
             levelCounter[temp+1]=0
         }
         levelCounter[0]=Number(commentLevel)
@@ -100,15 +108,19 @@ for(let i = 0;i<replyBtn2.length;i++){
         replyForm.classList.remove("hide")
         //回复表单下的textarea
         let replyText = document.getElementById(`reply-text-${commentLevel}`)
+        replyText.value=""
+        replyForm.style.height = "40px"
         replyText.onfocus=function(){
             replyForm.style.height = "120px"
             let olderH = commentNav.offsetHeight;
             commentNav.style.height = (olderH+80)+"px"
         }
         replyText.onblur=function(){
-            replyForm.style.height = "40px"
-            let olderH = commentNav.offsetHeight;
-            commentNav.style.height = (olderH-80)+"px"
+            if(replyText.value==""||replyText.value==null){
+                replyForm.style.height = "40px"
+                let olderH = commentNav.offsetHeight;
+                commentNav.style.height = (olderH-80)+"px"
+            }
         }
         //设置textarea的默认输出“回复 某某”
         replyText.setAttribute("placeholder",`回复 ${commentAuthor}`)

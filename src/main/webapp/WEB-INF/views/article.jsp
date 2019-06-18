@@ -240,7 +240,8 @@
                                               id="reply-area-${comment.level}">
                                             <input type="hidden" name="rootCommentId" value="${comment.id}">
                                             <textarea class="reply-text" id="reply-text-${comment.level}"
-                                                      name="content"></textarea>
+                                                      name="content">
+                                            </textarea>
                                             <p><input type="submit" value="发表" class="submit-btn"/></p>
                                         </form>
 
