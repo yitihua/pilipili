@@ -197,7 +197,7 @@
                                     <span class="comment-commentator-name">
                                             ${comment.author.username}
                                     </span>
-                                    <span>
+                                    <span class="time">
                                             ${comment.createAt}
                                     </span>
                                     <span class="comment-commentator-level">
@@ -221,7 +221,7 @@
                                                 <span>${reply.content}</span>
                                             </div>
                                             <div class="reply-inf">
-                                                    <span>
+                                                    <span class="time">
                                                             ${reply.createAt}
                                                     </span>
                                                 <span>
@@ -268,5 +268,5 @@
     }
 </script>
 <script src="${ctx}/static/js/article.js"></script>
-
+<script src="${ctx}/static/js/dateFormat.js"></script>
 </html>
