@@ -48,7 +48,7 @@ var vm = new Vue({
         password:function(){
             let subBtn = document.getElementById("submit-btn")
 
-            let reg = /^[a-zA-Z]\w{5,17}$/;
+            let reg = /^[a-zA-Z0-9_]\w{5,17}$/;
             if(!reg.test(this.password)){
                 this.pwdtip= "长度在6-18之间，只能包含字符、数字和下划线";
                 this.pwdwrong = true

@@ -32,7 +32,7 @@
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="${ctx}/static/img/CN_bilibiliB.png">
                 </span>
-            <span class="icon">
+            <span class="top-icon">
                 <c:choose>
                     <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">

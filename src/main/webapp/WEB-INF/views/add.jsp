@@ -32,7 +32,7 @@
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="${ctx}/static/img/CN_bilibiliB.png">
                 </span>
-            <span class="icon">
+            <span class="top-icon">
                 <c:choose>
                     <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">
@@ -94,7 +94,7 @@
                     <div class="show-field">
                             <label for="input-file">
                                 <img src="${ctx}/static/img/show.png" id="show-img"><br>
-                                从本地选择
+                                从本地选择，新闻头图上传建议宽高比为1.68:1
                             </label><br>
                     </div>
                 </div>

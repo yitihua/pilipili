@@ -134,11 +134,15 @@ select::-ms-expand {
 .admin-page {
     margin-left: 75px;
     font-size: 16px;
-    color: #0086b3;
+    color: palevioletred;
     height: 35px;
     line-height: 35px;
+    border: 1px palevioletred solid;
 }
-
+.admin-page svg{
+    font-size: 18px;
+    margin-right: 5px;
+}
 /* 菜单栏 */
 .borderbottom {
     border-bottom: 1px #ccc solid;
@@ -204,4 +208,14 @@ select::-ms-expand {
     content: "";
     display: block;
     clear: both;
+}
+
+.gotop a svg {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    width: 32px;
+    height: 32px;
+    border: 2px #ccc solid;
 }

@@ -142,7 +142,7 @@ form{
     right: 0px;
     text-align: center;
 }
-.icon{
+.avatar{
     display: inline-block;
     height: 40px;
     width:40px;
@@ -150,17 +150,17 @@ form{
     border-radius: 50%;
     overflow: hidden;
 }
-.icon:hover{
+.avatar:hover{
     cursor: pointer;
 }
 .userInf:hover .userInf-name{
     display: none;
 }
-/*.userInf:hover .icon{*/
+/*.userInf:hover .avatar{*/
     /*width: 80px;*/
     /*height: 80px;*/
 /*}*/
-.icon img{
+.avatar img{
     height: 40px;
     width:40px;
 }
