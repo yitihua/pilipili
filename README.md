@@ -91,7 +91,7 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 >>用户可进行头像等个人信息的更改
 >>点击修改按钮可展开和收起修改面板，完成对信息的修改
 
-![](/src/main/webapp/static/img/img-README/buza/myInf.png)
+![](/src/main/webapp/static/img/img-README/buza/userInf.png)
 
 头像的修改有两种方式：
 * 可点击加号链入本地图片
