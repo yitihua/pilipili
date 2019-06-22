@@ -107,26 +107,27 @@
 					<!-- 新闻 -->
 					<div class="row">
 						<form >
-							<table>
+							<table style="text-align: center;">
 								<thead>
-									<tr>
+									<tr >
 										<th>标题</th>
 										<th>类别</th>
 										<th>发布人</th>
 										<th>发布时间</th>
-										<th>编辑</th>
+										<th colspan="2">编辑</th>
 									</tr>
 								</thead>
 								<tbody>
 								<c:forEach items="${newsPage.content}" var="news">
                                     <tr>
-                                        <td>${news.title}</td>
+                                        <td style="width: 200px;">${news.title}</td>
                                         <td>${news.type.name}</td>
                                         <td>${news.author.username}</td>
-                                        <td>${news.createAt}</td>
+                                        <td style="width: 200px">${news.createAt}</td>
                                         <td>
 											<a herf="${ctx}/admin/newsEdit/${news.id}" onclick="window.location.href='${ctx}/admin/newsEdit/${news.id}'">编辑</a>
 										</td>
+										<td><a class="delect" dict-id="${dict.id}">删除</a></td>
                                     </tr>
 								</c:forEach>
 								</tbody>
@@ -134,7 +135,24 @@
 							<tags:pagination page="${newsPage}" paginationSize="${PAGE_SIZE}"/>
 						</form>
 					</div>
-			
+
+					<!-- 弹出窗口-删除字典 -->
+					<div id="delect-box"  >
+						<form id="delectform" action="${ctx}/admin/dict/delete/" >
+							<div class="ttBox">
+								<h1>提示</h1>
+							</div>
+							<div class="txtBox">
+								<p>你确定要删除本条新闻吗？？？（小心挨打</p>
+							</div>
+							<div class="btnArea">
+								<div class="btnArea">
+									<a  class="button" onclick="delectform.submit()">确定删除</a>
+									<a class="button" id="closeBtn3">取消删除</a>
+								</div>
+							</div>
+						</form>
+					</div>
 					<!-- 分页 -->
 					<%--<div class="row">--%>
 						<%--<ul class="pagination">--%>
@@ -152,6 +170,35 @@
 	</div><!-- container -->
 
 	<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
+<script>
+$(function () {
+	$(".delect").click(function(){
+		$('#delect-box').show();
+
+		var currentId = this.getAttribute("dict-id");
+		var actionIndex=$('#delectform').attr('action');
+		var tempurl =actionIndex +currentId;
+		$('#delectform').attr('action',tempurl);
+
+		getElementById("delectform").submit();
+		//获取页面文档的高度
+		var docheight = $(document).height();
+		//追加一个层，使背景变灰
+		$("body").append("<div id='greybackground'></div>");
+		$("#greybackground").css({"opacity":"0.3","height":docheight});
+		return false;
+
+	});
+	//点击关闭按钮
+	$("#closeBtn3").click(function() {
+		$("#delect-box").hide();
+		//删除变灰的层
+		$("#greybackground").remove();
+		return false;
+	});
+
+})
+</script>
 
 </body>
 </html>
