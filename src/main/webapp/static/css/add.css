@@ -4,7 +4,7 @@
     padding: 10px 0;
 }
 .title-text{
-    width: 275px;
+    width: 475px;
     height: 35px;
     font-size: 16px;
     border: 1px #ccc solid;
@@ -17,8 +17,9 @@
     width: 75px;
     height: 30px;
     margin: 8px 0;
-    background-color: white;
+    background-color: #0086b3;
     border: none;
+    color: white;
 }
 .type-btns{
     height: 35px;

@@ -19,29 +19,29 @@
 .userInf{
     top:5px;
 }
-.icon{
+.top-icon{
     float: right;
     height: 40px;
     text-align: center;
 }
-.icon img{
+.top-icon img{
     margin-right: 20px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
 
 }
-.icon:hover{
+.top-icon:hover{
     cursor: pointer;
 }
-.icon:hover img{
+.top-icon:hover img{
     margin-right: 0;
 }
 .userInf-drop-down{
     display: none;
     z-index: 50;
 }
-.icon:hover .userInf-drop-down{
+.top-icon:hover .userInf-drop-down{
     display: block;
 }
 .userInf-drop-down span+span:hover{

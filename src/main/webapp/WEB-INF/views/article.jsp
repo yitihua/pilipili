@@ -111,10 +111,10 @@
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <c:choose>
                     <c:when test="${user.avatar!=''&&user.avatar!=null}">
-                        <div class="icon" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
+                        <div class="avatar" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
                     </c:when>
                     <c:otherwise>
-                        <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.jpg')"></div>
+                        <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.jpg')"></div>
                     </c:otherwise>
                 </c:choose>
                 <span class="userInf-name clearfix">${user.username}<span></span></span>
@@ -156,13 +156,13 @@
                 <div class="comment-add">
                     <c:choose>
                         <c:when test="${user.avatar!=''&&user.avatar!=null}">
-                            <div class="avatar"
+                            <div class="comment-avatar"
                                  style="background-image: url('${ctx}/upload/${user.avatar}')">
                                 <img src="${ctx}/upload/${user.avatar}">
                             </div>
                         </c:when>
                         <c:otherwise>
-                            <div class="avatar"
+                            <div class="comment-avatar"
                                  style="background-image: url('${ctx}/static/img/indexPhoto.jpg')">
                                 <img src="${ctx}/static/img/indexPhoto.jpg">
                             </div>
@@ -180,13 +180,13 @@
                         <div class="comment-nav" id="comment-nav-${comment.level}">
                                 <%--commentator inf--%>
                             <c:choose>
-                                <c:when test="${user.avatar!=''&&user.avatar!=null}">
-                                    <div class="avatar">
+                                <c:when test="${comment.author.avatar!=''&&comment.author.avatar!=null}">
+                                    <div class="comment-avatar">
                                         <img src="${ctx}/upload/${comment.author.avatar}">
                                     </div>
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="avatar"
+                                    <div class="comment-avatar"
                                          style="background-image: url('${ctx}/static/img/indexPhoto.jpg')">
                                         <img src="${ctx}/static/img/indexPhoto.jpg">
                                     </div>
@@ -197,7 +197,7 @@
                                     <span class="comment-commentator-name">
                                             ${comment.author.username}
                                     </span>
-                                    <span>
+                                    <span class="time">
                                             ${comment.createAt}
                                     </span>
                                     <span class="comment-commentator-level">
@@ -221,7 +221,7 @@
                                                 <span>${reply.content}</span>
                                             </div>
                                             <div class="reply-inf">
-                                                    <span>
+                                                    <span class="time">
                                                             ${reply.createAt}
                                                     </span>
                                                 <span>
@@ -240,7 +240,8 @@
                                               id="reply-area-${comment.level}">
                                             <input type="hidden" name="rootCommentId" value="${comment.id}">
                                             <textarea class="reply-text" id="reply-text-${comment.level}"
-                                                      name="content"></textarea>
+                                                      name="content">
+                                            </textarea>
                                             <p><input type="submit" value="发表" class="submit-btn"/></p>
                                         </form>
 
@@ -263,10 +264,12 @@
 
 <script src="${ctx}/static/js/articleLog.js"></script>
 <script>
+    let isloged=false
     if ("${user.username}") {
         vm.registed = true
+        var idloged = true
     }
 </script>
 <script src="${ctx}/static/js/article.js"></script>
-
+<script src="${ctx}/static/js/dateFormat.js"></script>
 </html>

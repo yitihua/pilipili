@@ -44,7 +44,7 @@
                 </form>
             </div>
             <shiro:hasRole name="admin">
-                <a href="${ctx}/admin/index" class="admin-page">管理员界面</a>
+                <a href="${ctx}/admin/index" class="admin-page"><svg class="icon" aria-hidden="true"><use xlink:href="#i-RectangleCopy1"></use></svg>管理员界面</a>
             </shiro:hasRole>
             <div class="userInf" id="unlog-userInf clearfix">
                 <input type="button" value="登 录" class="btn-white" v-on:click="getH" id="loginbtn"
@@ -128,10 +128,10 @@
             <div class="userInf" v-bind:class="{hide:!registed}">
                 <c:choose>
                     <c:when test="${user.avatar!=''&&user.avatar!=null}">
-                        <div class="icon" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
+                        <div class="avatar" style="background-image: url('${ctx}/upload/${user.avatar}')"></div>
                     </c:when>
                     <c:otherwise>
-                        <div class="icon" style="background-image: url('${ctx}/static/img/indexPhoto.jpg')"></div>
+                        <div class="avatar" style="background-image: url('${ctx}/static/img/indexPhoto.jpg')"></div>
                     </c:otherwise>
                 </c:choose>
                 <span class="userInf-name clearfix">${user.username}</span>
@@ -503,12 +503,14 @@
         </div>
     </div>
 </div>
+<div class="gotop"><a href="#topnav"><svg class="icon" aria-hidden="true"><use xlink:href="#i-jiantou_shang"></use></svg></a></div>
 </body>
+<script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/carousel.js"></script>
-<script src="${ctx}/static/js/hotNews.js"></script>
 <script src="${ctx}/static/js/login.js"></script>
 <script src="${ctx}/static/js/dateFormat.js"></script>
+<script src="//at.alicdn.com/t/font_1255575_pgrdqcuywxc.js"></script>
 </body>
 <script>
     if ("${loginFail}") {

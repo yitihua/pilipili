@@ -22,6 +22,8 @@
     <link href="${ctx}/static/css/userIndex.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/myInf.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/imgUpload.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/iconfont.css" rel="stylesheet" type="text/css">
+
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
 <div class="contenter">
@@ -30,7 +32,7 @@
                 <span class="news-logo" onclick="javascript:window.location.href='${ctx}/index'">
                     <img src="static/img/CN_bilibiliB.png">
                 </span>
-            <span class="icon">
+            <span class="top-icon">
                 <c:choose>
                     <c:when test="${user.avatar!=''&&user.avatar!=null}">
                         <img src="${ctx}/upload/${user.avatar}">
@@ -68,16 +70,16 @@
                 </div>
                 <ul class="menu-body menu-body-nomal" onselectstart="return flase">
                     <li onclick="javascript:window.location.href='${ctx}/myInf'" class="bc-highlight">
-                        个人信息
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#i-personal"></use></svg>个人信息
                     </li>
                     <li onclick="javascript:window.location.href='${ctx}/myComment'">
-                        我的评论
+                        <svg class="icon" aria-hidden="true"><use xlink:href="#i-wenzhang"></use></svg>我的评论
                     </li>
                 </ul>
                 <shiro:hasRole name="admin">
                     <ul class="menu-body menu-body-author" onselectstart="return flase">
                         <li onclick="javascript:window.location.href='${ctx}/myArticle'">
-                            文章管理
+                            <svg class="icon" aria-hidden="true"><use xlink:href="#i-linedesign-01"></use></svg>文章管理
                         </li>
                     </ul>
                 </shiro:hasRole>
@@ -158,4 +160,6 @@
 </body>
 <script src="${ctx}/static/js/myInf.js"></script>
 <script src="${ctx}/static/js/imgUpload.js"></script>
+<script src="//at.alicdn.com/t/font_1255575_oim453ibvj.js"></script>
+
 </html>

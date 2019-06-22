@@ -14,20 +14,19 @@
     height: 50px;
     width: 337px;
     overflow: hidden;
+    font-size: 14px;
 }
 .hot-news-nav .iconfont+span{
     font-family: "Verdana";
     font-size: 14px;
+    color: #666;
+}
+.hot-news-nav:hover{
+    cursor: pointer;
     color: deepskyblue;
 }
-.hot-news-nav .iconfont+span:hover{
-    cursor: pointer;
-    color: black;
-}
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.hot-news-nav img{
+    transform: translateY(2px);
+    height: 20px;
+    width: 20px;
 }

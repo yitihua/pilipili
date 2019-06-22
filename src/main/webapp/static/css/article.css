@@ -67,17 +67,17 @@ a {
 .comment-add{
     position: relative;
 }
-.avatar{
+.comment-avatar{
     position: absolute;
     width: 40px;
     height: 40px;
 }
-.avatar img{
+.comment-avatar img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
-.avatar:hover{
+.comment-avatar:hover{
     cursor: pointer;
 }
 .comment-add-form{
@@ -112,7 +112,7 @@ a {
     border-bottom: 1px #ccc solid;
     margin-top:15px;
 }
-.avatar+div{
+.comment-avatar+div{
     position: absolute;
     left: 70px;
     width: 580px;
@@ -226,4 +226,10 @@ a {
     max-width: 580px;
     display: block;
     margin:auto;
+}
+.btn-white{
+    margin-top:8px;
+}
+.btn-white:hover{
+    cursor: pointer;
 }

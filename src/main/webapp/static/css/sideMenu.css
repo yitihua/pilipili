@@ -38,7 +38,7 @@
 }
 .menu-body li:hover{
     cursor: pointer;
-    background-color: #78a9f3;
+    background-color: powderblue;
     color: white;
 }
 .menu-body-nomal{
@@ -50,6 +50,10 @@
     top: 310px;
 }
 .bc-highlight{
-    background-color: #78a9f3;
+    background-color: darkturquoise;
+    color: white;
+}
+.icon{
+    margin-right:15px;
     color: white;
 }
