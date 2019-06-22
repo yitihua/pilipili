@@ -151,3 +151,59 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 
 
+### 2.后台管理页面（负责人：程羚）
+
+#### 2.1 数据字典
+![](/src/main/webapp/static/img/img-README/chenry/dict.jpg)
+
+点击添加后会跳出相应弹框，效果图如下：
+
+![](/src/main/webapp/static/img/img-README/chenry/dict_add1.jpg)
+![](/src/main/webapp/static/img/img-README/chenry/dict_add2.jpg)
+
+点击编辑
+>弹框界面与添加相同，但会自动读取相应操作的数据字典类型
+
+![](/src/main/webapp/static/img/img-README/chenry/dict_edit.jpg)
+
+点击删除
+
+![](/src/main/webapp/static/img/img-README/chenry/dict_delect.jpg)
+
+#### 2.2 栏目管理
+
+![](/src/main/webapp/static/img/img-README/chenry/catalog.jpg)
+>栏目管理所实现功能与数据字典大致相同
+
+#### 2.3 用户权限管理
+
+![](/src/main/webapp/static/img/img-README/chenry/access.jpg)
+>在后台的用户权限管理，我们去除了新增权限和权限删除的功能
+
+![](/src/main/webapp/static/img/img-README/chenry/access1.jpg)
+![](/src/main/webapp/static/img/img-README/chenry/access2.jpg)
+
+#### 2.3 新闻管理
+![](/src/main/webapp/static/img/img-README/chenry/index.jpg)
+
+>在新闻管理时，点击编辑、删除将跳转至新的页面
+
+![](/src/main/webapp/static/img/img-README/chenry/index1.jpg)
+
+#####2.3.1 文章添加
+
+![](/src/main/webapp/static/img/img-README/chenry/news1.jpg)
+
+#####2.3.2 文章编辑
+
+![](/src/main/webapp/static/img/img-README/chenry/news2.jpg)
+
+#### 2.4 返回前台
+点击“返回主页”和“logout”均可返回前台界面，logout将直接登录
+
+![](/src/main/webapp/static/img/img-README/chenry/logout.jpg)
+
+
+
+
+

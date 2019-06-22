@@ -104,6 +104,7 @@
             <div class="bz0">
                 <input type="hidden" id ="selectRefundReason" value="${news.type.name}"/>
                 <select name="type" id="type">
+                    <option value="audi" selected></option>
                     <c:forEach items="${typeList}" var="type">
                         <option value="${type.name}" >${type.name}</option>
                     </c:forEach>
@@ -115,7 +116,7 @@
         <div class="content">
             <div id="editor-tools" class="editor-tools"></div>
             <div id="editor-text">
-                <p>${news.content}</p>
+                <p style="display: inline-block">${news.content}</p>
             </div>
         </div>
         <div >
