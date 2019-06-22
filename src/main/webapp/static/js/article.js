@@ -1,8 +1,18 @@
-﻿//二级评论处理
+﻿var loginbtn = document.getElementById("loginbtn")
+//一级评论区处理
+let fReplyBtn =document.getElementById("father-comment-add")
+fReplyBtn.onclick=function () {
+    if(!isloged){
+        fReplyBtn.setAttribute("disabled","true")
+        loginbtn.click()
+    }
+}
+
+//二级评论处理
 //获取一级评论作者，与一级评论的id
 let replyBtn1 = document.getElementsByClassName("reply-btn-1")
 let replyBtn2 = document.getElementsByClassName("reply-btn-2")
-var loginbtn = document.getElementById("loginbtn")
+
 //设置每块评论的高度
 let nav = document.getElementsByClassName("comment-nav")
 for (let n = 0; n < nav.length; n++) {

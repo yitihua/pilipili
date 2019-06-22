@@ -19,6 +19,7 @@
     <link href="${ctx}/static/css/index.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/article.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/iconfont.css" rel="stylesheet" type="text/css">
     <script src="${ctx}/static/vue/vue.js"></script>
 
 </head>
@@ -130,6 +131,7 @@
             <%--登录注册结束--%>
         </div>
     </div>
+    <span id="welcome-back"></span>
     <div class="widthfix">
         <div class="news-body">
             <%--news--%>
@@ -152,7 +154,7 @@
             </div>
             <%--news end--%>
             <!-- comment -->
-            <div class="comment-body">
+            <div class="comment-body" id="comment-body">
                 <div class="comment-add">
                     <c:choose>
                         <c:when test="${user.avatar!=''&&user.avatar!=null}">
@@ -171,7 +173,7 @@
                     <form action="${news.id}/createComment" method="POST" class="comment-add-form">
                         <input type="hidden" name="newsId" value="${news.id}">
                         <textarea name="content"></textarea>
-                        <p><input type="submit" value="发表" class="submit-btn"></p>
+                        <p><input type="submit" value="发表" class="submit-btn" id="father-comment-add"></p>
                     </form>
                 </div>
                 <%--comment list--%>
@@ -260,6 +262,10 @@
         </div>
     </div>
 </div>
+<div class="skips">
+    <a href="#welcome-back"><svg class="icon" aria-hidden="true"><use xlink:href="#i-jiantou_shang"></use></svg></a>
+    <a href="#comment-body"><svg class="icon" aria-hidden="true"><use xlink:href="#i-linedesign-01"></use></svg></a>
+</div>
 </body>
 
 <script src="${ctx}/static/js/articleLog.js"></script>
@@ -267,9 +273,11 @@
     let isloged=false
     if ("${user.username}") {
         vm.registed = true
-        var idloged = true
+        isloged = true
     }
 </script>
 <script src="${ctx}/static/js/article.js"></script>
 <script src="${ctx}/static/js/dateFormat.js"></script>
+<script src="//at.alicdn.com/t/font_1255575_oim453ibvj.js"></script>
+
 </html>

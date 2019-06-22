@@ -233,3 +233,13 @@ a {
 .btn-white:hover{
     cursor: pointer;
 }
+.skips{
+    position: fixed;
+    bottom: 300px;
+    right: 200px;
+    width: 30px;
+}
+.skips a svg{
+    font-size: 30px;
+    margin-bottom: 20px;
+}

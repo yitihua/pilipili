@@ -91,7 +91,17 @@
                         <li>
                             <p>
                                 <span>我评论了</span>
-                                <span class="commentator">${comment.father.author.username}</span>:
+                                <span class="commentator">
+                                    <c:choose>
+                                        <c:when test="${comment.father.author.username!=''&&comment.father.author.username!=null}">
+                                            ${comment.father.author.username}
+                                        </c:when>
+                                        <c:otherwise>
+                                            ${comment.original.title}
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                </span>:
                                 <span class="delete-btn" onclick="javascript:window.location.href='${ctx}/myComment/delete/${comment.id}'">删除</span>
                             </p>
                             <a href="${ctx}/article/view/${comment.original.id}" style="color: #0077aa;">
@@ -124,6 +134,7 @@
         </div>
     </div>
 </div>
+
 </body>
 <script src="${ctx}/static/js/index.js"></script>
 <script src="${ctx}/static/js/sideMenu.js"></script>
