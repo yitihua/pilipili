@@ -5,6 +5,7 @@
     <title>提示</title>
 </head>
 <body>
-error<br>
+请提供正确的用户名密码<br>
+<a href="#" onclick="javscript:history.back(-1)">点此返回上一页</a>
 </body>
 </html>
