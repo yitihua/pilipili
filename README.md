@@ -119,19 +119,19 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/buza/admin.png)
 
-####1.3.2管理员的头像下拉框多出“写文章”的入口
+#### 1.3.2管理员的头像下拉框多出“写文章”的入口
 
 ![](/src/main/webapp/static/img/img-README/buza/adminDropdown.png)
 
-####1.3.3管理员个人界面多出“文章管理选项”
+#### 1.3.3管理员个人界面多出“文章管理选项”
 
 ![](/src/main/webapp/static/img/img-README/buza/adminSideMenu.png)
 
-####1.3.4文章管理页面
+#### 1.3.4文章管理页面
 
 ![](/src/main/webapp/static/img/img-README/buza/myArticle.png)
 
-####1.3.5写文章
+#### 1.3.5写文章
 
 点击页面中的“新增”键或头像下拉框中的“写文章”均可跳转至文章增加页面
 
@@ -144,7 +144,7 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/buza/headimg.png)
 
-####1.3.6文章编辑
+#### 1.3.6文章编辑
 
 ![](/src/main/webapp/static/img/img-README/buza/edit.png)
 
