@@ -75,6 +75,15 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/buza/registRight.png)
 
+####1.1.3搜索功能
+
+>搜索成功与失败时的新闻列表
+
+![](/src/main/webapp/static/img/img-README/buza/search.png)
+
+![](/src/main/webapp/static/img/img-README/buza/search-none.png)
+
+
 #### 1.2普通用户界面
 
 #### 1.2.1头导航栏中，登录按钮变为用户头像

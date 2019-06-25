@@ -88,7 +88,7 @@
             </div>
             <div class="main-content" id="myarticle-area">
                 <div>
-                    <form action="#" method="post" class="article-search">
+                    <form action="${ctx}/search" method="post" class="article-search">
                         <input type="text" name="search" class="article-search-text">
                         <input type="submit" value="查找" class="article-search-btn">
                     </form>
