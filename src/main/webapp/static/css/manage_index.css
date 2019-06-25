@@ -177,6 +177,9 @@ tbody a:hover{
     list-style: none;
     border-radius: .25rem;
 }
+.pagination:first-child{
+    margin-top: 40px;
+}
 .pagination:nth-child(2){
     margin-left: 290px;
 }
@@ -330,3 +333,5 @@ tbody a:hover{
     /*margin-top: -40px;*/
     margin-bottom: 40px;
 }
+
+

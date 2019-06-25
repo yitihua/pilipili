@@ -17,7 +17,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="${ctx}/static/font/font-awesome.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <%--<link rel="stylesheet" type="text/css" href="${ctx}/static/font/font-awesome/css/font-awesome.min.css" />--%>
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css" />
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css" />
     <%--引入jquery--%>
@@ -172,6 +173,7 @@
                 <i class="fa fa-table"></i>
                 <span>数据字典</span>
                 <a id="addDict">添加<i class="fa fa-plus-square"></i></a>
+                <%--<a id="addDict">添加</a>--%>
             </div>
 
             <div class="card-body">

@@ -5,6 +5,9 @@ $(document).ready(function(){
     var editor = new E('#editor-tools','#editor-text');
     editor.create();
 
+    $('.w-e-text').height(600);
+
+
     $('#btn1').click(function () {
         //获取表单信息并提交
         var content = editor.txt.html();
