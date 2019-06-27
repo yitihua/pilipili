@@ -58,11 +58,20 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/buza/index.png)
 
+![](/src/main/webapp/static/img/img-README/buza/dodo.png)
+
+点击导航栏中的资讯类别可以进入不同分区
+
+![](/src/main/webapp/static/img/img-README/buza/type.png)
+
+
 #### 1.1.2文章预览页面
 
 ![](/src/main/webapp/static/img/img-README/buza/articleUn.png)
 
 >评论区
+
+>结构亮点：该多级评论功能即为树形结构的设计、开发、展示，后端实现具有良好扩展性，可轻松扩展为n级评论。
 
 ![](/src/main/webapp/static/img/img-README/buza/commentArea.png)
 >点击“回复”按钮展开二级评论框
@@ -133,6 +142,7 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 #### 1.2.3用户个人评论管理界面
 
 >评论为一级评论时，显示评论的文章名
+
 >评论为二级评论时，显示评论的评论作者
 
 ![](/src/main/webapp/static/img/img-README/buza/myComment.png)
