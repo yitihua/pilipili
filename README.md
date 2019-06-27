@@ -38,6 +38,9 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ### 1.前台页面实现（负责人：张慧）
 
+>需要注意的是：为了代码编写方便，部分js文件中封装了JQuery中的$方法
+>前台页面中对代码直接的操作与维护最好不要链入JQuery文件,以免冲突报错
+
 #### 1.1游客界面
 
 #### 1.1.1网站默认页面
@@ -158,7 +161,38 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/buza/edit.png)
 
 
+####1.4需要管理员手动维护的部分
 
+####1.4.1轮播图
+
+![](/src/main/webapp/static/img/img-README/buza/cjs2.png)
+
+![](/src/main/webapp/static/img/img-README/buza/cjs.png)
+
+在main/webapp/static/js文件夹下打开js文件carousel.js文件
+
+![](/src/main/webapp/static/img/img-README/buza/cjs2.png)
+
+>在photoes对象中，可以进行对轮播图的增删改查。
+>photoes对象中，每个对象对应一张轮播图，对象中第一个键值对记录了轮播图的图片地址，第二个键值对记录了图片简介
+>如新增轮播图，只需要在已有键值对后按序添加新键值对，便可新生成一个轮播图和其按钮
+
+####1.4.2精选资讯
+
+![](/src/main/webapp/static/img/img-README/buza/hot.png)
+
+>在main/webapp/static/js文件夹下打开js文件hotnews.js文件
+
+![](/src/main/webapp/static/img/img-README/buza/hjs.png)
+
+>精选资讯栏提供了五条资讯展示空间,它们的内容由hotnews对象控制
+>以hotnews中第一个键值对为例
+>>0键：0键决定了是否为资讯标题前加一个小火苗，如有需要，只需将0键的值设为真
+>>1键：1键是该条资讯的标题
+>>2键：2键是该条资讯的链接
+>如有需要，只需对相应键值对进行修改
+
+![](/src/main/webapp/static/img/img-README/buza/hotnews.png)
 
 ### 2.后台管理页面（负责人：程羚）
 

@@ -47,6 +47,7 @@ for(i in hotnews){
     }
     let newTitle = addPara("span")
     newTitle.innerText=hotnews[i][1]
+    newli.setAttribute("title",hotnews[i][1])
     newli.appendChild(newTitle)
     list.appendChild(newli)
     newli.onclick=function(){

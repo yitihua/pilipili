@@ -13,8 +13,10 @@
 .hot-news-nav{
     height: 50px;
     width: 337px;
-    overflow: hidden;
     font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .hot-news-nav .iconfont+span{
     font-family: "Verdana";
