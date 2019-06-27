@@ -8,21 +8,25 @@
         <td>姓名</td>
         <td>学号</td>
         <td>gitID</td>
+        <td>应用技术</td>
     </tr>
     <tr>
          <td>顾思宇</td>
          <td>2016011993</td>
          <td>dandelionClaw</td>
+         <td>全部后端开发（包括ssh、文件上传及shiro框架配置应用）</td>
     </tr>
     <tr>
          <td>张慧</td>
          <td>2016012019</td>
         <td>BUZA2018</td>
+        <td>HTML5,Vue，JS，CSS</td>
     </tr>
     <tr>
          <td>程羚</td>
          <td>2016012050</td>
          <td>chengling2016012050</td>
+        <td>HTML,JQuery，CSS</td>         
     </tr>
 </table>
 
@@ -32,7 +36,14 @@
 
 ## 项目介绍
 
-pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏资讯。管理员上传新闻，游客进行预览，注册后可进入个人界面和进行评论
+### 项目简介
+
+pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏资讯。管理员上传新闻，游客进行预览，注册后可进入个人界面和进行评论。
+管理员可以进行对用户、所有文章、数据字典的管理。
+
+### 测试用管理员用户密码：
+    用户名：admin
+    密码：admin
 
 ## 功能模块
 
@@ -78,7 +89,8 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/buza/registRight.png)
 
-####1.1.3搜索功能
+
+#### 1.1.3搜索功能
 
 >搜索成功与失败时的新闻列表
 
@@ -150,8 +162,11 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/buza/add1.png)
 ![](/src/main/webapp/static/img/img-README/buza/add.png)
 >文章头图的上传与头像上传相同，可拖入也可从目录选择
+
 >文章可以没有头图
+
 >添加的头图宽高比最好接近1.68:1
+
 添加好的带头图的文章效果如下
 
 ![](/src/main/webapp/static/img/img-README/buza/headimg.png)
@@ -161,9 +176,9 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/buza/edit.png)
 
 
-####1.4需要管理员手动维护的部分
+#### 1.4需要管理员手动维护的部分
 
-####1.4.1轮播图
+#### 1.4.1轮播图
 
 ![](/src/main/webapp/static/img/img-README/buza/cjs2.png)
 
@@ -174,10 +189,12 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/buza/cjs2.png)
 
 >在photoes对象中，可以进行对轮播图的增删改查。
+
 >photoes对象中，每个对象对应一张轮播图，对象中第一个键值对记录了轮播图的图片地址，第二个键值对记录了图片简介
+
 >如新增轮播图，只需要在已有键值对后按序添加新键值对，便可新生成一个轮播图和其按钮
 
-####1.4.2精选资讯
+#### 1.4.2精选资讯
 
 ![](/src/main/webapp/static/img/img-README/buza/hot.png)
 
@@ -186,10 +203,15 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/buza/hjs.png)
 
 >精选资讯栏提供了五条资讯展示空间,它们的内容由hotnews对象控制
+
 >以hotnews中第一个键值对为例
+
 >>0键：0键决定了是否为资讯标题前加一个小火苗，如有需要，只需将0键的值设为真
+
 >>1键：1键是该条资讯的标题
+
 >>2键：2键是该条资讯的链接
+
 >如有需要，只需对相应键值对进行修改
 
 ![](/src/main/webapp/static/img/img-README/buza/hotnews.png)
