@@ -5,6 +5,7 @@ $(function(){
     $(".change-authority").click(function(){
 
         $('#change-authority-box').show();
+
         var currentId = this.getAttribute("user-id");
         var actionIndex = $('#changeRoleform').attr('action');
         var tempurl =actionIndex +currentId;
@@ -12,20 +13,16 @@ $(function(){
 
         var currentName = this.getAttribute("user-name");
         $("#edit-name").val(currentName);
-        // var currentRoles = this.getAttribute("user-roles");
-        // $("#refundReason").val(currentRoles);
+        var currentRoles = this.getAttribute("user-roles");
+        $("#refundReason").val(currentRoles);
 
         //根据值让复选框选中
-        var key = $("#refundReason").val();
-        $("input[value='" + key + "']").prop('checked',true);
+        var r = $("#refundReason").val();
+        var result = r.split(",");
+        for(var i=0;i<result.length;i++){
+            $("input[value='"+result[i]+"']").attr("checked","checked");
+        }
 
-        //获取复选框选择值
-        // var chenked=$("input[type='checkbox']:checked").val([]);
-        // var names = "";
-        // for(var i=0;i<chenked.length;i++){
-        //     names += chenked[i].value +",";
-        // }
-        // $("#newRole").val(names);
         //获取页面文档的高度
         var docheight = $(document).height();
         //追加一个层，使背景变灰

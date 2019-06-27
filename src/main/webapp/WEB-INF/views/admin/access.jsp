@@ -14,7 +14,6 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
-
     <title>用户权限管理</title>
 
 </head>
@@ -24,13 +23,6 @@
 <div class="nav-top">
     <a class="navbar-brand" href="" style="color: #fff;">PiliPili</a>
     <ul class="navtop-items">
-        <%--<li class="navtop-item">--%>
-            <%--<a href="" class="message">--%>
-                <%--<i class="fa fa-fw fa-envelope"></i>--%>
-                <%--<span>Message</span>--%>
-            <%--</a>--%>
-        <%--</li>--%>
-
         <li class="navtop-item">
             <a href="${ctx}/logout" class="logout">
                 <i class="fa fa-fw fa-sign-out"></i>
@@ -82,7 +74,6 @@
     </ul>
 </div>
 
-
 <!-- container -->
 <div class="container">
     <div class="container-fluid">
@@ -97,17 +88,11 @@
         </ol>
 
         <div class="card">
-
             <div class="card-header">
                 <i class="fa fa-table"></i>
                 <span>用户列表</span>
-                <%--<a id="addUser">添加用户<i class="fa fa-plus-square"></i></a>--%>
-
             </div>
-
             <div class="card-body">
-                <div class="row"></div>
-            <!-- 用户列表 -->
                 <div class="row">
                     <form>
                         <table style="text-align: center;">
@@ -129,7 +114,7 @@
                                         ${role.name}
                                     </c:forEach>
                                 </td>
-                                <td><a class="change-authority" user-name="${user.username}" user-id="${user.id}">更改权限</a></td>
+                                <td><a class="change-authority" user-name="${user.username}" user-id="${user.id}" user-roles="${user.roles}">更改权限</a></td>
                                 </tr>
                         </c:forEach>
                         </tbody>
@@ -147,6 +132,8 @@
                                 </li>
                                 <li>
                                     <lable>更改权限：</lable>
+                                    <%--<input type="hidden" id="refundReason"  >--%>
+                                    <input type="text" id="refundReason"  >
                                     <input type="checkbox" name="roles" value="admin" class="checkbox" >admin
                                     <input type="checkbox" name="roles" value="user" class="checkbox">user
                                 </li>
@@ -156,7 +143,6 @@
 
                         </div>
                         </c:forEach>
-
                         <!-- 弹出窗口-删除用户 -->
                         <div id="delect-box">
                             <form id="delectform" action="${ctx}/admin/access/delete/${user.id}" >
@@ -174,45 +160,14 @@
                                 </div>
                             </form>
                         </div>
-
-
-                        <!-- 分页 -->
-                        <%--<div class="row">--%>
-                            <%--<ul class="pagination">--%>
-                                <%--<li class="paginate_button">--%>
-                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link"--%>
-                                       <%--id="dataTable_previous disabled">Previous</a></li>--%>
-                                <%--<li class="paginate_button">--%>
-                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a>--%>
-                                <%--</li>--%>
-
-                                <%--<li class="paginate_button">--%>
-                                    <%--<a href="" aria-controls="dataTable" data-dt-idx="2" tabindex="0"--%>
-                                       <%--class="page_link next" id="dataTable_next">Next</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</div>--%>
-
                 </div>
-
-
         </div><!-- card -->
     </div>
 </div><!-- container-fluid -->
-
-
 </div>
-
-
 </div>
 <script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/accessManagement.js"></script>
-<script>
-    $(function () {
-        $('#test').click(function () {
-            alert('test');
-        })
-    })
-</script>
 
 </body>
 </html>

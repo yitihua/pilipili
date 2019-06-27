@@ -181,9 +181,11 @@ tbody a:hover{
     margin-top: 40px;
 }
 .pagination:nth-child(2){
-    margin-left: 290px;
+    margin-left: 300px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
-.pagination li{
+.pagination:first-child li{
     /*position: relative;*/
     color: #868e96;
     margin: 2px 0;
@@ -201,7 +203,7 @@ tbody a:hover{
     /*background-color: #fff;  */
     color: black;
 }
-.pagination li:hover{
+.pagination:first-child li:hover{
     color: white;
     background-color: #007bff;
 }

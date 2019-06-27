@@ -8,12 +8,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<%--<meta name="viewport" content="width=device-width,initial-scale=1">--%>
 	<link rel="stylesheet" href="${ctx}/static/css/reset.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="${ctx}/static/css/navbar.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/static/css/manage_index.css">
-
 	<title>PiliPili</title>
     <script src="${ctx}/static/vue/vue.js"></script>
 </head>
@@ -61,9 +60,6 @@
                 <span class="navside-text">返回首页</span>
             </a>
         </li>
-
-
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text"></span>
@@ -72,13 +68,10 @@
             <a href="">
                 <span class="navside-text"></span>
             </a></li>
-
         <li class="nav-item">
             <a href="">
                 <span class="navside-text"></span>
             </a></li>
-
-
     </ul>
 </div>
 	
@@ -95,19 +88,17 @@
 				</li>
 			</ol>
 
-			<div class="card">	
-
+			<div class="card">
 				<div class="card-header">
 					<i class="fa fa-table"></i>
 					<span>最新资讯</span>
 					<a href="${ctx}/admin/newsEdit/create">添加<i class="fa fa-plus-square"></i></a>
 				</div>
-
 				<div class="card-body">
 					<!-- 新闻 -->
 					<div class="row">
 						<form >
-							<table style="text-align: center;">
+							<table style="text-align: center;" class="sort-table">
 								<thead>
 									<tr >
 										<th>标题</th>
@@ -132,6 +123,7 @@
 								</c:forEach>
 								</tbody>
 							</table>
+							<%--分页--%>
 							<tags:pagination page="${newsPage}" paginationSize="${PAGE_SIZE}"/>
 						</form>
 					</div>
@@ -153,52 +145,20 @@
 							</div>
 						</form>
 					</div>
-					<!-- 分页 -->
-					<%--<div class="row">--%>
-						<%--<ul class="pagination">--%>
-							<%--<li class="paginate_button">--%>
-								<%--<a href="" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page_link" id="dataTable_previous disabled">Previous</a></li>--%>
-							<%--<li class="paginate_button">--%>
-								<%--<a href="" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page_link">1</a></li>--%>
-							<%--<li class="paginate_button">--%>
-								<%--<a href="" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page_link next" id="dataTable_next">Next</a></li>--%>
-						<%--</ul>--%>
-					<%--</div>--%>
 			</div><!-- card -->
 		</div>
 		</div><!-- container-fluid -->
 	</div><!-- container -->
 
-	<script type="text/javascript" src="${ctx}/static/js/jquery.js"></script>
-<script>
-$(function () {
-	$(".delect").click(function(){
-		$('#delect-box').show();
-
-		var currentId = this.getAttribute("dict-id");
-		var actionIndex=$('#delectform').attr('action');
-		var tempurl =actionIndex +currentId;
-		$('#delectform').attr('action',tempurl);
-
-		getElementById("delectform").submit();
-		//获取页面文档的高度
-		var docheight = $(document).height();
-		//追加一个层，使背景变灰
-		$("body").append("<div id='greybackground'></div>");
-		$("#greybackground").css({"opacity":"0.3","height":docheight});
-		return false;
-
+<script src="${ctx}/static/js/jquery.js"></script>
+<script src="${ctx}/static/js/jquery.tablesort.min.js"></script>
+<script src="${ctx}/static/js/admin_index.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".sort-table").tablesorter();
 	});
-	//点击关闭按钮
-	$("#closeBtn3").click(function() {
-		$("#delect-box").hide();
-		//删除变灰的层
-		$("#greybackground").remove();
-		return false;
-	});
-
-})
 </script>
+
 
 </body>
 </html>

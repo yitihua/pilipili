@@ -224,12 +224,15 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 ![](/src/main/webapp/static/img/img-README/chenry/dict.jpg)
 
 点击添加后会跳出相应弹框，效果图如下：
+>>使用弹窗，可以更快的回到之前的页面，速度上比跳转响应要快，使后台管理界面看起来更加简单明了
+>>弹窗界面与原界面相对独立，可以完全不影响页面的布局
 
 ![](/src/main/webapp/static/img/img-README/chenry/dict_add1.jpg)
 ![](/src/main/webapp/static/img/img-README/chenry/dict_add2.jpg)
 
 点击编辑
->弹框界面与添加相同，但会自动读取相应操作的数据字典类型
+>弹框界面与添加大致相同
+>>此时弹窗界面动态获取当前操作元素，自动读取相应数据并显示
 
 ![](/src/main/webapp/static/img/img-README/chenry/dict_edit.jpg)
 
@@ -241,31 +244,41 @@ pilipili资讯网集合了最新最热门的电视剧、电影、番剧及游戏
 
 ![](/src/main/webapp/static/img/img-README/chenry/catalog.jpg)
 >栏目管理所实现功能与数据字典大致相同
+>>将栏目单独管理，可以方便产品的运营和维护
 
 #### 2.3 用户权限管理
 
 ![](/src/main/webapp/static/img/img-README/chenry/access.jpg)
 >在后台的用户权限管理，我们去除了新增权限和权限删除的功能
+>>新增权限即新增用户，随着用户在前台的注册自动生成相关数据
+>>管理员无法随意删除用户账号，用户账号长期保存于数据库中
 
 ![](/src/main/webapp/static/img/img-README/chenry/access1.jpg)
 ![](/src/main/webapp/static/img/img-README/chenry/access2.jpg)
 
 #### 2.3 新闻管理
+
 ![](/src/main/webapp/static/img/img-README/chenry/index.jpg)
 
 >在新闻管理时，点击编辑、删除将跳转至新的页面
+>>此时，所处理的任务不在当前的业务流中，故摒弃了之前使用的弹窗方式
 
 ![](/src/main/webapp/static/img/img-README/chenry/index1.jpg)
 
-#####2.3.1 文章添加
+##### 2.3.1 文章添加
+
+>>文章的添加及删除操作，所处理的任务不在当前的业务流中，故摒弃了之前使用的弹窗方式，改为链接跳转
 
 ![](/src/main/webapp/static/img/img-README/chenry/news1.jpg)
 
-#####2.3.2 文章编辑
+##### 2.3.2 文章编辑
+
+>>文章编辑与文章添加使用了相同的jsp文件，保持样式完全一致，以免用户产生差异感
 
 ![](/src/main/webapp/static/img/img-README/chenry/news2.jpg)
 
 #### 2.4 返回前台
+
 点击“返回主页”和“logout”均可返回前台界面，logout将直接登录
 
 ![](/src/main/webapp/static/img/img-README/chenry/logout.jpg)
